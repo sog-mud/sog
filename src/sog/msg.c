@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.13 1998-11-11 05:47:05 fjoe Exp $
+ * $Id: msg.c,v 1.14 1999-02-11 16:40:32 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -43,7 +43,7 @@
 #include "util.h"
 #include "varr.h"
 
-varr *msg_hash_table[MAX_MSG_HASH];
+varr msg_hash_table[MAX_MSG_HASH];
 
 #define msghash(s) hashstr(s, 32, MAX_MSG_HASH)
 static int cmpmsg(const void*, const void*);
@@ -51,6 +51,7 @@ static int cmpmlstr(const void*, const void*);
 
 void load_msgdb(void)
 {
+	int i;
 	FILE *fp;
 	mlstring *ml;
 
@@ -63,7 +64,13 @@ void load_msgdb(void)
 		exit(1);
 	}
 
-	while (1) {
+	for (i = 0; i < MAX_MSG_HASH; i++) {
+		varr *v = msg_hash_table+i;
+		v->nsize = sizeof(mlstring*);
+		v->nstep = 4;
+	}
+
+	for (;;) {
 		ml = mlstr_fread(fp);
 
 		if (mlstr_null(ml)) {
@@ -83,16 +90,12 @@ mlstring **msg_add(mlstring *ml)
 {
 	mlstring **mlp;
 	varr *v;
-	int hash;
 	const char *name = mlstr_mval(ml);
 
 	if (IS_NULLSTR(name))
 		return NULL;
 
-	hash = msghash(name);
-	v = msg_hash_table[hash];
-	if (v == NULL)
-		v = msg_hash_table[hash] = varr_new(sizeof(mlstring*), 4);
+	v = msg_hash_table+msghash(name);
 
 	if (varr_bsearch(v, name, cmpmsg)) {
 		db_error("msg_add", "%s: duplicate entry", name);
@@ -110,20 +113,16 @@ mlstring **msg_lookup(const char *name)
 	if (IS_NULLSTR(name))
 		return NULL;
 
-	return varr_bsearch(msg_hash_table[msghash(name)], name, cmpmsg);
+	return varr_bsearch(msg_hash_table+msghash(name), name, cmpmsg);
 }
 
 mlstring *msg_del(const char *name)
 {
-	int hash;
 	varr *v;
 	mlstring **mlp;
 	mlstring *ml;
 
-	hash = msghash(name);
-	v = msg_hash_table[hash];
-	if (v == NULL)
-		return NULL;
+	v = msg_hash_table+msghash(name);
 
 	mlp = varr_bsearch(v, name, cmpmsg);
 	if (mlp == NULL)

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.49 1999-02-09 19:31:05 fjoe Exp $
+ * $Id: olc_save.c,v 1.50 1999-02-11 16:40:33 fjoe Exp $
  */
 
 /**************************************************************************
@@ -1027,11 +1027,8 @@ void save_msgdb(CHAR_DATA *ch)
 	}
 
 	for (i = 0; i < MAX_MSG_HASH; i++) {
-		varr *v = msg_hash_table[i];
+		varr *v = msg_hash_table+i;
 		int j;
-
-		if (v == NULL)
-			continue;
 
 		for (j = 0; j < v->nused; j++) {
 			mlstring **mlp = VARR_GET(v, j);

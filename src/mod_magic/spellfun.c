@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.112 1999-02-11 09:53:20 fjoe Exp $
+ * $Id: spellfun.c,v 1.113 1999-02-11 16:40:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4751,7 +4751,7 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	af2.bitvector = 0;
 	affect_to_char(ch, &af2);
 
-	ch->in_room->owner = str_dup(ch->name);
+	ch->in_room->owner = str_qdup(ch->name);
 	char_puts("The room starts to be filled with lightnings.\n", ch);
 	act("The room starts to be filled with $n's lightnings.",ch,NULL,NULL,TO_ROOM);
 	return;

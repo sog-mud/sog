@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.136 1999-02-10 14:57:37 fjoe Exp $
+ * $Id: comm.c,v 1.137 1999-02-11 16:40:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2373,7 +2373,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 			ch = d2->original ? d2->original : d2->character;
 			if (ch && !str_cmp(d->character->name, ch->name)) {
 				free_string(d->character->pcdata->pwd);
-				d->character->pcdata->pwd = str_dup(ch->pcdata->pwd);
+				d->character->pcdata->pwd = str_qdup(ch->pcdata->pwd);
 				return TRUE;
 			}
 		}
@@ -2385,7 +2385,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 		&&  !str_cmp(d->character->name, ch->name)) {
 			if (!fConn) {
 				free_string(d->character->pcdata->pwd);
-				d->character->pcdata->pwd = str_dup(ch->pcdata->pwd);
+				d->character->pcdata->pwd = str_qdup(ch->pcdata->pwd);
 			}
 			else {
 				free_char(d->character);

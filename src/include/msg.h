@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.h,v 1.3 1998-11-02 05:28:53 fjoe Exp $
+ * $Id: msg.h,v 1.4 1999-02-11 16:40:32 fjoe Exp $
  */
 
 #ifndef _MSG_H_
@@ -35,7 +35,7 @@ mlstring *	msg_del		(const char *name);
 
 const char *	GETMSG(const char *txt, int lang);
 
-extern varr *msg_hash_table[MAX_MSG_HASH];
+extern varr msg_hash_table[MAX_MSG_HASH];
 
 #endif
 

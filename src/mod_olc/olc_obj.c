@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.27 1999-02-10 15:58:51 fjoe Exp $
+ * $Id: olc_obj.c,v 1.28 1999-02-11 16:40:32 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -842,9 +842,9 @@ OLC_FUN(objed_clone)
 		return FALSE;
 
 	free_string(pObj->name);
-	pObj->name		= str_dup(pFrom->name);
+	pObj->name		= str_qdup(pFrom->name);
 	free_string(pObj->material);
-	pObj->material		= str_dup(pFrom->material);
+	pObj->material		= str_qdup(pFrom->material);
 	mlstr_free(pObj->short_descr);
 	pObj->short_descr	= mlstr_dup(pFrom->short_descr);
 	mlstr_free(pObj->description);

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.38 1998-12-01 10:53:54 fjoe Exp $
+ * $Id: note.c,v 1.39 1999-02-11 16:40:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -403,23 +403,35 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 	return FALSE;
 }
 
-void note_attach(CHAR_DATA *ch, int type)
+/*
+ * note attach - create note
+ * Returns: TRUE  - everything is ok, note attached
+ *	    FALSE - char is working on different kind of note right now
+ */
+bool note_attach(CHAR_DATA *ch, int type)
 {
 	NOTE_DATA *pnote;
 
-	if (ch->pnote != NULL)
-		return;
+	if (ch->pnote) {
+		if (ch->pnote->type != type) {
+			char_puts("You already have a different note "
+				  "in progress.\n", ch);
+			return FALSE;
+		}
 
-	pnote = new_note();
+		return TRUE;
+	}
+
+	pnote		= new_note();
 	pnote->next	= NULL;
-	pnote->sender	= str_dup(ch->name);
+	pnote->sender	= str_qdup(ch->name);
 	pnote->date	= str_empty;
 	pnote->to_list	= str_empty;
 	pnote->subject	= str_empty;
 	pnote->text	= str_empty;
 	pnote->type	= type;
 	ch->pnote	= pnote;
-	return;
+	return TRUE;
 }
 
 void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
@@ -575,6 +587,52 @@ void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
     }
 }
 
+void print_note(BUFFER *buf, NOTE_DATA *pnote, int vnum)
+{
+	buf_printf(buf, "{x[%3d] From: %s, {x%s\n"
+			"{x      To  : %s\n"
+			"{x      Subj: %s\n"
+			"{x%s\n{x",
+		   vnum, pnote->sender, pnote->date,
+		   pnote->to_list,
+		   pnote->subject,
+		   pnote->text);
+}
+
+const char * quote_note(NOTE_DATA *pnote)
+{
+	const char *p;
+	char *q;
+	char buf[MAX_STRING_LENGTH];
+	bool need_quote;
+
+	if (IS_NULLSTR(pnote->text))
+		return str_dup(str_empty);
+
+	snprintf(buf, sizeof(buf),
+		 "On %s %s {xwrote to %s:\n"
+		 "{x\n",
+		 pnote->date, pnote->sender, pnote->to_list);
+
+	q = strchr(buf, '\0');
+	need_quote = TRUE;
+	for (p = pnote->text; *p && q-buf < sizeof(buf); p++) {
+		if (need_quote) {
+			*q++ = '>';
+			*q++ = ' ';
+			need_quote = FALSE;
+		}
+
+		*q++ = *p;
+
+		if (*p == '\n')
+			need_quote = TRUE;
+	}
+	*q = '\0';
+
+	return str_dup(buf);
+}
+
 void parse_note(CHAR_DATA *ch, const char *argument, int type)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -630,17 +688,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			for (pnote = *list; pnote; pnote = pnote->next) {
 				if (!hide_note(ch, pnote)) {
 					output = buf_new(-1);
-					buf_printf(output, "[%3d] %s: %s\n"
-							   "{x%s\n"
-							   "{xTo: %s\n"
-							   "{x%s\n"
-							   "{x",
-						    vnum,
-						    pnote->sender,
-						    pnote->subject,
-						    pnote->date,
-						    pnote->to_list,
-						    pnote->text);
+					print_note(output, pnote, vnum);
 					page_to_char(buf_string(output), ch);
 					buf_free(output);
 					update_read(ch, pnote);
@@ -665,17 +713,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && (vnum++ == anum || fAll)) {
 				output = buf_new(-1);
-				buf_printf(output, "[%3d] %s: %s\n"
-						   "{x%s\n"
-						   "{xTo: %s\n"
-						   "{x%s\n"
-						   "{x",
-					    vnum-1,
-					    pnote->sender,
-					    pnote->subject,
-					    pnote->date,
-					    pnote->to_list,
-					    pnote->text);
+				print_note(output, pnote, vnum-1);
 				page_to_char(buf_string(output), ch);
 				buf_free(output);
 				if (!fAll)
@@ -688,12 +726,51 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	}
 
 	if (!str_prefix(arg, "list")) {
+		char buf[MAX_INPUT_LENGTH];
+		char from[MAX_INPUT_LENGTH];
+		char to[MAX_INPUT_LENGTH];
+
+#		define CHECK_TO		(A)
+#		define CHECK_FROM	(B)
+
+		int flags = 0;
+
+		for (;;) {
+			argument = one_argument(argument, buf);
+
+			if (!str_cmp(buf, "from")) {
+				argument = one_argument(argument, from);
+				if (from[0] == '\0')
+					break;
+				SET_BIT(flags, CHECK_FROM);
+				continue;
+			}
+
+			if (!str_cmp(buf, "to")) {
+				argument = one_argument(argument, to);
+				if (to[0] == '\0')
+					break;
+				SET_BIT(flags, CHECK_TO);
+				continue;
+			}
+
+			break;
+		}
+
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote)) {
+				if (IS_SET(flags, CHECK_TO)
+				&&  !is_name(to, pnote->to_list))
+					continue;
+
+				if (IS_SET(flags, CHECK_FROM)
+				&&  !str_cmp(from, pnote->sender))
+					continue;
+
 				char_printf(ch, "[%3d%c] %s: %s\n{x",
 					    vnum,
-					    hide_note(ch,pnote) ? ' ' : 'N', 
+					    hide_note(ch, pnote) ? ' ' : 'N', 
 					    pnote->sender, pnote->subject);
 				vnum++;
 			}
@@ -741,7 +818,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		return;
 	}
 
-	if (!str_prefix(arg,"catchup")) {
+	if (!str_prefix(arg, "catchup")) {
 		switch(type) {
 		case NOTE_NOTE:	
 			ch->pcdata->last_note = current_time;
@@ -764,32 +841,23 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 /* below this point only certain people can edit notes */
 
-	if ((type == NOTE_NEWS && !IS_TRUSTED(ch,ANGEL))
-	||  (type == NOTE_CHANGES && !IS_TRUSTED(ch,CREATOR))) {
+	if ((type == NOTE_NEWS && !IS_TRUSTED(ch, ANGEL))
+	||  (type == NOTE_CHANGES && !IS_TRUSTED(ch, CREATOR))) {
 		char_printf(ch, "You aren't high enough level to write %s.",
 			    list_name);
 		return;
 	}
 
 	if (!str_prefix(arg, "edit")) {
-		note_attach(ch,type);
-		if (ch->pnote->type != type) {
-			char_puts("You already have a different note "
-				  "in progress.\n", ch);
+		if (!note_attach(ch, type))
 			return;
-		}
-
 		string_append(ch, &ch->pnote->text);
 		return;
 	}
 
 	if (!str_prefix(arg, "subject")) {
-		note_attach(ch, type);
-       		if (ch->pnote->type != type) {
-			char_puts("You already have a different note "
-				  "in progress.\n", ch);
+		if (!note_attach(ch, type))
 			return;
-		}
 
 		free_string(ch->pnote->subject);
 		ch->pnote->subject = str_dup(argument);
@@ -798,20 +866,89 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	}
 
 	if (!str_prefix(arg, "to")) {
-		note_attach(ch, type);
-		if (ch->pnote->type != type) {
-			char_puts("You already have a different note "
-				  "in progress.\n", ch);
+		if (!note_attach(ch, type))
 			return;
-		}
+
 		free_string(ch->pnote->to_list);
 		ch->pnote->to_list = str_dup(argument);
 		char_puts("Ok.\n", ch);
 		return;
 	}
 
+	if (!str_prefix(arg, "forward")) {
+		char buf[MAX_INPUT_LENGTH];
+
+		argument = one_argument(argument, buf);
+		if (!is_number(buf)) {
+			char_puts("Forward which number?\n", ch);
+			return;
+		}
+
+		anum = atoi(buf);
+		vnum = 0;
+		for (pnote = *list; pnote; pnote = pnote->next)
+			if (is_note_to(ch, pnote) && vnum++ == anum)
+				break;
+
+		if (!pnote) {
+			char_printf(ch, "There aren't that many %s.\n",
+				    list_name);
+			return;
+		}
+
+		if (!note_attach(ch, type))
+			return;
+
+		free_string(ch->pnote->text);
+		ch->pnote->text = str_printf(
+			"* Forwarded by: %s\n"
+			"* Originally to: %s\n"
+			"* Originally by: %s, %s\n"
+			"\n"
+			"---------- Forwarded message ----------\n"
+			"%s",
+			ch->name, pnote->to_list, pnote->sender, pnote->date,
+			pnote->text);
+
+		free_string(ch->pnote->subject);
+		ch->pnote->subject = str_qdup(pnote->subject);
+		return;
+	}
+
+	if (!str_prefix(arg, "quote")) {
+		char buf[MAX_INPUT_LENGTH];
+
+		argument = one_argument(argument, buf);
+		if (!is_number(buf)) {
+			char_puts("Quote which number?\n", ch);
+			return;
+		}
+
+		anum = atoi(buf);
+		vnum = 0;
+		for (pnote = *list; pnote; pnote = pnote->next)
+			if (is_note_to(ch, pnote) && vnum++ == anum)
+				break;
+
+		if (!pnote) {
+			char_printf(ch, "There aren't that many %s.\n",
+				    list_name);
+			return;
+		}
+
+		if (!note_attach(ch, type))
+			return;
+
+		free_string(ch->pnote->text);
+		ch->pnote->text = quote_note(pnote);
+
+		free_string(ch->pnote->subject);
+		ch->pnote->subject = str_qdup(pnote->subject);
+		return;
+	}
+
 	if (!str_prefix(arg, "clear") || !str_prefix(arg, "cancel")) {
-		if (ch->pnote != NULL) {
+		if (ch->pnote) {
 			free_note(ch->pnote);
 			ch->pnote = NULL;
 		}
@@ -823,7 +960,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	if (!str_prefix(arg, "show")) {
 		BUFFER *output;
 
-		if (ch->pnote == NULL) {
+		if (!ch->pnote) {
 			char_puts("You have no note in progress.\n", ch);
 			return;
 		}
@@ -834,12 +971,14 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		output = buf_new(-1);
-		buf_printf(output, "{x%s: %s\n"
-				   "{xTo: %s\n"
+		buf_printf(output, "{xFrom: %s\n"
+				   "{xTo  : %s\n"
+				   "{xSubj: %s\n"
 				   "{x%s\n"
 				   "{x",
-			   ch->pnote->sender, ch->pnote->subject,
+			   ch->pnote->sender,
 			   ch->pnote->to_list,
+			   ch->pnote->subject,
 			   ch->pnote->text);
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -876,9 +1015,9 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 		}
 
-		ch->pnote->next			= NULL;
-		ch->pnote->date			= str_dup(strtime(current_time));
-		ch->pnote->date_stamp		= current_time;
+		ch->pnote->next		= NULL;
+		ch->pnote->date		= str_dup(strtime(current_time));
+		ch->pnote->date_stamp	= current_time;
 
 		append_note(ch->pnote);
 

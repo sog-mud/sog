@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.28 1999-02-10 15:58:51 fjoe Exp $
+ * $Id: olc_mob.c,v 1.29 1999-02-11 16:40:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1137,9 +1137,9 @@ OLC_FUN(mobed_clone)
 		return FALSE;
 
 	free_string(pMob->name);
-	pMob->name		= str_dup(pFrom->name);
+	pMob->name		= str_qdup(pFrom->name);
 	free_string(pMob->material);
-	pMob->material		= str_dup(pFrom->material);
+	pMob->material		= str_qdup(pFrom->material);
 	mlstr_free(pMob->short_descr);
 	pMob->short_descr	= mlstr_dup(pFrom->short_descr);
 	mlstr_free(pMob->long_descr);

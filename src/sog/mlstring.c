@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.26 1998-12-01 10:53:54 fjoe Exp $
+ * $Id: mlstring.c,v 1.27 1999-02-11 16:40:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -484,13 +484,13 @@ static mlstring *mlstr_split(mlstring *ml)
 	res->nlang = ml->nlang;
 	ml->ref--;
 	if (ml->nlang == 0) {
-		res->u.str = str_dup(ml->u.str);
+		res->u.str = str_qdup(ml->u.str);
 		return res;
 	}
 
 	res->u.lstr = malloc(sizeof(char*) * res->nlang);
 	for (lang = 0; lang < res->nlang; lang++)
-		res->u.lstr[lang] = str_dup(ml->u.lstr[lang]);
+		res->u.lstr[lang] = str_qdup(ml->u.lstr[lang]);
 	return res;
 }
 

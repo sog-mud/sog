@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.16 1998-12-23 16:11:21 fjoe Exp $
+ * $Id: olc_msg.c,v 1.17 1999-02-11 16:40:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -155,10 +155,7 @@ OLC_FUN(msged_list)
 		
 	for (i = 0; i < MAX_MSG_HASH; i++) {
 		int j;
-		varr *v = msg_hash_table[i];
-
-		if (v == NULL)
-			continue;
+		varr *v = msg_hash_table+i;
 
 		for (j = 0; j < v->nused; j++) {
 			mlstring **mlp = VARR_GET(v, j);
@@ -260,10 +257,7 @@ static mlstring **msg_search(const char *argument)
 
 	for (i = 0; i < MAX_MSG_HASH; i++) {
 		int j;
-		varr *v = msg_hash_table[i];
-
-		if (v == NULL)
-			continue;
+		varr *v = msg_hash_table+i;
 
 		for (j = 0; j < v->nused; j++) {
 			mlstring **mlp = VARR_GET(v, j);

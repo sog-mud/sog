@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.92 1999-02-10 15:13:09 fjoe Exp $
+ * $Id: quest.c,v 1.93 1999-02-11 16:40:30 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -562,7 +562,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		obj_vnum = number_range(QUEST_OBJ_FIRST, QUEST_OBJ_LAST);
 		eyed = create_named_obj(get_obj_index(obj_vnum), ch->level,
 					   ch->name);
-		eyed->owner = str_dup(ch->name);
+		eyed->owner = str_qdup(ch->name);
 		eyed->altar = hometown_table[ch->hometown].altar[i];
 		eyed->pit = hometown_table[ch->hometown].pit[i];
 		eyed->level = ch->level;
@@ -846,7 +846,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	/* ok, give him requested item */
 
 	if (IS_SET(pObjIndex->extra_flags, ITEM_QUEST)) {
-		reward->owner = str_dup(ch->name);
+		reward->owner = str_qdup(ch->name);
 		mlstr_free(reward->short_descr);
 		reward->short_descr =
 			mlstr_printf(reward->pIndexData->short_descr,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.5 1998-11-25 15:17:46 fjoe Exp $
+ * $Id: str.c,v 1.6 1999-02-11 16:40:30 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -47,16 +47,13 @@ char str_empty[1];
 int str_count;
 int str_real_count;
 
-#define HASHED_STRINGS
-#ifdef HASHED_STRINGS
-
 #define strhash(s)	(hashstr(s, 64, MAX_STRING_HASH))
 
 typedef struct str str;
 struct str {
-	const char *	p;
 	int		ref;
 	str *		next;
+	char 		p[0];
 };
 
 str *hash_str[MAX_STRING_HASH];
@@ -74,19 +71,30 @@ const char *str_dup(const char *p)
 
 	str_count++;
 	if ((s = str_lookup(p, &hash)) == NULL)
-		s = str_alloc(strdup(p), hash);
+		s = str_alloc(p, hash);
 	s->ref++;
 	return s->p;
+}
+
+const char *str_qdup(const char *p)
+{
+	str *s;
+
+	if (IS_NULLSTR(p))
+		return str_empty;
+
+	str_count++;
+	s = (str *)(p - sizeof(str));
+	s->ref++;
+	return p;
 }
 
 const char *str_add(const char *pstr,...)
 {
 	va_list ap;
 	size_t len;
-	char *p;
+	const char *p;
 	char *str_new;
-	str *s;
-	int hash;
 
 	/* calculate length of sum */
 	va_start(ap, pstr);
@@ -106,13 +114,9 @@ const char *str_add(const char *pstr,...)
 		strcat(str_new, p);
 	va_end(ap);
 
-	str_count++;
-	if ((s = str_lookup(str_new, &hash)) == NULL)
-		s = str_alloc(str_new, hash);
-	else
-		free(str_new);
-	s->ref++;
-	return s->p;
+	p = str_dup(str_new);
+	free(str_new);
+	return p;
 }
 
 void free_string(const char *p)
@@ -139,56 +143,8 @@ void free_string(const char *p)
 	else
 		hash_str[hash] = hash_str[hash]->next;
 	str_real_count--;
-	free((void*) s->p);
 	free(s);
 }
-
-#else
-
-const char *str_dup(const char *str)
-{
-	if (str == NULL)
-		return NULL;
-
-	if (str[0] == '\0')
-		return str_empty;
-
-	return strdup(str);
-}
-
-const char *str_add(const char *str,...)
-{
-	va_list ap;
-	size_t len;
-	char *p;
-	char *str_new;
-
-	/* calculate length of sum */
-	va_start(ap, str);
-	len = strlen(str);
-	while ((p = va_arg(ap, char*)) != NULL)
-		len += strlen(p);
-	va_end(ap);
-
-	/* cat them */
-	str_new = malloc(len + 1);
-	strcpy(str_new, str);
-	va_start(ap, str);
-	while ((p = va_arg(ap, char*)) != NULL)
-		strcat(str_new, p);
-	va_end(ap);
-
-	return str_new;
-}
-
-void free_string(const char *pstr)
-{
-	if (pstr == NULL || pstr == str_empty)
-		return;
-	free((void*) pstr);
-}
-
-#endif
 
 /*
  * str_printf -- like sprintf, but prints into string.
@@ -403,15 +359,14 @@ int cmpstr(const void *p1, const void *p2)
  * static functions
  */
 
-#ifdef HASHED_STRINGS
 static str *str_alloc(const char *p, int hash)
 {
 	str *s;
-	s = malloc(sizeof(*s));
-	s->ref = 0;
-	s->p = p;
-	s->next = hash_str[hash];
 	str_real_count++;
+	s = malloc(sizeof(*s) + strlen(p) + 1);
+	strcpy(s->p, p);
+	s->ref = 0;
+	s->next = hash_str[hash];
 	return hash_str[hash] = s;
 }
 
@@ -423,5 +378,4 @@ static str *str_lookup(const char *p, int *hash)
 			return s;
 	return NULL;
 }
-#endif
 

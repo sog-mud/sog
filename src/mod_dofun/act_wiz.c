@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.112 1999-02-11 09:45:44 kostik Exp $
+ * $Id: act_wiz.c,v 1.113 1999-02-11 16:40:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1885,7 +1885,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	ch->desc            = NULL;
 	/* change communications to match */
 	if (ch->prompt != NULL)
-		victim->prompt = str_dup(ch->prompt);
+		victim->prompt = str_qdup(ch->prompt);
 	victim->comm = ch->comm;
 	victim->lines = ch->lines;
 	char_puts("Ok.\n", victim);
@@ -2768,8 +2768,8 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			}
 
 			ed = ed_new();
-			ed->keyword		= str_dup(arg3);
-			ed->next		= obj->ed;
+			ed->keyword	= str_dup(arg3);
+			ed->next	= obj->ed;
 			mlstr_append(ch, &ed->description, argument);
 			obj->ed	= ed;
 			return;
@@ -4282,9 +4282,8 @@ DO_FUN(do_msgstat)
 
 	if (argument[0] == '\0') {
 		for (i = 0; i < MAX_MSG_HASH; i++) {
-			varr *v = msg_hash_table[i];
-			char_printf(ch, "%3d: %d msgs\n",
-				    i, v ? v->nused : 0);
+			varr *v = msg_hash_table+i;
+			char_printf(ch, "%3d: %d msgs\n", i, v->nused);
 		}
 		return;
 	}
@@ -4301,7 +4300,7 @@ DO_FUN(do_msgstat)
 		return;
 	}
 
-	v = msg_hash_table[i];
+	v = msg_hash_table+i;
 	output = buf_new(-1);
 	buf_printf(output, "Dumping msgs with hash #%d\n", i);
 	for (i = 0; i < v->nused; i++) {

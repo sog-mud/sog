@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.73 1999-02-10 14:57:36 fjoe Exp $
+ * $Id: spellfun2.c,v 1.74 1999-02-11 16:40:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2981,7 +2981,7 @@ void spell_eyed_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	
 	eyed	= create_named_obj(get_obj_index(OBJ_VNUM_EYED_SWORD), 0,
 				      ch->name);
-	eyed->owner = str_dup(ch->name);
+	eyed->owner = str_qdup(ch->name);
 	eyed->altar = hometown_table[ch->hometown].altar[i];
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;
@@ -3132,7 +3132,7 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	
 	fire	= create_named_obj(get_obj_index(OBJ_VNUM_MAGIC_JAR), 0,
 				victim->name);
-	fire->owner = str_dup(ch->name);
+	fire->owner = str_qdup(ch->name);
 	fire->altar = hometown_table[ch->hometown].altar[i];
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
@@ -3364,7 +3364,7 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	
 	fire	= create_named_obj(get_obj_index(OBJ_VNUM_FIRE_SHIELD), 0,
 				      arg);
-	fire->owner = str_dup(ch->name);
+	fire->owner = str_qdup(ch->name);
 	fire->altar = hometown_table[ch->hometown].altar[i];
 	fire->pit = hometown_table[ch->hometown].pit[i];
 	fire->level = ch->level;
@@ -4971,7 +4971,7 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		mlstr_free(gch->short_descr);
 		mlstr_free(gch->long_descr);
 		mlstr_free(gch->description);
-		gch->name = str_dup(tmp_vict->name);
+		gch->name = str_qdup(tmp_vict->name);
 		gch->short_descr = mlstr_new(tmp_vict->name);
 		gch->long_descr = mlstr_printf(gch->pIndexData->long_descr,
 					       tmp_vict->name,

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.37 1999-02-10 06:52:42 fjoe Exp $
+ * $Id: recycle.c,v 1.38 1999-02-11 16:40:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,7 +64,7 @@ ED_DATA *ed_new(void)
 ED_DATA *ed_new2(const ED_DATA *ed, const char* name)
 {
 	ED_DATA *ed2		= ed_new();
-	ed2->keyword		= str_dup(ed->keyword);
+	ed2->keyword		= str_qdup(ed->keyword);
 	ed2->description	= mlstr_printf(ed->description, name);
 	return ed2;
 }
@@ -72,7 +72,7 @@ ED_DATA *ed_new2(const ED_DATA *ed, const char* name)
 ED_DATA *ed_dup(const ED_DATA *ed)
 {
 	ED_DATA *ned = ed_new();
-	ned->keyword		= str_dup(ed->keyword);
+	ned->keyword		= str_qdup(ed->keyword);
 	ned->description	= mlstr_dup(ed->description);
 	return ned;
 }

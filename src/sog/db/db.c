@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.99 1999-02-10 06:52:45 fjoe Exp $
+ * $Id: db.c,v 1.100 1999-02-11 16:40:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -965,7 +965,7 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 
 	mob->pIndexData		= pMobIndex;
 
-	mob->name		= str_dup(pMobIndex->name);
+	mob->name		= str_qdup(pMobIndex->name);
 	if (!IS_SET(flags, CREATE_NAMED)) {
 		mob->short_descr	= mlstr_dup(pMobIndex->short_descr);
 		mob->long_descr		= mlstr_dup(pMobIndex->long_descr);
@@ -1002,7 +1002,7 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 	mob->clan		= pMobIndex->clan;
 	mob->invis_level	= pMobIndex->invis_level;
  	mob->group		= pMobIndex->group;
-	mob->material		= str_dup(pMobIndex->material);
+	mob->material		= str_qdup(pMobIndex->material);
 
 	mob->dam_type		= pMobIndex->dam_type;
 	if (mob->dam_type == 0)
@@ -1143,7 +1143,7 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 		return;
 	
 	/* start fixing values */ 
-	clone->name 		= str_dup(parent->name);
+	clone->name 		= str_qdup(parent->name);
 	clone->version		= parent->version;
 	clone->short_descr	= mlstr_dup(parent->short_descr);
 	clone->long_descr	= mlstr_dup(parent->long_descr);
@@ -1181,7 +1181,7 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->form		= parent->form;
 	clone->parts		= parent->parts;
 	clone->size		= parent->size;
-	clone->material		= str_dup(parent->material);
+	clone->material		= str_qdup(parent->material);
 	clone->dam_type		= parent->dam_type;
 	clone->start_pos	= parent->start_pos;
 	clone->default_pos	= parent->default_pos;
@@ -1229,11 +1229,11 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 	obj->wear_loc	= -1;
 
 	if (!IS_SET(flags, CREATE_NAMED)) {
-		obj->name		= str_dup(pObjIndex->name);
+		obj->name		= str_qdup(pObjIndex->name);
 		obj->short_descr	= mlstr_dup(pObjIndex->short_descr);
 		obj->description	= mlstr_dup(pObjIndex->description);
 	}
-	obj->material		= str_dup(pObjIndex->material);
+	obj->material		= str_qdup(pObjIndex->material);
 	obj->extra_flags	= pObjIndex->extra_flags;
 	obj->wear_flags		= pObjIndex->wear_flags;
 	obj->value[0]		= pObjIndex->value[0];
@@ -1312,7 +1312,7 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 		return;
 
 	/* start fixing the object */
-	clone->name 		= str_dup(parent->name);
+	clone->name 		= str_qdup(parent->name);
 	clone->short_descr	= mlstr_dup(parent->short_descr);
 	clone->description	= mlstr_dup(parent->description);
 	clone->extra_flags	= parent->extra_flags;
@@ -1321,7 +1321,7 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->cost		= parent->cost;
 	clone->level		= parent->level;
 	clone->condition	= parent->condition;
-	clone->material		= str_dup(parent->material);
+	clone->material		= str_qdup(parent->material);
 	clone->timer		= parent->timer;
 	clone->owner		= parent->owner;
 	clone->extracted	= parent->extracted;
@@ -1337,7 +1337,7 @@ void clone_obj(OBJ_DATA *parent, OBJ_DATA *clone)
 	/* extended desc */
 	for (ed = parent->ed; ed != NULL; ed = ed->next) {
 		ed2			= ed_new();
-		ed2->keyword		= str_dup(ed->keyword);
+		ed2->keyword		= str_qdup(ed->keyword);
 		ed2->description	= mlstr_dup(ed->description);
 		ed2->next		= clone->ed;
 		clone->ed		= ed2;
