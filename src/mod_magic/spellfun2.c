@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.48 2001-10-26 19:19:59 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.49 2001-10-31 06:45:02 kostik Exp $
  */
 
 /***************************************************************************
@@ -1716,12 +1716,13 @@ void spell_golden_aura(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *vch = vo;
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		if (!is_same_group(vch, ch)) 
+		if (!is_same_group(vch, ch))
 			continue;
 
 		if (!IS_GOOD(vch)) {
 			act("Only goods can be protected by golden aura.",
-		    	ch, NULL, NULL, TO_CHAR);
+			    ch, NULL, NULL, TO_CHAR);
+			continue;
 		}
 
 		if (is_affected(vch, sn)) {
@@ -1736,7 +1737,7 @@ void spell_golden_aura(int sn, int level, CHAR_DATA *ch, void *vo)
 			if (vch != ch) {
 				act("$N is protected by prismatic sphere. It"
 				    " and golden aura can't be used in the "
-				    "same time.", ch, NULL, vch, TO_CHAR); 
+				    "same time.", ch, NULL, vch, TO_CHAR);
 			} else {
 				act("Golden aura and prismatic sphere can't "
 				    "be used in the same time.",
