@@ -355,7 +355,7 @@ Max 85
 End
 
 #SKILL
-Skill 'sneak'
+Skill 'stealth'
 Level 18
 Rating 1
 Min 1

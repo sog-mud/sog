@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.416 2001-12-16 15:38:09 matrim Exp $
+ * $Id: act_info.c,v 1.417 2002-01-04 06:37:49 kostik Exp $
  */
 
 /***************************************************************************
@@ -2095,23 +2095,23 @@ DO_FUN(do_awareness, ch, argument)
 	AFFECT_DATA	*paf;
 	int		chance;
 
-	if ((chance = get_skill(ch, "awareness")) == 0) {
+	if ((chance = get_skill(ch, "forest awareness")) == 0) {
 		act_char("Huh?", ch);
 		return;
 	}
 
-	if (is_sn_affected(ch, "awareness")) {
+	if (is_sn_affected(ch, "forest awareness")) {
 		act_char("You are already as alert as you can be.", ch);
 		return;
 	}
 
 	if (number_percent() > chance) {
 		act_char("You peer intently at the shadows but they are unrevealing.", ch);
-		check_improve(ch, "awareness", FALSE, 1);
+		check_improve(ch, "forest awareness", FALSE, 1);
 		return;
 	}
 
-	paf = aff_new(TO_INVIS, "awareness");
+	paf = aff_new(TO_DETECTS, "forest awareness");
 	paf->level     = LEVEL(ch);
 	paf->duration  = LEVEL(ch);
 	paf->bitvector = ID_BLEND | ID_CAMOUFLAGE;
@@ -2119,7 +2119,7 @@ DO_FUN(do_awareness, ch, argument)
 	aff_free(paf);
 
 	act_char("Your awareness improves.", ch);
-	check_improve(ch, "awareness", TRUE, 1);
+	check_improve(ch, "forest awareness", TRUE, 1);
 }
 
 #define MOB_VNUM_BEAR			12

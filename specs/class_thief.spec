@@ -49,7 +49,16 @@ Max 100
 End
 
 #SKILL
-Skill 'sneak'
+Skill 'awareness'
+Level 15
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
+Skill 'stealth'
 Level 6
 Rating 1
 Min 1

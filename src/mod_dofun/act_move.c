@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.284 2001-12-03 22:39:07 fjoe Exp $
+ * $Id: act_move.c,v 1.285 2002-01-04 06:37:50 kostik Exp $
  */
 
 /***************************************************************************
@@ -876,10 +876,12 @@ DO_FUN(do_wake, ch, argument)
 
 DO_FUN(do_sneak, ch, argument)
 {
-	int		chance;
+	AFFECT_DATA *paf;
 
-	if ((chance = get_skill(ch, "sneak")) == 0)
+	if (get_skill(ch, "stealth") == 0) {
+		act_char("You aren't able to move more silently.", ch);
 		return;
+	}
 
 	if (MOUNTED(ch)) {
 		  act_char("You can't sneak while mounted.", ch);
@@ -887,28 +889,26 @@ DO_FUN(do_sneak, ch, argument)
 	}
 
 	if (HAS_INVIS(ch, ID_SNEAK)) {
-		act_puts("You already move as silently as you can.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		return;
+		if (is_sn_affected(ch, "stealth")) {
+			affect_strip(ch, "stealth");
+			act_char("You trample around loudly again.", ch);
+			return;
+		} else {
+			act_puts("You can't move less silently.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			return;
+		}
 	}
 
 	act_puts("You attempt to move silently.",
 		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-	affect_strip(ch, "sneak");
 
-	if (number_percent() < chance) {
-		AFFECT_DATA *paf;
-
-		check_improve(ch, "sneak", TRUE, 3);
-
-		paf = aff_new(TO_INVIS, "sneak");
-		paf->level     = LEVEL(ch);
-		paf->duration  = LEVEL(ch);
-		paf->bitvector = ID_SNEAK;
-		affect_to_char(ch, paf);
-		aff_free(paf);
-	} else
-		check_improve(ch, "sneak", FALSE, 3);
+	paf = aff_new(TO_INVIS, "stealth");
+	paf->level     = LEVEL(ch);
+	paf->duration  = -1;
+	paf->bitvector = ID_SNEAK;
+	affect_to_char(ch, paf);
+	aff_free(paf);
 }
 
 DO_FUN(do_hide, ch, argument)

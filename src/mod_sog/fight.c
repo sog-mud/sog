@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.344 2001-12-12 17:42:28 fjoe Exp $
+ * $Id: fight.c,v 1.345 2002-01-04 06:37:53 kostik Exp $
  */
 
 /***************************************************************************
@@ -1138,18 +1138,6 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	if (HAS_INVIS(victim, ID_ALL_INVIS & ~ID_IMP_INVIS))
 		make_visible(victim, FALSE);
 
-	/*
-	 * strip sneak
-	 */
-	if (HAS_INVIS(ch, ID_SNEAK)) {
-		REMOVE_INVIS(ch, ID_SNEAK);
-		affect_bit_strip(ch, TO_INVIS, ID_SNEAK);
-	}
-	if (HAS_INVIS(victim, ID_SNEAK)) {
-		REMOVE_INVIS(victim, ID_SNEAK);
-		affect_bit_strip(victim, TO_INVIS, ID_SNEAK);
-	}
-
 	if (ch != victim && is_sn_affected(ch, "globe of invulnerability")) {
 		affect_strip(ch, "globe of invulnerability");
 		act_char("Your globe of invulnerability shatters.", ch);
@@ -1532,7 +1520,13 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (vo_foreach(victim, &iter_obj_char, pull_obj_death_cb) != NULL)
 		return NULL;
 
-	act("$n is DEAD!!", victim, NULL, NULL, TO_ROOM);
+	if (IS_SET(victim->form, FORM_UNDEAD | FORM_CONSTRUCT)) {
+		/* They were not alive, so they can't become dead */
+		act("$n is destroyed!", victim, NULL, NULL, TO_ROOM);
+	} else {
+		act("$n is dead!", victim, NULL, NULL, TO_ROOM);
+	}
+
 	act_char("You die..", victim);
 
 	if (IS_NPC(victim))

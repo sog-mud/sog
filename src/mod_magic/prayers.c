@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.27 2001-12-10 22:01:56 tatyana Exp $
+ * $Id: prayers.c,v 1.28 2002-01-04 06:37:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -496,20 +496,30 @@ SPELL_FUN(prayer_cure_critical_wounds, sn, level, ch, vo)
 SPELL_FUN(prayer_cure_blindness, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
 
-	if (!is_sn_affected(victim, "blindness")) {
+	if (!IS_AFFECTED(victim, AFF_BLIND)) {
 		if (victim == ch)
-		  act_char("You aren't blind.", ch);
+			act_char("You aren't blind.",ch);
 		else
-		  act("$N doesn't appear to be blinded.",ch,NULL,victim,TO_CHAR);
+			act("$N doesn't appear to be blinded.", ch, NULL,
+			    victim, TO_CHAR);
 		return;
 	}
 
-	if (check_dispel(level, victim, "blindness")) {
-		act_char("Your vision returns!", victim);
-		act("$n is no longer blinded.", victim, NULL, NULL, TO_ROOM);
-	} else
-		act_char("Your god doesn't hear you.", ch);
+	for (paf = victim->affected; paf != NULL; paf = paf->next) {
+		if (paf->where == TO_AFFECTS && paf->bitvector == AFF_BLIND) {
+			if (check_dispel(level, victim, paf->type)
+			&& !IS_AFFECTED(victim, AFF_BLIND)) {
+				act_char("Your vision returns!\n", victim);
+				act("$n is no longer blinded.",
+				    victim, NULL, NULL, TO_ROOM);
+			} else
+				act_char("Spell failed.\n",ch);
+
+			return;
+		}
+	}
 }
 
 SPELL_FUN(prayer_cure_poison, sn, level, ch, vo)

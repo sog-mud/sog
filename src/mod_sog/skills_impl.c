@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills_impl.c,v 1.6 2001-12-03 22:28:43 fjoe Exp $
+ * $Id: skills_impl.c,v 1.7 2002-01-04 06:37:54 kostik Exp $
  */
 
 #include <stdio.h>
@@ -108,7 +108,7 @@ static size_t mob_skill_count;
 static mob_skill_t mob_skill_tab[] =
 {
 	{ "track",		mob_track		},	// notrans
-	{ "sneak",		mob_sneak		},	// notrans
+	{ "stealth",		mob_sneak		},	// notrans
 	{ "hide",		mob_hide		},	// notrans
 	{ "pick lock",		mob_pick_lock		},	// notrans
 	{ "backstab",		mob_backstab		},	// notrans

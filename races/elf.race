@@ -17,6 +17,7 @@ Class 'ranger' 100
 Class 'thief' 100
 Class 'warrior' 100
 Class 'wizard' 100
+SkillSpec race_elf
 BonusSkills 'mastering bow'~
 Stats -2 4 1 2 -2 0 
 MaxStats 17 25 24 24 16 25 

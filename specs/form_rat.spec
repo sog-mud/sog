@@ -13,7 +13,7 @@ Max 100
 End
 
 #SKILL
-Skill 'sneak'
+Skill 'stealth'
 Level 1
 Rating 1
 Min 100

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.347 2001-12-10 19:14:33 tatyana Exp $
+ * $Id: handler.c,v 1.348 2002-01-04 06:37:54 kostik Exp $
  */
 
 /***************************************************************************
@@ -1705,6 +1705,115 @@ pull_wear_triggers(CHAR_DATA *ch, OBJ_DATA *obj)
 	return TRUE;
 }
 
+
+static
+FOREACH_CB_FUN(show_leaving_cb, p, ap)
+{
+	CHAR_DATA *vch	= (CHAR_DATA *) p;
+	CHAR_DATA *ch	= va_arg(ap, CHAR_DATA *);
+	int door	= va_arg(ap, int);
+	flag_t flags	= va_arg(ap, flag_t);
+	bool lost_camo	= va_arg(ap, bool);
+	bool lost_hide	= va_arg(ap, bool);
+
+	if (vch->position < POS_RESTING || vch == ch)
+		return NULL;
+
+	if (lost_camo && can_see(vch, ch))
+		act("$n steps out from $s cover.", ch, NULL, vch, TO_VICT);
+
+	if (lost_hide && can_see(vch, ch))
+		act("$n steps out of shadows.", ch, NULL, vch, TO_VICT);
+
+	/* stealth vs awareness check */
+	if (!MOUNTED(ch) && HAS_INVIS(ch, ID_SNEAK)
+	&& vch->fighting != ch && vch->leader != ch) {
+		if (get_skill(ch, "stealth") * dice(4, 3) <=
+		    get_skill(vch, "awareness") * dice(4, 3)) {
+			check_improve(vch, "awareness", TRUE, 5);
+		} else {
+			check_improve(ch, "stealth", TRUE, 5);
+			return NULL;
+		}
+	}
+
+	if (!IS_NPC(ch)
+	&&  ch->in_room->sector_type != SECT_INSIDE
+	&&  ch->in_room->sector_type != SECT_CITY
+	&&  !IS_SET(flags, MC_F_CHARGE)
+	&&  vch->fighting != ch
+	&&  get_skill(ch, "quiet movement")) {
+		/* Opposite check here */
+		if (get_skill(vch, "awareness") *
+		    get_skill(vch, "wilderness familiarity") * dice(4, 3) >
+		    get_skill(vch, "quiet movement") *
+		    get_skill(vch, "wilderness familiarity") * dice(4, 3)) {
+			act(MOUNTED(ch) ? "$n leaves, riding on $i." :
+			    "$n leaves.", ch, MOUNTED(ch), vch, TO_VICT);
+			check_improve(ch, "quiet movement", TRUE, 1);
+			check_improve(ch, "wilderness familiarity", TRUE, 6);
+		} else {
+			act_puts3(MOUNTED(ch) ? "$n leaves $t, riding on $I." :
+				  "$n leaves $t.", ch,
+			dir_name[(is_sn_affected(ch, "misleading") &&
+				 !HAS_DETECT(vch, ID_TRUESEEING)) ?
+				 number_range(0, 5) : door],
+				 vch, MOUNTED(ch), TO_VICT, POS_RESTING);
+			check_improve(vch, "awareness", TRUE, 2);
+			check_improve(vch, "wilderness familiarity", TRUE, 6);
+		}
+	} else if (IS_SET(flags, MC_F_CHARGE)) {
+		act_puts3("$n spurs $s $I, leaving $t.", ch,
+		dir_name[(is_sn_affected(ch, "misleading") &&
+			 !HAS_DETECT(vch, ID_TRUESEEING))
+			 ? number_range(0, 5) : door],
+			 vch, MOUNTED(ch),  TO_VICT, POS_RESTING);
+	} else {
+		act_puts3(MOUNTED(ch) ? "$n leaves $t, riding on $I." :
+				  "$n leaves $t.", ch,
+		dir_name[is_sn_affected(ch, "misleading") &&
+			!HAS_DETECT(vch, ID_TRUESEEING)?
+			number_range(0, 5) : door],
+			vch, MOUNTED(ch), TO_VICT, POS_RESTING);
+	}
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(show_arrival_cb, p, ap)
+{
+	CHAR_DATA *vch	= (CHAR_DATA *) p;
+	CHAR_DATA *ch	= va_arg(ap, CHAR_DATA *);
+	CHAR_DATA *mount= va_arg(ap, CHAR_DATA *);
+	int door	= va_arg(ap, int);
+	flag_t flags	= va_arg(ap, int);
+
+	if (vch->position < POS_RESTING || vch == ch)
+		return NULL;
+
+	/* stealth vs awareness check */
+	if (!MOUNTED(ch) && HAS_INVIS(ch, ID_SNEAK)
+	&& vch->fighting != ch) {
+		if (get_skill(ch, "stealth") * dice(4, 3) <=
+		    get_skill(vch, "awareness") * dice(4, 3)) {
+			check_improve(vch, "awareness", TRUE, 5);
+		} else {
+			check_improve(ch, "stealth", TRUE, 5);
+			return NULL;
+		}
+	}
+
+	if (!IS_SET(flags, MC_F_CHARGE)) {
+		act_puts3(mount ? "$n has arrived from $t, riding $I." :
+			    "$n has arrived from $t.", ch,
+		dir_name[is_sn_affected(ch, "misleading") &&
+			!HAS_DETECT(vch, ID_TRUESEEING) ?
+			number_range(0, 5) : rev_dir[door]],
+			vch, mount, TO_VICT, POS_RESTING);
+	}
+	return NULL;
+}
+
 bool
 move_char(CHAR_DATA *ch, int door, flag_t flags)
 {
@@ -1714,8 +1823,9 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	ROOM_INDEX_DATA *in_room;
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;
-	int act_flags;
 	AFFECT_DATA *paf;
+	bool lost_camo = FALSE;
+	bool lost_hide = FALSE;
 
 	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
 		return FALSE;
@@ -1795,12 +1905,13 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	}
 
 	if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE)
-	&&  !HAS_INVIS(ch, ID_SNEAK)) {
+	&& ((!HAS_INVIS(ch, ID_SNEAK))
+	|| (number_percent() > get_skill(ch, "stealth") *
+	(get_skill(ch, HAS_INVIS(ch, ID_HIDDEN) ? "hide" : "fade")) / 100))) {
 		REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
+		lost_hide = TRUE;
 		act_puts("You step out of shadows.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act_puts("$n steps out of shadows.",
-			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	}
 
 	if (is_sn_affected(ch, "globe of invulnerability")) {
@@ -1815,9 +1926,8 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 			REMOVE_INVIS(ch, ID_CAMOUFLAGE);
 			act_puts("You step out from your cover.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n steps out from $s cover.",
-			    ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, "camouflage move", FALSE, 5);
+			lost_camo = TRUE;
 		}
 	}
 
@@ -1828,6 +1938,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 			ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n steps out from $s cover.",
 			ch, NULL, NULL, TO_ROOM);
+		lost_camo = TRUE;
 	}
 
 	in_room = ch->in_room;
@@ -2041,33 +2152,6 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	if (!pull_exit_triggers(ch, door))
 		return FALSE;
 
-	if (!HAS_INVIS(ch, ID_SNEAK | ID_CAMOUFLAGE)
-	&&  ch->invis_level < LEVEL_HERO)
-		act_flags = TO_ROOM;
-	else
-		act_flags = TO_ROOM | ACT_NOMORTAL;
-
-	if (!IS_NPC(ch)
-	&&  ch->in_room->sector_type != SECT_INSIDE
-	&&  ch->in_room->sector_type != SECT_CITY
-	&&  number_percent() < get_skill(ch, "quiet movement")
-	&&  !IS_SET(flags, MC_F_CHARGE)) {
-		act(MOUNTED(ch) ? "$n leaves, riding on $N." : "$n leaves.",
-		    ch, NULL, MOUNTED(ch), act_flags);
-		check_improve(ch, "quiet movement", TRUE, 1);
-	} else if (IS_SET(flags, MC_F_CHARGE)) {
-		act("$n spurs $s $N, leaving $t.", ch,
-		dir_name[is_sn_affected(ch, "misleading")
-			? number_range(0, 5) : door],
-		ch->mount,  TO_ROOM);
-	} else {
-		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
-				  "$n leaves $t.", ch,
-		dir_name[is_sn_affected(ch, "misleading") ?
-			number_range(0, 5) : door],
-		MOUNTED(ch), act_flags);
-	}
-
 	if (HAS_INVIS(ch, ID_CAMOUFLAGE)
 	&&  to_room->sector_type != SECT_FOREST
 	&&  to_room->sector_type != SECT_MOUNTAIN
@@ -2075,13 +2159,16 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 		REMOVE_INVIS(ch, ID_CAMOUFLAGE);
 		act_puts("You step out from your cover.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n steps out from $s cover.",
-		    ch, NULL, NULL, TO_ROOM);
+		lost_camo = TRUE;
 	}
 
 	/* room record for tracking */
 	if (!IS_NPC(ch))
 		room_record(ch->name, in_room, door);
+
+	/* Show everyone in room that we are leaving */
+	vo_foreach(ch->in_room, &iter_char_room, show_leaving_cb, ch,
+	    door, flags, lost_camo, lost_hide);
 
 	/*
 	 * now, after all the checks are done we should
@@ -2093,11 +2180,6 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	 */
 	mount = MOUNTED(ch);
 
-	if (!HAS_INVIS(ch, ID_SNEAK) && ch->invis_level < LEVEL_HERO)
-		act_flags = TO_ROOM;
-	else
-		act_flags = TO_ROOM | ACT_NOMORTAL;
-
 	char_to_room(ch, to_room);
 	if (mount) {
 		char_to_room(mount, to_room);
@@ -2107,12 +2189,9 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 
 	if (!IS_EXTRACTED(ch)) {
 		dofun("look", ch, "auto");
+		vo_foreach(ch->in_room, &iter_char_room, show_arrival_cb, ch,
+		    mount, door, flags);
 
-		if (!IS_SET(flags, MC_F_CHARGE)) {
-			act(mount ? "$n has arrived, riding $N." :
-				    "$n has arrived.",
-			    ch, NULL, mount, act_flags);
-		}
 	}
 
 	if (in_room == to_room) /* no circular follows */

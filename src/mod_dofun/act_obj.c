@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.272 2001-11-26 12:51:06 kostik Exp $
+ * $Id: act_obj.c,v 1.273 2002-01-04 06:37:50 kostik Exp $
  */
 
 /***************************************************************************
@@ -427,13 +427,14 @@ DO_FUN(do_drop, ch, argument)
 
 		obj_to_room(obj, ch->in_room);
 		act("$n drops some coins.", ch, NULL, NULL,
-		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
+		    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) && number_percent() <
+		    get_skill(ch, "stealth") ? ACT_NOMORTAL : 0));
 		act_char("Ok.", ch);
 		if (IS_WATER(ch->in_room)) {
 			extract_obj(obj, 0);
 			act("The coins sink down, and disapear in the water.",
 			    ch, NULL, NULL,
-			    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
+			    TO_ROOM);
 			act_puts("The coins sink down, and disapear in the water.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		}
@@ -724,7 +725,7 @@ DO_FUN(do_envenom, ch, argument)
 			aff_free(paf);
 
 			act("$n coats $p with deadly venom.", ch, obj, NULL,
-			    TO_ROOM | (HAS_INVIS(ch, ID_SNEAK) ? ACT_NOMORTAL : 0));
+			    TO_ROOM);
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, "envenom", TRUE, 3);
 			return;
