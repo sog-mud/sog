@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.82 1998-10-26 08:39:36 fjoe Exp $
+ * $Id: db.c,v 1.83 1998-10-27 08:18:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2299,11 +2299,9 @@ void load_limited_objects()
 				if (!str_cmp(word, "O")
 				||  !str_cmp(word, "OBJECT")) {
 				  fread_word(pfile); 
-				  fBootDb = FALSE;
 				  vnum = fread_number(pfile);
 				  if (get_obj_index(vnum) != NULL)
 				  	get_obj_index(vnum)->count++;
-				  fBootDb = TRUE;
 				}
 			} else if (letter == 'P') {
 				if (!strcmp(fread_word(pfile), "C_Killed")) {
