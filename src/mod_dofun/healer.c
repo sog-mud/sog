@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.38 1999-12-16 12:24:42 fjoe Exp $
+ * $Id: healer.c,v 1.39 2000-01-11 08:12:15 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,8 +33,7 @@
 #include <stdlib.h>
 #include "merc.h"
 
-typedef struct
-{
+typedef struct {
 	char * const	keyword;
 	char * const	name;
 	char * const	spellname;
@@ -65,7 +64,8 @@ heal_t heal_table[] =
     { NULL }
 };
 
-int get_heal_cost(heal_t *h, CHAR_DATA *mob, CHAR_DATA *ch)
+static int
+get_heal_cost(heal_t *h, CHAR_DATA *mob, CHAR_DATA *ch)
 {
 	int price;
 
@@ -78,67 +78,71 @@ int get_heal_cost(heal_t *h, CHAR_DATA *mob, CHAR_DATA *ch)
 
 void do_heal(CHAR_DATA *ch, const char *argument)
 {
-    CHAR_DATA *mob;
-    char arg[MAX_INPUT_LENGTH];
-    int cost;
-    heal_t *h;
+	CHAR_DATA *mob;
+	char arg[MAX_INPUT_LENGTH];
+	int cost;
+	heal_t *h;
 
-    /* check for healer */
-	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
+	/* check for healer */
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
 		if (IS_NPC(mob)
 		&&  MOB_IS(mob, MOB_HEALER)
 		&&  (IS_NULLSTR(mob->clan) || IS_CLAN(mob->clan, ch->clan)))
 		 	break;
+	}
  
-    if (mob == NULL) {
-        char_puts("You can't do that here.\n", ch);
-        return;
-    }
+	if (mob == NULL) {
+		char_puts("You can't do that here.\n", ch);
+		return;
+	}
 
-    one_argument(argument, arg, sizeof(arg));
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		/*
+		 * display price list
+		 */
+		act("$N offers the following spells.", ch, NULL, mob, TO_CHAR);
+		for (h = heal_table; h->keyword; h++) {
+			char_printf(ch, "%-10.9s : %-20.19s : %3d gold\n",
+				    h->keyword, h->name,
+				    get_heal_cost(h, mob, ch)/100);
+		}
+		char_puts(" Type heal <type> to be healed.\n", ch);
+		return;
+	}
 
-    if (arg[0] == '\0') {
-        /* display price list */
-	act("$N offers the following spells.",ch,NULL,mob,TO_CHAR);
-	for (h = heal_table; h->keyword; h++)
-	    char_printf(ch, "%-10.9s : %-20.19s : %3d gold\n",
-		h->keyword, h->name, get_heal_cost(h, mob, ch)/100);
-	char_puts(" Type heal <type> to be healed.\n",ch);
-	return;
-    }
+	for (h = heal_table; h->keyword; h++) {
+		if (!str_prefix(arg, h->keyword))
+			break; 
+	}
 
-    for (h = heal_table; h->keyword; h++)
-	if (!str_prefix(arg, h->keyword)) break;
+	if (h->keyword == NULL)	{
+		act("$N does not offer that spell.  Type 'heal' for a list.",
+		    ch, NULL, mob, TO_CHAR);
+		return;
+	}
+	cost = get_heal_cost(h, mob, ch);
 
-    if (h->keyword == NULL)	
-    {
-	act("$N does not offer that spell.  Type 'heal' for a list.",
-	    ch,NULL,mob,TO_CHAR);
-	return;
-    }
-    cost = get_heal_cost(h, mob, ch);
+	if (has_spec(ch, "clan_battleragers") && (h->price > 0)) {
+		char_puts("You are Battlerager, not the filthy magician\n", ch);
+		return;
+	}
 
-    if (has_spec(ch, "clan_battleragers") && (h->price > 0)) {
-	char_puts("You are Battle Rager, not the filthy magician\n",ch);
-	return;
-    }
+	if (cost > (ch->gold * 100 + ch->silver)) {
+		act("You do not have that much gold.", ch, NULL, mob, TO_CHAR);
+		return;
+	}
 
-    if (cost > (ch->gold * 100 + ch->silver))
-    {
-	act("You do not have that much gold.",
-	    ch,NULL,mob,TO_CHAR);
-	return;
-    }
+	WAIT_STATE(ch, PULSE_VIOLENCE);
 
-    WAIT_STATE(ch, PULSE_VIOLENCE);
+	if (cost < 0) {
+		deduct_cost(ch, -cost);
+		dofun(h->spellname, mob, ch->name);
+		return;
+	}
 
-    if (cost < 0) {
-	deduct_cost(ch, -cost);
-	dofun(h->spellname, mob, ch->name);
-	return;
-    }
-
-    deduct_cost(ch, cost);
-    say_spell(mob, skill_search(h->spellname));
-    spellfun_call(h->spellname, NULL, mob->level, mob, ch);
+	deduct_cost(ch, cost);
+	say_spell(mob, skill_search(h->spellname));
+	spellfun_call(h->spellname, NULL,
+		      h->level ? h->level : mob->level, mob, ch);
 }
