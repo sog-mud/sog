@@ -1,0 +1,189 @@
+#AREADATA
+Name Jeteven~
+VNUMs 26100 26200
+Security 5
+LevelRange 80 91
+End
+
+#MOBILES
+#26100
+illari~
+@eng Illari@rus Иллари~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26101
+jet~
+@eng Jet@rus ~~Джет~~~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26102
+keravar master~
+@eng Master Keravar@rus ~~Мастер~~ ~~Керавар~~~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26103
+master pain~
+@eng Master of Pain@rus ~~Мастер~~ Боли ~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26104
+master curses~
+@eng Master of Curses@rus ~~Мастер~~ Проклятий~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26105
+ahae-te~
+@eng Ahae-Te@rus Ахаэ-Тэ~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26106
+soldier imperial~
+@eng imperial soldier@rus ~~солдат~~ имперской гвардии~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26107
+imperial captain~
+@eng imperial captain@rus ~~капитан~~ импермкой гвардии~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26108
+weidian mercenary~
+@eng Weidian mercenary@rus Вейдианский наемник~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26109
+outer guard~
+@eng outer circle guard@rus ~~охранник~~ внешнего круга~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#26110
+inner guard~
+@eng inner circle guard@rus ~~охранник~~ внутреннего круга~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+#0
+
+#OBJECTS
+#26100
+talisman sanity~
+@eng talisman of sanity~
+@eng Strange wooden amulet catches your attention.~
+unknown~
+jewelry GIS AC
+0 0 0 0 0
+92 10 100000 P
+A
+8 1
+A
+18 10
+A
+13 50
+F
+I 12 200 MP
+G none
+#0
+
+#OLIMITS
+O 26100 3	* talisman of sanity
+S
+
+#$
