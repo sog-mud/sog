@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: liquid.c,v 1.1 1999-10-20 05:49:49 avn Exp $
+ * $Id: liquid.c,v 1.2 1999-10-21 14:31:05 fjoe Exp $
  */
 
 #include <stdio.h>
