@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.96 2000-03-05 17:14:51 avn Exp $
+ * $Id: db_area.c,v 1.97 2000-03-29 07:24:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1349,6 +1349,7 @@ flag_subst_t v0_subst_stat[] =
 #define V0_ITEM_QUIT_DROP	(ff)
 #define V0_ITEM_PIT		(gg)
 #define V0_ITEM_CHQUEST		(hh)
+#define V0_ITEM_NOFIND		(ii)
 
 #define V0_ITEM_NO_SAC		(P)
 
@@ -1365,6 +1366,7 @@ flag_subst_t v0_subst_obj[] =
 	{ V0_ITEM_QUIT_DROP,	OBJ_QUIT_DROP		},
 	{ V0_ITEM_PIT,		OBJ_PIT			},
 	{ V0_ITEM_CHQUEST,	OBJ_CHQUEST		},
+	{ V0_ITEM_NOFIND,	OBJ_NOFIND		},
 	{ 0 }
 };
 
