@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.14 2000-10-07 18:14:53 fjoe Exp $
+ * $Id: core.c,v 1.15 2000-10-07 20:41:03 fjoe Exp $
  */
 
 #include <errno.h>
@@ -74,7 +74,8 @@ do_modules(CHAR_DATA *ch, const char *argument)
 
 		if ((m = mod_lookup(arg)) == NULL) {
 			act_puts("$t: unknown module name.",
-				 ch, arg, NULL, TO_CHAR, POS_DEAD);
+				 ch, arg, NULL,
+				 TO_CHAR | ACT_NOUCASE | ACT_NOTRANS, POS_DEAD);
 			return;
 		}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.50 2000-10-07 18:14:50 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.51 2000-10-07 20:41:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -135,7 +135,7 @@ void do_mpgecho(CHAR_DATA *ch, const char *argument)
 		act_puts("$t$T",
 			 d->character,
 			 IS_IMMORTAL(d->character) ?  "Mob echo> " : str_empty,
-			 argument, TO_CHAR, POS_DEAD);
+			 argument, TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	}
 }
 
@@ -167,7 +167,7 @@ void do_mpzecho(CHAR_DATA *ch, const char *argument)
 		act_puts("$t$T",
 			 d->character,
 			 IS_IMMORTAL(d->character) ?  "Mob echo> " : str_empty,
-			 argument, TO_CHAR, POS_DEAD);
+			 argument, TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.352 2000-10-07 18:14:54 fjoe Exp $
+ * $Id: act_info.c,v 1.353 2000-10-07 20:41:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2634,7 +2634,8 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 			if (paf->duration == -1 || paf->duration == -2) {
 				act_puts("permanently.",
 					 ch, NULL, NULL,
-					 TO_CHAR | ACT_NOLF, POS_DEAD);
+					 TO_CHAR | ACT_NOLF | ACT_NOUCASE,
+					 POS_DEAD);
 			} else
 				char_printf(ch, "for {c%d{x hours.",
 					    paf->duration);

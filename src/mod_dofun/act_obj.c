@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.219 2000-10-07 10:58:00 fjoe Exp $
+ * $Id: act_obj.c,v 1.220 2000-10-07 20:41:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1299,8 +1299,8 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		chance = (chance > 0) ? 
 			chance + 18 - get_curr_stat(ch, STAT_INT) : 0;
 		if (number_percent() < chance && !IS_NPC(ch)) {
-			act("$T was too powerful for you.",
-				ch, NULL, obj, TO_CHAR);
+			act("$P was too powerful for you.",
+			    ch, NULL, obj, TO_CHAR);
 			spellfun_call("hallucination", NULL, obj->level, ch,ch);
 		}
 	}

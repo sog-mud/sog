@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.41 2000-02-10 14:08:55 fjoe Exp $
+ * $Id: ban.c,v 1.42 2000-10-07 20:41:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -117,9 +117,11 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 	b_prev = NULL;
 	for (b = ban_list; b; b_prev = b, b = b->next) {
 		if (b->ban_num == ban_num) {
-			if (ch)
-				char_printf(ch, "do_ban: rule %d already exists.\n", ban_num);
-			else
+			if (ch) {
+				act_puts("do_ban: rule $j already exists.",
+					 ch, (const void *) ban_num, NULL,
+					 TO_CHAR | ACT_NOUCASE, POS_DEAD);
+			} else
 				log(LOG_INFO, "do_ban: rule %d already exists.\n", ban_num);
 			return;
 		}
@@ -142,7 +144,7 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch) {
-		char_printf(ch, "do_ban: rule added.\n");
+		act_char("do_ban: rule added.", ch);
 		log(LOG_INFO, "Log %s: ban add %s", ch->name, format_ban(bnew));
 		save_bans();
 	}
@@ -169,7 +171,9 @@ void ban_delete(CHAR_DATA *ch, const char *argument)
 			break;
 
 	if (!curr) {
-		char_printf(ch, "do_ban: rule %d not found.\n", ban_num);
+		act_puts("do_ban: rule $j not found.",
+			 ch, (const void *) ban_num, NULL,
+			 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 		return;
 	}
 
@@ -181,7 +185,9 @@ void ban_delete(CHAR_DATA *ch, const char *argument)
 	free_string(curr->ban_mask);
 	free(curr);
 
-	char_printf(ch, "do_ban: rule %d deleted.\n", ban_num);
+	act_puts("do_ban: rule $j deleted.",
+		 ch, (const void *) ban_num, NULL,
+		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	log(LOG_INFO, "Log %s: ban delete %d", ch->name, ban_num);
 	save_bans();
 }

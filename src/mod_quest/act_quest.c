@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.143 2000-10-07 18:15:02 fjoe Exp $
+ * $Id: act_quest.c,v 1.144 2000-10-07 20:41:09 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -261,7 +261,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 		if ((obj_index = get_obj_index(atoi(arg2))) == NULL) {
 			act_puts("do_chquest: $t: no object with that vnum.",
 				 ch, arg2, NULL,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 
@@ -278,7 +278,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 		if ((q = chquest_lookup(obj_index)) == NULL) {
 			act_puts("do_chquest: $t: no chquests with that vnum.",
 				 ch, arg2, NULL,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 
@@ -286,7 +286,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 			if (IS_RUNNING(q)) {
 				act_puts("do_chquest: quest vnum $j already running.",
 					 ch, (const void *) q->obj_index->vnum,
-					 NULL, TO_CHAR, POS_DEAD);
+					 NULL, TO_CHAR | ACT_NOUCASE, POS_DEAD);
 				return;
 			}
 			chquest_startq(q);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.29 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_rule.c,v 1.30 2000-10-07 20:41:08 fjoe Exp $
  */
 
 #include "olc.h"
@@ -300,16 +300,22 @@ OLC_FUN(ruleed_show)
 		}
 	}
 
-	char_printf(ch, "Name: [%s]\n", r->name);
-	char_printf(ch, "Lang: [%s]  Class: [%s]  Type: [%s]\n", l->name, flag_string(rulecl_names, rcl->rulecl), rops->id);
+	act_puts("Name: [$t]",
+		 ch, r->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	act_puts3("Lang: [$t]  Class: [$T]  Type: [$U]",
+		  ch, l->name, flag_string(rulecl_names, rcl->rulecl), rops->id,
+		  TO_CHAR | ACT_NOTRANS, POS_DEAD);
 
-	if (rops->id == ED_IMPL) 
-		char_printf(ch, "Arg:  [%d]\n", r->arg);
-	else {
+	if (rops->id == ED_IMPL) {
+		act_puts("Arg:  [$j]",
+			 ch, (const void *) r->arg, NULL, TO_CHAR, POS_DEAD);
+	} else {
 		char buf[MAX_STRING_LENGTH];
 
 		strnzncpy(buf, sizeof(buf), r->name, r->arg);
-		char_printf(ch, "Base: [%s] (%d)\n", buf, r->arg);
+		act_puts("Base: [$T] ($j)",
+			 ch, (const void *) r->arg, buf,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
 	for (i = 0; i < r->f->v.nused; i++) {
@@ -326,13 +332,17 @@ OLC_FUN(ruleed_show)
 			i2 = i;
 
 		if (!IS_NULLSTR(*p)) {
-			if (rops->id == ED_IMPL)
-				char_printf(ch, "Form: [%d] [%s]\n", i, *p);
-			else {
-				char_printf(ch, "Form: [%d] [%s] %s\n",
-					i, *p, word_form(r->name, i2,
-						varr_index(&langs, l),
-						rcl->rulecl));
+			if (rops->id == ED_IMPL) {
+				act_puts("Form: [$j] [$T]",
+					 ch, (const void *) i, *p,
+					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			} else {
+				act_puts3("Form: [$j] [$T] $U",
+					  ch, (const void *) i, *p,
+					  word_form(r->name, i2,
+						    varr_index(&langs, l),
+						    rcl->rulecl),
+					  TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			}
 		}
 	}

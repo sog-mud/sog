@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_spec.c,v 1.7 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_spec.c,v 1.8 2000-10-07 20:41:08 fjoe Exp $
  */
 
 #include "olc.h"
@@ -221,7 +221,9 @@ OLC_FUN(speced_skill)
 
 	if (!str_prefix(arg, "add")) {
 		if ((ssk = spec_skill_lookup(s, argument)) != NULL) {
-			char_printf(ch, "SpecEd: add skill: %s: already there.\n", ssk->sn);
+			act_puts("SpecEd: add skill: $t: already there.",
+				 ch, ssk->sn, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 		ssk = varr_enew(&s->spec_skills);
@@ -244,7 +246,8 @@ OLC_FUN(speced_skill)
 	ssk = varr_get(&s->spec_skills, num);
 
 	if (!ssk) {
-		char_printf(ch, "SpecEd: %d: no skill with such number.\n", num);
+		act_puts("SpecEd: $j: no skill with such number.",
+			 ch, (const void *) num, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
 

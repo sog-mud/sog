@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.27 2000-10-07 18:14:59 fjoe Exp $
+ * $Id: olc_lang.c,v 1.28 2000-10-07 20:41:07 fjoe Exp $
  */
 
 #include "olc.h"
@@ -179,15 +179,18 @@ OLC_FUN(langed_show)
 		l = VARR_GET(&langs, lang);
 	}
 
-	char_printf(ch, "Name:     [%s]\n", l->name);
-	char_printf(ch, "Filename: [%s]\n", l->file_name);
+	act_puts("Name:     [$t]",
+		 ch, l->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	act_puts("Filename: [$t]",
+		 ch, l->file_name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	if ((sl = varr_get(&langs, l->slang_of))) {
 		act_puts("Slang of: [$t]",
 			 ch, sl->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 	if (l->lang_flags) {
-		char_printf(ch, "Flags:    [%s]\n",
-			    flag_string(lang_flags, l->lang_flags)); 
+		act_puts("Flags:    [$t]",
+			 ch, flag_string(lang_flags, l->lang_flags), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD); 
 	}
 
 	for (i = 0; i < MAX_RULECL; i++) {
@@ -197,14 +200,18 @@ OLC_FUN(langed_show)
 		&&  IS_NULLSTR(rcl->file_impl))
 			continue;
 
-		char_printf(ch, "\nRule Class: [%s]\n"
-				"Expl file: [%s]\n" 
-				"Impl file: [%s]\n"
-				"Flags: [%s]\n",
-			    flag_string(rulecl_names, i),
-			    rcl->file_expl,
-			    rcl->file_impl,
-			    flag_string(rulecl_flags, rcl->rcl_flags));
+		act_puts("\nRule Class: [$t]",
+			 ch, flag_string(rulecl_names, i), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts("Expl file: [$t]",
+			 ch, rcl->file_expl, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts("Impl file: [$t]",
+			 ch, rcl->file_impl, NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts("Flags: [$t]",
+			 ch, flag_string(rulecl_flags, rcl->rcl_flags), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
 	return FALSE;
@@ -216,7 +223,9 @@ OLC_FUN(langed_list)
 
 	for (lang = 0; lang < langs.nused; lang++) {
 		lang_t *l = VARR_GET(&langs, lang);
-		char_printf(ch, "[%d] %s\n", lang, l->name);
+		act_puts("[$j] $T",
+			 ch, (const void *) lang, l->name,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
 	return FALSE;
@@ -281,7 +290,9 @@ OLC_FUN(langed_rulecl)
 static VALIDATE_FUN(validate_langname)
 {
 	if (lang_lookup(arg) >= 0) {
-		char_printf(ch, "%s: language already exists.\n", OLCED(ch)->name);
+		act_puts("$t: language already exists.",
+			 ch, OLCED(ch)->name, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 	return TRUE;

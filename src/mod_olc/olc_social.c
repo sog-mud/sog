@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.27 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_social.c,v 1.28 2000-10-07 20:41:08 fjoe Exp $
  */
 
 /* I never wanted to be
@@ -389,7 +389,9 @@ OLC_FUN(soced_move)
 	social_destroy(&nsoc);
 
 	ch->desc->pEdit	= soc;
-	char_printf(ch, "SocEd: '%s' moved to %d position.\n", soc->name, varr_index(&socials, soc));
+	act_puts("SocEd: '$T' moved to $j position.",
+		 ch, (const void *) varr_index(&socials, soc), soc->name,
+		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	return TRUE;
 }
 

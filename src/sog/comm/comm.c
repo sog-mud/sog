@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.232 2000-10-07 18:14:51 fjoe Exp $
+ * $Id: comm.c,v 1.233 2000-10-07 20:41:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1223,8 +1223,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 
 				if (IS_SET(ch->comm, COMM_PROMPT)) {
 					if (IS_SET(ch->comm, COMM_AFK)) 
-						char_printf(ch, "{c<AFK>{x %s",
-							    d->dvdata->prefix);
+						char_printf(ch, "{c<AFK>{x %s", d->dvdata->prefix);
 					else
 						bust_a_prompt(d);
 				}
@@ -1688,8 +1687,9 @@ static void print_hometown(CHAR_DATA *ch)
 
 	if ((htn = hometown_permanent(ch)) >= 0) {
 		PC(ch)->hometown = htn;
-		char_printf(ch, "\nYour hometown is %s, permanently.\n",
-			    hometown_name(htn));
+		act_puts("\nYour hometown is $t, permanently.",
+			 ch, hometown_name(htn), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		act_puts("[Hit Return to Continue]",
 			 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 
@@ -1916,7 +1916,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				act_puts("less than $j players. Please try "
 					 "again soon.",
 					 ch, (const void*) MAX_NEWBIES, NULL,
-					 TO_CHAR, POS_DEAD);
+					 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 				close_descriptor(d, SAVE_F_NONE);
 				return;
 			}
@@ -2004,8 +2004,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		switch (*argument) {
 		case 'y': case 'Y':
 			act_char("New character.", ch);
-			char_printf(ch, "Give me a password for %s: ",
-				    ch->name);
+			char_printf(ch, "Give me a password for %s: ", ch->name);
 			write_to_descriptor(d->descriptor, echo_off_str, 0);
 			d->connected = CON_GET_NEW_PASSWORD;
 			break;
@@ -2222,8 +2221,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		PC(ch)->hometown = htn; 
-		char_printf(ch, "\nNow your hometown is %s.\n",
-			    hometown_name(htn));
+		act_puts("\nNow your hometown is $t.",
+			 ch, hometown_name(htn), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		act_char("[Hit Return to continue]", ch);
 		ch->endur = 100;
 		d->connected = CON_GET_ETHOS;
@@ -2582,7 +2582,7 @@ void char_printf(CHAR_DATA *ch, const char *format, ...)
 
 	va_start(ap, format);
 	vsnprintf(buf, sizeof(buf), GETMSG(format, GET_LANG(ch)), ap);
-	va_end(ap);
+	va_end(ap);     
 	send_to_char(buf, ch);
 }
 

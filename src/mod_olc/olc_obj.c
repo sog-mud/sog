@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.86 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_obj.c,v 1.87 2000-10-07 20:41:07 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -574,7 +574,8 @@ OLC_FUN(objed_clone)
 
 	i = atoi(arg);
 	if ((pFrom = get_obj_index(i)) == NULL) {
-		char_printf(ch, "ObjEd: %d: Vnum does not exist.\n", i);
+		act_puts("ObjEd: $j: Vnum does not exist.",
+			 ch, (const void *) i, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
 

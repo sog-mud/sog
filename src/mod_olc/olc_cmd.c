@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.13 2000-10-07 18:14:59 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.14 2000-10-07 20:41:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -343,7 +343,9 @@ OLC_FUN(cmded_move)
 	cmnd->min_level		= ncmnd.min_level;
 	
 	ch->desc->pEdit	= cmnd;
-	char_printf(ch, "CmdEd: '%s' moved to %d position.\n", cmnd->name, varr_index(&commands, cmnd));
+	act_puts("CmdEd: '$T' moved to $j position.",
+		 ch, (const void *) varr_index(&commands, cmnd), cmnd->name,
+		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	return TRUE;
 }
 

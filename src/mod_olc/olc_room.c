@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.82 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_room.c,v 1.83 2000-10-07 20:41:08 fjoe Exp $
  */
 
 #include "olc.h"
@@ -450,7 +450,8 @@ OLC_FUN(roomed_clone)
 
 	i = atoi(arg);
 	if ((proto = get_room_index(i)) == NULL) {
-		char_printf(ch, "RoomEd: %d: Vnum does not exist.\n", i);
+		act_puts("RoomEd: $j: Vnum does not exist.",
+			 ch, (const void *) i, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
 
@@ -611,7 +612,9 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 			TOGGLE_BIT(pToRoom->exit[rev]->exit_info, value);
 		}
 
-		char_printf(ch, "Exit flag '%s' toggled.\n", flag_string(exit_flags, value));
+		act_puts("Exit flag '$t' toggled.",
+			 ch, flag_string(exit_flags, value), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return TRUE;
 	}
 
@@ -650,8 +653,12 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		bool ok;
 
 		if (argument[0] == '\0') {
-			char_printf(ch, "Syntax: %s name [string]\n", cmd->name);
-			char_printf(ch, "        %s name none\n", cmd->name);
+			act_puts("Syntax: $t name [string]",
+				 ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			act_puts("        $t name none",
+				 ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 
@@ -754,7 +761,9 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		char buf[MAX_INPUT_LENGTH];
 
 		if (arg[0] == '\0' || !is_number(arg)) {
-			char_printf(ch, "Syntax: %s dig <vnum>\n", cmd->name);
+			act_puts("Syntax: $t dig <vnum>",
+				 ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 		
@@ -767,7 +776,9 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 	if (!str_cmp(command, "room")) {
 		if (arg[0] == '\0' || !is_number(arg)) {
-			char_printf(ch, "Syntax: %s room [vnum]\n", cmd->name);
+			act_puts("Syntax: $t room [vnum]",
+				 ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 
@@ -792,7 +803,9 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		OBJ_INDEX_DATA *key;
 
 		if (arg[0] == '\0' || !is_number(arg)) {
-			char_printf(ch, "Syntax: %s key [vnum]\n", cmd->name);
+			act_puts("Syntax: $t key [vnum]",
+				 ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 
@@ -826,7 +839,9 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		}
 
 		if (!mlstr_append(ch, &pRoom->exit[door]->description, arg)) {
-			char_printf(ch, "Syntax: %s desc <lang>\n", cmd->name);
+			act_puts("Syntax: $t desc <lang>",
+				 ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 		return TRUE;
@@ -1068,7 +1083,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		if ((reset = reset_lookup(room, atoi(arg2))) == NULL) {
 			act_puts("$t: no resets with such num in this room.",
 				 ch, arg2, NULL,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;			
 		}
 
@@ -1096,7 +1111,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		if (get_mob_index(mob_vnum) == NULL) {
 			act_puts("$t: no mob with such vnum.",
 				 ch, arg2, NULL,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 
@@ -1131,7 +1146,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		if (get_obj_index(obj_vnum) == NULL) {
 			act_puts("$t: no obj with such vnum.",
 				 ch, arg2, NULL,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 
@@ -1160,13 +1175,17 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 			}
 
 			if ((obj_to = get_obj_index(after->arg1)) == NULL) {
-				char_printf(ch, "%d: no such obj.\n", after->arg1);
+				act_puts("$j: no such obj.",
+					 ch, (const void *) after->arg1, NULL,
+					 TO_CHAR, POS_DEAD);
 				return;
 			}
 
 			if (obj_to->item_type != ITEM_CONTAINER
 			&&  obj_to->item_type != ITEM_CORPSE_NPC) {
-				char_printf(ch, "obj vnum %d is not a container.\n", after->arg1);
+				act_puts("obj vnum $j is not a container.",
+					 ch, (const void *) after->arg1, NULL,
+					 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 				return;
 			}
 
@@ -1234,7 +1253,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		if (exit_num < 1 || exit_num >= MAX_DIR) {
 			act_puts("$t: Invalid argument.",
 				 ch, arg2, NULL,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 
@@ -1265,7 +1284,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		if ((reset = reset_lookup(room, atoi(arg2))) == NULL) {
 			act_puts("$t: no resets with such num in this room.",
 				 ch, arg1, NULL,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;			
 		}
 
@@ -1274,7 +1293,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		||  prob > 100) {
 			act_puts("$t: Invalid argument.",
 				 ch, arg3, NULL,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return;
 		}
 

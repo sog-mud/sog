@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.84 2000-10-07 18:14:59 fjoe Exp $
+ * $Id: olc_area.c,v 1.85 2000-10-07 20:41:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -416,7 +416,9 @@ VALIDATE_FUN(validate_security)
 	int sec = *(int*) arg;
 	if (sec > PC(ch)->security || sec < 0) {
 		if (PC(ch)->security != 0)
-			char_printf(ch, "AreaEd: Valid security range is 0..%d.\n", PC(ch)->security);
+			act_puts("AreaEd: Valid security range is 0..$j.",
+				 ch, (const void *) PC(ch)->security, NULL,
+				 TO_CHAR, POS_DEAD);
 		else
 			act_char("AreaEd: Valid security is 0 only.", ch);
 		return FALSE;

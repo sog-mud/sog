@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: name_edit.c,v 1.4 1999-12-16 12:24:52 fjoe Exp $
+ * $Id: name_edit.c,v 1.5 2000-10-07 20:41:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -135,23 +135,29 @@ bool name_edit(const char **nl, const char *name, int flags,
 			return found;
 
 		if (strlen(buf) + strlen(name) + 4 > MAX_STRING_LENGTH) {
-			if (ch)
-				char_printf(ch, "%s: name list too long\n",
-					    editor_name);
+			if (ch) {
+				act_puts("$t: name list too long",
+					 ch, editor_name, NULL,
+					 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+					 POS_DEAD);
+			}
 			return found;
 		}
 		cat_name(buf, name, sizeof(buf));
-		if (ch)
-			char_printf(ch, "%s: %s: name added.\n",
-				    editor_name, name);
-	}
-	else {
+		if (ch) {
+			act_puts("$t: $T: name added.",
+				 ch, editor_name, name,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		}
+	} else {
 		if (!IS_SET(flags, NE_F_DELETE))
 			return found;
 
-		if (ch)
-			char_printf(ch, "%s: %s: name removed.\n",
-				    editor_name, name);
+		if (ch) {
+			act_puts("$t: $T: name removed.",
+				 ch, editor_name, name,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		}
 	}
 
 	free_string(*nl);
@@ -177,17 +183,22 @@ bool name_toggle(const char **nl, const char *name,
 	if (!str_cmp(name, "all")) {
 		free_string(*nl);
 		*nl = str_dup(name);
-		if (ch)
-			char_printf(ch, "%s: name list set to ALL.\n",
-				    editor_name);
+		if (ch) {
+			act_puts("$t: name list set to ALL.",
+				 ch, editor_name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		}
 		return TRUE;
 	}
 
 	if (!str_cmp(name, "none")) {
 		free_string(*nl);
 		*nl = str_empty;
-		if (ch)
-			char_printf(ch, "%s: name list reset.\n", editor_name);
+		if (ch) {
+			act_puts("$t: name list reset.",
+				 ch, editor_name, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		}
 		return TRUE;
 	}
 

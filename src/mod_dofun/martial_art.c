@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.166 2000-10-05 14:51:28 fjoe Exp $
+ * $Id: martial_art.c,v 1.167 2000-10-07 20:41:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -446,7 +446,9 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			if (ch->level < LEVEL_HERO) {
 				int exp = FLEE_EXP(ch);
-				char_printf(ch, "You lose %d exps.\n", exp);
+				act_puts("You lose $j exp.",
+					 ch, (const void *) exp, NULL,
+					 TO_CHAR, POS_DEAD);
 				gain_exp(ch, -exp);
 			}
 		} else {
@@ -4706,7 +4708,9 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 			act_char("You dishonored yourself and flee from combat.",ch);
 			if (ch->level < LEVEL_HERO) {
 				int exp = FLEE_EXP(ch) * 3;
-				char_printf(ch, "You lose %d exps.\n", exp);
+				act_puts("You lose $j exp.",
+					 ch, (const void *) exp, NULL,
+					 TO_CHAR, POS_DEAD);
 				gain_exp(ch, -exp);
 			}
 		}

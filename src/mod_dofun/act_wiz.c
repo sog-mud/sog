@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.254 2000-10-07 18:14:55 fjoe Exp $
+ * $Id: act_wiz.c,v 1.255 2000-10-07 20:41:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -759,7 +759,8 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
 		if (IS_TRUSTED(rch, ch->invis_level)) {
 			if (!IS_NPC(ch) && PC(ch)->bamfout[0] != '\0')
-				act("$t", ch, PC(ch)->bamfout, rch, TO_VICT);
+				act("$t", ch, PC(ch)->bamfout, rch,
+				    TO_VICT | ACT_NOUCASE);
 			else {
 				act("$n leaves in a swirling mist.",
 				    ch, NULL, rch, TO_VICT);
@@ -774,7 +775,8 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 	for (rch = location->people; rch; rch = rch->next_in_room) {
 		if (IS_TRUSTED(rch, ch->invis_level)) {
 			if (!IS_NPC(ch) && PC(ch)->bamfin[0])
-				act("$t", ch, PC(ch)->bamfin, rch, TO_VICT);
+				act("$t", ch, PC(ch)->bamfin, rch,
+				    TO_VICT | ACT_NOUCASE);
 			else {
 				act("$n appears in a swirling mist.",
 				    ch, NULL, rch, TO_VICT);
@@ -4337,22 +4339,25 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	extern int dvdata_count;
 	extern int dvdata_real_count;
 
-	char_printf(ch, "Affects  : %d (%d bytes)\n",
+	BUFFER *buf;
+
+	buf = buf_new(-1);
+	buf_printf(buf, BUF_END, "Affects  : %d (%d bytes)\n",
 		    top_affect, top_affect * sizeof(AFFECT_DATA));
-	char_printf(ch, "Areas    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Areas    : %d (%d bytes)\n",
 		    top_area, top_area * sizeof(AREA_DATA));
-	char_printf(ch, "ExDes    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "ExDes    : %d (%d bytes)\n",
 		    top_ed, top_ed * sizeof(ED_DATA));
-	char_printf(ch, "Exits    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Exits    : %d (%d bytes)\n",
 		    top_exit, top_exit * sizeof(EXIT_DATA));
-	char_printf(ch, "Helps    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Helps    : %d (%d bytes)\n",
 		    top_help, top_help * sizeof(HELP_DATA));
-	char_printf(ch, "Socials  : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Socials  : %d (%d bytes)\n",
 		    socials.nused, socials.nused * sizeof(social_t));
-	char_printf(ch, "Mob idx  : %d (%d bytes, max vnum %d)\n",
+	buf_printf(buf, BUF_END, "Mob idx  : %d (%d bytes, max vnum %d)\n",
 		    top_mob_index, top_mob_index * sizeof(MOB_INDEX_DATA),
 		    top_vnum_mob); 
-	char_printf(ch, "Mobs     : %d (%d (%d) bytes), "
+	buf_printf(buf, BUF_END, "Mobs     : %d (%d (%d) bytes), "
 			"%d free (%d (%d) bytes)\n",
 		    npc_count,
 		    npc_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA)),
@@ -4362,7 +4367,7 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 		    npc_free_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA)),
 		    npc_free_count * (sizeof(CHAR_DATA) + sizeof(NPC_DATA) +
 				      sizeof(memchunk_t)));
-	char_printf(ch, "Players  : %d (%d (%d) bytes), "
+	buf_printf(buf, BUF_END, "Players  : %d (%d (%d) bytes), "
 			"%d free (%d (%d) bytes)\n",
 		    pc_count,
 		    pc_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA)),
@@ -4372,26 +4377,26 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 		    pc_free_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA)),
 		    pc_free_count * (sizeof(CHAR_DATA) + sizeof(PC_DATA) +
 				      sizeof(memchunk_t)));
-	char_printf(ch, "Obj idx  : %d (%d bytes, max vnum %d)\n",
+	buf_printf(buf, BUF_END, "Obj idx  : %d (%d bytes, max vnum %d)\n",
 		    top_obj_index, top_obj_index * sizeof(OBJ_INDEX_DATA),
 		    top_vnum_obj); 
-	char_printf(ch, "Objs     : %d (%d (%d) bytes, %d free)\n",
+	buf_printf(buf, BUF_END, "Objs     : %d (%d (%d) bytes, %d free)\n",
 		    obj_count,
 		    obj_count * sizeof(OBJ_DATA),
 		    obj_count * (sizeof(OBJ_DATA) + sizeof(memchunk_t)),
 		    obj_free_count);
-	char_printf(ch, "Resets   : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Resets   : %d (%d bytes)\n",
 		    top_reset, top_reset * sizeof(RESET_DATA));
-	char_printf(ch, "Rooms    : %d (%d (%d) bytes, max vnum %d)\n",
+	buf_printf(buf, BUF_END, "Rooms    : %d (%d (%d) bytes, max vnum %d)\n",
 		    top_room,
 		    top_room * sizeof(ROOM_INDEX_DATA),
 		    top_room * (sizeof(ROOM_INDEX_DATA) + sizeof(memchunk_t)),
 		    top_vnum_room);
-	char_printf(ch, "Shops    : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Shops    : %d (%d bytes)\n",
 		    top_shop, top_shop * sizeof(SHOP_DATA));
-	char_printf(ch, "Buffers  : %d (%d bytes)\n",
+	buf_printf(buf, BUF_END, "Buffers  : %d (%d bytes)\n",
 					nAllocBuf, sAllocBuf);
-	char_printf(ch,
+	buf_printf(buf, BUF_END,
 #if STR_ALLOC_MEM
 		    "strings  : %d (%d allocated, %d bytes)\n",
 #else
@@ -4402,9 +4407,11 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 		    str_alloc_mem
 #endif
 		    );
-	char_printf(ch, "dvdata   : %d (%d allocated, %d bytes)\n",
+	buf_printf(buf, BUF_END, "dvdata   : %d (%d allocated, %d bytes)\n",
 		    dvdata_count, dvdata_real_count,
 		    dvdata_real_count * sizeof(dvdata_t));
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 }
 
 void do_dump(CHAR_DATA *ch, const char *argument)

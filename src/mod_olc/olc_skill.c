@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.17 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_skill.c,v 1.18 2000-10-07 20:41:08 fjoe Exp $
  */
 
 #include "olc.h"
@@ -444,12 +444,16 @@ OLC_FUN(skilled_event)
 		 */
 
 		if (ev == NULL) {
-			char_printf(ch, "SkillEd: %s: event not found.\n", flag_string(events_classes, event));
+			act_puts("SkillEd: $t: event not found.",
+				 ch, flag_string(events_classes, event), NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 
 		varr_edelete(&sk->events, ev);
-		char_printf(ch, "SkillEd: %s: event deleted.\n", flag_string(events_classes, event));
+		act_puts("SkillEd: $t: event deleted.",
+			 ch, flag_string(events_classes, event), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return TRUE;
 	}
 
@@ -463,7 +467,9 @@ OLC_FUN(skilled_event)
 		ev = varr_enew(&sk->events);
 		ev->event = event;
 	} else {
-		char_printf(ch, "SkillEd: %s: changing existing event, events module should be reloaded.\n", flag_string(events_classes, event));
+		act_puts("SkillEd: $t: changing existing event, events module should be reloaded.",
+			 ch, flag_string(events_classes, event), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}
 
 	free_string(ev->fun_name);

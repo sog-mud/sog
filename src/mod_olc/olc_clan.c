@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.43 2000-10-07 18:14:59 fjoe Exp $
+ * $Id: olc_clan.c,v 1.44 2000-10-07 20:41:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -293,7 +293,9 @@ OLC_FUN(claned_plist)
 		return claned_plist(ch, str_empty, cmd);
 
 	if (arg2[0] == '\0') {
-		char_printf(ch, "List of %s of %s: [%s]\n", name, clan->name, *nl);
+		act_puts3("List of $t of $T: [$U]",
+			  ch, name, clan->name, *nl,
+			  TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 			    

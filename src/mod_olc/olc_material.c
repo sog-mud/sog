@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.16 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_material.c,v 1.17 2000-10-07 20:41:07 fjoe Exp $
  */
 
 #include "olc.h"
@@ -191,12 +191,21 @@ OLC_FUN(mated_show)
 	
 	act_puts("Name [$t]",
 		 ch, mat->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-	if (mat->float_time)
-		char_printf(ch, "Float [%d]\n", mat->float_time);
-	if (mat->dam_class != DAM_NONE)
-		char_printf(ch, "Damage class [%s]\n", flag_string(dam_classes, mat->dam_class));
-	if (mat->mat_flags)
-		char_printf(ch, "Flags [%s]\n", flag_string(material_flags, mat->mat_flags));
+	if (mat->float_time) {
+		act_puts("Float [$j]",
+			 ch, (const void *) mat->float_time, NULL,
+			 TO_CHAR, POS_DEAD);
+	}
+	if (mat->dam_class != DAM_NONE) {
+		act_puts("Damage class [$t]",
+			 ch, flag_string(dam_classes, mat->dam_class),
+			 NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	}
+	if (mat->mat_flags) {
+		act_puts("Flags [$t]",
+			 ch, flag_string(material_flags, mat->mat_flags), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+	}
 	return FALSE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.213 2000-10-07 18:14:54 fjoe Exp $
+ * $Id: act_comm.c,v 1.214 2000-10-07 20:41:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -117,29 +117,29 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 	act_char("---------------------", ch);
 	act_puts("music          $t",
 		 ch, !IS_SET(ch->chan, CHAN_NOMUSIC) ? "ON" : "OFF", NULL,
-		 TO_CHAR, POS_DEAD);
+		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	act_puts("shout          $t",
 		 ch, !IS_SET(ch->chan, CHAN_NOSHOUT) ? "ON" : "OFF", NULL,
-		 TO_CHAR, POS_DEAD);
+		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	act_puts("auction        $t",
 		 ch, !IS_SET(ch->chan, CHAN_NOAUCTION) ? "ON" : "OFF", NULL,
-		 TO_CHAR, POS_DEAD);
+		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	if (IS_IMMORTAL(ch)) {
 		act_puts("god channel    $t",
 			 ch, !IS_SET(ch->chan, CHAN_NOWIZ) ? "ON" : "OFF", NULL,
-			 TO_CHAR, POS_DEAD);
+			 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	}
 	act_puts("tells          $t",
 		 ch, !IS_SET(ch->chan, COMM_DEAF) ? "ON" : "OFF", NULL,
-		 TO_CHAR, POS_DEAD);
+		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	if (!IS_NPC(ch)) {
 		act_puts("hints           $t",
 			 ch, flag_string(hint_levels, PC(ch)->hints_level), NULL,
-			 TO_CHAR, POS_DEAD);
+			 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	}
 	act_puts("quiet mode     $t",
 		 ch, IS_SET(ch->comm, COMM_QUIET) ? "ON" : "OFF", NULL,
-		 TO_CHAR, POS_DEAD);
+		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 
 	if (IS_SET(ch->comm, COMM_SNOOP_PROOF))
 		act_char("You are immune to snooping.", ch);

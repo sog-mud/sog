@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.69 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_mob.c,v 1.70 2000-10-07 20:41:07 fjoe Exp $
  */
 
 #include "olc.h"
@@ -666,7 +666,9 @@ OLC_FUN(mobed_shop)
 		}
 
 		if ((num = atoi(arg1)) >= MAX_TRADE) {
-			char_printf(ch, "MobEd:  May sell %d items max.\n", MAX_TRADE);
+			act_puts("MobEd: May sell $j items max.",
+				 ch, (const void *) MAX_TRADE, NULL,
+				 TO_CHAR, POS_DEAD);
 			return FALSE;
 		}
 
@@ -677,7 +679,9 @@ OLC_FUN(mobed_shop)
 
 		if (!str_cmp(argument, "none")) {
 			pMob->pShop->buy_type[num] = 0;
-			char_printf(ch, "Shop type %d reset.\n", num);
+			act_puts("Shop type $j reset.",
+				 ch, (const void *) num, NULL,
+				 TO_CHAR, POS_DEAD);
 			return TRUE;
 		}
 
@@ -1187,7 +1191,8 @@ OLC_FUN(mobed_clone)
 
 	i = atoi(arg);
 	if ((pFrom = get_mob_index(i)) == NULL) {
-		char_printf(ch, "MobEd: %d: Vnum does not exist.\n", i);
+		act_puts("MobEd: $j: Vnum does not exist.",
+			 ch, (const void *) i, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
 
@@ -1408,7 +1413,8 @@ VALIDATE_FUN(validate_fvnum)
 	int fvnum = *(int*) arg;
 
 	if (!get_mob_index(fvnum)) {
-		char_printf(ch, "MobEd: %d: no such vnum.\n", fvnum);
+		act_puts("MobEd: $j: no such vnum.",
+			 ch, (const void *) fvnum, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
 

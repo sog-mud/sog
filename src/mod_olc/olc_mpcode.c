@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.30 2000-10-07 18:15:00 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.31 2000-10-07 20:41:07 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -136,9 +136,11 @@ OLC_FUN(mped_show)
 		}
 	}
 
-	char_printf(ch, "Vnum: [%d]\n", mpcode->vnum);
+	act_puts("Vnum: [$j]",
+		 ch, (const void *) mpcode->vnum, NULL, TO_CHAR, POS_DEAD);
 	act_char("Code:", ch);
-	char_printf(ch, "%s\n", mpcode->code);
+	act_puts("$t", ch, mpcode->code, NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 
 	return FALSE;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.41 2000-10-04 20:28:53 fjoe Exp $
+ * $Id: string_edit.c,v 1.42 2000-10-07 20:41:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -147,8 +147,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 * show string
 		 */
 		if (!str_cscmp(arg1+1, "s")) {
-			char_printf(ch, "String so far:\n%s",
-				    numlines(*ch->desc->pString));
+			act_char("String so far:\n", ch);
+			send_to_char(numlines(*ch->desc->pString), ch);
 			return;
 		}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.24 2000-10-07 18:14:59 fjoe Exp $
+ * $Id: olc_class.c,v 1.25 2000-10-07 20:41:06 fjoe Exp $
  */
 
 #include "olc.h"
@@ -551,13 +551,16 @@ OLC_FUN(classed_guilds)
 		argument = one_argument(argument, arg, sizeof(arg));
 		vnum = atoi(arg);
 		if ((room = get_room_index(vnum)) == NULL) {
-			char_printf(ch, "ClassEd: %d: no such room.\n", vnum);
+			act_puts("ClassEd: $j: no such room.",
+				 ch, (const void *) vnum, NULL,
+				 TO_CHAR, POS_DEAD);
 			return FALSE;
 		}
 
 		if (varr_bsearch(&class->guilds, &vnum, cmpint)) {
-			char_printf(ch, "ClassEd: %d: already in list.\n",
-				    vnum);
+			act_puts("ClassEd: $j: already in list.",
+				 ch, (const void *) vnum, NULL,
+				 TO_CHAR, POS_DEAD);
 			return FALSE;
 		}
 
@@ -575,7 +578,9 @@ OLC_FUN(classed_guilds)
 		vnum = atoi(arg);
 		pvnum = varr_bsearch(&class->guilds, &vnum, cmpint);
 		if (pvnum == NULL) {
-			char_printf(ch, "ClassEd: %d: not in list.\n", vnum);
+			act_puts("ClassEd: $j: not in list.",
+				 ch, (const void *) vnum, NULL,
+				 TO_CHAR, POS_DEAD);
 			return FALSE;
 		}
 

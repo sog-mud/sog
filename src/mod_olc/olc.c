@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.120 2000-10-07 18:14:59 fjoe Exp $
+ * $Id: olc.c,v 1.121 2000-10-07 20:41:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -246,7 +246,7 @@ bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2)
 		&&  (!edit2 || d->pEdit2 == edit2)) {
 			act_puts("$t: $T is locking this editor right now.",
 				 ch, d->olced->name, vch->name,
-				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return TRUE;
 		}
 	}
@@ -295,7 +295,9 @@ OLC_FUN(olced_strkey)
 
 	o = (olced_strkey_t *) cmd->arg1;
 	if ((q = hash_insert(o->h, arg, ch->desc->pEdit)) == NULL) {
-		char_printf(ch, "%s: %s: duplicate name.\n", OLCED(ch)->name, arg);
+		act_puts("$t: $T: duplicate name.",
+			 ch, OLCED(ch)->name, arg,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
@@ -310,7 +312,9 @@ OLC_FUN(olced_strkey)
 	hash_delete(o->h, old_key);
 	ch->desc->pEdit = hash_lookup(o->h, arg);
 	if (ch->desc->pEdit == NULL) {
-		char_printf(ch, "%s: %s: not found.\n", OLCED(ch)->name, arg);
+		act_puts("$t: $T: not found.",
+			 ch, OLCED(ch)->name, arg,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		edit_done(ch->desc);
 		return FALSE;
 	}
@@ -338,7 +342,9 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 	if (!str_cmp(langname, "all"))
 		lang = -1;
 	else if ((lang = lang_lookup(langname)) < 0) {
-		char_printf(ch, "%s: %s: unknown language\n", OLCED(ch)->name, langname);
+		act_puts("$t: $T: unknown language",
+			 ch, OLCED(ch)->name, langname,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
@@ -372,7 +378,9 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 		}
 
 		if ((q = hash_insert(o->h, argument, q)) == NULL) {
-			char_printf(ch, "%s: %s: duplicate name.\n", OLCED(ch)->name, argument);
+			act_puts("$t: $T: duplicate name.",
+				 ch, OLCED(ch)->name, argument,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 	}
@@ -393,7 +401,9 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 		hash_delete(o->h, old_key);
 		ch->desc->pEdit = hash_lookup(o->h, argument);
 		if (ch->desc->pEdit == NULL) {
-			char_printf(ch, "%s: %s: not found.\n", OLCED(ch)->name, langname);
+			act_puts("$t: $T: not found.",
+				 ch, OLCED(ch)->name, langname,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			edit_done(ch->desc);
 			return FALSE;
 		}
@@ -452,7 +462,9 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 	changed = FALSE;
 	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
 		if (!str_cmp(arg, "all")) {
-			char_printf(ch, "%s: %s: Illegal name.\n", OLCED(ch)->name, arg);
+			act_puts("$t: $T: Illegal name.",
+				 ch, OLCED(ch)->name, arg,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			continue;
 		}
 		changed = TRUE;
@@ -469,7 +481,8 @@ bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
 	void *p;
 
 	if (IS_NULLSTR(argument)) {
-		char_printf(ch, "Syntax: %s <name>\n", cmd->name);
+		act_puts("Syntax: $t <name>",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		act_puts("Use '$t ?' for list of valid $Ts.",
 			 ch, cmd->name, cmd->name,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -514,10 +527,14 @@ bool olced_foreign_mlstrkey(CHAR_DATA *ch, const char *argument,
 	void *p;
 
 	if (IS_NULLSTR(argument)) {
-		char_printf(ch, "Syntax: %s <name>\n", cmd->name);
-		char_printf(ch, "Use '%s ?' for list of valid %ss.\n", cmd->name, cmd->name);
+		act_puts("Syntax: $t <name>",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+		act_puts("Use '$t ?' for list of valid $Ts.",
+			 ch, cmd->name, cmd->name,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		act_puts("Use '$t none' to reset $T.",
-			 ch, cmd->name, cmd->name, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, cmd->name, cmd->name,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -635,7 +652,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 	if (!str_cmp(command, "add")) {
 		if (ed_lookup(keyword, *ped) != NULL) {
-			char_printf(ch, "%s: %s: exd keyword already exists.\n", OLCED(ch)->name, keyword);
+			act_puts("$t: $T: exd keyword already exists.",
+				 ch, OLCED(ch)->name, keyword,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 
@@ -659,7 +678,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
+			act_puts("$t: $T: exd keyword not found.",
+				 ch, OLCED(ch)->name, keyword,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 
@@ -671,8 +692,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 			if (!str_cmp(arg, "none")
 			||  !str_cmp(arg, "all")) {
-				char_printf(ch, "%s: %s: Illegal keyword.\n",
-					    OLCED(ch)->name, arg);
+				act_puts("$t: $T: Illegal keyword.",
+					 ch, OLCED(ch)->name, arg,
+					 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 				continue;
 			}
 
@@ -686,7 +708,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	if (!str_cmp(command, "edit")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
+			act_puts("$t: $T: exd keyword not found.",
+				 ch, OLCED(ch)->name, keyword,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 
@@ -710,7 +734,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 		}
 
 		if (ed == NULL) {
-			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
+			act_puts("$t: $T: exd keyword not found.",
+				 ch, OLCED(ch)->name, keyword,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 
@@ -731,7 +757,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
+			act_puts("$t: $T: exd keyword not found.",
+				 ch, OLCED(ch)->name, keyword,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 
@@ -746,7 +774,9 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	if (!str_cmp(command, "format")) {
 		ed = ed_lookup(keyword, *ped);
 		if (ed == NULL) {
-			char_printf(ch, "%s: %s: exd keyword not found.\n", OLCED(ch)->name, keyword);
+			act_puts("$t: $T: exd keyword not found.",
+				 ch, OLCED(ch)->name, keyword,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 
@@ -767,7 +797,9 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 	const char *tname;
 
 	if (!cmd->arg1) {
-		char_printf(ch, "%s: %s: Table of values undefined (report it to implementors).\n", OLCED(ch)->name, cmd->name);
+		act_puts("$t: $T: Table of values undefined (report it to implementors).",
+			 ch, OLCED(ch)->name, cmd->name,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
@@ -798,12 +830,18 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 				break;
 	
 			if ((f = flag_lookup(cmd->arg1, word)) == NULL) {
-				char_printf(ch, "Syntax: %s <flag(s)>\n", cmd->name);
-				char_printf(ch, "Type '%s ?' for a list of acceptable flags.\n", cmd->name);
+				act_puts("Syntax: $t <flag(s)>",
+					 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				act_puts("Type '$t ?' for a list of acceptable flags.",
+					 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 				return FALSE;
 			}
 			if (!f->settable) {
-				char_printf(ch, "%s: %s: '%s': flag is not settable.\n", OLCED(ch)->name, cmd->name, f->name);
+				act_puts3("$t: $T: '$U': flag is not settable.",
+					  ch, OLCED(ch)->name, cmd->name,
+					  f->name,
+					  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+					  POS_DEAD);
 				continue;
 			}
 			SET_BIT(marked, f->bit);
@@ -814,10 +852,18 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 			flag_t freset = *pflag & marked;
 			TOGGLE_BIT(*pflag, marked);
 			if (fset) {
-				char_printf(ch, "%s: %s: '%s': flag(s) set.\n", OLCED(ch)->name, cmd->name, flag_string(cmd->arg1, fset));
+				act_puts3("$t: $T: '$U': flag(s) set.",
+					  ch, OLCED(ch)->name, cmd->name,
+					  flag_string(cmd->arg1, fset),
+					  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+					  POS_DEAD);
 			}
 			if (freset) {
-				char_printf(ch, "%s: %s: '%s': flag(s) reset.\n", OLCED(ch)->name, cmd->name, flag_string(cmd->arg1, freset));
+				act_puts3("$t: $T: '$U': flag(s) reset.",
+					  ch, OLCED(ch)->name, cmd->name,
+					  flag_string(cmd->arg1, freset),
+					  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+					  POS_DEAD);
 			}
 			return TRUE;
 		}
@@ -828,16 +874,23 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 
 	case TABLE_INTVAL:
 		if ((f = flag_lookup(cmd->arg1, argument)) == NULL) {
-			char_printf(ch, "Syntax: %s <value>\n", cmd->name);
-			char_printf(ch, "Type '%s ?' for a list of acceptable values.\n", cmd->name);
+			act_puts("Syntax: $t <value>",
+				 ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			act_puts("Type '$t ?' for a list of acceptable values.",				 ch, cmd->name, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
 		if (!f->settable) {
-			char_printf(ch, "%s: %s: '%s': value is not settable.\n", OLCED(ch)->name, cmd->name, f->name);
+			act_puts3("$t: $T: '$U': value is not settable.",
+				  ch, OLCED(ch)->name, cmd->name, f->name,
+				  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 		*pflag = f->bit;
-		char_printf(ch, "%s: %s: '%s': Ok.\n", OLCED(ch)->name, cmd->name, f->name);
+		act_puts3("$t: $T: '$U': Ok.",
+			  ch, OLCED(ch)->name, cmd->name, f->name,
+			  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return TRUE;
 		/* NOT REACHED */
 
@@ -896,7 +949,9 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 		OLC_ERROR("'OLC RULECLASS'");
 
 	if ((rulecl = flag_value(rulecl_names, arg)) < 0) {
-		char_printf(ch, "%s: %s: unknown rule class\n", OLCED(ch)->name, arg);
+		act_puts("$t: $T: unknown rule class",
+			 ch, OLCED(ch)->name, arg,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
@@ -1001,7 +1056,9 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	cc_expr_t *e;
 
 	if ((ecl = cc_eclass_lookup(ecn)) == NULL) {
-		char_printf(ch, "%s: %s: unknown eclass.\n", OLCED(ch)->name, ecn);
+		act_puts("$t: $T: unknown eclass.",
+			 ch, OLCED(ch)->name, ecn,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
@@ -1028,7 +1085,9 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		num = atoi(arg);
 		e = varr_get(v, num);
 		if (e == NULL) {
-			char_printf(ch, "%s: %s: no expr with number '%s'.\n", OLCED(ch)->name, cmd->name, arg);
+			act_puts3("$t: $T: no expr with number '$U'.",
+				  ch, OLCED(ch)->name, cmd->name, arg,
+				  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 			return FALSE;
 		}
 
@@ -1037,11 +1096,16 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		 */
 		if (del) {
 			varr_edelete(v, e);
-			char_printf(ch, "%s: %s: expr deleted.\n", OLCED(ch)->name, cmd->name);
+			act_puts("$t: $T: expr deleted.",
+				 ch, OLCED(ch)->name, cmd->name,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		} else {
 			one_argument(argument, arg, sizeof(arg));
 			if (cc_efun_lookup(ecl, arg) == NULL) {
-				char_printf(ch, "%s: %s: no such efun in eclass '%s'.\n", OLCED(ch)->name, cmd->name, arg);
+				act_puts3("$t: $T: no such efun in eclass '$U'.",
+					  ch, OLCED(ch)->name, cmd->name, arg,
+					  TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+					  POS_DEAD);
 				return FALSE;
 			}
 
@@ -1057,7 +1121,9 @@ olced_cc_vexpr(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 		e = varr_enew(v);
 		e->expr = str_dup(argument);
-		char_printf(ch, "%s: %s: expr added.\n", OLCED(ch)->name, cmd->name);
+		act_puts("$t: $T: expr added.",
+			 ch, OLCED(ch)->name, cmd->name,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	}
 
 	olced_cc_vexpr(ch, "show", cmd, v, ecn);
@@ -1110,7 +1176,10 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		}
 
 		if ((w = where_lookup(where)) == NULL) {
-			char_printf(ch, "%s: not in where_table.\n", flag_string(affect_where_types, where));
+			act_puts("$t: not in where_table.",
+				 ch, flag_string(affect_where_types, where),
+				 NULL, TO_CHAR | ACT_NOTRANS | ACT_NOUCASE,
+				 POS_DEAD);
 			return FALSE;
 		}
 		loctbl = w->loc_table;
@@ -1176,7 +1245,9 @@ olced_addaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	if (w
 	&&  argument[0] != '\0'
 	&&  (bitvector = flag_value(w->bit_table, argument)) == 0) {
-		char_printf(ch, "Valid '%s' bitaffect flags are:\n", flag_string(affect_where_types, where));
+		act_puts("Valid '$t' bitaffect flags are:",
+			 ch, flag_string(affect_where_types, where), NULL,
+			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		show_flags(ch, w->bit_table);
 		return FALSE;
 	}
@@ -1220,7 +1291,9 @@ olced_delaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 	}
 
 	if ((num = atoi(arg)) < 0) {
-		char_printf(ch, "%s: affect number should be > 0.\n", OLCED(ch)->name);
+		act_puts("$t: affect number should be > 0.",
+			 ch, OLCED(ch)->name, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
@@ -1228,7 +1301,9 @@ olced_delaffect(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 		;
 
 	if (paf == NULL) {
-		char_printf(ch, "%s: affect %d not found.\n", OLCED(ch)->name, atoi(arg));
+		act_puts("$T: affect $j not found.",
+			 ch, (const void *) atoi(arg), OLCED(ch)->name,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 
@@ -1251,7 +1326,8 @@ olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0') {
-		char_printf(ch, "Syntax: %s <damclass> <number>\n", cmd->name);
+		act_puts("Syntax: $t <damclass> <number>",
+			 ch, cmd->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 	
@@ -1268,7 +1344,9 @@ olced_resists(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd,
 VALIDATE_FUN(validate_filename)
 {
 	if (strpbrk(arg, "/")) {
-		char_printf(ch, "%s: Invalid characters in file name.\n", OLCED(ch)->name);
+		act_puts("$t: Invalid characters in file name.",
+			 ch, OLCED(ch)->name, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 	return TRUE;
@@ -1279,7 +1357,8 @@ VALIDATE_FUN(validate_room_vnum)
 	int vnum = *(int*) arg;
 
 	if (vnum && get_room_index(vnum) == NULL) {
-		char_printf(ch, "OLC: %d: no such room.\n", vnum);
+		act_puts("OLC: $j: no such room.",
+			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
 
@@ -1298,7 +1377,9 @@ VALIDATE_FUN(validate_funname)
 	const char *name = (const char*) arg;
 
 	if (strpbrk(name, " \t")) {
-		char_printf(ch, "%s: %s: illegal character in command name.\n", OLCED(ch)->name, name);
+		act_puts("$t: $T: illegal character in command name.",
+			 ch, OLCED(ch)->name, name,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;
 	}
 	return TRUE;
@@ -1404,9 +1485,10 @@ void olc_printf(CHAR_DATA *ch, const char *format, ...)
 	vsnprintf(buf, sizeof(buf), format, ap);
 	va_end(ap);
 
-	if (ch)
-		act_puts("$t", ch, buf, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-	else
+	if (ch) {
+		act_puts("$t", ch, buf, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+	} else
 		log(LOG_INFO, buf);
 	wiznet("$t", ch, buf, WIZ_OLC, 0, 0);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.243 2000-10-04 20:28:45 fjoe Exp $
+ * $Id: act_move.c,v 1.244 2000-10-07 20:41:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1495,8 +1495,9 @@ void do_train(CHAR_DATA *ch, const char *argument)
 
 	pc = PC(ch);
 	if (argument[0] == '\0') {
-		char_printf(ch, "You have %d training sessions.\n",
-			    pc->train);
+		act_puts("You have $j training sessions.",
+			 ch, (const void *) pc->train, NULL,
+			 TO_CHAR, POS_DEAD);
 		argument = "foo";
 	}
 
@@ -1535,7 +1536,8 @@ void do_train(CHAR_DATA *ch, const char *argument)
 			 	" cha" : str_empty);
 
 		if (buf[strlen(buf)-1] != ':')
-			char_printf(ch, "%s.\n", buf);
+			act_puts("$t.", ch, buf, NULL,
+				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		else {
 			act("You have nothing left to train!",
 			    ch, NULL, NULL, TO_CHAR);
@@ -2516,11 +2518,12 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		if (ch->level < LEVEL_HERO) {
 			int exp = FLEE_EXP(ch);
-			char_printf(ch, "You lose %d exps.\n", exp);
+			act_puts("You lose $j exp.",
+				 ch, (const void *) exp, NULL,
+				 TO_CHAR, POS_DEAD);
 			gain_exp(ch, -exp);
 		}
-	}
-	else {
+	} else {
 		/* Once fled, the mob will not go after */
 		NPC(ch)->last_fought = NULL;
 	}
