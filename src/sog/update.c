@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.41 2002-01-03 21:33:42 tatyana Exp $
+ * $Id: update.c,v 1.157.2.42 2002-01-04 10:56:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1314,11 +1314,16 @@ void char_update(void)
 			}
 			else if (paf->duration == 0) {
 				skill_t *sk;
+				bool was_witch_curse;
 
-				if (paf->type == sn_lookup("bone dragon") &&
-				    IS_NPC(ch) && ch->master)
+				was_witch_curse = paf->type == gsn_witch_curse;
+
+				if (paf->type == sn_lookup("bone dragon")
+				&&  IS_NPC(ch)
+				&&  ch->master) {
 					act("You feel it is time to feed your dragon!",
-						ch->master, NULL, NULL, TO_CHAR);
+					    ch->master, NULL, NULL, TO_CHAR);
+				}
 
 				if ((paf->type == gsn_charm_person ||
 				     paf->type == sn_lookup("attract other") ||
@@ -1334,11 +1339,17 @@ void char_update(void)
 				     paf_next->duration > 0)
 				&&  paf->type > 0
 				&&  (sk = skill_lookup(paf->type))
-				&&  !IS_NULLSTR(sk->msg_off)) 
+				&&  !IS_NULLSTR(sk->msg_off)) {
 					act_puts(sk->msg_off, ch, NULL, NULL,
 						 TO_CHAR, POS_DEAD);
+				}
 
 				affect_remove(ch, paf);
+
+				if (was_witch_curse && IS_NPC(ch)) {
+					ch->hit = ch->max_hit;
+					update_pos(ch);
+				}
 			}
 		}
 
@@ -1384,10 +1395,7 @@ void char_update(void)
 			affect_remove(ch, af);
 			affect_to_char(ch ,&witch);
 
-			if (IS_NPC(ch))
-				ch->hit = ch->max_hit;
-			else
-				ch->hit = UMIN(ch->hit, ch->max_hit);
+			ch->hit = UMIN(ch->hit, ch->max_hit);
 
 			if (ch->hit < 1) {
 				if (IS_IMMORTAL(ch))
