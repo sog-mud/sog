@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.176 1999-07-05 18:48:12 fjoe Exp $
+ * $Id: act_wiz.c,v 1.177 1999-07-17 09:40:59 avn Exp $
  */
 
 /***************************************************************************
@@ -74,6 +74,8 @@ DECLARE_DO_FUN(do_rstat	);
 DECLARE_DO_FUN(do_mstat	);
 DECLARE_DO_FUN(do_dstat	);
 DECLARE_DO_FUN(do_ostat	);
+DECLARE_DO_FUN(do_msgstat);
+DECLARE_DO_FUN(do_mpstat);
 DECLARE_DO_FUN(do_rset	);
 DECLARE_DO_FUN(do_mset	);
 DECLARE_DO_FUN(do_oset	);
@@ -242,12 +244,7 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 	
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0')  {
-		char_puts("tick area   : area update\n", ch);
-		char_puts("tick char   : char update\n", ch);
-		char_puts("tick room   : room update\n", ch);
-		char_puts("tick track  : track update\n", ch);
-		char_puts("tick obj    : obj update\n", ch);
-		char_puts("tick chquest: chquest update\n", ch);
+		do_help(ch,"'WIZ TICK'");
 		return;
 	}
 
@@ -287,6 +284,24 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!str_prefix(arg, "quest")) {
+		quest_update();
+		char_puts("Auto-quests updated.\n", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "clan")) {
+		clan_item_update();
+		char_puts("Clan item location updated.\n", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "weather")) {
+		weather_update();
+		char_puts("Weather updated.\n", ch);
+		return;
+	}
+
 	do_tick(ch, str_empty);
 }
 
@@ -298,7 +313,7 @@ void do_nonote(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Ban whose notes?\n", ch);
+		do_help(ch, "'WIZ NONOTE'");
 		return;
 	}
 
@@ -337,7 +352,7 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
-	    char_puts("Nochannel whom?", ch);
+	    do_help(ch, "'WIZ NOCHANNEL'");
 	    return;
 	}
 	
@@ -381,7 +396,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (argument[0] == '\0') {
-	    char_puts("Emote what?\n", ch);
+	    do_help(ch, "'WIZ SMOTE'");
 	    return;
 	}
 
@@ -495,7 +510,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Disconnect whom?\n", ch);
+		do_help(ch, "'WIZ DISCONNECT'");
 		return;
 	}
 
@@ -539,14 +554,16 @@ void do_echo(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 	
 	if (argument[0] == '\0') {
-		char_puts("Global echo what?\n", ch);
+		do_help(ch, "'WIZ GECHO'");
 		return;
 	}
 	
 	for (d = descriptor_list; d; d = d->next)
 		if (d->connected == CON_PLAYING) {
 			if (d->character->level >= ch->level)
-				char_puts("global> ", d->character);
+				act("{W$N:global>{x ",
+					d->character, NULL, ch,
+					TO_CHAR | ACT_NOLF);
 			char_printf(d->character, "%s\n", argument);
 		}
 }
@@ -556,7 +573,7 @@ void do_recho(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 	
 	if (argument[0] == '\0') {
-		char_puts("Local echo what?\n", ch);
+		do_help(ch, "'WIZ ECHO'");
 		return;
 	}
 
@@ -564,7 +581,9 @@ void do_recho(CHAR_DATA *ch, const char *argument)
 		if (d->connected == CON_PLAYING
 		&&   d->character->in_room == ch->in_room) {
 			if (d->character->level >= ch->level)
-				char_puts("local> ",d->character);
+				act("{W$N:local>{x ",
+					d->character, NULL, ch,
+					TO_CHAR | ACT_NOLF);
 			char_printf(d->character, "%s\n", argument);
 		}
 }
@@ -574,7 +593,7 @@ void do_zecho(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 
 	if (argument[0] == '\0') {
-		char_puts("Zone echo what?\n",ch);
+		do_help(ch, "'WIZ ZECHO'");
 		return;
 	}
 
@@ -583,7 +602,9 @@ void do_zecho(CHAR_DATA *ch, const char *argument)
 		&&  d->character->in_room != NULL && ch->in_room != NULL
 		&&  d->character->in_room->area == ch->in_room->area) {
 			if (d->character->level >= ch->level)
-				char_puts("zone> ", d->character);
+				act("{W$N:zone>{x ",
+					d->character, NULL, ch,
+					TO_CHAR | ACT_NOLF);
 			char_printf(d->character, "%s\n", argument);
 		}
 }
@@ -596,7 +617,7 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 	
 	if (argument[0] == '\0' || arg[0] == '\0') {
-		char_puts("Personal echo what?\n", ch); 
+		do_help(ch, "'WIZ PECHO'");
 		return;
 	}
 	 
@@ -606,7 +627,9 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (victim->level >= ch->level && ch->level != MAX_LEVEL)
-		char_puts("personal> ", victim);
+				act("{W$N:personal>{x ",
+					victim, NULL, ch,
+					TO_CHAR | ACT_NOLF);
 
 	char_printf(victim, "%s\n", argument);
 	char_printf(ch, "personal> %s\n", argument);
@@ -624,7 +647,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0') {
-		char_puts("Transfer whom (and where)?\n", ch);
+		do_help(ch, "'WIZ TRANSFER'");
 		return;
 	}
 
@@ -699,18 +722,12 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
-		char_puts("At where what?\n", ch);
-		return;
+		do_help(ch, "'WIZ AT'");
+		return;                   
 	}
 
 	if ((location = find_location(ch, arg)) == NULL) {
 		char_puts("No such location.\n", ch);
-		return;
-	}
-
-	if (room_is_private(location) 	
-	&&  ch->level < MAX_LEVEL) {
-		char_puts("That room is private right now.\n", ch);
 		return;
 	}
 
@@ -742,8 +759,8 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *pet = NULL;
 
 	if (argument[0] == '\0') {
-		char_puts("Goto where?\n", ch);
-		return;
+		do_help(ch, "'WIZ GOTO'");
+		return;         
 	}
 
 	if ((location = find_location(ch, argument)) == NULL) {
@@ -829,12 +846,7 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 
 	string = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Syntax:\n", ch);
-		char_puts("  stat <name>\n", ch);
-		char_puts("  stat obj <name>\n", ch);
-		char_puts("  stat mob <name>\n", ch);
-		char_puts("  stat room <number>\n", ch);
-		char_puts("  stat desc <number>\n", ch);
+		do_help(ch, "'WIZ STAT'");
 		return;
 	}
 
@@ -855,6 +867,16 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 	 
 	if (!str_cmp(arg, "desc")) {
 		do_dstat(ch, string);
+		return;
+	}
+
+	if (!str_cmp(arg, "mp")) {
+		do_mpstat(ch, string);
+		return;
+	}
+
+	if (!str_cmp(arg, "msg")) {
+		do_msgstat(ch, string);
 		return;
 	}
 
@@ -1463,9 +1485,7 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 	string = one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
-		char_puts("Syntax:\n",ch);
-		char_puts("  vnum obj <name>\n",ch);
-		char_puts("  vnum mob <name>\n",ch);
+		do_help(ch, "'WIZ VNUM'");
 		return;
 	}
 
@@ -1563,16 +1583,19 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 	BUFFER *buffer = NULL;
 	OBJ_DATA *obj;
 	OBJ_DATA *in_obj;
-	int number = 0, max_found = 200;
+	int number = 0, max_found = 200, vnum = -1;
 
 	if (argument[0] == '\0') {
-		char_puts("Find what?\n",ch);
+		do_help(ch, "'WIZ OWHERE'");
 		return;
 	}
 	
+	if (is_number(argument)) vnum = atoi(argument);
+
 	for (obj = object_list; obj != NULL; obj = obj->next) {
-		if (!can_see_obj(ch, obj) || !is_name(argument, obj->name)
-		||  ch->level < obj->level)
+		if (!can_see_obj(ch, obj)
+		|| (vnum > 0 && obj->pIndexData->vnum != vnum) 
+		|| (vnum < 0 && !is_name(argument, obj->name)))
 	        	continue;
 	
 		if (buffer == NULL)
@@ -1618,7 +1641,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *buffer;
 	CHAR_DATA *victim;
-	int count = 0;
+	int count = 0, vnum = -1;
 
 	if (argument[0] == '\0') {
 		DESCRIPTOR_DATA *d;
@@ -1654,10 +1677,13 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 	}
 
 	buffer = NULL;
+	if (is_number(argument)) vnum = atoi(argument);
+
 	for (victim = char_list; victim; victim = victim->next)
 		if (victim->in_room
 		&&  can_see(ch, victim)
-		&&  is_name(argument, victim->name)) {
+		&&  (is_name(argument, victim->name)
+		    || (IS_NPC(victim) && victim->pIndexData->vnum == vnum))) {
 			if (buffer == NULL)
 				buffer = buf_new(-1);
 
@@ -1683,7 +1709,7 @@ void do_protect(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 
 	if (argument[0] == '\0') {
-		char_puts("Protect whom from snooping?\n",ch);
+		do_help(ch, "'WIZ PROTECT'");
 		return;
 	}
 
@@ -1715,7 +1741,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Snoop whom?\n", ch);
+		do_help(ch, "'WIZ SNOOP'");
 		return;
 	}
 
@@ -1778,7 +1804,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
-		char_puts("Switch into whom?\n", ch);
+		do_help(ch, "'WIZ SWITCH'");
 		return;
 	}
 
@@ -1802,13 +1828,6 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_NPC(victim)) {
 		char_puts("You can only switch into mobiles.\n", ch);
-		return;
-	}
-
-	if (ch->in_room != victim->in_room 
-	&&  room_is_private(victim->in_room)
-	&&  !IS_TRUSTED(ch, LEVEL_IMP)) {
-		char_puts("That character is in a private room.\n", ch);
 		return;
 	}
 
@@ -1858,37 +1877,11 @@ void do_return(CHAR_DATA *ch, const char *argument)
 	do_replay(ch, str_empty);
 }
 
-/* trust levels for load and clone */
-static bool obj_check(CHAR_DATA *ch, OBJ_DATA *obj)
-{
-	if (IS_TRUSTED(ch, LEVEL_GOD)
-	|| (IS_TRUSTED(ch, LEVEL_IMM) && obj->level <= 20 && obj->cost <= 1000)
-	|| (IS_TRUSTED(ch, LEVEL_DEM) && obj->level <= 10 && obj->cost <= 500)
-	|| (IS_TRUSTED(ch, LEVEL_ANG) && obj->level <=  5 && obj->cost <= 250)
-	|| (IS_TRUSTED(ch, LEVEL_AVA) && obj->level ==  0 && obj->cost <= 100))
-		return TRUE;
-	else
-		return FALSE;
-}
-
-static bool mob_check(CHAR_DATA *ch, CHAR_DATA *mob)
-{
-	if ((mob->level > 20 && !IS_TRUSTED(ch, LEVEL_GOD))
-	||  (mob->level > 10 && !IS_TRUSTED(ch, LEVEL_IMM))
-	||  (mob->level >  5 && !IS_TRUSTED(ch, LEVEL_DEM))
-	||  (mob->level >  0 && !IS_TRUSTED(ch, LEVEL_ANG))
-	||  !IS_TRUSTED(ch, LEVEL_AVA))
-		return FALSE;
-	else
-		return TRUE;
-}
-
 /* for clone, to insure that cloning goes many levels deep */
 static void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 {
 	OBJ_DATA *c_obj, *t_obj;
-	for (c_obj = obj->contains; c_obj != NULL; c_obj = c_obj->next_content)
-		if (obj_check(ch, c_obj)) {
+	for (c_obj = obj->contains; c_obj != NULL; c_obj = c_obj->next_content) {
 			t_obj = create_obj(c_obj->pIndexData, 0);
 			clone_obj(c_obj, t_obj);
 			obj_to_obj(t_obj, clone);
@@ -1907,7 +1900,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 	rest = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Clone what?\n",ch);
+		do_help(ch, "'WIZ CLONE'");
 		return;
 	}
 
@@ -1938,11 +1931,6 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 	if (obj) {
 		OBJ_DATA *clone;
 
-		if (!obj_check(ch,obj)) {
-			char_puts("You haven't enough power.\n", ch);
-			return;
-		}
-
 		clone = create_obj(obj->pIndexData, 0); 
 		clone_obj(obj, clone);
 		if (obj->carried_by != NULL)
@@ -1965,16 +1953,10 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 		    return;
 		}
 
-		if (!mob_check(ch, mob)) {
-			char_puts("You haven't enough power.\n", ch);
-			return;
-		}
-
 		clone = create_mob(mob->pIndexData);
 		clone_mob(mob,clone); 
 		
-		for (obj = mob->carrying; obj != NULL; obj = obj->next_content)
-			if (obj_check(ch,obj)) {
+		for (obj = mob->carrying; obj != NULL; obj = obj->next_content) {
 				new_obj = create_obj(obj->pIndexData, 0);
 				clone_obj(obj, new_obj);
 				recursive_clone(ch, obj, new_obj);
@@ -1998,9 +1980,7 @@ void do_load(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Syntax:\n", ch);
-		char_puts("  load mob <vnum>\n", ch);
-		char_puts("  load obj <vnum> <level>\n", ch);
+		do_help(ch, "'WIZ LOAD'");
 		return;
 	}
 
@@ -2027,7 +2007,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || !is_number(arg)) {
-		char_puts("Syntax: load mob <vnum>.\n", ch);
+		do_help(ch, "'WIZ LOAD'");
 		return;
 	}
 
@@ -2054,7 +2034,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || !is_number(arg1)) {
-		char_puts("Syntax: load obj <vnum>.\n", ch);
+		do_help(ch, "'WIZ LOAD'");
 		return;
 	}
 	
@@ -2230,7 +2210,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Freeze whom?\n", ch);
+		do_help(ch, "'WIZ FREEZE'");
 		return;
 	}
 
@@ -2273,8 +2253,8 @@ void do_log(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Log whom?\n", ch);
-		return;
+		do_help(ch, "'WIZ LOG'");
+		return;                 
 	}
 
 	if (!str_cmp(arg, "all")) {
@@ -2316,8 +2296,8 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Noemote whom?\n", ch);
-		return;
+		do_help(ch, "'WIZ NOEMOTE'");
+		return;              
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
@@ -2354,7 +2334,7 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Notell whom?", ch);
+		do_help(ch, "'WIZ NOTELL'");
 		return;
 	}
 
@@ -2451,11 +2431,7 @@ void do_set(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		char_puts("Syntax:\n",ch);
-		char_puts("  set mob   <name> <field> <value>\n",ch);
-		char_puts("  set obj   <name> <field> <value>\n",ch);
-		char_puts("  set room  <room> <field> <value>\n",ch);
-		char_puts("  set skill <name> <spell or skill> <value>\n",ch);
+		do_help(ch, "'WIZ SET'");
 		return;
 	}
 
@@ -2560,11 +2536,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 	if (type[0] == '\0' || arg1[0] == '\0'
 	||  arg2[0] == '\0' || arg3[0] == '\0') {
-		char_puts("Syntax:\n",ch);
-		char_puts("  string char <name> <field> <string>\n",ch);
-		char_puts("    fields: name short long desc title spec\n",ch);
-		char_puts("  string obj  <name> <field> <string>\n",ch);
-		char_puts("    fields: name short long extended\n",ch);
+		do_help(ch, "'WIZ STRING'");
 		return;
 	}
 	
@@ -2696,11 +2668,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		   one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		char_puts("Syntax:\n",ch);
-		char_puts("  set obj <object> <field> <value>\n",ch);
-		char_puts("Field being one of:\n", ch);
-		char_puts("value0 value1 value2 value3 value4 (v1-v4)\n", ch);
-		char_puts("owner level cost timer\n",	ch);
+		do_help(ch, "'WIZ SET'");
 		return;
 	}
 
@@ -2715,7 +2683,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	 * Set something.
 	 */
 	if (!str_cmp(arg2, "value0") || !str_cmp(arg2, "v0")) {
-		obj->value[0] = UMIN(50,value);
+		obj->value[0] = value;
 		return;
 	}
 
@@ -2780,10 +2748,7 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 		   one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		char_puts("Syntax:\n",ch);
-		char_puts("  set room <location> <field> <value>\n",ch);
-		char_puts("  Field being one of:\n",			ch);
-		char_puts("    flags sector\n",				ch);
+		do_help(ch, "'WIZ SET'");
 		return;
 	}
 
@@ -2889,7 +2854,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
-		dofun("help", ch, "'WIZ FORCE'");
+		do_help(ch, "'WIZ FORCE'");
 		return;
 	}
 
@@ -3129,7 +3094,7 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2)) {
-		char_puts("Syntax: advance <char> <level>.\n", ch);
+		do_help(ch, "'WIZ ADVANCE'");
 		return;
 	}
 
@@ -3176,14 +3141,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		   one_argument(argument, arg4, sizeof(arg4));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		char_puts("Syntax:\n",ch);
-		char_puts("  set char <name> <field> <value>\n",ch); 
-		char_puts("  Field being one of:\n",			ch);
-		char_puts("    str int wis dex con cha sex class level\n",ch);
-		char_puts("    race gold hp mana move practice align\n", ch);
-		char_puts("    train thirst drunk full hometown ethos\n", ch);
-		char_puts("    noghost clan trouble security\n", ch);
-		char_puts("    questp questt relig bloodlust desire \n", ch);
+		do_help(ch, "'WIZ SET'");
 		return;
 	}
 
@@ -3508,25 +3466,10 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		    char_puts("Mobiles don't have hometowns.\n", ch);
 		    return;
 		}
-	    if (value < 0 || value > 4)
-	    { 
-	        char_puts("Please choose one of the following :.\n", ch);
-	        char_puts("Town        Alignment       Value\n", ch);
-	        char_puts("----        ---------       -----\n", ch);
-	        char_puts("Midgaard     Any              0\n", ch);
-	        char_puts("New Thalos   Any              1\n", ch);
-	        char_puts("Titan        Any              2\n", ch);
-	        char_puts("Ofcol        Neutral          3\n", ch);
-	        char_puts("Old Midgaard Evil             4\n", ch);
-	        return;
+	    if ((value = htn_lookup(arg3)) == -1) {
+		char_puts("No such hometown", ch);
+		return;
 	    }
-
-	    if ((value == 2 && !IS_GOOD(victim)) || (value == 3 &&
-		!IS_NEUTRAL(victim)) || (value == 4 && !IS_EVIL(victim)))
-	    { 
-	        char_puts("The hometown doesn't match this character's alignment.\n", ch);
-	        return;
-	    }    
 	    
 	    victim->hometown = value;
 	    return;
@@ -3718,58 +3661,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	do_mset(ch, str_empty);
 }
 
-
-void do_desocket(CHAR_DATA *ch, const char *argument)
-{
-	DESCRIPTOR_DATA *d;
-	int socket;
-	char arg[MAX_INPUT_LENGTH];
-
-	one_argument(argument, arg, sizeof(arg));
-
-	if (!is_number(arg))
-
-	{
-	  char_puts("The argument must be a number.\n", ch);
-	  return;
-	}
-
-	if (arg[0] == '\0')
-	{
-	  char_puts("Disconnect which socket?\n", ch);
-	  return;
-	}
-
-	else
-	{
-	  socket = atoi(arg);
-	  for (d = descriptor_list; d != NULL; d = d->next)      
-		{
-		  if (d->descriptor == socket)
-		    {
-		      if (d->character == ch)
-			{
-			  char_puts("It would be foolish to disconnect yourself.\n", ch);
-			  return;
-			}
-		      if (d->connected == CON_PLAYING)
-			{
-			  char_puts("Why don't you just use disconnect?\n", ch);
-			  return;
-			}
-		      write_to_descriptor(d->descriptor,
-					  "You are being disconnected by an immortal.",
-					  0);
-		      close_descriptor(d);
-		      char_puts("Done.\n", ch);
-		      return;
-		    }
-		}
-	  char_puts("No such socket is connected.\n", ch);
-	  return;
-	}
-}
-
 void do_smite(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
@@ -3804,7 +3695,9 @@ void do_smite(CHAR_DATA *ch, const char *argument)
 		ch, TO_CHAR);
 	act("You reach down and smite $n!", victim, NULL, ch, TO_VICT);
 	act("A bolt from the heavens smites $n!", victim, NULL, ch, TO_NOTVICT);
-	victim->hit = victim->hit / 2;
+	victim->hit = 1;
+	victim->mana = 0;
+	victim->move = 0;
 	return;
 }
 
@@ -3837,7 +3730,7 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0')  {
-		char_puts("Change whose title to what?\n", ch);
+		do_help(ch, "'WIZ ITITLE'");
 		return;
 	}
 
@@ -3879,7 +3772,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		   first_arg(argument, new_name, sizeof(new_name), FALSE);
 		
 	if (!old_name[0]) {
-		char_puts("Rename who?\n",ch);
+		do_help(ch, "'WIZ ITITLE'");
 		return;
 	}
 		
@@ -3998,8 +3891,10 @@ void do_notitle(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	if (!IS_IMMORTAL(ch))
-	    return;
+	if (argument[0] == '\0') {
+		do_help(ch, "'WIZ NOTITLE'");
+		return;
+	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 
@@ -4028,7 +3923,7 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Noaff whom?\n", ch);
+		do_help(ch, "'WIZ NOAFFECT'");
 		return;
 	}
 
@@ -4096,7 +3991,7 @@ void do_msgstat(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!is_number(argument)) {
-		do_help(ch, "MSGSTAT");
+		do_help(ch, "'WIZ STAT'");
 		return;
 	}
 
@@ -4117,13 +4012,6 @@ void do_msgstat(CHAR_DATA *ch, const char *argument)
 	}
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
-}
-
-void do_strstat(CHAR_DATA *ch, const char *argument)
-{
-	char_printf(ch, "Strings: %d\n"
-			"Allocated: %d\n",
-		    str_count, str_real_count);
 }
 
 void do_grant(CHAR_DATA *ch, const char *argument)
@@ -4306,7 +4194,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		char_puts("Slay whom?\n", ch);
+		do_help(ch, "'WIZ SLAY'");
 		return;
 	}
 
