@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.40 2002-11-19 14:15:48 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.41 2002-11-23 18:54:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,6 +58,8 @@
 #include "auction.h"
 #include "lang.h"
 #include "note.h"
+
+#include "toggle.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_replay	);
@@ -2152,24 +2154,6 @@ void do_last(CHAR_DATA *ch, const char *argument)
 		act_puts("Nothing here.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
-/*-----------------------------------------------------------------------------
- * toggle bit stuff
- */
-typedef struct toggle_t toggle_t;
-
-struct toggle_t {
-	const char *name;	/* flag name				*/
-	const char *desc;	/* toggle description			*/
-	flag_t *f;		/* flag table				*/
-	flag64_t bit;		/* flag bit				*/
-	const char *msg_on;	/* msg to print when flag toggled on	*/
-	const char *msg_off;	/* ---//--- off				*/
-};
-
-static toggle_t *toggle_lookup(const char *name);
-static void toggle_print(CHAR_DATA *ch, toggle_t *t);
-static flag64_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
-
 /*
  * alphabetize these table by name if you are adding new entries
  */
@@ -2294,40 +2278,13 @@ toggle_t toggle_table[] =
 
 void do_toggle(CHAR_DATA *ch, const char *argument)
 {
-	toggle_t *t;
-	char arg[MAX_INPUT_LENGTH];
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		char_puts("Your current settings are:\n", ch);
-		for (t = toggle_table; t->name; t++)
-			toggle_print(ch, t);
+		print_toggles(ch, toggle_table);
 		return;
 	}
 
-	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
-		flag64_t* bits;
-		const char *p;
-
-		if ((t = toggle_lookup(arg)) == NULL
-		||  (bits = toggle_bits(ch, t)) == NULL) {
-			char_printf(ch, "%s: no such toggle.\n", arg);
-			continue;
-		}
-
-		p = one_argument(argument, arg, sizeof(arg));
-		if (!str_cmp(arg, "on")) {
-			SET_BIT(*bits, t->bit);
-			argument = p;
-		} else if (!str_cmp(arg, "off")) {
-			REMOVE_BIT(*bits, t->bit);
-			argument = p;
-		} else {
-			TOGGLE_BIT(*bits, t->bit);
-		}
-		act_puts(IS_SET(*bits, t->bit) ? t->msg_on : t->msg_off,
-			 ch, t->desc, NULL, TO_CHAR, POS_DEAD);
-	}
+	toggle(ch, argument, toggle_table);
 }
 
 void
@@ -2451,34 +2408,3 @@ do_retell(CHAR_DATA *ch, const char *argument)
         }
 	do_tell_raw(ch, PC(ch)->retell, argument);
 }
-
-static toggle_t *toggle_lookup(const char *name)
-{
-	toggle_t *t;
-
-	for (t = toggle_table; t->name; t++)
-		if (!str_prefix(name, t->name))
-			break;
-	return t;
-}
-
-static void toggle_print(CHAR_DATA *ch, toggle_t *t)
-{
-	char buf[MAX_STRING_LENGTH];
-	flag64_t *bits;
-
-	if ((bits = toggle_bits(ch, t)) == NULL)
-		return;
-
-	snprintf(buf, sizeof(buf), "  %-11.11s - %-3.3s ($t)",
-		 t->name, IS_SET(*bits, t->bit) ? "ON" : "OFF");
-	act_puts(buf, ch, t->desc, NULL, TO_CHAR, POS_DEAD);
-}
-
-static flag64_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)
-{
-	if (t->f == comm_flags)
-		return &ch->comm;
-	return NULL;
-}
-

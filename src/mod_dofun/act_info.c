@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.71 2002-11-22 16:24:47 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.72 2002-11-23 18:54:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,6 +61,8 @@
 #include "socials.h"
 #include "rating.h"
 #include "string_edit.h"
+
+#include "toggle.h"
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
 #	include <crypt.h>
@@ -278,140 +280,87 @@ void do_wizlist(CHAR_DATA *ch, const char *argument)
 	do_help(ch, "wizlist");
 }
 
-/* RT this following section holds all the auto commands from ROM, as well as
-   replacements for config */
-#define do_print_sw(ch, swname, sw) \
-		char_printf(ch, "%-16s %s\n", swname, sw ? "ON" : "OFF");
+static toggle_t auto_table[] = {
+	{ "assist",
+	  "autoassist",
+	  plr_flags, PLR_AUTOASSIST,
+	  "You will now assist when needed.",
+	  "Autoassist removed."
+	},
 
-void do_autolist(CHAR_DATA *ch, const char *argument)
+	{ "exit",
+	  "display exits",
+	  plr_flags, PLR_AUTOEXIT,
+	  "Exits will now be displayed.",
+	  "Exits will no longer be displayed."
+	},
+
+	{ "gold",
+	  "autoloot gold",
+	  plr_flags, PLR_AUTOGOLD,
+	  "Automatic gold looting set.",
+	  "Autogold removed."
+	},
+
+	{ "look",
+	  "autoexamine corpse",
+	  plr_flags, PLR_AUTOLOOK,
+	  "Automatic corpse examination set.",
+	  "Autolooking removed."
+	},
+
+	{ "loot",
+	  "autoloot corpse",
+	  plr_flags, PLR_AUTOLOOT,
+	  "Automatic corpse looting set.",
+	  "Autolooting removed."
+	},
+
+	{ "sac",
+	  "autosacrifice corpse",
+	  plr_flags, PLR_AUTOSAC,
+	  "Automatic corpse sacrificing set.",
+	  "Autosacrificing removed."
+	},
+
+	{ "split",
+	  "autosplit gold",
+	  plr_flags, PLR_AUTOSPLIT,
+	  "Automatic gold splitting set.",
+	  "Autosplitting removed."
+	},
+
+	{ NULL }
+};
+
+void do_auto(CHAR_DATA *ch, const char *argument)
 {
-	/* lists most player flags */
 	if (IS_NPC(ch))
 		return;
 
-	char_puts("action         status\n",ch);
-	char_puts("---------------------\n",ch);
-	do_print_sw(ch, "autoassist", IS_SET(PC(ch)->plr_flags, PLR_AUTOASSIST));
-	do_print_sw(ch, "autoexit", IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT));
-	do_print_sw(ch, "autogold", IS_SET(PC(ch)->plr_flags, PLR_AUTOGOLD));
-	do_print_sw(ch, "autolook", IS_SET(PC(ch)->plr_flags, PLR_AUTOLOOK));
-	do_print_sw(ch, "autoloot", IS_SET(PC(ch)->plr_flags, PLR_AUTOLOOT));
-	do_print_sw(ch, "autosac", IS_SET(PC(ch)->plr_flags, PLR_AUTOSAC));
-	do_print_sw(ch, "autosplit", IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT));
+	if (argument[0] == '\0') {
+		act_char("Auto flags are:", ch);
+		print_toggles(ch, auto_table);
 
-	if (IS_SET(PC(ch)->plr_flags, PLR_NOSUMMON))
-		char_puts("You can only be summoned players within "
-			     "your PK range.\n",ch);
-	else
-		char_puts("You can be summoned by anyone.\n",ch);
+		if (IS_SET(PC(ch)->plr_flags, PLR_NOSUMMON))
+			act_char("You can only be summoned players within your PK range.",ch);
+		else
+			act_char("You can be summoned by anyone.", ch);
 
-	if (IS_SET(PC(ch)->plr_flags, PLR_NOGIVE))
-		char_puts("You do not take any given object.\n", ch);
-	else
-		char_puts("You will take all objects given to you.\n", ch);
+		if (IS_SET(PC(ch)->plr_flags, PLR_NOGIVE))
+			act_char("You do not take any given object.", ch);
+		else
+			act_char("You will take all objects given to you.", ch);
 
-	if (IS_SET(PC(ch)->plr_flags, PLR_NOFOLLOW))
-		char_puts("You do not welcome followers.\n",ch);
-	else
-		char_puts("You accept followers.\n",ch);
-}
+		if (IS_SET(PC(ch)->plr_flags, PLR_NOFOLLOW))
+			act_char("You do not welcome followers.", ch);
+		else
+			act_char("You accept followers.", ch);
 
-void do_autoassist(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
 		return;
 	}
 
-	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOASSIST);
-	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOASSIST))
-		char_puts("You will now assist when needed.\n",ch);
-	else
-		char_puts("Autoassist removed.\n",ch);
-}
-
-void do_autoexit(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOEXIT);
-	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT))
-		char_puts("Exits will now be displayed.\n",ch);
-	else 
-		char_puts("Exits will no longer be displayed.\n",ch);
-}
-
-void do_autogold(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOGOLD);
-	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOGOLD))
-		char_puts("Automatic gold looting set.\n",ch);
-	else 
-		char_puts("Autogold removed.\n",ch);
-}
-
-void do_autolook(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOLOOK);
-	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOLOOK))
-		char_puts("Automatic corpse examination set.\n", ch);
-	else
-		char_puts("Autolooking removed.\n", ch);
-}
-
-void do_autoloot(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOLOOT);
-	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOLOOT))
-		char_puts("Automatic corpse looting set.\n", ch);
-	else
-		char_puts("Autolooting removed.\n", ch);
-}
-
-void do_autosac(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOSAC);
-	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOSAC))
-		char_puts("Automatic corpse sacrificing set.\n",ch);
-	else
-		char_puts("Autosacrificing removed.\n",ch);
-}
-
-void do_autosplit(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		char_puts("Huh?\n", ch);
-		return;
-	}
-
-	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOSPLIT);
-	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT))
-		char_puts("Automatic gold splitting set.\n",ch);
-	else
-		char_puts("Autosplitting removed.\n",ch);
+	toggle(ch, argument, auto_table);
 }
 
 void do_prompt(CHAR_DATA *ch, const char *argument)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: toggle.h,v 1.1 2002-11-23 18:02:31 fjoe Exp $
+ * $Id: toggle.h,v 1.1.2.1 2002-11-23 18:54:05 fjoe Exp $
  */
 
 #ifndef _TOGGLE_H_
@@ -36,9 +36,8 @@
 struct toggle_t {
 	const char *name;	/* flag name				*/
 	const char *desc;	/* toggle description			*/
-	const char *cmds;	/* cmds char must have to use toggle	*/
-	flaginfo_t *f;		/* flag table				*/
-	flag_t bit;		/* flag bit				*/
+	flag_t *f;		/* flag table				*/
+	flag64_t bit;		/* flag bit				*/
 	const char *msg_on;	/* msg to print when flag toggled on	*/
 	const char *msg_off;	/* ---//--- off				*/
 };

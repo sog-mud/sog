@@ -23,30 +23,29 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: toggle.c,v 1.1 2002-11-23 18:02:31 fjoe Exp $
+ * $Id: toggle.c,v 1.1.2.1 2002-11-23 18:54:05 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
-#include <sog.h>
 
 #include "toggle.h"
 
 static toggle_t *toggle_lookup(toggle_t *tbl, const char *name);
-static flag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
-static bool toggle_enabled(CHAR_DATA *ch, toggle_t *t);
+static flag64_t* toggle_bits(CHAR_DATA *ch, toggle_t *t, bool *wide);
 
 void
 toggle(CHAR_DATA *ch, const char *argument, toggle_t *tbl)
 {
 	toggle_t *t;
 	char arg[MAX_INPUT_LENGTH];
-	flag_t* bits;
+	flag64_t* bits;
+	bool wide;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if ((t = toggle_lookup(tbl, arg)) == NULL
-	||  (bits = toggle_bits(ch, t)) == NULL) {
+	||  (bits = toggle_bits(ch, t, &wide)) == NULL) {
 		act_puts("$t: no such flag.",
 			 ch, arg, NULL,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
@@ -54,14 +53,26 @@ toggle(CHAR_DATA *ch, const char *argument, toggle_t *tbl)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	if (!str_cmp(arg, "on"))
-		SET_BIT(*bits, t->bit);
-	else if (!str_cmp(arg, "off"))
-		REMOVE_BIT(*bits, t->bit);
-	else
-		TOGGLE_BIT(*bits, t->bit);
+	if (!str_cmp(arg, "on")) {
+		if (wide)
+			SET_BIT(*bits, t->bit);
+		else
+			SET_BIT(*(flag32_t *) bits, t->bit);
+	} else if (!str_cmp(arg, "off")) {
+		if (wide)
+			REMOVE_BIT(*bits, t->bit);
+		else
+			REMOVE_BIT(*(flag32_t *) bits, t->bit);
+	} else {
+		if (wide)
+			TOGGLE_BIT(*bits, t->bit);
+		else
+			TOGGLE_BIT(*(flag32_t *) bits, t->bit);
+	}
 
-	act_char(IS_SET(*bits, t->bit) ? t->msg_on : t->msg_off, ch);
+	act_char((wide ? IS_SET(*bits, t->bit) :
+			 IS_SET(*(flag32_t *) bits, t->bit)) ?
+	    t->msg_on : t->msg_off, ch);
 }
 
 void
@@ -69,14 +80,17 @@ print_toggles(CHAR_DATA *ch, toggle_t *t)
 {
 	for (; t->name != NULL; t++) {
 		char buf[MAX_STRING_LENGTH];
-		flag_t *bits;
+		flag64_t *bits;
+		bool wide;
 
-		if ((bits = toggle_bits(ch, t)) == 0)
+		if ((bits = toggle_bits(ch, t, &wide)) == 0)
 			return;
 
 		snprintf(buf, sizeof(buf),
 		     "  %-11.11s - %-3.3s ($t)",		// notrans
-		     t->name, IS_SET(*bits, t->bit) ? "ON" : "OFF");
+		     t->name,
+		     (wide ? IS_SET(*bits, t->bit) :
+			    IS_SET(*(flag32_t *) bits, t->bit)) ? "ON" : "OFF");
 		act_puts(buf, ch, t->desc, NULL, TO_CHAR, POS_DEAD);
 	}
 }
@@ -92,41 +106,16 @@ toggle_lookup(toggle_t *tbl, const char *name)
 	return NULL;
 }
 
-static flag_t*
-toggle_bits(CHAR_DATA *ch, toggle_t *t)
+static flag64_t*
+toggle_bits(CHAR_DATA *ch, toggle_t *t, bool *wide)
 {
-	if (!toggle_enabled(ch, t))
-		return NULL;
-
-	if (t->f == comm_flags)
+	if (t->f == comm_flags) {
+		*wide = TRUE;
 		return &ch->comm;
-	if (t->f == olc_flags && ch->desc)
-		return &ch->desc->dvdata->olc_flags;
-	if (t->f == plr_flags && !IS_NPC(ch))
-		return &PC(ch)->plr_flags;
-	return NULL;
-}
-
-static bool
-toggle_enabled(CHAR_DATA *ch, toggle_t *t)
-{
-	if (t->cmds == NULL)
-		return TRUE;
-
-	if (!IS_NPC(ch)) {
-		char cmdname[MAX_STRING_LENGTH];
-		const char *str = t->cmds;
-		PC_DATA *pc = PC(ch);
-
-		for (;;) {
-			str = one_argument(str, cmdname, sizeof(cmdname));
-
-			if (cmdname[0] == '\0')
-				break;
-			if (is_name_strict(cmdname, pc->granted))
-				return TRUE;
-		}
 	}
-
-	return FALSE;
+	if (t->f == plr_flags && !IS_NPC(ch)) {
+		*wide = FALSE;
+		return (flag64_t *) &PC(ch)->plr_flags;
+	}
+	return NULL;
 }
