@@ -1,0 +1,77 @@
+/*
+ * $Id: mob_fight_demonologist.mpc,v 1.1 2003-04-19 13:27:20 tatyana Exp $
+ */
+ 
+if (number_bits(2) != 0)
+        return 0;
+ 
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+ 
+int bonus = 3;
+string spell;
+string msg = "$n raises his hands and blood runes etched into the floor explode!";
+
+if (char_level($n) >= 25) {
+        switch (number_range(1, 10)) {
+        case 1:
+               spell = "blindness";
+               break;
+        case 2:
+               spell = "plague";
+               break;
+        case 3:
+               spell = "demonfire";
+               break;
+        case 4:
+               spell = "fireball";
+               msg = "$n gestures and red runes etched into the floor explode!";
+               bonus = 4;
+               break;
+        case 5:
+               spell = "deathspell";
+               msg = "$n gestures and a flaming hexagram burns into the air!";
+               break;
+        case 6:
+               spell = "power word fear";
+               break;
+        case 7:
+               spell = "cone of cold";
+                msg = "$n gestures and blue runes etched into the floor explode!";
+               break;
+        case 8:
+               spell = "";
+               msg = "$n raises $s arms and calls forth a demonic servant!";
+               break;
+        default:
+               spell = "acid blast";
+               break;
+        }
+}
+ 
+if (spell == "") {
+
+        char servant;
+        foreach (servant, char_in_room(char_room($n))) {
+                if (is_npc(servant)
+                &&  char_vnum(servant) == 34403)
+                        break;
+        }
+
+        if (servant != NULL)
+                return 0;
+
+        servant = load_mob($n, 34403);
+        if (servant == NULL)
+                return 0;
+
+        act(msg, $n, NULL, NULL, TO_ROOM);
+        act("A gate opens up and $N steps forth.", $n, NULL, servant, TO_ROOM);
+        one_hit(servant, victim, NULL, WEAR_WIELD);
+        return 0;
+}
+ 
+act(msg, $n, NULL, NULL, TO_ROOM);
+spellfun_call(spell, NULL, char_level($n) + bonus, $n, victim);
+return 0;

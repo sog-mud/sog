@@ -1,0 +1,23 @@
+/*
+ * $Id: mob_random_demonologist.mpc,v 1.1 2003-04-19 13:27:20 tatyana Exp $
+ */
+
+char victim;
+foreach (victim, char_in_room(char_room($n))) {
+
+        if (!is_npc(victim)
+        &&  !is_immortal(victim)
+        &&  !is_safe_nomessage($n, victim)
+        &&  can_see($n, victim))
+                break;
+}
+ 
+if (victim == NULL
+||  number_percent() > 90)
+        return 0;
+ 
+act("$n intones a word of death and the pentagram flares up!",
+    $n, NULL, NULL, TO_ROOM);
+ 
+spellfun_call("fireball", NULL, char_level($n) + 4, $n, victim);
+return 0;
