@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.7 2001-12-08 00:04:11 tatyana Exp $
+ * $Id: comm_act.c,v 1.40.2.8 2002-01-03 21:33:45 tatyana Exp $
  */
 
 #include <stdarg.h>
@@ -150,7 +150,8 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 			if (IS_SET(act_flags, ACT_NOFIXSH))
 				return descr;
 			return fix_short(descr);
-		} else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) {
+		} else if ((IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) ||
+			   IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 			return word_form(GETMSG(PC(ch)->form_name, to_lang),
 					 ch->sex, to_lang, RULES_GENDER);
 		}

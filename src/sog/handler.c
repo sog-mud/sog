@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.50 2001-12-25 19:20:33 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.51 2002-01-03 21:33:41 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2416,9 +2416,12 @@ bool room_is_dark(CHAR_DATA *ch)
 	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))
 		return FALSE;
 
+	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST))
+		return FALSE;
+
 	if (is_affected(ch, gsn_vampire))
 		return FALSE;
-		
+
 	if (pRoomIndex->light > 0)
 		return FALSE;
 
@@ -3923,7 +3926,9 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 				   r->race_pcdata->who_name,
 				   cl->who_name);
 		} else {
-			if (!IS_IMMORTAL(wch) && in_PK(ch, wch))
+			if (!IS_IMMORTAL(wch)
+			&&  in_PK(ch, wch)
+			&&  !IS_SET(PC(wch)->plr_flags, PLR_GHOST))
 				buf_add(output, "{r[{RPK{r]{x ");
 			else
 				buf_add(output, "     ");
@@ -3964,12 +3969,16 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if (IS_WANTED(wch))
 		buf_add(output, "{R(WANTED){x ");
 
-	if (IS_IMMORTAL(wch))
+	if (IS_IMMORTAL(wch)) {
 		buf_printf(output, "{W%s{x", wch->name);
-	else
+		buf_add(output, PC(wch)->title);
+	} else if (IS_SET(PC(wch)->plr_flags, PLR_GHOST))
+		buf_add(output, PC(wch)->form_name);
+	else {
 		buf_add(output, wch->name);
+		buf_add(output, PC(wch)->title);
+	}
 
-	buf_add(output, PC(wch)->title);
 	buf_add(output, "\n");
 }
 
@@ -4279,7 +4288,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		if ((in_room->sector_type == SECT_WATER_SWIM ||
 		     to_room->sector_type == SECT_WATER_SWIM)
 		&& !MOUNTED(ch) 
-		&& !IS_AFFECTED(ch, AFF_FLYING | AFF_SWIM) 
+		&& !IS_AFFECTED(ch, AFF_FLYING | AFF_SWIM)
 		&& !has_boat(ch)) {
 			char_puts("Learn to swim or buy a boat.\n", ch);
 			return FALSE;
@@ -4311,16 +4320,19 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 				return FALSE;
 			}
 			if (!IS_AFFECTED(ch, AFF_SWIM)
-			&&  !IS_IMMORTAL(ch))	{
+			&&  !IS_IMMORTAL(ch)
+			&&  !IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 				act_puts("You can't swim under water.",
 					ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				return FALSE;
 			}
 			if (!IS_AFFECTED(ch, AFF_WATER_BREATHING)
-			&& in_room->sector_type != SECT_UNDERWATER
-			&& to_room->sector_type == SECT_UNDERWATER)
+			&&  !IS_SET(PC(ch)->plr_flags, PLR_GHOST)
+			&&  in_room->sector_type != SECT_UNDERWATER
+			&&  to_room->sector_type == SECT_UNDERWATER) {
 				act_puts("Take a deep breath...",
 					ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			}
 		}
 
 		move = (movement_loss[URANGE(0, in_room->sector_type, MAX_SECT)]

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.40 2001-12-25 19:20:35 tatyana Exp $
+ * $Id: update.c,v 1.157.2.41 2002-01-03 21:33:42 tatyana Exp $
  */
 
 /***************************************************************************
@@ -699,7 +699,9 @@ void mobile_update(void)
 
 		if (ch->in_room && ch->in_room->sector_type == SECT_UNDERWATER
 		&& !IS_AFFECTED(ch, AFF_WATER_BREATHING)
-		&& !IS_IMMORTAL(ch)) {
+		&& !IS_IMMORTAL(ch)
+		&& !IS_NPC(ch)
+		&& !IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 			act("$n gasps for fresh air, but inhales water.",
 				ch, NULL, NULL, TO_ROOM);
 			act("You gasp for fresh air, but inhale water.",

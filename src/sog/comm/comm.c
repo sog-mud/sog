@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.21 2001-12-25 19:20:37 tatyana Exp $
+ * $Id: comm.c,v 1.200.2.22 2002-01-03 21:33:44 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1564,19 +1564,26 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				i = "";
 			break;
 		case 'q':
-			snprintf(buf2, sizeof(buf2), "%dqp",
-				 PC(ch)->questpoints);
-			i = buf2;
+			if (IS_NPC(ch))
+				i = "";
+			else {
+				snprintf(buf2, sizeof(buf2), "%dqp",
+					 PC(ch)->questpoints);
+				i = buf2;
+			}
 			break;
 		case 'Q':
-			if (!IS_ON_QUEST(ch)) {
+			if (IS_NPC(ch))
+				i = "";
+			else if (!IS_ON_QUEST(ch)) {
 				snprintf(buf2, sizeof(buf2), "%dtnq",
 					 -PC(ch)->questtime);
+				i = buf2;
 			} else {
 				snprintf(buf2, sizeof(buf2), "%dleft",
 					 PC(ch)->questtime);
+				i = buf2;
 			}
-			i = buf2;
 			break;
 		}
 		++str;

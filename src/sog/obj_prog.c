@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.16 2001-12-08 00:04:10 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.17 2002-01-03 21:33:42 tatyana Exp $
  */
 
 /***************************************************************************
@@ -422,14 +422,18 @@ int speech_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	
 bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	act("The gods are infuriated!",ch,NULL,NULL,TO_CHAR);
-	act("The gods are infuriated!",ch,NULL,NULL,TO_ROOM);
-	damage(ch,ch,
-		 (ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
-		 TYPE_HIT,DAM_HOLY, TRUE);
+	if (NPC(ch))
+		return TRUE;
+
+	act("The gods are infuriated!", ch, NULL, NULL, TO_CHAR);
+	act("The gods are infuriated!", ch, NULL, NULL, TO_ROOM);
+	damage(ch, ch, (ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
+	       TYPE_UNDEFINED, DAM_HOLY, TRUE);
+
 	ch->gold = 0;
 	ch->silver = 0;
-	return TRUE; 
+
+	return TRUE;
 }
 
 int fight_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
@@ -1066,9 +1070,12 @@ bool death_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		affect_remove(ch, ch->affected);
 	RESET_FIGHT_TIME(ch);
 	ch->last_death_time = current_time;
-	if (!IS_NPC(ch))
+	if (!IS_NPC(ch)) {
 		SET_BIT(PC(ch)->plr_flags, PLR_GHOST);
-	return 1; 
+		free_string(PC(ch)->form_name);
+		PC(ch)->form_name = str_printf("a ghost of %s", ch->name);
+	}
+	return 1;
 }
 
 int fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)

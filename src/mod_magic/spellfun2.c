@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.52 2001-12-10 19:28:25 tatyana Exp $
+ * $Id: spellfun2.c,v 1.139.2.53 2002-01-03 21:33:37 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2901,7 +2901,7 @@ void spell_bone_dragon(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (PC(ch)->pet) {
+	if (!IS_NPC(ch) && PC(ch)->pet) {
 		act("But you already have a pet.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}

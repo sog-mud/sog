@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.23 2001-12-25 19:20:18 tatyana Exp $
+ * $Id: act_move.c,v 1.202.2.24 2002-01-03 21:33:28 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1566,7 +1566,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
+	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 		char_puts("You can't transform into vampire while you are ghost.\n", ch);
 		return;
 	}

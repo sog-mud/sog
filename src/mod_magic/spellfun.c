@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.29 2001-12-27 10:42:53 cs Exp $
+ * $Id: spellfun.c,v 1.181.2.30 2002-01-03 21:33:33 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3804,7 +3804,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (victim == ch
 	||  LEVEL(victim) >= level + 3
 	||  victim->fighting != NULL
-	||  IS_SET(PC(ch)->plr_flags, PLR_GHOST)
+	||  (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST))
 	||  !can_see_room(ch, victim->in_room)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
 					    ROOM_PEACE | ROOM_NOSUMMON)

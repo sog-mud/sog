@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.53 2001-12-25 19:20:32 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.54 2002-01-03 21:33:39 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2383,6 +2383,9 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		return corpse;
 	}
 
+	free_string(PC(victim)->form_name);
+	PC(victim)->form_name = str_printf("the ghost of %s", victim->name);
+
 	SET_BIT(PC(victim)->plr_flags, PLR_GHOST);
 	char_puts("You turn into an invincible ghost for a few minutes.\n"
 		  "As long as you don't attack anything.\n",
@@ -2393,6 +2396,7 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	while (victim->affected)
 		affect_remove(victim, victim->affected);
 	victim->affected_by	= 0;
+
 	for (i = 0; i < 4; i++)
 		victim->armor[i] = 100;
 	victim->position	= POS_RESTING;

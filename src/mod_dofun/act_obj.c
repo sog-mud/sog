@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.32 2001-12-25 19:20:20 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.33 2002-01-03 21:33:30 tatyana Exp $
  */
 
 /***************************************************************************
@@ -483,7 +483,8 @@ void do_give(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 
-		if (IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
+		if (!IS_NPC(victim)
+		&&  IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
 			act("$N do not wish take any.",
 			    ch, NULL, victim, TO_CHAR);
 			return;
@@ -598,7 +599,8 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
+	if (!IS_NPC(victim)
+	&&  IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
 		act("$N do not wish take any.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
