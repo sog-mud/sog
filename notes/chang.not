@@ -2186,3 +2186,37 @@ Text
 breathing', но будет и другое.
     SY, Arborn.
 ~
+Sender  Tyan~
+Date    Mon Jan 31 12:21:25 2000~
+Stamp   949310485
+To      all~
+Subject %c~
+Text
+hi, there!
+ 
+в общем чендж такой мелкий. даже писать про него как бы можно и не писать:
+%c в промпте новую строку делает. все.
+(после ребута)
+ 
+{WTyan{x
+~
+Sender  Tyan~
+Date    Tue Feb  1 12:27:22 2000~
+Stamp   949397242
+To      all~
+Subject some minor changes~
+Text
+hi, there!
+ 
+несколько маленьких изменений:
+1) за you have become better будет даваться чуть больше экспа
+(в зависимости от левела)
+2) charm на fighting чара больше не работает
+3) eye of intrigue всегда чекает saves (раньше чекал не всегд -- в
+зависимости от левелов кастера и жертвы)
+ 
+1) будет после ребута
+2) и 3) -- сейчас
+ 
+{WTyan{x
+~
