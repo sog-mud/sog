@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.19 2001-06-21 16:16:56 avn Exp $
+ * $Id: varr.h,v 1.20 2001-06-22 15:21:20 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -83,19 +83,19 @@ void *	varr_reforeach	(varr *, void *, foreach_cb_t, ...);
 void *	varr_rnforeach	(varr *, size_t i, foreach_cb_t, ...);
 void *	varr_arnforeach	(varr *, size_t i, foreach_cb_t, va_list ap);
 
-#define varr_enew(v)	(varr_touch((v), (v)->nused))
+#define varr_size(v)	((v)->nused)
+#define varr_enew(v)	(varr_touch((v), varr_size(v)))
 #define VARR_GET(v, i)	((void *) (((char *) (v)->p) + (i)*(v)->v_data->nsize))
-extern inline void *varr_get(varr *v, size_t i);
+
+void *varr_get(varr *v, size_t i);
 extern inline void *varr_get(varr *v, size_t i)
 {
-	if (i >= v->nused)
-		return NULL;
-	else
-		return VARR_GET(v, i);
+	return i >= varr_size(v) ? NULL : VARR_GET(v, i);
 }
+
 #define varr_index(v, q) ((((char*) q) - ((char*) (v)->p)) / (v)->v_data->nsize)
 #define varr_edelete(v, p) (varr_delete((v), varr_index((v), (p))))
-#define varr_isempty(v)	(!(v)->nused)
+#define varr_isempty(v)	(!varr_size(v))
 
 /*
  * `vstr_lookup' does precise search of name (str_cmp)
