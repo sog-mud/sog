@@ -117,6 +117,16 @@ char *strings_engl[] =  {
 /* MOVE_YOU_CANT_BRING_N_CITY */"You can't bring $N into the city.",
 /* MOVE_YOU_ARENT_ALLOWED_CITY */"You aren't allowed in the city.",
 /* MOVE_YOU_FOLLOW_N */		"You follow $N.",
+/* MOVE_I_SEE_NO_EXIT_T_HERE */	"I see no exit $T here.",
+/* MOVE_I_SEE_NO_T_HERE */	"I see no $T here.",
+/* MOVE_I_SEE_NO_DOOR_T_HERE */	"I see no door $T here.",
+/* MOVE_YOU_CANT_DO_THAT */	"You can't do that.\n\r",
+/* MOVE_DISTANCE_HERE */	"right here.",
+/* MOVE_DISTANCE_NEARBY */	"nearby to the %s.",
+/* MOVE_DISTANCE_NOT_FAR */	"not far %s.",
+/* MOVE_DISTANCE_OFF_IN */	"off in the distance %s.",
+/* MOVE_N_LOOKS_ALL_AROUND */	"$n looks all around.",
+/* MOVE_LOOKING_AROUND_YOU_SEE */"Looking around you see:\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",

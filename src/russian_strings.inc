@@ -117,6 +117,16 @@ char *strings_rus[] = {
 /* MOVE_YOU_CANT_BRING_N_CITY */"Ты не можешь внести $N в этот город.",
 /* MOVE_YOU_ARENT_ALLOWED_CITY */"Тебе не разрешено входить в этот город.",
 /* MOVE_YOU_FOLLOW_N */		"Ты следуешь за $N.",
+/* MOVE_I_SEE_NO_EXIT_T_HERE */	"Я не вижу здесь выходов на $T.",
+/* MOVE_I_SEE_NO_T_HERE */	"Я не вижу здесь $T.",
+/* MOVE_I_SEE_NO_DOOR_T_HERE */	"Я не вижу здесь дверей на $T.",
+/* MOVE_YOU_CANT_DO_THAT */	"Ты не можешь этого сделать.\n\r",
+/* MOVE_DISTANCE_HERE */	"здесь.",
+/* MOVE_DISTANCE_NEARBY */	"рядом на %s.",
+/* MOVE_DISTANCE_NOT_FAR */	"не далеко на %s.",
+/* MOVE_DISTANCE_OFF_IN */	"далеко на %s.",
+/* MOVE_N_LOOKS_ALL_AROUND */	"$n осматривается вокруг.",
+/* MOVE_LOOKING_AROUND_YOU_SEE */"Вокруг себя ты видишь:\n\r",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",

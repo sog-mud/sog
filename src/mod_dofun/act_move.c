@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.7 1998-04-26 00:23:27 efdi Exp $
+ * $Id: act_move.c,v 1.8 1998-04-26 01:33:03 efdi Exp $
  */
 
 /***************************************************************************
@@ -531,7 +531,7 @@ int find_exit( CHAR_DATA *ch, char *arg )
     else if ( !str_cmp( arg, "d" ) || !str_cmp( arg, "down"  ) ) door = 5;
     else
     {
-	act( "I see no exit $T here.", ch, NULL, arg, TO_CHAR );
+	act_printf(ch, NULL, arg, TO_CHAR, POS_RESTING, MOVE_I_SEE_NO_EXIT_T_HERE);
 	return -1;
     }
 
@@ -560,19 +560,19 @@ int find_door( CHAR_DATA *ch, char *arg )
 	    &&   is_name( arg, pexit->keyword ) )
 		return door;
 	}
-	act( "I see no $T here.", ch, NULL, arg, TO_CHAR );
+	act_printf(ch, NULL, arg, TO_CHAR, POS_RESTING, MOVE_I_SEE_NO_T_HERE);
 	return -1;
     }
 
     if ( ( pexit = ch->in_room->exit[door] ) == NULL )
     {
-	act( "I see no door $T here.", ch, NULL, arg, TO_CHAR );
+	act_printf(ch, NULL, arg, TO_CHAR, POS_RESTING, MOVE_I_SEE_NO_DOOR_T_HERE);
 	return -1;
     }
 
     if ( !IS_SET(pexit->exit_info, EX_ISDOOR) )
     {
-	send_to_char( "You can't do that.\n\r", ch );
+	send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch), ch);
 	return -1;
     }
 
@@ -581,9 +581,11 @@ int find_door( CHAR_DATA *ch, char *arg )
 
 /* scan.c */
 
-char *const distance[4]=
-{
-"right here.", "nearby to the %s.", "not far %s.", "off in the distance %s."
+int const distance[4]= {
+	MOVE_DISTANCE_HERE, 
+	MOVE_DISTANCE_NEARBY, 
+	MOVE_DISTANCE_NOT_FAR,
+	MOVE_DISTANCE_OFF_IN
 };
 
 void scan_list           args((ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch,
@@ -596,8 +598,8 @@ void do_scan2(CHAR_DATA *ch, char *argument)
    EXIT_DATA *pExit;
    sh_int door;
 
-   act("$n looks all around.", ch, NULL, NULL, TO_ROOM);
-   send_to_char("Looking around you see:\n\r", ch);
+   act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MOVE_N_LOOKS_ALL_AROUND);
+   send_to_char(msg(MOVE_LOOKING_AROUND_YOU_SEE, ch), ch);
                 scan_list(ch->in_room, ch, 0, -1);
    for (door=0;door<6;door++)
       {
@@ -627,14 +629,13 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, sh_int depth, sh_int d
 void scan_char(CHAR_DATA *victim, CHAR_DATA *ch, sh_int depth, sh_int door)
 {
    extern char *const dir_name[];
-   extern char *const distance[];
    char buf[MAX_INPUT_LENGTH], buf2[MAX_INPUT_LENGTH];
 
    buf[0] = '\0';
 
    strcat(buf, PERS(victim, ch));
    strcat(buf, ", ");
-   sprintf(buf2, distance[depth], dir_name[door]);
+   sprintf(buf2, msg(distance[depth], ch), dir_name[door]);
    strcat(buf, buf2);
    strcat(buf, "\n\r");
  
