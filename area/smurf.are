@@ -197,6 +197,7 @@ food~
 pill 0 A
 8 '' '' 'detect magic' ''
 0 20 180 P
+G none
 #101
 glasses~
 a pair of glasses~
@@ -209,6 +210,7 @@ A
 4 1
 A
 2 -1
+G none
 #102
 smurf hat~
 a smurf hat~
@@ -217,6 +219,7 @@ cloth~
 armor 0 AE
 3 3 3 0 0
 3 20 310 P
+G none
 #103
 axe small~
 a small axe~
@@ -225,6 +228,7 @@ wood~
 weapon 0 AN
 axe 1 7 slash 0
 3 20 370 P
+G none
 #104
 necklace~
 a small necklace~
@@ -235,6 +239,7 @@ jewelry A AC
 5 20 550 P
 A
 3 1
+G none
 #105
 pink potion~
 a pink potion~
@@ -243,6 +248,7 @@ glass~
 potion 0 A
 6 'armor' 'cure blindness' '' ''
 0 20 160 P
+G none
 #106
 wand~
 a small wand~
@@ -251,6 +257,7 @@ wood~
 wand 0 AO
 5 1 1 'burning hands' 0
 3 20 540 P
+G none
 #107
 key~
 a tiny key~
@@ -259,6 +266,7 @@ wood~
 key 0 A
 B 0 0 0 0
 0 20 0 P
+G none
 #108
 well~
 a smurf well~
@@ -267,6 +275,7 @@ stone~
 fountain 0 0
 50 50 'water' 0 0
 0 0 0 P
+G none
 #109
 key~
 a small key~
@@ -275,6 +284,7 @@ wood~
 key 0 A
 B 0 0 0 0
 0 20 0 P
+G none
 #0
 
 #ROOMS

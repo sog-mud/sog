@@ -70,6 +70,7 @@ armor ACR AEI
 98 5 100 P
 A
 24 -200
+G none
 #35251
 Stereosystem~
 @eng Huge stereosystem@rus Огромная стереосистема~
@@ -80,6 +81,7 @@ armor C AJ
 98 20 1000 P
 A
 19 250
+G none
 #35252
 Smell~
 @eng Smell of death@rus Запах смерти~
@@ -88,6 +90,7 @@ unknown~
 container CE AQ
 1 0 0 0 0
 98 0 0 P
+G none
 #35253
 chain~
 @eng Bike chain@rus Цепь от мотоцикла~
@@ -100,6 +103,7 @@ A
 18 50
 A
 19 50
+G none
 #35254
 pants~
 @eng Black leather pants@rus Черные кожаные штаны~
@@ -110,6 +114,7 @@ armor CY AF
 98 20 0 P
 A
 5 3
+G none
 #35255
 Vest~
 @eng Black riveted vest@rus Черный клепанный жилет~
@@ -122,6 +127,7 @@ A
 18 50
 A
 19 50
+G none
 #35256
 tattoo~
 @eng {WTattoo "{DI'm your {cGOD{D!{W"{x@rus {WТатуировка "{DЯ твой {cБОГ{D!{W"{x~
@@ -132,6 +138,7 @@ protect C AR
 98 0 0 P
 A
 6 5
+G none
 #35257
 key~
 @eng Kalarit key@rus Каларитовый ключ~
@@ -140,6 +147,7 @@ kalarit~
 key AC AC
 0 0 0 0 0
 70 10 70 P
+G none
 #35258
 torch~
 @eng Massive torch@rus Массивный факел~
@@ -154,6 +162,7 @@ A
 1 -3
 A
 12 300
+G none
 #35259
 anchar~
 @eng Anchar@rus Анчар~
@@ -162,6 +171,7 @@ Poisoned wood~
 fountain CNY P
 -1 -1 'vodka' 0 0
 0 0 0 P
+G none
 #35260
 chainsaw~
 @eng chainsaw@rus бензопила~
@@ -170,6 +180,7 @@ unknown~
 weapon CE AN
 exotic 5 14 slash 0
 70 35 250 P
+G none
 #35261
 Rocket Launcher~
 ~
@@ -178,6 +189,7 @@ steel~
 weapon 0 AN
 exotic 0 0 none 0
 50 100 300 P
+G none
 #35262
 redarmor~
 @eng Red armor of soldier@rus Красная броня солдата~
@@ -190,6 +202,7 @@ A
 6 2
 A
 13 40
+G none
 #35263
 RL~
 @eng Rocket launcher with mark "{DTF{x"@rus Ракетница с эмблемой "{DTF{x"~
@@ -204,6 +217,7 @@ A
 18 20
 A
 19 30
+G none
 #35264
 QRing~
 @eng Ring of the Shadows magic@rus Магическое Кольцо Теней~
@@ -212,6 +226,7 @@ gold~
 treasure ACGI AB
 0 0 0 0 0
 25 20 250 P
+G none
 #35265
 Helm~
 @eng The Mighty Helm of Shadow Master@rus The Mighty Helm of Shadow Master~
@@ -226,6 +241,7 @@ A
 3 6
 A
 13 100
+G none
 #35266
 Armor~
 @eng The Mighty Armor of Shadow Master@rus The Mighty Armor of Shadow Master~
@@ -240,6 +256,7 @@ A
 2 2
 A
 5 6
+G none
 #35267
 Orbit~
 @eng The Mighty Orbit of Shadow Master@rus The Mighty Orbit of Shadow Master~
@@ -252,6 +269,7 @@ A
 19 30
 A
 18 30
+G none
 #35268
 BackPack~
 @eng The Mighty BackPack of Shadow Master@rus The Mighty BackPack of Shadow Master~
@@ -260,6 +278,7 @@ Fog~
 container ABGIR A
 10000 A 0 1000000 10
 0 0 0 P
+G none
 #35269
 Ring~
 @eng The Mighty Ring of Shadow Master@rus The Mighty Ring of Shadow Master~
@@ -280,6 +299,7 @@ A
 19 10
 A
 17 -60
+G none
 #35270
 Dagger~
 @eng The Mighty Dagger of Shadows@rus Мощнейший Dagger Теней~
@@ -304,6 +324,7 @@ A
 18 10
 A
 19 10
+G none
 #35271
 sword~
 @eng The Mighty Sword of Shadow Master@rus The Mighty Sword of Shadow Master~
@@ -316,6 +337,7 @@ A
 18 10000
 A
 19 10000
+G none
 #35272
 Armor~
 @eng The Mighty Armor of Shadow Master@rus The Mighty Armor of Shadow Master~
@@ -324,6 +346,7 @@ Steel~
 armor ABGI AD
 -100 -100 -100 -100 0
 0 0 0 P
+G none
 #35273
 ball~
 @eng The Mighty Ball of Shadow Master@rus The Mighty Ball of Shadow Master~
@@ -334,6 +357,7 @@ light ABGI AB
 0 0 0 P
 A
 9 4000
+G none
 #35274
 BackPack~
 @eng The Mighty BackPack of Shadow Master@rus The Mighty BackPack of Shadow Master~
@@ -342,6 +366,7 @@ Steel~
 container ABGI A
 2147483647 A 0 0 0
 0 0 0 P
+G none
 #35275
 ring~
 @eng The Mighty Ring of Shadow Master@rus The Mighty Ring of Shadow Master~
@@ -370,6 +395,7 @@ A
 3 15
 A
 1 15
+G none
 #0
 
 #ROOMS

@@ -2248,7 +2248,7 @@ pit~
 the donation pit~
 A pit for sacrifices is in front of the altar.~
 ~
-container O 0
+container Og 0
 10000 0 0 1000 100
 0 0 0 P
 G none

@@ -1382,7 +1382,7 @@ old altar marble~
 an old altar~
 An old altar waits for another sacrifice.~
 marble~
-container 0 0
+container Og 0
 1000 0 0 1000 1000
 0 0 5000 P
 G none

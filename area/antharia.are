@@ -377,6 +377,7 @@ A
 5 3
 A
 17 -20
+G none
 #12301
 green gem~
 a green gem~
@@ -389,6 +390,7 @@ A
 2 1
 A
 1 1
+G none
 #12302
 sea shell armor~
 a sea turtle shell~
@@ -401,6 +403,7 @@ A
 17 -20
 A
 18 1
+G none
 #12303
 giant clamshell~
 a giant clamshell~
@@ -409,6 +412,7 @@ copper~
 container A AO
 8 A 0 0 0
 0 20 0 P
+G none
 #12304
 Antharian Signet ring~
 an Antharian signet ring~
@@ -419,6 +423,7 @@ armor A AB
 25 5 250 P
 A
 17 -5
+G none
 #12305
 Antharian Signet ring~
 an Antharian signet ring~
@@ -429,6 +434,7 @@ D 0 0 0 0
 32 5 320 P
 A
 17 -10
+G none
 #12306
 Antharian Signet ring~
 an Antharian signet ring~
@@ -443,6 +449,7 @@ A
 9 -10
 A
 12 10
+G none
 #12307
 Antharian plate mail~
 Antharian plate mail~
@@ -461,6 +468,7 @@ A
 19 1
 A
 6 -1
+G none
 #12308
 Antharian plate mail~
 Antharian plate mail~
@@ -477,6 +485,7 @@ A
 14 40
 A
 17 -10
+G none
 #12309
 Antharian plate mail~
 Antharian plate mail~
@@ -491,6 +500,7 @@ A
 19 2
 A
 6 -1
+G none
 #12310
 synthetic fin~
 a pair of synthetic fins~
@@ -501,6 +511,7 @@ armor I AF
 25 15 250 P
 A
 14 150
+G none
 #12311
 synthetic fin~
 a pair of synthetic fins~
@@ -511,6 +522,7 @@ armor I AF
 32 15 320 P
 A
 14 200
+G none
 #12312
 synthetic fin~
 a apir of synthetic fins~
@@ -521,6 +533,7 @@ armor I AF
 42 15 420 P
 A
 14 250
+G none
 #12313
 Antharian helmet~
 an Antharian helmet~
@@ -531,6 +544,7 @@ armor A AE
 25 15 250 P
 A
 12 20
+G none
 #12314
 Antharian helmet~
 an Antharian helmet~
@@ -541,6 +555,7 @@ armor A AE
 32 15 320 P
 A
 12 30
+G none
 #12315
 Antharian helmet~
 an Antharian helmet~
@@ -553,6 +568,7 @@ A
 12 40
 A
 24 -5
+G none
 #12316
 Trident~
 a sparkling trident~
@@ -567,6 +583,7 @@ A
 19 3
 A
 18 3
+G none
 #12317
 trident~
 a sparkling trident~
@@ -581,6 +598,7 @@ A
 19 3
 A
 18 3
+G none
 #12318
 trident~
 a sparkling trident~
@@ -595,6 +613,7 @@ A
 19 4
 A
 18 2
+G none
 #12319
 Seafood platter~
 a seafood platter~
@@ -603,6 +622,7 @@ copper~
 food 0 AD
 BC 0 0 0 0
 0 4 0 P
+G none
 #12320
 Caviar~
 a dish of caviar~
@@ -611,6 +631,7 @@ copper~
 food 0 AD
 AC 0 0 0 0
 0 4 0 P
+G none
 #12321
 Special~
 today's special~
@@ -619,6 +640,7 @@ copper~
 food 0 AD
 BD 0 0 0 0
 0 5 0 P
+G none
 #12322
 Sushi~
 some sushi~
@@ -627,6 +649,7 @@ copper~
 food 0 AD
 AB 0 0 0 0
 0 5 0 P
+G none
 #12330
 Antharian robe~
 an Antharian robe~
@@ -641,6 +664,7 @@ A
 1 -1
 A
 19 1
+G none
 #12331
 Antharian belt~
 an Antharian belt~
@@ -653,6 +677,7 @@ A
 24 -4
 A
 3 1
+G none
 #12332
 Antharian trousers~
 Antharian trousers~
@@ -667,6 +692,7 @@ A
 18 1
 A
 17 -5
+G none
 #12333
 Piece Metal~
 a round piece of metal~
@@ -675,6 +701,7 @@ copper~
 wand F AO
 38 7 7 'charm person' 0
 38 10 380 P
+G none
 #12334
 Crystal potion~
 a crystal potion~
@@ -683,6 +710,7 @@ copper~
 potion P AF
 20 'refresh' '' '' ''
 5 3 50 P
+G none
 #12335
 crystal scroll~
 a crystal scroll~
@@ -691,6 +719,7 @@ copper~
 scroll A AI
 13 'enchant weapon' '' '' ''
 10 3 100 P
+G none
 #12336
 glowing seashell~
 a glowing seashell~
@@ -699,6 +728,7 @@ copper~
 scroll A AE
 5 'detect hidden' '' '' ''
 10 3 100 P
+G none
 #12337
 antharian bracer~
 an Antharian style bracer~
@@ -711,6 +741,7 @@ A
 18 1
 A
 4 1
+G none
 #12338
 antharian bracer~
 an Antharian style bracer~
@@ -723,6 +754,7 @@ A
 18 2
 A
 4 1
+G none
 #12339
 antharian bracer~
 an Antharian style bracer~
@@ -735,6 +767,7 @@ A
 18 3
 A
 4 2
+G none
 #12340
 net~
 a net~
@@ -745,6 +778,7 @@ staff A AO
 25 5 250 P
 A
 22 5
+G none
 #0
 
 #ROOMS

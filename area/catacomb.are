@@ -264,6 +264,7 @@ steel~
 key ABG A
 ABCF 0 0 0 0
 0 10 0 P
+G none
 #2002
 granite plate mail platemail~
 a suit of granite platemail~
@@ -274,6 +275,7 @@ armor BJ AD
 23 550 3600 P
 A
 2 -1
+G none
 #2003
 onyx ring~
 an onyx ring~
@@ -286,6 +288,7 @@ A
 4 1
 A
 17 -1
+G none
 #2004
 neutralizer sword~
 the neutralizer~
@@ -298,6 +301,7 @@ A
 19 2
 A
 18 1
+G none
 #2005
 sword excalibur~
 the sword Excalibur~
@@ -310,6 +314,7 @@ A
 1 1
 A
 18 3
+G none
 #2006
 crown~
 a kingly crown~
@@ -320,6 +325,7 @@ key I AE
 24 100 1850 P
 A
 17 -6
+G none
 #2007
 stone~
 stone~
@@ -328,6 +334,7 @@ stone~
 container A 0
 15 ABCD 2006 15 100
 0 0 0 P
+G none
 #2008
 holy water flask~
 a flask of holy water~
@@ -336,6 +343,7 @@ copper~
 potion A AO
 25 'bless' 'sanctuary' '' ''
 11 20 880 P
+G none
 #2009
 chainmail chain mail suit~
 a suit of chainmail~
@@ -344,6 +352,7 @@ iron~
 armor I AD
 5 5 5 0 0
 10 200 1450 P
+G none
 #2010
 white cape~
 a white cape~
@@ -354,6 +363,7 @@ armor A AC
 12 30 1000 P
 A
 18 1
+G none
 #2011
 shield defense~
 the shield of defense~
@@ -372,6 +382,7 @@ A
 12 10
 A
 17 -2
+G none
 #2012
 scale shield dragonscale~
 a dragonscale shield~
@@ -382,6 +393,7 @@ armor 0 AJ
 22 200 3500 P
 A
 20 -2
+G none
 #2013
 prism wand~
 a prism wand~
@@ -390,6 +402,7 @@ glass~
 wand AG AO
 11 4 4 'colour spray' 0
 12 40 2200 P
+G none
 #2014
 shadow cloak~
 a shadow cloak~
@@ -400,6 +413,7 @@ armor G AK
 14 10 210 P
 A
 14 -30
+G none
 #2015
 misty potion~
 a misty potion~
@@ -408,6 +422,7 @@ glass~
 potion 0 AO
 10 'pass door' 'faerie fire' '' ''
 12 10 920 P
+G none
 #2016
 templar templars sword wooden~
 a templar's sword~
@@ -418,6 +433,7 @@ sword 2 6 slash 0
 10 60 830 P
 A
 18 2
+G none
 #0
 
 #ROOMS

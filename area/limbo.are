@@ -191,7 +191,7 @@ A lesser golem is here.
 The golem appears to be made of some kind of clay, enchanted to come to life!.
 ~
 golem~
-AT SV 0 0
+ATg SV 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
@@ -206,7 +206,7 @@ This is a large stone statue of a man. The statue stands eight feet tall
 and looks powerful enough to rip off your head without straining.
 ~
 golem~
-AT SV 0 0
+ATg SV 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
@@ -214,7 +214,7 @@ stand stand male 0
 0 0 medium unknown
 #23
 golem iron~
-an iron golem~
+@eng an iron golem@rus ~~железный~~ ~~голем~~~
 A huge iron statue of a man stands here.
 ~
 This looks to be an iron statue of a human.  The statue stands a good
@@ -222,7 +222,7 @@ fifteen feet tall.  In fact it almost looks as if it can move.  You then glance
 at it's eyes and notice with a shock that they are watching you. 
 ~
 golem~
-AT SV 0 0
+ATg SV 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0
@@ -230,14 +230,14 @@ stand stand none 0
 0 0 medium unknown
 #24
 golem adamantite~
-@eng an adamantite golem@rus адамантитовый голем~
+@eng an adamantite golem@rus ~~адамантитовый~~ ~~голем~~~
 An adamantite golem stands here looking very dangerous.
 ~
 It seems to be forged of dark metal.  It looks strong and durable,
 but somewhat un-intelligent.
 ~
 golem~
-AT SV 0 0
+ATg SV 0 0
 0 1 1d1+1 1d1+1 3d10+12 crush
 0 0 0 0
 EFO 0 0 0

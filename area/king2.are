@@ -498,6 +498,7 @@ text writing inscription~
 It just says: ' (void *) '.
 Not very enlightening.
 ~
+G none
 #15202
 sceptre royal golden~
 a golden sceptre~
@@ -508,6 +509,7 @@ furniture GK AO
 50 200 27225 G
 A
 18 2
+G none
 #15203
 crown golden~
 a golden crown~
@@ -520,6 +522,7 @@ A
 12 30
 A
 3 1
+G none
 #15204
 apple golden~
 a golden apple~
@@ -528,6 +531,7 @@ gold~
 light GK A
 0 0 -1 0 0
 50 50 27720 G
+G none
 #15205
 telescope scope~
 a large telescope~
@@ -540,6 +544,7 @@ E
 telescope scope~
 A small sign says: Made in Siberia.
 ~
+G none
 #15206
 sword training~
 a training sword~
@@ -550,6 +555,7 @@ sword 5 8 scratch 0
 35 70 9000 G
 A
 18 -2
+G none
 #15207
 key huge~
 a huge key~
@@ -558,6 +564,7 @@ metal~
 key M AO
 0 0 0 0 0
 36 10 1000 G
+G none
 #15208
 key butlers butler~
 the Butler's key~
@@ -566,6 +573,7 @@ metal~
 key M AO
 0 0 0 0 0
 35 20 100 G
+G none
 #15209
 key small~
 a small key~
@@ -574,6 +582,7 @@ metal~
 key M AO
 0 0 0 0 0
 40 200 0 G
+G none
 #15210
 chest wooden~
 a large wooden chest~
@@ -587,6 +596,7 @@ chest~
 It is equipped with a small lock, that any self-respecting thief
 should be able to pick.
 ~
+G none
 #15211
 vial large potion brown~
 a large vial~
@@ -598,6 +608,7 @@ potion G A
 E
 vial large brown potion~
 It is filled with a disgusting brown liquid.~
+G none
 #15212
 banner royal~
 a royal banner~
@@ -619,6 +630,7 @@ E
 flag~
 On the flag is the symbol of King Welmar's house, the rampant stag.
 ~
+G none
 #15213
 key~
 a key~
@@ -631,6 +643,7 @@ E
 key~
 It has a finely carved letter 'W' inscribed on it.
 ~
+G none
 #15214
 mail chain hauberk~
 a guard's chain mail hauberk~
@@ -639,6 +652,7 @@ steel~
 armor 0 AD
 12 12 12 5 0
 37 600 6240 G
+G none
 #15215
 sword large broadsword~
 a large broadsword~
@@ -647,6 +661,7 @@ steel~
 weapon 0 AN
 sword 5 10 pierce 0
 50 140 27216 G
+G none
 #15216
 lobster~
 a delicious-looking lobster~
@@ -655,6 +670,7 @@ food~
 food 0 A
 ABC ABC 0 0 0
 30 50 5088 G
+G none
 #15217
 caviar~
 some Russian caviar~
@@ -663,6 +679,7 @@ food~
 food 0 A
 B B 0 0 0
 31 250 5189 G
+G none
 #15218
 flail large~
 a large flail~
@@ -671,6 +688,7 @@ steel~
 weapon 0 AN
 flail 5 7 pound 0
 35 140 16216 G
+G none
 #15219
 large halberd protector~
 a large halberd named "Protector"~
@@ -683,6 +701,7 @@ A
 18 2
 A
 19 2
+G none
 #15220
 mail chain hauberk~
 a lifeguard's chain mail hauberk~
@@ -693,6 +712,7 @@ armor G AD
 48 300 26240 G
 A
 17 -30
+G none
 #15221
 mail chain hauberk~
 a chain mail hauberk~
@@ -703,6 +723,7 @@ armor G AD
 40 400 16278 G
 A
 17 -15
+G none
 #15222
 sword short broadsword~
 a short broadsword~
@@ -711,6 +732,7 @@ steel~
 weapon 0 AN
 sword 5 8 pierce 0
 40 140 17276 G
+G none
 #15223
 gold silver coins~
 the silver and gold coins~
@@ -723,6 +745,7 @@ E
 silver~
 Looks like at least a thousand coins.
 ~
+G none
 #15224
 weapon~
 the Executioner's evil weapon~
@@ -731,6 +754,7 @@ steel~
 weapon 0 AN
 exotic 6 11 blast CG
 60 400 3284 G
+G none
 #15225
 chest iron~
 a large iron chest~
@@ -739,6 +763,7 @@ iron~
 container 0 0
 400 ABCD 15226 400 100
 40 400 0 G
+G none
 #15226
 key great~
 a great key~
@@ -747,6 +772,7 @@ metal~
 key M AO
 0 0 0 0 0
 60 200 0 G
+G none
 #0
 
 #ROOMS

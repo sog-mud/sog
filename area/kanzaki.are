@@ -70,6 +70,7 @@ safe~
 Ты открываешь дверцу и обнаруживаешь, что сейф пуст!
 А почему, ты думал, он открыт ?
 ~
+G none
 #47001
 window~
 @eng the window@rus Окно~
@@ -82,6 +83,7 @@ E
 window~
 За ним ты видишь лишь небо, земля скрыта под облаками.
 ~
+G none
 #47002
 armchair cosy~
 @eng A velvet covered armchair@rus Обитое бархатом кресло~
@@ -95,6 +97,7 @@ armchair~
 Оно очень мягкое и широкое - наверное, в нем могло
 бы уместиться несколько человек сразу :o
 ~
+G none
 #47003
 tree~
 @eng A small tree@rus Деревце в кадке~
@@ -109,6 +112,7 @@ A small tree grows from the tub. Its vines are
 twisted in a weird dance, but flowers look nice.
 It seems flammable.
 ~
+G none
 #47004
 sword enforcement~
 Sword of Enforcement~
@@ -121,6 +125,7 @@ A
 18 15
 A
 19 15
+G none
 #47005
 sun~
 @eng {YThe sun{x@rus {YСолнце{x~
@@ -134,6 +139,7 @@ sun~
 Your eyes tear up from sunlight!
 You can't see a thing!
 ~
+G none
 #47006
 holy avenger sword~
 {Wthe holy Avenger{x~
@@ -148,6 +154,7 @@ A
 19 250
 A
 18 250
+G none
 #47007
 breastplate white blazing~
 {Wblazing white breastplate{x~
@@ -162,6 +169,7 @@ F
 A 0 0 H
 A
 1 22
+G none
 #47008
 shield faith~
 {Wthe Shield of Faith{x~
@@ -176,6 +184,7 @@ A
 20 -100
 A
 13 1000
+G none
 #47009
 cape paladin white~
 {Wwhite cape of the paladin{x~
@@ -186,6 +195,7 @@ armor AKLS AK
 96 0 0 P
 A
 5 22
+G none
 #47010
 blessing~
 {Wa blessing{x~
@@ -208,6 +218,7 @@ A
 4 22
 A
 3 22
+G none
 #47011
 amulet purity~
 {Wamulet of purity{x~
@@ -222,6 +233,7 @@ F
 A 0 0 C
 F
 A 0 0 G
+G none
 #47012
 barrel large~
 @eng {xBarrel of ale@rus {xБочка с элем~
@@ -230,6 +242,7 @@ wood~
 fountain Y 0
 0 0 'ale' 0 0
 0 1 1 P
+G none
 #47013
 axe battle urukhay~
 @eng {rUrukhay's battle axe{x@rus {rБоевой топор Урукхая{x~
@@ -242,6 +255,7 @@ A
 19 20
 A
 18 20
+G none
 #47014
 flamberge blaze sword~
 {YFlamberge Blaze{x~
@@ -254,6 +268,7 @@ A
 19 20
 A
 18 20
+G none
 #47015
 flaming sword~
 {Yflaming sword{x~
@@ -266,6 +281,7 @@ A
 18 20
 A
 19 20
+G none
 #47016
 shroud shadows myrxes~
 a -=+)> shroud~
@@ -280,6 +296,7 @@ A
 18 6
 A
 13 50
+G none
 #47017
 thingie~
 @eng a thingie@rus фигнюшка~
@@ -292,6 +309,7 @@ F
 A 0 0 e
 F
 A 0 0 g
+G none
 #47018
 garland~
 @eng a garland@rus гирлянда~
@@ -300,6 +318,7 @@ plastic~
 staff ARY AO
 1 10 10 'continual light' 0
 0 0 0 P
+G none
 #47019
 petard~
 @eng a petard@rus петарда~
@@ -315,6 +334,7 @@ petard~
 1) Съесть петарду.
 2) ... Ну ты сначала съешь ;)
 ~
+G none
 #47020
 vodka glass paladinskaya~
 @eng A glass of "{WSpecial paladin's{x" vodka@rus Стопка "{WОсобой паладинской{x" водки~
@@ -323,6 +343,7 @@ vodka glass paladinskaya~
 potion HIRYZ A
 40 'garble' 'frenzy' 'slow' 'make arrow'
 10 0 0 P
+G none
 #47021
 jar banka cucumbers huge~
 @eng Jar of cucumbers@rus Банка с огурцами~
@@ -331,6 +352,7 @@ glass~
 container RY 0
 100000 A 0 1000000 50
 0 0 0 P
+G none
 #47022
 cucumber~
 @eng {gsalted cucumber{x@rus {gмалосольный огурчик{x~
@@ -339,6 +361,7 @@ cucumber~
 food 0 AN
 A A 0 0 0
 0 10 0 P
+G none
 #47023
 box petards garlands large~
 @eng a box@rus Картонная коробка~
@@ -354,6 +377,7 @@ label box large etiketka~
      Петарды, гирлянды и другие боеприпасы.
         Веселого Нового Года!
 ~
+G none
 #47024
 champautomat fountain champagne~
 @eng Champautomat@rus Шампомат?~
@@ -373,6 +397,7 @@ champautomat fountain champagne~
 NOTE: Отвественности за последствия компания
       не несет - модель-то пробная ;))
 ~
+G none
 #47100
 tablet wooden~
 @eng {xWooden tablet@rus Дереванная табличка~
@@ -394,6 +419,7 @@ tablet~
 *                                               *
 *************************************************
 ~
+G none
 #47101
 well stone~
 @eng Well@rus Колодец~
@@ -402,6 +428,7 @@ stone~
 fountain RY P
 100000 100000 'water' 0 0
 0 1 1 P
+G none
 #47102
 gates temple~
 @eng Temple gates@rus Храмовые врата~
@@ -410,6 +437,7 @@ stone~
 portal BR P
 0 0 0 47163 0
 0 0 0 P
+G none
 #47103
 cave mouth dark~
 @eng Mouth of a cave@rus Вход в пещеру~
@@ -423,6 +451,7 @@ cave~
 Darkness of the cave sharply contrasts with pale grey stone of
 the mountain. It looks haunt, but who knows what is there ?
 ~
+G none
 #47104
 crevasse~
 @eng Crevasse@rus Расщелина~
@@ -439,6 +468,7 @@ life to all nightmares and horrors which you considered long
 forgotten and left in childhood. Fear grips your very soul with
 its icy fingers, making you step back involuntarily.
 ~
+G none
 #47105
 hole~
 @eng Hole@rus Дыра в камне~
@@ -455,6 +485,7 @@ stench of death and listening to the screams of damned souls,
 souls of those slain by the demon and doomed to suffer, until
 someone comes and buries their bones.
 ~
+G none
 #47106
 door wooden house~
 @eng Wooden door@rus Деревянная дверь~
@@ -463,6 +494,7 @@ wood~
 portal Y 0
 0 0 0 47199 0
 0 1 1 P
+G none
 #47107
 river water~
 @eng River@rus Река~
@@ -478,6 +510,7 @@ are gone away. Sometimes a large fish swims up, and,
 swallowed a bug, dives back into the deep. You wonder
 what can be down there..
 ~
+G none
 #47108
 cave mouth underwater~
 @eng Cave mouth@rus Вход в пещеру~
@@ -486,6 +519,7 @@ stone~
 portal CY 0
 0 0 0 47219 0
 0 1 1 P
+G none
 #47109
 anvil iron huge~
 @eng a huge anvil@rus Чугунная наковальня~
@@ -494,6 +528,7 @@ cast iron~
 furniture BY 0
 A FHJKPQ EHN BEF BEF
 0 1000 1 P
+G none
 #47110
 barrel water~
 @eng Barrel of water@rus Бочка с водой~
@@ -507,6 +542,7 @@ barrel~
 The water inside it is not that clear, I wouldn't drink it.
 Probably it is used to cool chunks..
 ~
+G none
 #47111
 table small~
 @eng Small table@rus Маленький столик~
@@ -520,6 +556,7 @@ table~
 There is a paper lying on the table, it looks like unfinished letter..
 You attempt to read it but have no clue what do these hyeroglyphs mean.
 ~
+G none
 #47112
 tatami~
 @eng Tatami@rus Татами~
@@ -533,6 +570,7 @@ tatami~
 It looks soft, you barely prevent yourself from just sitting on it,
 but remember: that would not be polite.
 ~
+G none
 #47113
 altar~
 @eng Altar@rus Алтарь~
@@ -546,6 +584,7 @@ altar~
 There is a small statuette on it, and lit candlesticks on both sides.
 They fill the air with undescriptably wonderful aroma. 
 ~
+G none
 #47114
 tatamis~
 @eng tatamis@rus татами~
@@ -554,6 +593,7 @@ tatamite~
 furniture Y 0
 AB INOPQSUVWXYa EH CFG CFG
 0 1 1 P
+G none
 #47115
 bed coverlet pillow~
 @eng Bed@rus Постель~
@@ -562,6 +602,7 @@ wood~
 furniture Y 0
 A GJOQRST HK CFG CFG
 0 1 1 P
+G none
 #47116
 mirror large~
 @eng Mirror@rus Зеркало~
@@ -575,6 +616,7 @@ mirror~
 Who's that pretty, sexy.. oh, it's you!
 You smooth your hair and like yourself even more.
 ~
+G none
 #47117
 vase flowers~
 @eng Vase with flowers@rus Ваза с цветами~
@@ -583,6 +625,7 @@ glass~
 container Y 0
 1000 0 0 1000 100
 0 1 1 P
+G none
 #47118
 bouquet flowers~
 @eng A bouquet of flowers@rus Букет цветов~
@@ -596,6 +639,7 @@ flowers~
 {xThere are {Rscarlet{x, {Yyellow{x, {Wwhite{x and {Mmagenta{x
 flowers. An explosion of color!
 ~
+G none
 #47119
 chest~
 @eng Chest@rus Сундук~
@@ -604,6 +648,7 @@ wood~
 container 0 0
 10000 AC 0 10000 100
 0 1 1 P
+G none
 #47120
 sign~
 @eng Sign@rus Табличка~
@@ -622,6 +667,7 @@ sign~
 #                                #
 ##################################
 ~
+G none
 #47121
 bench~
 @eng bench@rus скамейка~
@@ -630,6 +676,7 @@ wood~
 furniture 0 0
 AC HJKMPTUX EH CFG CFG
 0 1 1 P
+G none
 #47122
 table~
 @eng Table@rus Столик~
@@ -643,6 +690,7 @@ table~
 There are many scratches on its surface, some of
 them form words.. but hell, you can't read them.
 ~
+G none
 #47123
 plant leaves~
 @eng plant@rus растение~
@@ -656,6 +704,7 @@ plant~
 The leaves are wide, there may be something hidden
 beneath them.
 ~
+G none
 #47124
 fruits food~
 @eng Some fruits@rus Плоды~
@@ -664,6 +713,7 @@ plant~
 food 0 A
 AC AC 0 0 0
 0 50 0 P
+G none
 #47125
 bench~
 @eng wooden bench@rus Деревянная скамья~
@@ -672,6 +722,7 @@ wood~
 furniture 0 0
 AC GJOQRST EH BEF BEF
 0 1 1 P
+G none
 #47126
 table wooden~
 @eng table@rus стол~
@@ -680,6 +731,7 @@ wood~
 furniture 0 0
 0 0 N 0 0
 0 1 1 P
+G none
 #47127
 bodhi tree~
 @eng {gbodhi tree{x@rus {gдерево{x~
@@ -688,6 +740,7 @@ wood~
 furniture 0 0
 0 0 0 0 0
 0 1 1 P
+G none
 #47217
 river water~
 @eng River@rus Река~
@@ -703,6 +756,7 @@ are gone away. Sometimes a large fish swims up, and,
 swallowed a bug, dives back into the deep. You wonder
 what can be down there..
 ~
+G none
 #0
 
 #ROOMS

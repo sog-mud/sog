@@ -179,6 +179,7 @@ The Goblin Nation area is designed for players
 of level 10 - 25.   Please be careful when you
 enter the Goblin Nation.  The lousy Goblins 
 travel in packs...and care nothing about honor.~
+G none
 #9902
 lost quest note~
 a lost quest note~
@@ -193,6 +194,7 @@ quest note lost~
 
 What this means is that you need to find that which is
 lost, have proof, then tell someone on the wizlist.~
+G none
 #9903
 note reward~
 a reward note~
@@ -208,6 +210,7 @@ The brother of the Dread Pirate Roberts is missing.
 A reward is offered for anyone who can locate the
 brother and either release him, or tell someone on
 the wizlist who has him and where he is.~
+G none
 #9904
 necklace~
 a Necklace~
@@ -219,6 +222,7 @@ armor 0 AC
 E
 necklace~
 This is an identification necklace.  It is number 1~
+G none
 #9905
 necklace~
 a Necklace~
@@ -230,6 +234,7 @@ armor 0 AC
 E
 necklace~
 This is an identification necklace.  It is number 2.~
+G none
 #9906
 necklace~
 a Necklace~
@@ -241,6 +246,7 @@ armor 0 AC
 E
 necklace~
 This is an identification necklace.  It is number 3.~
+G none
 #9907
 ring elven elf~
 an Elven Ring~
@@ -252,6 +258,7 @@ armor 0 AB
 E
 ring~
 This ring is for identification.  It is ring 1.~
+G none
 #9908
 ring elven elf~
 an Elven Ring~
@@ -263,6 +270,7 @@ armor 0 AB
 E
 ring~
 This elven ring is for identification.  It is ring 2.~
+G none
 #9909
 ring elven elf~
 an Elven Ring~
@@ -274,6 +282,7 @@ armor 0 AB
 E
 ring elven elf~
 This ring is for identification.  It is ring 3.~
+G none
 #9910
 child childs toy~
 a Childs toy~
@@ -285,6 +294,7 @@ armor 0 AO
 E
 toy child~
 This toy is for identification.  It is number 1~
+G none
 #9911
 toy child childs~
 a Childs toy~
@@ -296,6 +306,7 @@ armor 0 AO
 E
 child toy childs~
 This toy is for identification.  It is number 2~
+G none
 #9912
 child childs toy~
 a Childs toy~
@@ -307,6 +318,7 @@ armor 0 AO
 E
 child toy childs~
 This toy is for identification.  It is number 3.~
+G none
 #9913
 loincloth~
 a loincloth~
@@ -315,6 +327,7 @@ A loincloth has been wadded up and dropped here.~
 armor 0 AD
 2 3 2 2 0
 8 5 0 P
+G none
 #9914
 bangle goblin~
 a pair of Goblin Bangles~
@@ -323,6 +336,7 @@ A pair of Goblin Bangles have been dropped here.~
 armor 0 AM
 3 2 3 2 0
 8 1 0 P
+G none
 #0
 
 #ROOMS

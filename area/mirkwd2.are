@@ -214,6 +214,7 @@ E
 pool~
 It looks tasty. Have a drink!
 ~
+G none
 #8801
 sword~
 an elvish sword~
@@ -224,6 +225,7 @@ sword 1 5 slash 0
 5 30 500 G
 A
 18 2
+G none
 #8802
 cloak~
 a plain elven cloak~
@@ -236,6 +238,7 @@ A
 13 5
 A
 17 -2
+G none
 #8803
 boots~
 a pair of plain elven boots~
@@ -248,6 +251,7 @@ A
 2 1
 A
 14 50
+G none
 #8804
 water flask~
 a water flask~
@@ -256,6 +260,7 @@ porcelain~
 drink 0 A
 10 10 'water' 0 0
 0 15 50 G
+G none
 #8805
 shield~
 a spiked metal shield~
@@ -264,6 +269,7 @@ steel~
 armor 0 AJ
 3 4 4 0 3
 5 40 400 G
+G none
 #8806
 scimitar~
 an orcish scimitar~
@@ -276,6 +282,7 @@ A
 1 1
 A
 19 1
+G none
 #8807
 helm~
 an ugly spiked helm~
@@ -286,6 +293,7 @@ armor G AE
 5 140 200 G
 A
 17 -5
+G none
 #8808
 flask wine~
 a flask of Dorwinion wine~
@@ -294,6 +302,7 @@ porcelain~
 drink 0 A
 10 5 'red wine' 0 0
 5 60 150 G
+G none
 #8809
 barrel wine~
 a barrel of Dorwinion wine~
@@ -302,6 +311,7 @@ wood~
 drink 0 A
 50 50 'water' 0 0
 0 100 300 G
+G none
 #8810
 barrel~
 an empty barrel~
@@ -310,6 +320,7 @@ wood~
 drink 0 A
 100 0 'water' 0 0
 1 140 200 G
+G none
 #8811
 sword~
 a fine elven sword~
@@ -324,6 +335,7 @@ A
 18 2
 A
 19 3
+G none
 #8812
 key~
 a key~
@@ -332,6 +344,7 @@ iron~
 key 0 AO
 0 0 0 0 0
 0 10 0 G
+G none
 #8813
 key~
 a key~
@@ -340,6 +353,7 @@ iron~
 key 0 AO
 0 0 0 0 0
 0 10 0 G
+G none
 #0
 
 #ROOMS

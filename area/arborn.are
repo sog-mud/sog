@@ -514,6 +514,23 @@ A
 A
 18 10
 G none
+#36123
+tempest sword~
+sparkling sword "{CTempest{x"~
+Strangely bent sword glows in the grass.~
+titanium~
+weapon AKORTa AN
+sword 4 17 slash DGI
+40 30 0 P
+A
+13 80
+F
+I 8 1 J
+A
+19 12
+A
+18 12
+G none
 #36130
 erastus~
 skull of Erastus~
@@ -626,6 +643,21 @@ paper~
 treasure 0 A
 0 0 0 0 0
 0 20 50000 P
+E
+tempest~
+Name: sparkling sword "{CTempest{x"
+Level: 40
+Extra: nosac nosell nopurge nolocate antievil
+Cost: 250000
+Type: sword
+Damage: 4d17(average 36), slash
+Weapon flags: sharp shocking holy
+Affects: hp by 80
+         level by 1
+         hitroll by 12
+         damroll by 12
+Adds lightning immunity.
+~
 E
 book weaponry~
 You see an old fragile book with yellow-old pages. In this book you see

@@ -183,6 +183,7 @@ food~
 food 0 A
 AB AB 0 0 0
 0 3 4 P
+G none
 #401
 key~
 The key to the tank~
@@ -192,6 +193,7 @@ iron~
 key 0 A
 0 0 0 0 0
 0 10 0 P
+G none
 #402
 shark tooth necklace~
 A shark tooth necklace~
@@ -203,6 +205,7 @@ armor G AC
 4 20 300 P
 A
 19 1
+G none
 #420
 dragonclaw sabre saber~
 the DragonClaw~
@@ -253,6 +256,7 @@ E
 golden blue light~
 It is flaming and frosting sabre - it is reason of lights.
 ~
+G none
 #0
 
 #ROOMS

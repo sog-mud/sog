@@ -328,6 +328,7 @@ E
 egyptian mace~
 The mace is formed from solid brass, and engraved in strange hieroglyphs.
 ~
+G none
 #8701
 sand robes~
 sand-colored robes~
@@ -342,6 +343,7 @@ The robes are colored a sandy off-white, and are in fact caked and covered
 with sand as well.  You don't seem to be able to remove all of the sand, no
 matter how much you try.
 ~
+G none
 #8702
 obsidian dirk~
 an obsidian dirk~
@@ -356,6 +358,7 @@ E
 obsidian dirk~
 The blade of the dirk is black, glassy obsidian, chipped razor sharp.
 ~
+G none
 #8703
 cloth turban~
 a dirty cloth turban~
@@ -373,6 +376,7 @@ cloth turban~
 The turban used to be white cloth, now it is covered with oil and dirt from
 the head and hair of its previous owner, who must not have bathed much.
 ~
+G none
 #8704
 cloth wrappings~
 some cloth wrappings~
@@ -385,6 +389,7 @@ E
 cloth wrappings~
 The cloth wrappings are old, wrinkled, and stink of embalming fluid.
 ~
+G none
 #8705
 bottle fluid~
 a bottle of embalming fluid~
@@ -397,6 +402,7 @@ E
 bottle fluid~
 The bottle is dusty and the fluid has a strange sickly-sweet smell to it.
 ~
+G none
 #8706
 jar formaldehyde~
 a jar of formaldehyde~
@@ -409,6 +415,7 @@ E
 jar formaldehyde~
 The jar is sticky and smells really bad.
 ~
+G none
 #8707
 ball fire~
 a small hot ball of fire~
@@ -425,6 +432,7 @@ E
 ball fire~
 The ball of fire is hot to the touch and very very bright.
 ~
+G none
 #8708
 stone scimitar~
 a stone scimitar~
@@ -442,6 +450,7 @@ stone scimitar~
 The scimitar is formed from solid stone, chipped and carved to perfection,
 with a sharp, cold blade that is marred only by a few nicks here and there.
 ~
+G none
 #8709
 stone key~
 a stone key~
@@ -454,6 +463,7 @@ E
 stone key~
 The key is made from stone, but is otherwise unremarkable.
 ~
+G none
 #8710
 stone sarcophagus~
 a mighty stone sarcophagus~
@@ -472,6 +482,7 @@ the mighty pharoahs, painted in gold and studded with precious gems.
 
 You see a small keyhole in the side of the sarcophagus.
 ~
+G none
 #8711
 dust~
 some ancient dust~
@@ -485,6 +496,7 @@ dust~
 The dust is old.  As you sift it through your hands you find tiny chips
 of aged bone inside -- it must be the ancient remains of something.
 ~
+G none
 #8712
 scarab~
 a small emerald scarab~
@@ -498,6 +510,7 @@ scarab~
 The scarab is intricately detailed, down to the tiny hairs on its
 insectile legs and the faceting of the emeralds in its eyes.
 ~
+G none
 #8713
 lamp~
 the lamp~
@@ -515,6 +528,7 @@ lamp~
 The lamp is quite old and tarnished.  You rub at it to get some of the
 grime off, but it doesn't seem like anybody is home.
 ~
+G none
 #8714
 ankh~
 an ankh~
@@ -534,6 +548,7 @@ ankh~
 The ankh is a small brass symbol of an ancient religion.
 It glows with a soft bright light that is soothing to you.
 ~
+G none
 #8715
 book riddles~
 a book of riddles~
@@ -548,6 +563,7 @@ The book has well-worn pages, containing many befuddling riddles
 to surprise, confuse, and amuse you.  You find yourself bewildered
 by its contents and put it down to sort your head out.
 ~
+G none
 #8716
 lion paw~
 a lion's paw~
@@ -568,6 +584,7 @@ The massive paw has straps on it formed of bronze, so that it will
 fit snugly over your hand.  As you put it on, it melds with your hand,
 becoming an extension of your arm.
 ~
+G none
 #8717
 answer~
 the answer~
@@ -581,6 +598,7 @@ answer hieroglyphics~
 You cannot decipher the strange hieroglyphics that cover the
 sheet of parchment.
 ~
+G none
 #8718
 treasure~
 the treasure of the sphinx~
@@ -594,6 +612,7 @@ treasure~
 The treasure is incredibly large, filled with gold coins and valuables, more 
 wealth than you could ever possibly imagine accumulated in one place.
 ~
+G none
 #8719
 pile sand~
 a pile of sand~
@@ -606,6 +625,7 @@ E
 pile sand~
 You think you see some coins and valuables glinting amongst the grains of sand.
 ~
+G none
 #8720
 curse mummy~
 the curse of the mummy~
@@ -630,6 +650,7 @@ Rumor has it that whomever disturbs the grave of the mummy shall be
 cursed for all eternity, and that the descendents of that person shall
 likewise be cursed for ten generations to follow.
 ~
+G none
 #8721
 small elixir~
 a small elixir~
@@ -644,6 +665,7 @@ The elixir is deceptively small.  Something tells you that its
 contents are truly quite potent.  Perhaps too potent for ordinary
 mortals to attempt to consume.
 ~
+G none
 #8722
 golden mask~
 a golden mask~
@@ -667,6 +689,7 @@ to perfectly fit the face of any who choose to wear it, its golden features
 and turquoise highlights even moving to match the expressions of the face
 of the wearer.
 ~
+G none
 #8723
 diamond~
 the diamond~
@@ -682,6 +705,7 @@ Aha!
 You see a multifaceted gemstone, which strangely reflects no
 light, making it very hard to see when it lies on the ground.
 ~
+G none
 #8724
 sun wand~
 a blazing sun wand~
@@ -698,6 +722,7 @@ This small brass shaft is a holy weapon used by the ancient people of
 this land to defend against the deadliest of foes.  It shines with the 
 brilliant blazing light of the sun.
 ~
+G none
 #8725
 sandy ring~
 a sandy-colored ring~
@@ -715,6 +740,7 @@ sandy ring~
 The ring is small, smooth, sandy-colored and unremarkable, save that
 it gives off a continuous low humming noise that tickles your fingertips.
 ~
+G none
 #8726
 golden sphinx~
 a small golden sphinx~
@@ -731,6 +757,7 @@ The golden sphinx is incredibly detailed and very small, fitting easily
 into the palm of your hand.  You can even make out the expression
 of wisdom and peace on its face.
 ~
+G none
 #8727
 spinhxian leggings~
 a pair of sphinxian leggings~
@@ -751,6 +778,7 @@ These magically fashioned leggings impart the strength and stamina
 of the mightiest of the ancient sphinxes.  You feel ancient power 
 emanating from them; they seem to be almost alive.
 ~
+G none
 #8728
 lost ring ra~
 the lost ring of ra~
@@ -769,6 +797,7 @@ The ring is bigger than other rings, smooth, metal-colored and shining,
 save that it gives off a continuous low humming noise that tickles your 
 fingertips. There is something written on it. I can't read it what is that
 is that punish or punishment? ~
+G none
 #0
 
 #ROOMS

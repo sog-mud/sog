@@ -280,6 +280,7 @@ A small glistening pile of gold catches your eye.~
 money A A
 180 0 0 0 0
 18 0 180 P
+G none
 #32701
 bone key~
 a key made of bone~
@@ -288,6 +289,7 @@ A hard white key was left on the floor.~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
+G none
 #32702
 breeding formula~
 breeding formula~
@@ -296,6 +298,7 @@ Special warg breeding formula was left here.~
 potion G A
 35 'giant strength' 'heal' 'heal' ''
 0 0 0 P
+G none
 #32703
 curved dagger jher's~
 jher's curved dagger~
@@ -314,6 +317,7 @@ A
 4 2
 A
 1 -1
+G none
 #32704
 breeding formula~
 breeding formula~
@@ -322,6 +326,7 @@ Special warg breeding formula was left here.~
 potion G A
 35 'armor' 'heal' 'create food' ''
 0 0 0 P
+G none
 #32705
 breeding formula~
 breeding formula~
@@ -334,6 +339,7 @@ A
 19 5
 A
 13 25
+G none
 #32706
 beorn's fury~
 beorn's fury~
@@ -346,6 +352,7 @@ A
 18 5
 A
 19 8
+G none
 #32707
 key~
 large brass key~
@@ -354,6 +361,7 @@ A large brass key shimmers here.~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
+G none
 #32708
 throne~
 the throne~
@@ -362,6 +370,7 @@ A huge golden throne covered in jewels.~
 furniture A 0
 0 0 0 0 0
 51 5 510 P
+G none
 #32709
 key jewel topaz~
 a key made of topaz~
@@ -370,6 +379,7 @@ A key made of some fine cut amber colored jewell is on the floor.~
 key AH A
 0 0 0 0 0
 53 5 530 P
+G none
 #32710
 carved ebony figurine~
 a carved ebony figurine~
@@ -378,6 +388,7 @@ You can barely make out a small black rock under all the dust.~
 key F A
 0 0 0 0 0
 0 0 0 P
+G none
 #32711
 dusty golden trunk chest~
 the golden chest~
@@ -386,6 +397,7 @@ A large dusty trunk was left in the corner, looks like a good place to sit.~
 container G 0
 100 ABCD 9910 0 0
 35 5 350 P
+G none
 #32712
 diamond bracelet~
 a diamond bracelet~
@@ -396,6 +408,7 @@ armor AFG AM
 37 5 370 P
 A
 12 50
+G none
 #32713
 broken scroll~
 a broken scroll~
@@ -404,6 +417,7 @@ A bound roll of paper is hidden here.~
 scroll B A
 50 'heal' 'word of recall' 'refresh' ''
 0 5 0 P
+G none
 #32714
 glowing zapath necklace~
 a glowing zapath necklace~
@@ -416,6 +430,7 @@ A
 14 100
 A
 19 4
+G none
 #32715
 gold pill coin~
 a gold coin~
@@ -424,6 +439,7 @@ A small gold coin catches your eye here.~
 pill A A
 0 'detect invis' '' '' ''
 35 5 350 P
+G none
 #0
 
 #ROOMS

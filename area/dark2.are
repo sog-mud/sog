@@ -312,6 +312,7 @@ silver~
 treasure A A
 0 0 0 0 0
 5 2 400 P
+G none
 #14502
 elven necklace~
 an Elven Necklace~
@@ -325,6 +326,7 @@ A
 E
 necklace elven~
 Engraved on the back are the words: "Protect that which is important"~
+G none
 #14503
 potion elven~
 an Elven potion~
@@ -338,6 +340,7 @@ potion~
 Written on the seal of the bottle is a glyph. You believe that the glyph
 stands for "POISON"
 ~
+G none
 #14504
 water walking boots elven~
 elven Water Walking Boots~
@@ -348,6 +351,7 @@ boat A AG
 20 150 2000 P
 A
 14 -25
+G none
 #14505
 dwarven keg go juice~
 a keg of Dwarven Go Juice~
@@ -356,6 +360,7 @@ glass~
 drink 0 A
 20 20 'local specialty' 0 0
 1 30 90 G
+G none
 #14506
 everlasting lantern dwarven~
 a Dwarven Everlasting Lantern~
@@ -364,6 +369,7 @@ brass~
 light 0 A
 0 0 99 0 0
 1 50 150 P
+G none
 #14507
 dwarven adventurer bread~
 Dwarven Adventurer Bread~
@@ -372,6 +378,7 @@ food~
 food 0 A
 EF CE 0 0 0
 1 1 50 P
+G none
 #14508
 hip pack alligator skin~
 an Alligator skin hip pack~
@@ -380,6 +387,7 @@ leather~
 container G AM
 100 0 0 20 80
 1 10 1200 G
+G none
 #14509
 magical emergency wafer~
 a magical emergency wafer~
@@ -388,6 +396,7 @@ bread~
 potion G AO
 15 'teleport' 'teleport' 'teleport' 'teleport'
 30 1 1000 P
+G none
 #14510
 map treasure~
 a Treasure Map~
@@ -400,6 +409,7 @@ E
 map~
 The golden talent a large is at tree step then twenty plus twenty step south.
 ~
+G none
 #14511
 candlestick~
 a candlestick~
@@ -408,6 +418,7 @@ silver~
 treasure G AB
 0 0 0 0 0
 1 10 1000 P
+G none
 #14512
 quest note ~
 a Quest Note ~
@@ -421,6 +432,7 @@ note quest~
 Find what is missing and tell someone on the wizlist what is missing and who
 has it.  DO NOT TELL ANYONE ELSE!!
 ~
+G none
 #14513
 water urn~
 a Water Urn~
@@ -429,6 +441,7 @@ glass~
 drink 0 A
 15 15 'water' 0 0
 1 1 30 G
+G none
 #14514
 head madboy~
 madboy's Head~
@@ -437,6 +450,7 @@ meat~
 light 0 AO
 0 0 -1 0 0
 7 10 200 P
+G none
 #14515
 sword madboy~
 madboy's sword~
@@ -449,6 +463,7 @@ A
 3 -2
 A
 4 -8
+G none
 #14516
 island sword~
 an Island Sword~
@@ -457,6 +472,7 @@ iron~
 weapon BI AN
 sword 5 5 slash 0
 15 150 1500 P
+G none
 #14517
 island helmet~
 an Island Helmet~
@@ -473,6 +489,7 @@ E
 helmet~
 You see an Island Helmet.  Imprinted on the side is: Gapcio Industries
 ~
+G none
 #14518
 shield island~
 an Island Shield~
@@ -485,6 +502,7 @@ E
 shield island~
 You see an Island Shield.  Imprinted on the side is: Gapcio Industries
 ~
+G none
 #14519
 island mace~
 an Island Mace~
@@ -501,6 +519,7 @@ E
 island mace~
 You see a island mace.  Imprinted on the side is: Gapcio Industries
 ~
+G none
 #14520
 scroll glowing~
 a Glowing Scroll~
@@ -509,6 +528,7 @@ vellum~
 scroll G AO
 20 'earthquake' 'earthquake' 'earthquake' 'earthquake'
 17 300 5313 G
+G none
 #14521
 watcher cape black~
 a Watcher's Black Cape~
@@ -523,6 +543,7 @@ A
 23 3
 A
 17 -20
+G none
 #14522
 watcher thrusting dagger~
 a Watcher's Thrusting Dagger~
@@ -535,6 +556,7 @@ A
 18 3
 A
 12 15
+G none
 #14523
 watcher signet ring~
 a Watcher Signet Ring~
@@ -545,6 +567,7 @@ treasure GK AB
 20 1 4567 P
 A
 2 5
+G none
 #14524
 reed basket~
 a reed basket~
@@ -553,6 +576,7 @@ softwood~
 container 0 AO
 50 A 0 10 100
 1 10 40 G
+G none
 #14525
 chair woven~
 a woven chair~
@@ -561,6 +585,7 @@ wool~
 furniture 0 0
 A DF BEHKN BDEFGH BDEFGH
 0 0 0 P
+G none
 #14526
 basket fruit~
 a basket of fruit~
@@ -569,6 +594,7 @@ food~
 food 0 A
 DE CD 0 0 0
 15 50 200 P
+G none
 #14527
 hat straw~
 a straw hat~
@@ -577,6 +603,7 @@ bamboo~
 armor 0 AE
 6 6 6 0 1
 16 10 700 G
+G none
 #14528
 stone well~
 a stone well~
@@ -585,6 +612,7 @@ stone~
 fountain G 0
 100000 100000 'water' 0 0
 0 0 0 P
+G none
 #14529
 featherbed~
 a featherbed~
@@ -593,6 +621,7 @@ feathers~
 furniture 0 0
 B DF CFILO EHI EHI
 0 500 0 P
+G none
 #14530
 wooden table~
 a wooden table~
@@ -601,6 +630,7 @@ wood~
 furniture 0 0
 BD DF BEHN EHI EHI
 0 500 0 P
+G none
 #14531
 portrait~
 a portrait~
@@ -618,6 +648,7 @@ E
 secret knowledge~
 This portrait is of Siren, the Goddess of the Mist.
 ~
+G none
 #14532
 toy bow~
 a toy bow~
@@ -626,6 +657,7 @@ wood~
 weapon 0 AN
 bow 1 1 none 0
 5 10 100 P
+G none
 #14533
 wheelbarrow~
 a wheelbarrow~
@@ -634,6 +666,7 @@ steel~
 container 0 AO
 1000 A 0 200 50
 35 50 4000 G
+G none
 #14534
 chest~
 a chest~
@@ -642,6 +675,7 @@ wood~
 container 0 A
 150 0 0 100 100
 0 50 50 G
+G none
 #14535
 spear goblin~
 a Goblin Spear~
@@ -650,6 +684,7 @@ wood~
 weapon AG AN
 spear 4 5 pierce D
 12 50 1700 P
+G none
 #14536
 goblin loincloth~
 a Goblin Loincloth~
@@ -664,6 +699,7 @@ A
 3 -1
 A
 4 -1
+G none
 #14537
 dwarven flail~
 A Dwarven Flail~
@@ -672,6 +708,7 @@ wood~
 weapon AG AN
 flail 5 5 pound D
 17 250 3400 P
+G none
 #14538
 dwarven shield~
 a Dwarven Shield~
@@ -682,6 +719,7 @@ armor AG AJ
 17 190 4500 G
 A
 5 4
+G none
 #0
 
 #ROOMS

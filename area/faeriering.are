@@ -161,6 +161,7 @@ Circle three times and shout
 Iron and cross, make you be
 Revealed to all, and to me
 ~
+G none
 #29102
 light twinkle twinkling ball~
 a *twinkling* ball of light~
@@ -177,6 +178,7 @@ A
 18 1
 A
 19 1
+G none
 #29103
 belt sprite~
 a sprite belt~
@@ -187,6 +189,7 @@ armor FM AL
 11 1 500 P
 A
 24 -3
+G none
 #29104
 bracer brownie~
 a brownie bracer~
@@ -199,6 +202,7 @@ A
 2 1
 A
 13 8
+G none
 #29105
 vial moonlight bottled~
 a vial of bottled moonlight~
@@ -207,6 +211,7 @@ glass~
 potion AG AO
 15 'fly' 'cure poison' 'cure critical' ''
 12 1 700 P
+G none
 #29106
 robe gossamer~
 a gossamer robe~
@@ -219,6 +224,7 @@ A
 12 10
 A
 24 -2
+G none
 #29107
 moonbeam~
 a moonbeam~
@@ -231,6 +237,7 @@ A
 18 2
 A
 19 2
+G none
 #29108
 wine goblet faerie~
 a goblet of faerie wine~
@@ -239,6 +246,7 @@ glass~
 potion G A
 10 'cure blindness' 'invisibility' '' ''
 10 1 100 P
+G none
 #29109
 britches dirty~
 a pair of dirty britches~
@@ -255,6 +263,7 @@ A
 19 1
 A
 23 -1
+G none
 #29110
 key sparkling~
 a sparkling key~
@@ -263,6 +272,7 @@ silver~
 key BG AO
 0 0 0 0 0
 13 1 130 P
+G none
 #29111
 cloak dirty~
 a dirty cloak~
@@ -275,6 +285,7 @@ A
 2 1
 A
 1 1
+G none
 #29112
 wand blue diamond~
 a blue diamond wand~
@@ -287,6 +298,7 @@ E
 diamond blue~
 They're magically delicious!
 ~
+G none
 #29113
 gold~
 whoooooopie! Gold!~
@@ -295,6 +307,7 @@ gold~
 money A AO
 500 0 0 0 0
 0 13 130 P
+G none
 #29114
 food finger~
 delicious finger food~
@@ -303,6 +316,7 @@ flesh~
 food 0 AN
 DE DE 0 0 0
 0 1 5 P
+G none
 #0
 
 #ROOMS

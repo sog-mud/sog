@@ -514,6 +514,7 @@ E
 ring~
 It feels heavy.
 ~
+G none
 #4001
 corpse~
 a corpse~
@@ -527,6 +528,7 @@ corpse~
 Ew.  This must have been the mapper that was lost in Moria.  His rotted hand
 still clutches a partially digested map...
 ~
+G none
 #4002
 coins~
 some coins~
@@ -535,6 +537,7 @@ silver~
 money 0 A
 200 3 0 0 0
 0 5000 0 P
+G none
 #4003
 dagger rusty~
 a rusty dagger~
@@ -549,6 +552,7 @@ E
 dagger~
 It's old and rusted, but it still has a good edge.
 ~
+G none
 #4004
 bullwhip whip~
 a bullwhip~
@@ -559,6 +563,7 @@ whip 1 7 whip 0
 3 30 240 G
 A
 18 1
+G none
 #4005
 club tree huge~
 a huge club~
@@ -574,6 +579,7 @@ club tree~
 This is the biggest club you have ever seen!  The giant didn't even bother to
 trim the roots off the end.
 ~
+G none
 #4006
 furs smelly~
 some smelly furs~
@@ -589,6 +595,7 @@ furs~
 They're heavy and smelly and would probably slow you down...but they do look
 like good armor.
 ~
+G none
 #4050
 potion purple~
 a purple potion~
@@ -601,6 +608,7 @@ E
 potion purple~
 It looks rather strange!
 ~
+G none
 #4051
 helmet metal~
 a metal helmet~
@@ -611,6 +619,7 @@ armor G AE
 5 40 650 G
 A
 20 -1
+G none
 #4052
 mushroom~
 a mushroom~
@@ -623,6 +632,7 @@ E
 mushroom~
 Let's put it this way - I wouldn't eat it !
 ~
+G none
 #4053
 dirk~
 a thieves dirk~
@@ -641,6 +651,7 @@ It's a medium sized, beautifully crafted dirk made from grey alloy.
 Its blade is double-edged and very thin ... this looks like a good
 thieves weapon.
 ~
+G none
 #4054
 axe war~
 a war axe~
@@ -655,6 +666,7 @@ E
 axe~
 It has an edge sharp enough to cut a passing thought. A good find, this.
 ~
+G none
 #4055
 sword broad~
 a broad sword~
@@ -667,6 +679,7 @@ E
 sword~
 It's much heavier than a long sword, but not as well balanced.
 ~
+G none
 #4056
 flail two two-headed~
 a two-headed flail~
@@ -684,6 +697,7 @@ flail~
 It's a stout wooden rod with two spiked balls attached, each weighing over 2
 pounds.  It's a little worn for wear, but looks most painful.
 ~
+G none
 #4057
 mace heavy~
 a heavy iron mace~
@@ -698,6 +712,7 @@ E
 mace~
 A metal shaft mounted with an iron head, shaped into armor-shattering form.
 ~
+G none
 #4058
 falchion sword~
 a falchion~
@@ -711,6 +726,7 @@ falchion~
 It's curved like a scimitar, only with no recurved blade and a tip designed
 for piercing as well as slashing.
 ~
+G none
 #4059
 voulge polearm~
 a voulge~
@@ -726,6 +742,7 @@ voulge~
 It looks a lot like a staff with a pruning knife tied to the end, but it's
 quite effective.
 ~
+G none
 #4100
 blade black demon~
 the black demon blade~
@@ -738,6 +755,7 @@ E
 blade~
 You'll become as evil as the weapon, if you use it!
 ~
+G none
 #4101
 gloves~
 swordsman's gloves~
@@ -750,6 +768,7 @@ A
 19 1
 A
 18 1
+G none
 #4102
 scroll ysafg~
 a scroll which reads "ysafg"~
@@ -762,6 +781,7 @@ E
 scroll~
 It looks informative.
 ~
+G none
 #4103
 slime mold~
 a green slime mold~
@@ -774,6 +794,7 @@ E
 slime mold~
 It wasn't meant to be food, - Certainly not for humans.
 ~
+G none
 #4104
 slime mold~
 a green slime mold~
@@ -786,6 +807,7 @@ E
 slime mold~
 It wasn't meant to be food, - Certainly not for humans.
 ~
+G none
 #4105
 staff iron iron-shod~
 an iron-shod staff~
@@ -800,6 +822,7 @@ E
 staff~
 It's a superb weapon for warrior or mage.
 ~
+G none
 #4150
 black potion~
 a black potion~
@@ -812,6 +835,7 @@ E
 potion black~
 It looks healthy.
 ~
+G none
 #4151
 staff oak~
 a heavy oak staff~
@@ -830,6 +854,7 @@ E
 staff oak~
 You see it has some sort of runes on it.
 ~
+G none
 #4152
 dagger light silver~
 a light silver dagger~
@@ -846,6 +871,7 @@ E
 dagger light silver~
 It looks like an excellent weapon for thieves.
 ~
+G none
 #4153
 star morning morningstar~
 a morning star~
@@ -863,6 +889,7 @@ star morning~
 It's a huge length of wood studded with iron spikes and bands. You wouldn't
 want to meet this in a dark alley...
 ~
+G none
 #4154
 map moria second~
 a map of the second level of Moria~
@@ -891,6 +918,7 @@ Maze--Maze--Maze--Maze
                    *Hole
                   (Map 3)
 ~
+G none
 #4155
 map moria third~
 a map of the third level of Moria~
@@ -935,6 +963,7 @@ map moria third~
                        Maze*
                       (Map 2)
 ~
+G none
 #0
 
 #ROOMS

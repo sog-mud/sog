@@ -256,6 +256,7 @@ sword 1 7 thrust 0
 4 120 200 G
 A
 19 1
+G none
 #18602
 vest newbie~
 a bright green newbie vest~
@@ -264,6 +265,7 @@ steel~
 armor 0 AD
 3 3 4 0 3
 4 150 250 G
+G none
 #18603
 helm helmet newbie~
 a bright newbie helm~
@@ -274,6 +276,7 @@ armor AG AE
 4 50 220 G
 A
 5 1
+G none
 #18604
 cloak dark newbie~
 a dark newbie cloak~
@@ -286,6 +289,7 @@ A
 17 -3
 A
 4 1
+G none
 #18605
 ring signet newbie~
 a newbie signet ring~
@@ -296,6 +300,7 @@ armor FG AB
 1 20 200 G
 A
 17 -2
+G none
 #18606
 dagger newbie~
 a shiny newbie dagger~
@@ -306,6 +311,7 @@ dagger 1 7 stab 0
 4 50 140 G
 A
 19 1
+G none
 #18607
 collar dragon~
 a pet dragon collar~
@@ -318,6 +324,7 @@ A
 18 1
 A
 17 -1
+G none
 #18608
 key newbie~
 a wee little key~
@@ -326,6 +333,7 @@ steel~
 key C A
 0 0 0 0 0
 1 10 10 G
+G none
 #18609
 light jar~
 a brightly glowing jar~
@@ -336,6 +344,7 @@ light AG A
 2 20 120 G
 A
 24 -1
+G none
 #18610
 horns horn~
 the horns of the minotaur~
@@ -346,6 +355,7 @@ armor G AE
 6 100 320 G
 A
 1 1
+G none
 #18611
 hide skin~
 the smelly hide of the minotaur~
@@ -358,6 +368,7 @@ A
 17 -6
 A
 13 15
+G none
 #18612
 leggings newbie~
 some cool newbie leggings~
@@ -366,6 +377,7 @@ wool~
 armor 0 AF
 3 3 3 0 1
 4 120 200 G
+G none
 #18613
 sleeves newbie~
 some cool newbie sleeves~
@@ -376,6 +388,7 @@ armor G AI
 3 140 275 G
 A
 2 1
+G none
 #18614
 mace newbie~
 a glowing newbie mace~
@@ -386,6 +399,7 @@ mace 1 7 pound 0
 3 170 245 G
 A
 17 -2
+G none
 #18615
 orb~
 a baby dragon orb~
@@ -400,6 +414,7 @@ A
 4 1
 A
 2 1
+G none
 #0
 
 #ROOMS

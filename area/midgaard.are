@@ -1295,7 +1295,7 @@ pit яма~
 @eng the donation pit@rus ~~яма~~ для жертвоприношений~
 @eng A pit for sacrifices is in front of the altar.@rus Перед алтарем находится яма (pit) для жертвоприношений.~
 ~
-container NO 0
+container Og 0
 10000 0 0 1000 100
 0 0 0 P
 E

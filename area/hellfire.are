@@ -52,8 +52,8 @@ ogden огден~
 ~
 ~
 human~
-AB 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 none
+ABR 0 0 0
+1000000 0 0d0+0 0d0+0 0d0+0 none
 0 0 0 0
 0 0 0 0
 stand stand none 0
@@ -1560,7 +1560,6 @@ G 0 18714 0		*	axe
 G 0 18718 0		*	strong skin of fox
 G 0 18713 0		*	club
 G 0 18719 0		*	ice dagger
-O 0 18722 0 18710	* Blackjade's head (Forge)
 M 0 18707 1 18729 1	* Wirt (Hut)
 G 0 18713 0		*	club
 G 0 18714 0		*	axe
