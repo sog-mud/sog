@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.209 2000-03-05 17:14:44 avn Exp $
+ * $Id: spellfun.c,v 1.210 2000-03-07 09:21:52 avn Exp $
  */
 
 /***************************************************************************
@@ -1417,6 +1417,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		     paf = paf->next) {
 			if (paf->where == TO_SKILLS
 			||  paf->where == TO_RESIST
+			||  paf->where == TO_FORMRESIST
 			||  paf->where == TO_RACE)
 				continue;
 
@@ -1434,6 +1435,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (paf->where == TO_SKILLS
 		||  paf->where == TO_RESIST
+		||  paf->where == TO_FORMRESIST
 		||  paf->where == TO_RACE)
 			continue;
 
@@ -1516,6 +1518,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		for (paf = obj->affected; paf != NULL; paf = paf->next) {
 			if (paf->where == TO_SKILLS
 			||  paf->where == TO_RESIST
+			||  paf->where == TO_FORMRESIST
 			||  paf->where == TO_RACE)
 				continue;
 
@@ -1544,6 +1547,7 @@ void spell_enchant_armor(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		for (paf = obj->affected; paf != NULL; paf = paf->next) {
 			if (paf->where == TO_SKILLS
 			||  paf->where == TO_RESIST
+			||  paf->where == TO_FORMRESIST
 			||  paf->where == TO_RACE)
 				continue;
 
@@ -1599,6 +1603,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 		for (paf = obj->pObjIndex->affected; paf != NULL; paf = paf->next) {
 			if (paf->where == TO_SKILLS
 			||  paf->where == TO_RESIST
+			||  paf->where == TO_FORMRESIST
 			||  paf->where == TO_RACE)
 				continue;
 
@@ -1617,6 +1622,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (paf->where == TO_SKILLS
 		||  paf->where == TO_RESIST
+		||  paf->where == TO_FORMRESIST
 		||  paf->where == TO_RACE)
 			continue;
 
@@ -1701,6 +1707,7 @@ void spell_enchant_weapon(const char *sn, int level,CHAR_DATA *ch, void *vo)
 		for (paf = obj->affected; paf != NULL; paf = paf->next) {
 			if (paf->where == TO_SKILLS
 			||  paf->where == TO_RESIST
+			||  paf->where == TO_FORMRESIST
 			||  paf->where == TO_RACE)
 				continue;
 

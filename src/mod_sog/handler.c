@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.240 2000-03-05 17:14:47 avn Exp $
+ * $Id: handler.c,v 1.241 2000-03-07 09:21:55 avn Exp $
  */
 
 /***************************************************************************
@@ -2088,13 +2088,15 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 			continue;
 
 		if (!IS_NULLSTR(w->loc_format)
-		&&  paf->where != TO_SKILLS
-		&&  paf->where != TO_RACE
-		&& (paf->where == TO_RESIST || INT(paf->location) != APPLY_NONE)
+		&& (paf->where == TO_RESIST
+			|| paf->where == TO_FORMRESIST
+			|| INT(paf->location) != APPLY_NONE)
 		&&  paf->modifier) { 
 			buf_printf(output, w->loc_format,
-				   SFLAGS(w->loc_table, paf->location),
-				   paf->modifier);
+				paf->where != TO_RACE ?
+				SFLAGS(w->loc_table, paf->location) :
+				STR(paf->location),
+				paf->modifier);
 			if (!IS_SET(flags, FOA_F_NODURATION)
 			&&  paf->duration > -1)
 				buf_printf(output, " for %d hours",

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.263 2000-03-05 22:01:39 avn Exp $
+ * $Id: fight.c,v 1.264 2000-03-07 09:21:55 avn Exp $
  */
 
 /***************************************************************************
@@ -1310,11 +1310,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 
 	if (is_affected(victim, "toughen"))
 		dam = (3 * dam) / 5;
-
-	if (is_affected(victim, "protection heat") && (dam_class == DAM_FIRE))
-		dam -= dam / 4;
-	if (is_affected(victim, "protection cold") && (dam_class == DAM_COLD))
-		dam -= dam / 4;
 
 	immune = FALSE;
 	loc = IS_SET(dam_flags, DAMF_SECOND) ? WEAR_SECOND_WIELD : WEAR_WIELD;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.179 2000-03-05 17:14:45 avn Exp $
+ * $Id: spellfun2.c,v 1.180 2000-03-07 09:21:53 avn Exp $
  */
 
 /***************************************************************************
@@ -3388,12 +3388,12 @@ void spell_protection_heat(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	return;
 	}
 
-	af.where     = TO_AFFECTS;
+	af.where     = TO_RESIST;
 	af.type      = sn;
 	af.level     = level;
-	af.duration  = 24;
-	INT(af.location) = APPLY_SAVING_SPELL;
-	af.modifier  = -1;
+	af.duration  = level * 4 / 3;
+	INT(af.location) = DAM_FIRE;
+	af.modifier  = 25;
 	af.bitvector = 0;
 	af.owner	= NULL;
 	affect_to_char(victim, &af);
@@ -3433,14 +3433,14 @@ void spell_protection_cold (const char *sn, int level, CHAR_DATA *ch, void *vo)
 	  act("$N is already using fire shield.",ch,NULL,victim,TO_CHAR);
 	return;
 	}
-	af.where     = TO_AFFECTS;
+	af.where     = TO_RESIST;
 	af.type      = sn;
 	af.level     = level;
-	af.duration  = 24;
-	INT(af.location) = APPLY_SAVING_SPELL;
-	af.modifier  = -1;
+	af.duration  = level * 4 / 3;
+	INT(af.location) = DAM_COLD;
+	af.modifier  = 25;
 	af.bitvector = 0;
-	af.owner	= NULL;
+	af.owner     = NULL;
 	affect_to_char(victim, &af);
 	char_puts("You feel strengthed against cold.\n", victim);
 	if (ch != victim)

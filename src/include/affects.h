@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.13 2000-03-05 17:14:40 avn Exp $
+ * $Id: affects.h,v 1.14 2000-03-07 09:21:52 avn Exp $
  */
 
 /***************************************************************************
@@ -94,6 +94,7 @@ enum {
 	TO_INVIS,
 	TO_FORM,
 	TO_FORMAFFECTS,
+	TO_FORMRESIST,
 	TO_RESIST
 };
 

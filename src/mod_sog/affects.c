@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.34 2000-03-05 17:14:46 avn Exp $
+ * $Id: affects.c,v 1.35 2000-03-07 09:21:54 avn Exp $
  */
 
 /***************************************************************************
@@ -134,12 +134,14 @@ void saff_destroy(saff_t *sa)
 where_t where_table[] =
 {
 	{ TO_AFFECTS,	apply_flags,	affect_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
+	{ TO_FORMAFFECTS,apply_flags,	affect_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
 	{ TO_SKILLS,	NULL,		sk_aff_flags,	str_empty,				str_empty			},
 	{ TO_RACE,	NULL,		NULL,		"changes race to '{c%s{x'",		str_empty			},
 	{ TO_DETECTS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' detection"	},
 	{ TO_INVIS,	apply_flags,	id_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x'"			},
 	{ TO_RESIST,	dam_classes,	NULL,		"modifies {c%s resistance{x by {c%d{x",	str_empty			},
-	{ TO_OBJECT,	apply_flags,	affect_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
+	{ TO_FORMRESIST,dam_classes,	NULL,		"modifies {c%s resistance{x by {c%d{x",	str_empty			},
+	{ TO_OBJECT,	apply_flags,	stat_flags,	"modifies {c%s{x by {c%d{x",		"adds '{c%s{x' affect"		},
 	{ -1 }
 };
 
@@ -229,8 +231,8 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		affect_check(ch, -1, -1);
 		spec_update(ch);
 		return;
-	} else if (paf->where == TO_RESIST) {
-		if (ch->shapeform)
+	} else if (paf->where == TO_RESIST || paf->where == TO_FORMRESIST) {
+		if (ch->shapeform && paf->where == TO_FORMRESIST)
 			ch->shapeform->resists[INT(paf->location)] += mod;
 		ch->resists[INT(paf->location)] += mod;
 		return;
@@ -239,6 +241,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	if (fAdd) {
 		switch (paf->where) {
 		case TO_AFFECTS:
+		case TO_FORMAFFECTS:
 			SET_BIT(ch->affected_by, paf->bitvector);
 			break;
 		case TO_DETECTS:
@@ -250,13 +253,11 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		case TO_FORM:
 			shapeshift(ch, paf->location.s);
 			return;
-		case TO_FORMAFFECTS:
-			SET_BIT(ch->affected_by, paf->bitvector);
-			break;
 		}
 	} else {
 		switch (paf->where) {
 		case TO_AFFECTS:
+		case TO_FORMAFFECTS:
 			REMOVE_BIT(ch->affected_by, paf->bitvector);
 			break;
 		case TO_DETECTS:
@@ -268,9 +269,6 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		case TO_FORM:
 			revert(ch);
 			return;
-		case TO_FORMAFFECTS:
-			REMOVE_BIT(ch->affected_by, paf->bitvector);
-			break;
 		}
 	}
 
