@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.11 2002-01-08 20:21:41 tatyana Exp $
+ * $Id: comm.c,v 1.12 2002-02-07 17:19:33 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -149,6 +149,7 @@ bust_a_prompt(DESCRIPTOR_DATA *d)
 	char *point = buf;
 	const char *str = d->dvdata->prompt;
 	CHAR_DATA *ch = d->character;
+	int chance = get_skill(ch, "perception");
 
 	if (IS_SET(ch->comm, COMM_AFK)) {
 		act_puts("{c<AFK>{x $t",			// notrans
@@ -201,7 +202,8 @@ bust_a_prompt(DESCRIPTOR_DATA *d)
 				&&  can_see_room(ch, pexit->to_room.r)
 				&&  check_blind_nomessage(ch)
 				&&  (!IS_SET(pexit->exit_info, EX_CLOSED) ||
-				     IS_IMMORTAL(ch))) {
+				     IS_IMMORTAL(ch) ||
+				     (chance && number_percent() < chance))) {
 					found = TRUE;
 					strnzcat(buf2, sizeof(buf2),
 						 sdir_name[door]);
