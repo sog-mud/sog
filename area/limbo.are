@@ -824,7 +824,7 @@ quest staff of kio~
 A quest obj flying in the air.~
 energy~
 treasure ATY A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 E
 quest~
@@ -836,7 +836,7 @@ quest staff of conrad~
 A quest obj flying in the air.~
 energy~
 treasure ATY A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 E
 quest~
@@ -848,7 +848,7 @@ quest staff of powerman~
 A quest obj flying in the air.~
 energy~
 treasure ATY A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 E
 quest~
@@ -860,7 +860,7 @@ quest staff of mandrake~
 A quest obj flying in the air.~
 energy~
 treasure ATY A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 E
 quest~
@@ -888,7 +888,7 @@ kassandra~
 A mystical green stone is here, flying in the air.~
 stone~
 treasure ATUY AO
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #90
 dress~
@@ -942,7 +942,7 @@ An enormous, huge GIRTH lies here, filling the room with its power.~
 platinum~
 armor AGIOY ALP
 CD CD CD AD B
-21 300 100000 G
+21 30 100000 G
 A
 1 2
 A
@@ -974,7 +974,7 @@ An enormous, RING lies here, filling the room with its power.~
 platinum~
 armor AGIOY ABP
 CD CD CD AD A
-21 300 100000 G
+21 30 100000 G
 A
 6 1
 A
@@ -1112,6 +1112,8 @@ O 32 wear_prog wear_prog_quest_weapon	* `the %s Dagger of %s'
 O 32 get_prog get_prog_quest_reward	* `the %s Dagger of %s'
 O 33 wear_prog wear_prog_quest_weapon	* `the %s Mace of %s'
 O 33 get_prog get_prog_quest_reward	* `the %s Mace of %s'
+O 35 wear_prog wear_prog_bracer         * conscience karmael
+O 35 remove_prog remove_prog_bracer     * conscience karmael
 O 51 fight_prog fight_prog_tattoo_apollon	* `lawful good tattoo of atum-ra'
 O 52 fight_prog fight_prog_tattoo_zeus	* `neutral good tattoo of zeus'
 O 53 fight_prog fight_prog_tattoo_siebele	* `true neutral tattoo of siebele'
