@@ -812,8 +812,8 @@ Get back to questor before your time runs out!
 @eng $n bites $N!@rus $n кусает $N!~
 @eng $n bites you!@rus $n кусает тебя!~
 @eng I don't remember you. Go away!@rus Я тебя не знаю. Убирайся отсюда!~
-@eng $n says '{G$t{x'@rus $n произносит '{G$t{x'~
-@eng You say '{G$T{x'@rus Ты произносишь '{G$T{x'~
+@eng $n says '{G$t{x'@rus $n произносит: "{G$t{x"~
+@eng You say '{G$T{x'@rus Ты произносишь: "{G$T{x"~
 @eng That location is in general area of {W%s{x for {W%s{x.
 @rus Это находится где-то в {W%s{x возле {W%s{x.
 ~
