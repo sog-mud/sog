@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.5 1999-12-02 13:32:25 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.6 2000-03-21 13:52:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -314,6 +314,7 @@ void do_nonote(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -323,13 +324,16 @@ void do_nonote(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
 	}
 
 	if (!IS_TRUSTED(ch, trust_level(victim))) {
 		char_puts("You failed.\n", ch);
-		return;
+		goto cleanup;
 	}
 
 	if (IS_SET(victim->comm, COMM_NONOTE)) {
@@ -338,13 +342,18 @@ void do_nonote(CHAR_DATA *ch, const char *argument)
 		char_puts("NONOTE removed.\n", ch);
 		wiznet("$N grants $i right to write notes",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
-	}
-	else {
+	} else {
 		SET_BIT(victim->comm, COMM_NONOTE);
 		char_puts("Your notes will be sent to Abyss now.\n", victim);
 		char_puts("NONOTE set.\n", ch);
 		wiznet("$N revokes $i's right to write notes",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
+	}
+
+cleanup:
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
 	}
 }
 
@@ -353,38 +362,48 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 	
 	one_argument(argument, arg, sizeof(arg));
 	
 	if (arg[0] == '\0') {
-	    do_help(ch, "'WIZ NOCHANNEL'");
-	    return;
+		do_help(ch, "'WIZ NOCHANNEL'");
+		return;
 	}
 	
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
 	}
 	
 	if (!IS_TRUSTED(ch, trust_level(victim))) {
 		char_puts("You failed.\n", ch);
-		return;
+		goto cleanup;
 	}
 	
 	if (IS_SET(victim->comm, COMM_NOCHANNELS)) {
-	    REMOVE_BIT(victim->comm, COMM_NOCHANNELS);
-	    char_puts("The gods have restored your channel priviliges.\n", 
-			      victim);
-	    char_puts("NOCHANNELS removed.\n", ch);
+		REMOVE_BIT(victim->comm, COMM_NOCHANNELS);
+		char_puts("The gods have restored your channel priviliges.\n", 
+			  victim);
+		char_puts("NOCHANNELS removed.\n", ch);
 		wiznet("$N restores channels to $i",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	} else {
-	    SET_BIT(victim->comm, COMM_NOCHANNELS);
-	    char_puts("The gods have revoked your channel priviliges.\n", 
-			       victim);
-	    char_puts("NOCHANNELS set.\n", ch);
+		SET_BIT(victim->comm, COMM_NOCHANNELS);
+		char_puts("The gods have revoked your channel priviliges.\n", 
+			  victim);
+		char_puts("NOCHANNELS set.\n", ch);
 		wiznet("$N revokes $i's channels.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
+	}
+
+cleanup:
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
 	}
 }
 
@@ -396,13 +415,13 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 	int matches = 0;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
-	    char_puts("You can't show your emotions.\n", ch);
-	    return;
+		char_puts("You can't show your emotions.\n", ch);
+		return;
 	}
 
 	if (argument[0] == '\0') {
-	    do_help(ch, "'WIZ SMOTE'");
-	    return;
+		do_help(ch, "'WIZ SMOTE'");
+		return;
 	}
 
 	if (strstr(argument,ch->name) == NULL) {
@@ -1197,6 +1216,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	CHAR_DATA *pet;
 	BUFFER *output;
+	bool loaded = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -1205,29 +1225,36 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, argument)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
+	if ((victim = get_char_world(ch, argument)) == NULL) {
+		if ((victim = char_load(argument, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
 	}
 
 	output = buf_new(-1);
 
-	buf_printf(output, "Name: [%s] Reset Zone: %s\n",
-		   victim->name,
-		   (IS_NPC(victim) && NPC(victim)->zone) ?
-				NPC(victim)->zone->name : "?");
+	buf_printf(output, "Name: [%s]  ", victim->name);
+	if (IS_NPC(victim)) {
+		buf_printf(output, "Vnum: [%d]  Reset zone: [%s]\n",
+			   victim->pMobIndex->vnum,
+			   NPC(victim)->zone ?  NPC(victim)->zone->name : "?");
+	} else 
+		buf_printf(output, "%sLINE\n", loaded ? "OFF" : "ON");
 
 	buf_printf(output, 
-		"Vnum: %d  Race: %s (%s)  Group: %d  Sex: %s  Room: %d\n",
-		IS_NPC(victim) ? victim->pMobIndex->vnum : 0,
+		"Race: %s (%s)  Sex: [%s]  Room: [%d]\n",
 		race_name(victim->race), race_name(ORG_RACE(victim)),
-		IS_NPC(victim) ? victim->pMobIndex->group : 0,
 		flag_string(sex_table, victim->sex),
 		victim->in_room == NULL ? 0 : victim->in_room->vnum);
 
-	if (IS_NPC(victim))
-		buf_printf(output,"Count: %d  Killed: %d\n",
-			victim->pMobIndex->count, victim->pMobIndex->killed);
+	if (IS_NPC(victim)) {
+		buf_printf(output,"Group: [%d]  Count: [%d]  Killed: [%d]\n",
+			   victim->pMobIndex->group,
+			   victim->pMobIndex->count,
+			   victim->pMobIndex->killed);
+	}
 
 	buf_printf(output, "Str: %d(%d)  Int: %d(%d)  Wis: %d(%d)  Dex: %d(%d)  Con: %d(%d) Cha: %d(%d)\n",
 		victim->perm_stat[STAT_STR],
@@ -1302,7 +1329,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			   PC(victim)->condition[COND_DRUNK],
 			   PC(victim)->condition[COND_BLOODLUST],
 			   PC(victim)->condition[COND_DESIRE]);
-		buf_printf(output, "Age: %d  Played: %d  Timer: %d\n",
+		buf_printf(output, "Age: [%d]  Played: [%d]  Timer: [%d]\n",
 			   get_age(victim), get_hours(victim),
 			   PC(victim)->idle_timer);
 
@@ -1348,7 +1375,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 
 	/* OLC */
 	if (!IS_NPC(victim))
-		buf_printf(output, "Security: %d.\n",
+		buf_printf(output, "Security: [%d]\n",
 			   PC(victim)->security);
 
 	mlstr_dump(output, "Short description: ", &victim->short_descr);
@@ -1428,8 +1455,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 					PC(victim)->questtime : 0,
 				   PC(victim)->questobj,
 				   PC(victim)->questmob);
-		}
-		else {
+		} else {
 			buf_printf(output,
 				   "QuestPnts: [%d]  Questnext: [%d]  NOT QUESTING\n",
 				   PC(victim)->questpoints,
@@ -1447,10 +1473,11 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 				   PC(victim)->twitlist);
 	}
 
-	buf_printf(output, "Last fight time: [%s]\n",
-		   strtime(victim->last_fight_time));
-	if (IS_PUMPED(victim))
-		buf_add(output, "Adrenalin is gushing.\n");
+	buf_printf(output, "Last fight time: [%s] %s\n",
+		   victim->last_fight_time != -1 ?
+			strtime(victim->last_fight_time) : "NONE",
+		   IS_PUMPED(victim) ? "(adrenalin is gushing)" : str_empty);
+
 	if (IS_NPC(victim)) {
 		NPC_DATA *npc = NPC(victim);
 		buf_printf(output, "Last fought: [%s]  In_mind: [%s]  "
@@ -1462,6 +1489,9 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	}
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
+
+	if (loaded)
+		char_nuke(victim);
 }
 
 void do_dstat(CHAR_DATA *ch, const char *argument)
@@ -1743,15 +1773,19 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 void do_protect(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 
 	if (argument[0] == '\0') {
 		do_help(ch, "'WIZ PROTECT'");
 		return;
 	}
 
-	if ((victim = get_char_world(ch,argument)) == NULL) {
-		char_puts("You can't find them.\n",ch);
-		return;
+	if ((victim = get_char_world(ch, argument)) == NULL) {
+		if ((victim = char_load(argument, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("You can't find them.\n",ch);
+			return;
+		}
+		loaded = TRUE;
 	}
 
 	if (IS_SET(victim->comm,COMM_SNOOP_PROOF)) {
@@ -1759,12 +1793,16 @@ void do_protect(CHAR_DATA *ch, const char *argument)
 			 TO_CHAR, POS_DEAD);
 		char_puts("Your snoop-proofing was just removed.\n", victim);
 		REMOVE_BIT(victim->comm, COMM_SNOOP_PROOF);
-	}
-	else {
+	} else {
 		act_puts("$N is now snoop-proof.", ch, NULL, victim, TO_CHAR,
 			 POS_DEAD);
 		char_puts("You are now immune to snooping.\n", victim);
 		SET_BIT(victim->comm, COMM_SNOOP_PROOF);
+	}
+
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
 	}
 }
 	
@@ -2217,6 +2255,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2226,18 +2265,19 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
-	}
-
-	if (IS_NPC(victim)) {
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
+	} else if (IS_NPC(victim)) {
 		char_puts("Not on NPC's.\n", ch);
 		return;
 	}
 
 	if (!IS_TRUSTED(ch, trust_level(victim))) {
 		char_puts("You failed.\n", ch);
-		return;
+		goto cleanup;
 	}
 
 	TOGGLE_BIT(PC(victim)->plr_flags, PLR_FREEZE);
@@ -2246,14 +2286,19 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 		char_puts("FREEZE removed.\n", ch);
 		wiznet("$N thaws $i.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
-	}
-	else {
+	} else {
 		char_puts("You can't do ANYthing!\n", victim);
 		char_puts("FREEZE set.\n", ch);
 		wiznet("$N puts $i in the deep freeze.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
-	char_save(victim, 0);
+
+cleanup:
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
+	} else
+		char_save(victim, 0);
 }
 
 void do_log(CHAR_DATA *ch, const char *argument)
@@ -2303,6 +2348,7 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2312,13 +2358,16 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
 	}
 
 	if (!IS_TRUSTED(ch, trust_level(victim))) {
 		char_puts("You failed.\n", ch);
-		return;
+		goto cleanup;
 	}
 
 	if (IS_SET(victim->comm, COMM_NOEMOTE)) {
@@ -2327,13 +2376,18 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 		char_puts("NOEMOTE removed.\n", ch);
 		wiznet("$N restores emotes to $i.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
-	}
-	else {
+	} else {
 		SET_BIT(victim->comm, COMM_NOEMOTE);
 		char_puts("You can't emote!\n", victim);
 		char_puts("NOEMOTE set.\n", ch);
 		wiznet("$N revokes $i's emotes.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
+	}
+
+cleanup:
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
 	}
 }
 
@@ -2341,6 +2395,7 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2350,13 +2405,16 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
 	}
 
 	if (!IS_TRUSTED(ch, trust_level(victim))) {
 		char_puts("You failed.\n", ch);
-		return;
+		goto cleanup;
 	}
 
 	if (IS_SET(victim->comm, COMM_NOTELL)) {
@@ -2365,13 +2423,18 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 		char_puts("NOTELL removed.\n", ch);
 		wiznet("$N restores tells to $i.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
-	}
-	else {
+	} else {
 		SET_BIT(victim->comm, COMM_NOTELL);
 		char_puts("You can't tell!\n", victim);
 		char_puts("NOTELL set.\n", ch);
 		wiznet("$N revokes $i's tells.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
+	}
+
+cleanup:
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
 	}
 }
 
@@ -3093,6 +3156,7 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int level;
+	bool loaded = FALSE;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -3102,32 +3166,39 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg1)) == NULL) {
-		char_puts("That player is not here.\n", ch);
-		return;
-	}
-
-	if (IS_NPC(victim)) {
+	if ((victim = get_char_world(ch, arg1)) == NULL) {
+		if ((victim = char_load(arg1, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
+	} else if (IS_NPC(victim)) {
 		char_puts("Not on NPC's.\n", ch);
 		return;
 	}
 
 	if ((level = atoi(arg2)) < 1 || level > MAX_LEVEL) {
 		char_printf(ch, "Level must be in range 1..%d.\n", MAX_LEVEL);
-		return;
+		goto cleanup;
 	}
 
 	if (level > ch->level) {
 		char_puts("Limited to your level.\n", ch);
-		return;
+		goto cleanup;
 	}
 
 	if (!IS_TRUSTED(ch, trust_level(victim))) {
 		char_puts("You are not allowed to do that.\n", ch);
-		return;
+		goto cleanup;
 	}
 
 	advance(victim, level);
+
+cleanup:
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
+	}
 }
 
 void do_mset(CHAR_DATA *ch, const char *argument)
@@ -3137,6 +3208,8 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	char arg3 [MAX_INPUT_LENGTH];
 	char arg4 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
+	bool altered = FALSE;
 	int value, val2;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
@@ -3150,8 +3223,11 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg1)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
+		if ((victim = char_load(arg1, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
 	}
 
 	/*
@@ -3169,39 +3245,41 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		    char_printf(ch,
 			"Strength range is 3 to %d\n.",
 			get_max_train(victim,STAT_STR));
-		    return;
+		    goto cleanup;
 		}
 
 		victim->perm_stat[STAT_STR] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_cmp(arg2, "trouble")) {
 		if (IS_NPC(victim)) {
 			char_puts("Not on NPC's.\n", ch);
-			return;
+			goto cleanup;
 		}
 		
 		if (value == -1 || val2 == -1) {
 			char_puts("Usage: set char <name> trouble "
 				  "<vnum> <value>.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		qtrouble_set(victim, value, val2+1);
 		char_puts("Ok.\n", ch);
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_cmp(arg2, "security"))	{ /* OLC */
 		if (IS_NPC(ch)) {
 			char_puts("Si, claro.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		if (IS_NPC(victim)) {
 			char_puts("Not on NPC's.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		if ((value > PC(ch)->security || value < 0)
@@ -3211,10 +3289,11 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 					    PC(ch)->security);
 			else
 				char_puts("Valid security is 0 only.\n", ch);
-			return;
+			goto cleanup;
 		}
 		PC(victim)->security = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_cmp(arg2, "int"))
@@ -3223,11 +3302,12 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	    {
 	        char_printf(ch, "Intelligence range is 3 to %d.\n",
 			get_max_train(victim,STAT_INT));
-	        return;
+	        goto cleanup;
 	    }
 	
 	    victim->perm_stat[STAT_INT] = value;
-	    return;
+		altered = TRUE;
+	    goto cleanup;
 	}
 
 	if (!str_cmp(arg2, "wis"))
@@ -3236,40 +3316,48 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		{
 		    char_printf(ch,
 			"Wisdom range is 3 to %d.\n",get_max_train(victim,STAT_WIS));
-		    return;
+		    goto cleanup;
 		}
 
 		victim->perm_stat[STAT_WIS] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 	if (!str_cmp(arg2, "questp"))
 	{
 		 if (value == -1) value = 0;
-		 if (!IS_NPC(victim)) PC(victim)->questpoints = value;
-		return;
+		 if (IS_NPC(victim)) {
+			char_puts("Not on NPC's.\n", ch);
+			goto cleanup;
+		}	
+			PC(victim)->questpoints = value;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_cmp(arg2, "questt")) {
 		if (IS_NPC(victim)) {
-			char_puts("Not on NPC.\n", ch);
-			return;
+			char_puts("Not on NPC's.\n", ch);
+			goto cleanup;
 		}
 
 		if (value == -1)
 			value = 30;
 		PC(victim)->questtime = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_cmp(arg2, "relig")) {
 		if (IS_NPC(victim)) {
-			char_puts("Not on NPC.\n", ch);
-			return;
+			char_puts("Not on NPC's.\n", ch);
+			goto cleanup;
 		}
 
 		if (value == -1) value = 0;
 		PC(victim)->religion = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 
@@ -3280,11 +3368,12 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		    char_printf(ch,
 			"Dexterity ranges is 3 to %d.\n",
 			get_max_train(victim,STAT_DEX));
-		    return;
+		    goto cleanup;
 		}
 
 		victim->perm_stat[STAT_DEX] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_cmp(arg2, "con"))
@@ -3294,11 +3383,12 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		    char_printf(ch,
 			"Constitution range is 3 to %d.\n",
 			get_max_train(victim,STAT_CON));
-		    return;
+		    goto cleanup;
 		}
 
 		victim->perm_stat[STAT_CON] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 	if (!str_cmp(arg2, "cha"))
 	{
@@ -3307,11 +3397,12 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		    char_printf(ch,
 			"Constitution range is 3 to %d.\n",
 			get_max_train(victim,STAT_CHA));
-		    return;
+		    goto cleanup;
 		}
 
 		victim->perm_stat[STAT_CHA] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "sex"))
@@ -3319,15 +3410,16 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (value < 0 || value > 2)
 		{
 		    char_puts("Sex range is 0 to 2.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 		if ((victim->class == 0) || (victim->class == 8))
 		{
 		    char_puts("You can't change their sex.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 		victim->sex = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "class")) {
@@ -3335,7 +3427,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		if (IS_NPC(victim)) {
 			char_puts("Mobiles have no class.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		cl = cn_lookup(arg3);
@@ -3354,14 +3446,15 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 			send_to_char(buf_string(output), ch);
 			buf_free(output);
-			return;
+			goto cleanup;
 		}
 
 		victim->class = cl;
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		PC(victim)->exp_tl = 0;
 		update_skills(victim);
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "level"))
@@ -3369,22 +3462,24 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (!IS_NPC(victim))
 		{
 		    char_puts("Not on PC's.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		if (value < 0 || value > 100)
 		{
 		    char_puts("Level range is 0 to 100.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 		victim->level = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "gold"))
 	{
 		victim->gold = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "hp")) {
@@ -3393,14 +3488,15 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (victim->perm_hit + delta < 1
 		||  victim->perm_hit + delta > 30000) {
 			char_puts("perm_hit will be out of range 1..30,000.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		victim->perm_hit += delta;
 		victim->max_hit += delta;
 		victim->hit = victim->max_hit;
 		update_pos(victim);
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "mana")) {
@@ -3409,13 +3505,14 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (victim->perm_mana + delta < 1
 		||  victim->perm_mana + delta > 60000) {
 			char_puts("perm_mana will be out of range 1..60,000.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		victim->perm_mana += delta;
 		victim->max_mana += delta;
 		victim->mana = victim->max_mana;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "move")) {
@@ -3424,51 +3521,55 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (victim->perm_move + delta < 0
 		||  victim->perm_move + delta > 60000) {
 			char_puts("perm_move will be out of range 1..60,000.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		victim->perm_move += delta;
 		victim->max_move += delta;
 		victim->move = victim->max_move;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "practice")) {
 		if (IS_NPC(victim)) {
-			char_puts("Not on NPC.\n", ch);
-			return;
+			char_puts("Not on NPC's.\n", ch);
+			goto cleanup;
 		}
 
 		if (value < 0 || value > 250) {
 			char_puts("Practice range is 0 to 250 sessions.\n", ch);
-			return;
+			goto cleanup;
 		}
 		PC(victim)->practice = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "train")) {
 		if (IS_NPC(victim)) {
-			char_puts("Not on NPC.\n", ch);
-			return;
+			char_puts("Not on NPC's.\n", ch);
+			goto cleanup;
 		}
 
 		if (value < 0 || value > 50) {
 			char_puts("Training session range is 0 to 50 sessions.\n", ch);
-			return;
+			goto cleanup;
 		}
 		PC(victim)->train = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "align")) {
 		if (value < -1000 || value > 1000) {
 			char_puts("Alignment range is -1000 to 1000.\n", ch);
-			return;
+			goto cleanup;
 		}
 		victim->alignment = value;
 		char_puts("Remember to check their hometown.\n", ch);
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "ethos")) {
@@ -3476,7 +3577,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		if (IS_NPC(victim)) {
 			char_puts("Mobiles don't have an ethos.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		ethos = flag_value(ethos_table, arg3);
@@ -3484,26 +3585,28 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			char_puts("%s: Unknown ethos.\n", ch);
 			char_puts("Valid ethos types are:\n", ch);
 			show_flags(ch, ethos_table);
-			return;
+			goto cleanup;
 		}
 
 		victim->ethos = ethos;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "hometown")) {
 		if (IS_NPC(victim)) {
 			char_puts("Mobiles don't have hometowns.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		if ((value = htn_lookup(arg3)) == -1) {
 			char_puts("No such hometown", ch);
-			return;
+			goto cleanup;
 		}
 	    
 		PC(victim)->hometown = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "thirst"))
@@ -3511,17 +3614,18 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim))
 		{
 		    char_puts("Not on NPC's.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		if (value < -1 || value > 100)
 		{
 		    char_puts("Thirst range is -1 to 100.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		PC(victim)->condition[COND_THIRST] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "drunk"))
@@ -3529,17 +3633,18 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim))
 		{
 		    char_puts("Not on NPC's.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		if (value < -1 || value > 100)
 		{
 		    char_puts("Drunk range is -1 to 100.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		PC(victim)->condition[COND_DRUNK] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "full"))
@@ -3547,17 +3652,18 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim))
 		{
 		    char_puts("Not on NPC's.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		if (value < -1 || value > 100)
 		{
 		    char_puts("Full range is -1 to 100.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		PC(victim)->condition[COND_FULL] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "hunger"))
@@ -3565,17 +3671,18 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim))
 		{
 		    char_puts("Not on NPC's.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		if (value < -1 || value > 100)
 		{
 		    char_puts("Hunger range is -1 to 100.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		PC(victim)->condition[COND_HUNGER] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "bloodlust"))
@@ -3583,53 +3690,55 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim))
 		{
 		    char_puts("Not on NPC's.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		if (value < -1 || value > 100)
 		{
 		    char_puts("Full range is -1 to 100.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		PC(victim)->condition[COND_BLOODLUST] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "desire")) {
 		if (IS_NPC(victim)) {
-			char_puts("Not on NPC.\n", ch);
-			return;
+			char_puts("Not on NPC's.\n", ch);
+			goto cleanup;
 		}
 
 		if (value < -1 || value > 100)
 		{
 		    char_puts("Full range is -1 to 100.\n", ch);
-		    return;
+		    goto cleanup;
 		}
 
 		PC(victim)->condition[COND_DESIRE] = value;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "race")) {
 		int race;
 
 		if (IS_NPC(victim)) {
-			char_puts("Not on NPC.\n", ch);
-			return;
+			char_puts("Not on NPC's.\n", ch);
+			goto cleanup;
 		}
 
 		race = rn_lookup(arg3);
 
 		if (race == -1) {
 			char_puts("That is not a valid race.\n",ch);
-			return;
+			goto cleanup;
 		}
 
 		if (!IS_NPC(victim) && !RACE(race)->race_pcdata) {
 			char_puts("That is not a valid player race.\n",ch);
-			return;
+			goto cleanup;
 		}
 
 		victim->race = race;
@@ -3638,30 +3747,32 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		update_skills(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		PC(victim)->exp_tl = 0;
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "noghost")) {
 		if (IS_NPC(victim)) {
-			char_puts("Not on NPC.\n", ch);
-			return;
+			char_puts("Not on NPC's.\n", ch);
+			goto cleanup;
 		}
 		REMOVE_BIT(PC(victim)->plr_flags, PLR_GHOST);
 		char_puts("Ok.\n", ch);
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "clan")) {
 		int cn;
 
 		if (IS_NPC(victim)) {
-			char_puts("Not on NPC.\n", ch);
-			return;
+			char_puts("Not on NPC's.\n", ch);
+			goto cleanup;
 		}
 
 		if ((cn = cln_lookup(arg3)) < 0) {
 			char_puts("Incorrect clan name.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		if (cn != victim->clan) {
@@ -3687,13 +3798,21 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		char_puts("Ok.\n", ch);
-		return;
+		altered = TRUE;
+		goto cleanup;
 	}
 
 	/*
 	 * Generate usage message.
 	 */
 	do_mset(ch, str_empty);
+
+cleanup:
+	if (loaded) {
+		if (altered)
+			char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
+	}
 }
 
 void do_smite(CHAR_DATA *ch, const char *argument)
@@ -3761,32 +3880,32 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-
-	if (arg[0] == '\0')  {
+	if (argument[0] == '\0')  {
 		do_help(ch, "'WIZ ITITLE'");
 		return;
 	}
 
-	victim = get_char_world(ch, arg);
-	if (victim == NULL)  {
-		char_puts("Nobody is playing with that name.\n", ch);
-		return;
-	}
-
-	if (IS_NPC(victim)) {
+	if ((victim = get_char_world(ch, arg)) == NULL) {
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
+	} else if (IS_NPC(victim)) {
 		char_puts("Not on NPC's.\n", ch);
-		return;
-	}
-
-	if (argument[0] == '\0') {
-		char_puts("Change the title to what?\n", ch);
 		return;
 	}
 
 	set_title(victim, argument);
 	char_puts("Ok.\n", ch);
+
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
+	}
 }
 
 /*
@@ -3801,6 +3920,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	char *file_name;
 
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 	clan_t *clan;
 		
 	argument = first_arg(argument, old_name, sizeof(old_name), FALSE); 
@@ -3811,36 +3931,30 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 		
-	victim = get_char_world(ch, old_name);
-		
-	if (!victim) {
-		char_puts("There is no such a person online.\n",ch);
-		return;
-	}
-		
-	if (IS_NPC(victim)) {   
-		char_puts("You cannot use Rename on NPCs.\n",ch);
+	if ((victim = get_char_world(ch, old_name)) == NULL) {
+		if ((victim = char_load(old_name, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
+	} else if (IS_NPC(victim)) {   
+		char_puts("You cannot use Rename on NPCs.\n", ch);
 		return;
 	}
 
 	if (!IS_TRUSTED(ch, trust_level(victim))) {
 		char_puts("You failed.\n",ch);
-		return;
+		goto cleanup;
 	}
 		
-	if (!victim->desc || (victim->desc->connected != CON_PLAYING)) {
-		char_puts("This player has lost his link or is inside a pager or the like.\n",ch);
-		return;
-	}
-
 	if (!new_name[0]) {
 		char_puts("Rename to what new name?\n",ch);
-		return;
+		goto cleanup;
 	}
 		
 	if (!pc_name_ok(new_name)) {
 		char_puts("The new name is illegal.\n",ch);
-		return;
+		goto cleanup;
 	}
 
 /* delete old pfile */
@@ -3852,7 +3966,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 			if (d->character
 			&&  !str_cmp(d->character->name, new_name)) {
 				char_puts ("A player with the name you specified already exists!\n",ch);
-				return;
+				goto cleanup;
 			}
 
 		/* check pfile */
@@ -3860,14 +3974,14 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 		if (dfexist(PLAYER_PATH, file_name)) {
 			char_puts("A player with that name already exists!\n",
 				  ch);
-			return;		
+			goto cleanup;		
 		}
 
 		/* check .gz pfile */
 		snprintf(strsave, sizeof(strsave), "%s.gz", file_name);
 		if (dfexist(PLAYER_PATH, strsave)) {
 			char_puts ("A player with that name already exists in a compressed file!\n",ch);
-			return;		
+			goto cleanup;		
 		}
 
 		if (victim->clan && (clan = clan_lookup(victim->clan))) {
@@ -3915,17 +4029,24 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	victim->name = str_dup(new_name);
 	mlstr_destroy(&victim->short_descr);
 	mlstr_init(&victim->short_descr, new_name);
-	char_save(victim, 0);
 		
 	char_puts("Character renamed.\n", ch);
 	act_puts("$n has renamed you to $N!",
 		 ch, NULL, victim, TO_VICT, POS_DEAD);
+
+cleanup:
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
+	} else
+		char_save(victim, 0);
 } 
 
 void do_notitle(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 
 	if (argument[0] == '\0') {
 		do_help(ch, "'WIZ NOTITLE'");
@@ -3933,12 +4054,17 @@ void do_notitle(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-
 	if ((victim = get_char_world(ch ,arg)) == NULL) {
-		char_puts("He is not currently playing.\n", ch);
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("He is not currently playing.\n", ch);
+			return;
+		}
+		loaded = TRUE;
+	} else if (IS_NPC(victim)) {
+		char_puts("Not on NPC's.\n", ch);
 		return;
 	}
-	 
+
 	TOGGLE_BIT(PC(victim)->plr_flags, PLR_NOTITLE);
 	if (!IS_SET(PC(victim)->plr_flags, PLR_NOTITLE))
 	 	char_puts("You can change your title again.\n", victim);
@@ -3946,13 +4072,84 @@ void do_notitle(CHAR_DATA *ch, const char *argument)
 		char_puts("You won't be able to change your title anymore.\n",
 			  victim);
 	char_puts("Ok.\n", ch);
+
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
+	}
 }
-	   
+   
+void do_wizpass(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH]; 
+	char arg2[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	const char *pwdnew;
+	bool loaded = FALSE;
+
+	if (argument[0] == '\0') {
+		do_help(ch, "'WIZ WIZPASS'");
+		return;
+	}
+			  
+	argument = one_argument(argument, arg, sizeof(arg));
+		   one_argument(argument, arg2, sizeof(arg2));
+
+	if ((victim = get_char_world(ch, arg)) == NULL) {
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
+	} else if (IS_NPC(victim)) {
+		char_puts("Not on NPC's.\n", ch);
+		return;
+	}
+
+	if (!IS_TRUSTED(ch, trust_level(victim))) {
+		char_puts("You failed.\n", ch);
+		goto cleanup;
+	}
+
+	if (arg2[0] == '\0') 
+		pwdnew= str_empty;
+	else {
+		if (strlen(arg2) < 5) {
+			char_puts("New password must be at least five characters long.\n", ch);  
+			goto cleanup;
+		}
+
+		/*
+		 * No tilde allowed because of player file format.
+		 */
+		pwdnew = crypt(arg2, victim->name);
+		if (strchr(pwdnew, '~') != NULL) {
+			char_puts("New password not acceptable, try again.\n", ch);
+			goto cleanup;
+		}
+	}
+
+	free_string(PC(victim)->pwd);
+	PC(victim)->pwd = str_dup(pwdnew);
+	char_printf(ch, "%s: password changed to '%s'.\n", victim->name, arg2);
+
+cleanup:
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
+	} else {
+		act_puts("$N sets your password to '$t'.",
+			 ch, arg2, victim, TO_CHAR, POS_DEAD);
+		char_save(victim, 0);
+	}
+}
+
 void do_noaffect(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA *paf,*paf_next;
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
 
 	if (!IS_IMMORTAL(ch))
 		return;
@@ -3964,8 +4161,11 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg)) == NULL) {
-		char_puts("He is not currently playing.\n", ch);
-		return;
+		if ((victim = char_load(arg, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("He is not currently playing.\n", ch);
+			return;
+		}
+		loaded = TRUE;
 	}
 	 
 	for (paf = victim->affected; paf != NULL; paf = paf_next) {
@@ -3980,6 +4180,11 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 		  
 			affect_remove(victim, paf);
 		}
+	}
+
+	if (loaded) {
+		char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
 	}
 }
 
@@ -4056,6 +4261,8 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool loaded = FALSE;
+	bool altered = FALSE;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -4064,20 +4271,21 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg1)) == NULL) {
-		char_puts("They aren't here.\n", ch);
-		return;
-	}
-
-	if (IS_NPC(victim)) {
-		char_puts("Not on NPC.\n", ch);
+	if ((victim = get_char_world(ch, arg1)) == NULL) {
+		if ((victim = char_load(arg1, LOAD_F_NOCREATE)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+		loaded = TRUE;
+	} else if (IS_NPC(victim)) {
+		char_puts("Not on NPC's.\n", ch);
 		return;
 	}
 
 	if (arg2[0] == '\0') {
 		char_printf(ch, "Granted commands for %s: [%s]\n",
 			    victim->name, PC(victim)->granted);
-		return;
+		goto cleanup;
 	}
 
 	if (is_number(arg2)) {
@@ -4086,13 +4294,13 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 
 		if (lev < LEVEL_IMMORTAL) {
 			char_printf(ch, "grant: granted level must be at least %d\n", LEVEL_IMMORTAL);
-			return;
+			goto cleanup;
 		}
 
 		if (lev > trust_level(ch)) {
 			char_puts("grant: granted level cannot be higher"
 				  " than yours.\n", ch);
-			return;
+			goto cleanup;
 		}
 
 		for (i = 0; i < commands.nused; i++) {
@@ -4102,11 +4310,12 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 			||  cmd->min_level > lev)
 				continue;
 
+			altered = TRUE;
 			name_add(&PC(victim)->granted, cmd->name,
 				 ch, "grant");
 		}
 
-		return;
+		goto cleanup;
 	}
 
 	for (; arg2[0]; argument = one_argument(argument, arg2, sizeof(arg2))) {
@@ -4131,11 +4340,19 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 			     !is_name(cmd->name, PC(vch)->granted))) {
 				char_puts("grant: cmd min level cannot be "
 					  "higher than yours.\n", ch);
-				return;
+				goto cleanup;
 			}
 		}
 
+		altered = TRUE;
 		name_toggle(&PC(victim)->granted, arg2, ch, "grant");
+	}
+
+cleanup:
+	if (loaded) {
+		if (altered)
+			char_save(victim, SAVE_F_PSCAN);
+		char_nuke(victim);
 	}
 }
 

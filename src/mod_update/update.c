@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.7 2000-03-14 15:07:38 fjoe Exp $
+ * $Id: update.c,v 1.157.2.8 2000-03-21 13:52:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -868,7 +868,7 @@ void mobile_update(void)
 		&&  (pexit = ch->in_room->exit[door]) != NULL
 		&&  pexit->to_room.r != NULL
 		&&  !IS_SET(pexit->exit_info, EX_CLOSED)
-		&&  !IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB)
+		&&  !IS_SET(pexit->to_room.r->room_flags, ROOM_NOMOB | ROOM_GUILD)
 		&&  (!IS_SET(act, ACT_STAY_AREA) ||
 		     pexit->to_room.r->area == ch->in_room->area) 
 		&&  (!IS_SET(act, ACT_AGGRESSIVE) ||
@@ -1590,13 +1590,16 @@ save_corpse_contents(OBJ_DATA *corpse)
 
 /* pit lookup */
 	pit = NULL;
+	/*
+	 * workaround against NULL altars
+	 */
 	if ((altar = corpse->altar)) {
 		for (pit = altar->room->contents; pit; pit = pit->next_content)
 			if (pit->pObjIndex == altar->pit)
 				break;
 	} else {
-		log("save_corpse_contents: null altar (owner: %s)",
-			   mlstr_mval(&corpse->owner));
+		wizlog("save_corpse_contents: null altar (owner: %s)",
+			mlstr_mval(&corpse->owner));
 	}
 
 /* put contents into altar */
@@ -1604,7 +1607,14 @@ save_corpse_contents(OBJ_DATA *corpse)
 		for (obj = corpse->contains; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 			obj_from_obj(obj);
-			obj_to_room(obj, altar->room);
+
+			/*
+			 * another workaround against NULL altars
+			 */
+			if (altar)
+				obj_to_room(obj, altar->room);
+			else
+				extract_obj(obj, 0);
 		}
 		return;
 	}

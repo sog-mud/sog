@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.3 2000-01-17 11:20:59 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.4 2000-03-21 13:52:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1968,14 +1968,14 @@ void make_corpse(CHAR_DATA *ch)
 			else
 				obj_to_obj(money, corpse);
 		}
-	}
-	else {
+	} else {
 		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_PC),
 					&ch->short_descr);
 
 		corpse->timer= number_range(25, 40);
 		corpse->altar = get_altar(ch);
-
+		if (corpse->altar == NULL)
+			wizlog("make_corpse: %s: NULL altar", ch->name);
 		if (ch->gold > 0 || ch->silver > 0)
 			obj_to_obj(create_money(ch->gold, ch->silver), corpse);
 	}

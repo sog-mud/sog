@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.11 1999-12-29 04:46:56 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.12 2000-03-21 13:52:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5416,23 +5416,28 @@ CHAR_DATA *check_guard(CHAR_DATA *ch, CHAR_DATA *mob)
 	}
 }
 
-static inline
-int
-get_played(CHAR_DATA *ch)
+static int
+get_played(CHAR_DATA *ch, bool add_age)
 {
+	int pl;
+
 	if (IS_NPC(ch))
 		return 0;
-	return current_time - PC(ch)->logon + PC(ch)->played + PC(ch)->add_age;
+
+	pl = current_time - PC(ch)->logon + PC(ch)->played;
+	if (add_age)
+		pl += PC(ch)->add_age;
+	return pl;
 }
 
 int get_age(CHAR_DATA *ch)
 {
-	return (17 + get_played(ch) / 72000);
+	return (17 + get_played(ch, TRUE) / 72000);
 }
 
 int get_hours(CHAR_DATA *ch)
 {
-	return get_played(ch) / 3600;
+	return get_played(ch, FALSE) / 3600;
 }
 
 int trust_level(CHAR_DATA *ch)
