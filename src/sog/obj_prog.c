@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.83 2000-06-09 11:59:12 fjoe Exp $
+ * $Id: obj_prog.c,v 1.84 2000-06-09 12:17:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1486,8 +1486,8 @@ int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 	if (!!str_cmp(speech, "punish")
 	||  ch->fighting == NULL
-	||  (get_eq_char(ch, WEAR_FINGER_L) != obj) &&
-	     get_eq_char(ch, WEAR_FINGER_R) != obj)
+	||  (get_eq_char(ch, WEAR_FINGER_L) != obj &&
+	     get_eq_char(ch, WEAR_FINGER_R) != obj))
 		return 0;
 
 	char_puts("An electrical arc sprays from the ring.\n", ch);

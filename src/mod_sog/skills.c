@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.111 2000-06-07 08:56:00 fjoe Exp $
+ * $Id: skills.c,v 1.112 2000-06-09 12:17:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -671,6 +671,7 @@ DECLARE_MOB_SKILL(mob_distance);
 DECLARE_MOB_SKILL(mob_deathblow);
 DECLARE_MOB_SKILL(mob_spellbane);
 DECLARE_MOB_SKILL(mob_dual_wield);
+DECLARE_MOB_SKILL(mob_herbs);
 
 static size_t mob_skill_count;
 
@@ -717,6 +718,7 @@ static mob_skill_t mob_skill_tab[] =
 	{ "bow",		mob_weapon		},
 	{ "arrow",		mob_weapon		},
 	{ "lance",		mob_weapon		},
+	{ "herbs",		mob_herbs		},
 
 	{ NULL }
 };
@@ -927,3 +929,9 @@ MOB_SKILL(mob_weapon)
 	return 40 + 5 * mob->level / 2;
 }
 
+MOB_SKILL(mob_herbs)
+{
+	if (MOB_IS(mob, MOB_HEALER))
+		return 100;
+	return 0;
+}
