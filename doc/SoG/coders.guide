@@ -1,53 +1,123 @@
-Some notes for coders
----------------------
+CONTENTS
+========
+	INTRO	  Common declarations and considerations
+	PART I	  Naming conventions
+	PART II	  Basic types (low-level types)
+			string (const char *)
+			`mlstring' (multi-lingual strings)
+			`varr' (variable-size array)
+			`hash_t' (hashed array of varrs)
+			`memchunk_t' (memory allocation unit)
+			`module_t' (module info structure)
+			Utility structures and functions
+	PART III  SoG general data structures
+			class_t
+			clan_t
+			skill_t
+			race_t
+			material_t
+	PART IV   SoG object structures
+			CHAR_DATA
+			PC_DATA
+			NPC_DATA
+			MOB_INDEX_DATA
+			OBJ_DATA
+			OBJ_INDEX_DATA
+			ROOM_INDEX_DATA
+			AFFECT_DATA
+	PART VII  Game flow
+			Main game cycle
+			Time profiles
+	PART VIII Multi-lingual capabilities and translation.
+			Language specifications
+			Message database
+			Rules: cases, genders, quantities
+			Rules: explicit, implicit
+	PART IX	  Text output
+			Basic output routines
+			Text buffers
+			Advanced output (act-like functions)
+	PART X	  Modules
+			`core' module
+			`dofun' module
+			`events' module
+			`olc' module
+			`spellfun' module
+	PART XI	  On-line creation (OLC)
+			Table for OLC commands
+			OLC command subfunctions
+			OLC editors
+			OLC validators
+			How to add an OLC editor
+	PART XII  Data loading (DB)
+	PART XIII Compatibility issues
+	AFTERWORD.
+
+
 
 
 		INTRO. COMMON DECLARATIONS AND CONSIDERATIONS.
 		----------------------------------------------
 
-	Never use the following functions:
-		strcpy, strcat, strncat, *sprintf
-	Use strnzcpy, strnzncpy, strnzcat, strnzncat and *snprintf instead.
+	This manual serves to simplify SoG code development and describes
+	structures, functions and some `how-to' methods used in SoG code.
 
 	Formatting style is fully described in 'man 9 style' (FreeBSD).
 
+
+			PART I. NAMING CONVENTIONS.
+			---------------------------
+
 	SoG-specific data types should be named as xxx_t.
+
+	Data types initializing/deinializing functions must be named as
+	(for type `xxx_t'):
+
+		xxx_t *xxx_new(void)
+		void xxx_free(xxx_t *)
+
+	if xxx is allocated dynamically via `malloc' or `varr_enew'
+	or:
+
+		void xxx_init(xxx_t *)
+		void xxx_destroy(xxx_t *)
+
+	otherwise.
+
+	Many routines use callback functions to iterate through varr or
+	hash (see Part II, Basic types). These functions are named like
+	`xxx_cb'.
 
 	E.g.:
 		typedef struct module_t module_t;
 
-	Data types initializing functions must be named as (for type `xxx')
-
-		xxx *xxx_new(...)
-
-	if xxx is allocated dynamically via `malloc'  or `varr_enew' and
-
-		void xxx_init(xxx*)
-
-	if xxx is not allocated dynamically.
-
-	Corresponding deinitializing functions should be named as
-	`xxx_free' (for data types allocated dynamically) and `xxx_destroy'
-	for data types allocated statically.
-
-	E.g.:
+		AFFECT_DATA *aff_new();
+		void aff_free(AFFECT_DATA*);
 
 		void mlstr_init(mlstring *ml, const char *mval);
 		void mlstr_destroy(mlstring *ml);
 
-		AFFECT_DATA *aff_new();
-		void aff_free(AFFECT_DATA*);
+		void *varr_destroy_cb(void *p, void *d);
 
 
-			PART I. BASIC TYPES
-			-------------------
+			PART II. BASIC TYPES
+			--------------------
 
-str
----
-	strings are read-only (with refcount) and hashed.
+string
+======
+	Never use the following functions: strcpy, strcat, strncat, *sprintf
+	Use strnzcpy, strnzncpy, strnzcat, strnzncat and *snprintf instead.
 
-	const char *
-	str_dup(const char* s);
+	Strings are read-only (with reference counter) and hashed.
+	String hasher is based on Peter K. Pearson's article in CACM 33-6,
+	pp. 677.
+
+	`str_empty' is declared to use instead of "" or NULL strings
+	(actually, `str_empty' is equal to "" string).
+
+
+const char*
+str_dup(const char* s);
 
 		`str_dup' puts `s' into the string hash and returns
 	the pointer to allocated string. If the string is already in the
@@ -55,51 +125,123 @@ str
 	increment `refcount' for that string.
 
 
-	const char *
-	str_qdup(const char* s);
+const char*
+str_qdup(const char* s);
 
 		`str_qdup' expects that `s' points to string from
 	the string hash (i.e. already put there by `str_dup' or
-	another `str_qup' call). `str_qdup' simply increments `refcount'
+	another `str_qdup' call). `str_qdup' simply increments `refcount'
 	for `s' and returns `s'.
 
 
-	void
-	free_string(const char *s);
+void
+free_string(const char *s);
 
-		`free_string' decrements `refcount' for `s' and removes
+	`free_string' decrements `refcount' for `s' and removes
 	it from the string hash if `refcount' has become zero.
 
 
+const char*
+str_printf(const char *format, ...);
+
+	`str_printf' produces printf-like output, which is returned.
+
+
+char*
+strnzcpy(char *dst, size_t len, const char *src);
+char*
+strnzncpy(char *dst, size_t len, const char *src, size_t count);
+
+	`strnzcpy' copies `src' to `dst', which length is `len' bytes.
+	`strnzncpy' is same as `strnzcpy', but copies no more than `count'
+	bytes.
+
+
+char*
+strnzcat(char *dst, size_t len, const char *src);
+char*
+strnzncat(char *dst, size_t len, const char *src, size_t count);
+
+	`strnzcat' appends `src' to the end of `dst'.
+	`strnzncat' appends no more than `count' symbols of `src' to the
+	end of `dst'.
+
+
+char*
+strlwr(const char *s);
+	`strlwr' lower-cases each symbol in `s' and returns the result.
+
+
+int
+str_cmp(const char *astr, const char *bstr);
+int
+str_ncmp(const char *astr, const char *bstr, size_t count);
+
+	Both these functions compare two strings, but `str_ncmp' considers
+	only first `count' symbols. Return 0 on string match.
+
+bool
+str_prefix(const char *astr, const char *bstr);
+bool
+str_infix(const char *astr, const char *bstr);
+bool
+str_suffix(const char *astr, const char *bstr);
+
+	All these functions search for partial matching of strings and
+	return TRUE if it does not match (historical compatibility).
+	`str_prefix' looks for `astr' being prefix of `bstr', `str_infix'
+	looks for `astr' being a part of `bstr' and `str_suffix' looks
+	for `astr' being suffix of `bstr'.
+
+int
+hashstr(const char *s, int maxn, int hashs);
+int
+hashistr(const char *s, int maxn, int hashs);
+
+	Both these functions calculate hash index for string `s', considering
+	no more than `maxn' first characters. Hash size `hashs' for `hashistr'
+	should be no greater than 256.
+
+int
+cmpstr(const void *a, const void *b);
+
+	`cmpstr' is a function to compare strings and is designed to use in
+	`varr_qsort' and `varr_bsearch' functions.
+
+
 mlstring
---------
-	mlstrings never should be allocated dynamically.
+========
+	`mlstring' stands for multi-lingual string. It's structure is simple:
+	an array with one member for each language defined or just char*,
+	depending on `nlang' field value.
+
+	mlstrings should never be allocated dynamically.
 
 varr
-----
+====
 	varr is variable size array. varr should never be allocated
 	dynamically.
 
 	typedef struct varr varr;
 	struct varr {
-		size_t nsize;			/* size of elem */
+		size_t nsize;			/* size of element */
 		size_t nstep;			/* allocation step */
 
-		void *p;			/* first element */
+		void *p;				/* first element */
 
-		size_t nused;			/* elems used */
-		size_t nalloc;  	        /* elems allocated */
+		size_t nused;			/* elements used */
+		size_t nalloc;  	      	/* elements allocated */
 
-		varr_e_init_t e_init;		/* init elem */
-		varr_e_destroy_t e_destroy;	/* destroy elem */
+		varr_e_init_t e_init;		/* element initialization function*/
+		varr_e_destroy_t e_destroy;	/* element deinititialization function*/
 	};
-
 
 void
 varr_init(varr *v, size_t nsize, size_t nstep);
 
 	`varr_init' initializes `nsize' and `nstep' fields of `v'.
-	all the functions expect that `nsize' and 
+	All the functions expect that `nsize' and `nstep' are set to
+	correct values.
 
 
 void
@@ -107,20 +249,21 @@ varr_destroy(varr *v);
 
 	`varr_destroy' frees all the memory allocated for `v'.
 
-
-varr_get(v, i);
+void*
+varr_get(varr *v, int i);
 
 	`varr_get' is a macro which returns the pointer to
 	i'th element of `v' or NULL such element does not exist
 	(`i' is out of bounds).
 
 
-VARR_GET(v, i)
+void*
+VARR_GET(varr *v, int i)
 
 	`VARR_GET' is a macro which returns the pointer to
 	i'th element of `v' without any bounds checking. `VARR_GET'
 	never returns NULL and should be used only if it is known that
-	`i' is not out of bounds. e.g.: within iteration
+	`i' is not out of bounds. E.g. it is safe within iteration
 
 	for (i = 0; i < v.nused; i++) {
 		foo_t* fp = (foo_t*) VARR_GET(&v, i);
@@ -128,7 +271,7 @@ VARR_GET(v, i)
 	}
 
 
-void *
+void*
 varr_touch(varr *v, size_t i);
 
 	`varr_touch' returns the pointer to i'th element of `v'.
@@ -136,8 +279,11 @@ varr_touch(varr *v, size_t i);
 	`i' then `v' will be extended accordingly.
 
 
-			PART IX-1. TEXT OUTPUT.
-			-----------------------
+			PART IX. TEXT OUTPUT.
+			---------------------
+
+Basic output routines
+=====================
 
 	Please note that proper translation can be made only if you
 	are using act-like functions (functions that accept act-style format)
@@ -195,8 +341,8 @@ page_to_char(const char *txt, CHAR_DATA *ch);
 	buf_free(buf);
 
 
-			PART IX-2. Text buffers
-			-----------------------
+Text buffers
+============
 
 	Using buffers is a way to write text which will be sent to character
 	in a large string and then send it (split to pages if needed).
@@ -262,8 +408,8 @@ buf_string(BUFFER *buffer);
 	`buf_string' returns the string that has been formed in buffer.
 
 
-			PART IX-3. act-like functions
-			-----------------------------
+Advanced output (act-like functions)
+====================================
 
 void
 act_puts3(const char *format, CHAR_DATA *ch,
@@ -277,13 +423,17 @@ act_puts3(const char *format, CHAR_DATA *ch,
 	----------------------------------------------------
 	$n	$i	$N	$I	character's name
 	$e	--	$E	--	pronoun for character (he, she, it)
-	$m	--	$M	--	pronoun for character (him, her, it)
+	$m	--	$M	--	pronoun for character (him, her, it) (*)
 	$s	--	$S	--	pronoun for character (his, her, its)
 	--	--	$d	--	door name
 	--	$j	--	$J	number
 	--	$p	$P	--	object name
 	--	$r	--	$R	room name
 	--	$t,$u	$T	$U	plain text message
+
+	(*) This substitution can also be done via message database translation,
+	thus old method ($m/$M) is considered obsolete. In msgdb terms, it will
+	look like `$c1{$e}' (case N1 of corresponding pronoun).
 
 	Substitutions for these specifiers can be changed using given modifiers:
 
@@ -336,64 +486,85 @@ act_puts3(const char *format, CHAR_DATA *ch,
 		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
 				ACT_NOTRANS : 0))
 
-
 void
-act_puts(format, ch, arg1, arg2, type, min_pos)
+act_puts(const char *format, CHAR_DATA *ch,
+	 const void *arg1, const void *arg2,
+	 int act_flags, int min_pos)
 
 	`act_puts' is two-argument macro for `act_puts3'. Call it when you
-	don't need arg3.
+	don't need arg3. 
 
 
 void
-act(format, ch, arg1, arg2, type)
+act(const char *format, CHAR_DATA *ch,
+    const void *arg1, const void *arg2, int act_flags)
 
 	`act' is most commonly used macro for `act_puts3'. It has two arguments
 	and targets only active (standing/fighting/resting) characters.
-
 
 void
 act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	const void *arg1, const void *arg2, const void *arg3,
 	actopt_t *opt, char *buf, size_t buf_len);
 
-	Lowest level of all act-like functions. `act_buf' sends its output
-	to buffer, `act_opt' contains additional information about person
-	who will receive this message (interface language and sex).
+	`act_buf' is a low-level output function, it dumps output to
+	`buf' string, having formatted it as it will be received by `to'
+	character. `to' shall not be NULL if a slang translation is supposed,
+	otherwise data (lang, sex) will be taken from `opt'.
 
 	typedef struct actopt_t {
-		int to_lang;
-		int to_sex;
-		int act_flags;
+		int to_lang;		/* target's interface language */
+		int to_sex;		/* target's sex */
+		int act_flags;		/* act flags to pass to act_puts3() */
 	} actopt_t;
 
-	`to' must not be NULL for all char/obj formatting or if ACT_STRANS is
-	set. Other formatting functions use opt->to_lang/opt->to_sex instead
+	`actopt_t' is an internal type and needs not to be used outside
+	comm_act.c. It is used to pass additional information from act_puts()
+	to act_buf(). Nevertheless, should you need some other info to be
+	passed, appropriate fields should be added to this structure.
 
+	Other act-like routines:
 
+const char*
+act_speech(CHAR_DATA *ch, CHAR_DATA *vch, const char *text, const void *arg);
+	Common routine to perform format specifiers substitution in misc
+	text output routines. Here: `ch' is the teller, `vch' is the listener,
+	`text' is act-like format string and `arg' is a substituter for $x
+	in `text'. `arg' will be substituted to `arg1' in act_puts(), so
+	use proper specifiers ($i, $j, $p, $r and $t).
 
-/*
- * formatting stuff
- */
+void
+act_yell(CHAR_DATA *ch, const char *text, const void *arg, const char *format);
+void
+act_clan(CHAR_DATA *ch, const char *text, const void *arg);
+void
+act_say(CHAR_DATA *ch, const char *text, const void *arg);
 
-const char *fix_short	(const char *short_descr);
-const char *format_short(mlstring *mshort, const char *name,
-			 CHAR_DATA *to, int act_flags);
-const char *format_long	(mlstring *desc, CHAR_DATA *to);
+	All these functions perform output to target characters: `act-yell'
+	to all characters in the same area as `ch', `act_clan' to all members
+	of the same clan as `ch' and `act_say' to all characters in the same
+	room. `text' and `arg' are passed directly to `act_speech' and hence
+	have the same meaning. `act_yell' takes `format' argument, which
+	specifies the phrase that precedes the yell. If format is NULL, it
+	is substituted with standard one.
 
-#define PERS(ch, looker) PERS2(ch, looker, 0)
-const char* PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags);
+Formatting routines:
 
+const char*
+fix_short	(const char *short_descr);
 
-/*
- * misc comm act-like functions
- */
-const char *	act_speech(CHAR_DATA *ch, CHAR_DATA *vch,
-			   const char *text, const void *arg);
+const char*
+format_short(mlstring *mshort, const char *name, CHAR_DATA *to, int act_flags);
 
-void	act_yell(CHAR_DATA *ch, const char *text, const void *arg,
-		 const char *format);
-void	act_clan(CHAR_DATA *ch, const char *text, const void *arg);
-void	act_say(CHAR_DATA *ch, const char *text, const void *arg);
+const char*
+format_long	(mlstring *desc, CHAR_DATA *to);
+
+const char*
+PERS(ch, looker)
+
+const char*
+PERS2(CHAR_DATA *ch, CHAR_DATA *looker, int act_flags);
+
 
 
 
@@ -406,7 +577,7 @@ void	act_say(CHAR_DATA *ch, const char *text, const void *arg);
 	int _module_unload(module_t *m);
 
 	This functions should are called after `dlopen' and
-	before 'dlclose' correspondingly. This functions should return -1
+	before 'dlclose' respectively. This functions should return -1
 	on error (if so, module will not be considered loaded
 	and module will not be unloaded accordingly).
 
@@ -422,10 +593,7 @@ void	act_say(CHAR_DATA *ch, const char *text, const void *arg);
 	modules should be rebuilt (don't forget to use `make depend'
 	to maintain proper dependencies for make).
 
-
-
-			PART XI. MODULES DESCRIPTIONS
-			-----------------------------
+	There are 5 modules in SoG: core, dofun, events, olc, spellfun.
 
 core
 ====
@@ -524,35 +692,19 @@ spellfun
 		       CHAR_DATA *ch, void *vo)
 
 
-			PART XII. On-Line Creation
+			PART XI. On-Line Creation
 			--------------------------
 
+	On-line creation (OLC) is a module that introduces internal editor
+	for most SoG structures. Main part is contained in `olc.c' and
+	`olc.h' files, while the rest of files contain miscellanenous editors.
 
-	To add your OLC editor you should add the following `to olc.c' and
-	`olc.h'.
-
-To `olc.c'
-==========
-	const char *ED_FOO="foo"
-		string to indicate editor type (to type-cast PC(ch)->pEdit)
-
-	add a line in olced_table:
-	{ ED_FOO , "FooEd" , olc_cmds_foo }
-		string defining editor name ("FooEd") and its subcommand table
-		(olc_cmds_foo)
-
-To `olc.h'
-==========
-	`extern' declarations for `ED_FOO' and `olc_cmds_foo'.
-
-	touch_foo(foo_t *foo)
-		function to set `changed' bit for given structure
-
-	#define SECURITY_FOO
-		you may specify a security level to edit `foo_t' structure and
-		use this definition.
-
-
+	Main part consists of module service routines (_module_load() and
+	_module_unload() functions, see "Part X, Modules" for details),
+	OLC command interpreter and common editor functions and validators
+	(see below). You have no need to intervene OLC command interpretation
+	and module initializing routines in order to introduce your own editor.
+	All changes you need to make are described in the end of this part.
 
 	Every OLC editor should contain the following items:
 
@@ -593,18 +745,6 @@ OLC editors
 	changing a value), flag table (for flag setting routines) or any other
 	pointer. Just remember of its meaning when add lines to OLC table.
 
-Validators
-==========
-	When you need the value changed by standard OLC editor to be verified
-	for falling in range or for some another criteria, you can write a
-	validator function and specify it in OLC table. Validator should return
-	TRUE on value approval or FALSE on denial.
-
-
-	There are standard OLC editort and validators declared in olc.h
-
-OLC editors
-===========
 	All these functions have the same syntax:
 	bool olced_foo(CHAR_DATA *ch, const char *argument,
 		       olc_cmd_t *cmd, foo_t *foo);
@@ -638,9 +778,14 @@ OLC editors
 	olced_vform_del(rule_t*)	--		deletes word form
 	olced_exit(int door)		--		defined in olc_room.c
 
-Validators
-==========
-	All validators should return TRUE if `argument' is appropriate change.
+OLC Validators
+==============
+	When you need the value changed by standard OLC editor to be verified
+	for falling in range or for some another criteria, you can write a
+	validator function and specify it in OLC table. Validator should return
+	TRUE on value approval or FALSE on denial.
+
+	All validators should return TRUE if `argument' has appropriate value.
 
 	Function name		Return true if			Defined in
 	=============		==============			===========
@@ -662,4 +807,41 @@ Validators
 	validate_haspcdata	race has pcdata defined		olc_race.c
 	validate_name		social has unique name		olc_social.c
 
+How to add OLC editor
+=====================
 
+	To add your OLC editor you should add the following `to olc.c' and
+	`olc.h'.
+
+	To `olc.c':
+
+	const char *ED_FOO="foo"
+		string to indicate editor type (to type-cast PC(ch)->pEdit)
+
+	add a line in olced_table:
+	{ ED_FOO , "FooEd" , olc_cmds_foo }
+		string defining editor name ("FooEd") and its subcommand table
+		(olc_cmds_foo)
+
+	To `olc.h':
+
+	`extern' declarations for `ED_FOO' and `olc_cmds_foo'.
+
+	touch_foo(foo_t *foo)
+		function to set `changed' bit for given structure - this is
+		not always needed.
+
+	#define SECURITY_FOO
+		you may specify a security level to edit `foo_t' structure and
+		use this definition.
+
+
+			AFTERWORD
+			---------
+
+	This manual comes to you by:
+		fjoe (Max Khon, fjoe@iclub.nsu.ru)
+		Arborn (Alexey Neyman, avn@org.chem.msu.su)
+
+	Feel free to change this manual in order to match your changes as
+	you distribute it.
