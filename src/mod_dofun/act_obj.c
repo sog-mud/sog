@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.11 1998-05-27 08:47:20 fjoe Exp $
+ * $Id: act_obj.c,v 1.12 1998-05-27 15:38:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -247,29 +247,27 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 
 void do_get(CHAR_DATA *ch, char *argument)
 {
-	  char arg1[MAX_INPUT_LENGTH];
-	  char arg2[MAX_INPUT_LENGTH];
-	  OBJ_DATA *obj;
-	  OBJ_DATA *obj_next;
-	  OBJ_DATA *container;
-	  bool found;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+	OBJ_DATA *container;
+	bool found;
 
 
-	  argument = one_argument(argument, arg1);
-	  argument = one_argument(argument, arg2);
+	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg2);
 
-	  if (!str_cmp(arg2,"from"))
-	argument = one_argument(argument,arg2);
+	if (!str_cmp(arg2,"from"))
+		argument = one_argument(argument,arg2);
 
 	  /* Get type. */
-	  if (arg1[0] == '\0')
-	  {
-	send_to_char("Get what?\n\r", ch);
-	return;
-	  }
+	if (arg1[0] == '\0') {
+		send_to_char("Get what?\n\r", ch);
+		return;
+	}
 
-	  if (arg2[0] == '\0')
-	  {
+	if (arg2[0] == '\0') {
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1))
 	{
 	    /* 'get obj' */

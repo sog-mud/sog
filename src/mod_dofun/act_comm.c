@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.27 1998-05-27 08:47:18 fjoe Exp $
+ * $Id: act_comm.c,v 1.28 1998-05-27 15:38:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -951,7 +951,7 @@ void do_pose(CHAR_DATA *ch, char *argument)
 	int pose;
 
 	if (IS_NPC(ch))
-	return;
+		return;
 
 	level = UMIN(ch->level, sizeof(pose_table) / sizeof(pose_table[0]) - 1);
 	pose  = number_range(0, level);

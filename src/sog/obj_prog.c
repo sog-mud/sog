@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.5 1998-05-27 08:47:27 fjoe Exp $
+ * $Id: obj_prog.c,v 1.6 1998-05-27 15:38:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -600,9 +600,10 @@ bool death_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch)
 
 void get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch) 
 {
+	if (obj->extra_descr == NULL)
+		return;
 
-	if (strstr(obj->extra_descr->description, ch->name) != NULL)  
-	{
+	if (strstr(obj->extra_descr->description, ch->name) != NULL)  {
 	if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
 	  send_to_char("Your weapon glows blue.", ch);
 	  act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
@@ -637,24 +638,30 @@ void get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 
 void get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch) 
 {
+	if (obj->extra_descr == NULL)
+		return;
 
-	if (strstr(obj->extra_descr->description, ch->name) != NULL)  
-	{
-	if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
-	  send_to_char("Your weapon glows blue.", ch);
-	  act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
-	  spell_cure_poison(gsn_cure_poison, 30, ch, ch, TARGET_CHAR);
-	  return;
+	if (strstr(obj->extra_descr->description, ch->name) != NULL) {
+		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1, 5) == 1)) {
+			send_to_char("Your weapon glows blue.", ch);
+			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
+			spell_cure_poison(gsn_cure_poison, 30,
+					  ch, ch, TARGET_CHAR);
+			return;
+		}
+
+		if (IS_AFFECTED(ch, AFF_CURSE) && (dice(1, 5) == 1)) {
+			send_to_char("Your weapon glows blue.", ch);
+			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
+			spell_remove_curse(gsn_remove_curse, 30,
+					   ch, ch, TARGET_CHAR);
+			return;
+		}
+
+		send_to_char("Quest staff waits patiently to return.\n\r", ch);
+		return;
 	}
-	if (IS_AFFECTED(ch, AFF_CURSE) && (dice(1,5)==1))  {
-	  send_to_char("Your weapon glows blue.", ch);
-	  act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
-	  spell_remove_curse(gsn_remove_curse, 30, ch, ch, TARGET_CHAR);
-	  return;
-	}
-	send_to_char("Quest staff waits patiently to return.\n\r", ch);
-	return;
-	}
+
 	act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
 
 	obj_from_char(obj);
@@ -662,14 +669,14 @@ void get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch)
 
 	switch(dice(1, 10))  {
 	case 1:
-	spell_curse(gsn_curse, ch->level < 10? 1 : ch->level-9, ch, ch, TARGET_CHAR);
-	break;
+		spell_curse(gsn_curse, ch->level < 10? 1 : ch->level-9,
+			    ch, ch, TARGET_CHAR);
+		break;
 	case 2:
-	spell_poison(gsn_poison, ch->level < 10? 1 : ch->level-9, ch, ch, TARGET_CHAR);
-	break;
+		spell_poison(gsn_poison, ch->level < 10? 1 : ch->level-9,
+			     ch, ch, TARGET_CHAR);
+		break;
 	}
-	return;
-	
 }
 
 void get_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch) 
