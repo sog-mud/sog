@@ -1688,7 +1688,7 @@ a Morning-Star named "VainGlory"~
 A large and ancient morning-star glows brightly on the floor.~
 silver~
 weapon AGHM AN
-mace 12 3 wrath 0
+mace 12 3 'wrath' 0
 38 10 10000 G
 A
 1 2
@@ -1904,7 +1904,7 @@ a Crusader's Sword~
 There is a shiny steel sword with a decorated hilt here.~
 silver~
 weapon GKL AN
-sword 10 3 wrath 0
+sword 10 3 'wrath' 0
 35 8 12000 G
 A
 18 4
@@ -2093,7 +2093,7 @@ a yew bow~
 An elegant yew bow lies here amongst the rocks.~
 yew~
 weapon GKL AN
-bow 5 9 pierce 0
+bow 5 9 'pierce' 0
 43 9 30000 G
 A
 2 2
@@ -2187,7 +2187,7 @@ a sword called "Swiftbird"~
 A sword called "Swiftbird" sings a melancholic lament.~
 steel~
 weapon K AN
-sword 10 3 slash 0
+sword 10 3 'slash' 0
 35 10 10000 G
 A
 13 -5
@@ -2209,7 +2209,7 @@ a marmalade orb~
 A striped marmalade orb floats in the air near you.~
 energy~
 weapon FGI AN
-exotic 10 4 magic 0
+exotic 10 4 'magic' 0
 43 10 10000 G
 A
 18 3
@@ -2317,7 +2317,7 @@ Marcel Proust's "A la Recherche du Temps Perdu"~
 Marcel Proust's "A la Recherche du Temps Perdu" lies here.~
 gold~
 weapon K AN
-mace 10 2 pound 0
+mace 10 2 'pound' 0
 15 18 8000 G
 A
 2 -1
@@ -2337,7 +2337,7 @@ a sword-stick~
 A sword-stick lies on the grass here.~
 steel~
 weapon 0 AN
-dagger 8 2 stab 0
+dagger 8 2 'stab' 0
 5 8 100 G
 E
 stick dagger sword-stick~
@@ -2371,7 +2371,7 @@ an ashen longbow~
 A skillfully crafted longbow with a quiver of arrows lie here.~
 Gold~
 weapon K AN
-bow 9 3 pierce 0
+bow 9 3 'pierce' 0
 28 10 4700 G
 A
 18 3
@@ -2389,7 +2389,7 @@ a Hell-Spear~
 A Hell-Spear wreathed in black flames.~
 iron~
 weapon CHJ AN
-spear 9 3 pierce AK
+spear 9 3 'pierce' AK
 25 12 3000 G
 A
 18 1
@@ -2764,7 +2764,7 @@ the whipping tail of a manticore~
 A chitinous chain of black plates with a whipping end.~
 iron~
 weapon M AN
-whip 8 6 sting 0
+whip 8 6 'sting' 0
 50 7 25000 G
 A
 18 3
@@ -2783,7 +2783,7 @@ the dagger of Yog-Sothoth~
 A blue steel dagger with a blackened hilt lies here.~
 steel~
 weapon AEJM AN
-dagger 8 6 pierce B
+dagger 8 6 'pierce' B
 50 7 25000 G
 A
 18 4
@@ -2834,7 +2834,7 @@ a Hell-Blade~
 A Hell-Blade wreathed in black flames.~
 iron~
 weapon CHJ AN
-sword 9 3 slash A
+sword 9 3 'slash' A
 25 12 4700 G
 A
 18 1

@@ -252,7 +252,7 @@ a shiny newbie sword~
 A shiny newbie sword is lying here waiting to be possessed.~
 steel~
 weapon AG AN
-sword 1 7 thrust 0
+sword 1 7 'thrust' 0
 4 120 200 G
 A
 19 1
@@ -307,7 +307,7 @@ a shiny newbie dagger~
 A shiny newbie dagger is lying here looking for a back to stab.~
 iron~
 weapon AG AN
-dagger 1 7 stab 0
+dagger 1 7 'stab' 0
 4 50 140 G
 A
 19 1
@@ -395,7 +395,7 @@ a glowing newbie mace~
 A finely crafted newbie mace is waiting for a worthy owner.~
 wood~
 weapon AG AN
-mace 1 7 pound 0
+mace 1 7 'pound' 0
 3 170 245 G
 A
 17 -2

@@ -254,7 +254,7 @@ dagger might~
 @eng dagger of might@rus dagger of might~
 unknown~
 weapon BM AN
-dagger 1 10000 scratch ABDEGH
+dagger 1 10000 'scratch' ABDEGH
 75 0 0 P
 A
 18 30
@@ -422,7 +422,7 @@ rancor sword~
 Strange sword is glowing bright green.~
 steel~
 weapon AJRTa ANP
-sword 4 13 cleave H
+sword 4 13 'cleave' H
 20 20 100000 P
 F A 13 -30 M
 A
@@ -436,7 +436,7 @@ huge axe called "{RMithras{x"~
 Blood-red axe lies on the ground.~
 mithril~
 weapon BRTa ANP
-axe 5 19 chop E
+axe 5 19 'chop' E
 50 50 200000 P
 A
 18 10
@@ -448,7 +448,7 @@ legendary sword "{wWarmonger{x"~
 Dark blade with glowing runes on its blade lies near.~
 adamantite~
 weapon ACEMORZa AN
-sword 24 6 slice DEF
+sword 24 6 'slice' DEF
 85 80 1200000 P
 A
 8 1
@@ -473,7 +473,7 @@ everburning bow "{rEmber{x"~
 Bow with fires on it lies near you.~
 energy~
 weapon AORa AN
-bow 7 17 flame AE
+bow 7 17 'flame' AE
 65 50 700000 P
 F I 8 1 H
 A
@@ -487,7 +487,7 @@ long slim dagger "{MCarnage{x"~
 Long and slim dagger glints in the grass.~
 steel~
 weapon AORa AN
-dagger 14 10 stab BDE
+dagger 14 10 'stab' BDE
 75 50 900000 P
 F I 8 1 MN
 A
@@ -501,7 +501,7 @@ deadly mace "{YBattleCraft{x"~
 Brightly glowing flail lies forgotten.~
 unknown~
 weapon AORa AN
-flail 10 9 smash ADE
+flail 10 9 'smash' ADE
 55 50 500000 P
 F R 8 1 F
 A
@@ -515,7 +515,7 @@ sparkling sword "{CTempest{x"~
 Strangely bent sword glows in the grass.~
 titanium~
 weapon AKORTa AN
-sword 4 17 slash DGI
+sword 4 17 'slash' DGI
 40 30 0 P
 A
 13 80
@@ -849,7 +849,7 @@ test dagger~
 test dagger~
 unknown~
 weapon 0 AN
-exotic 5 5 pierce K
+exotic 5 5 'pierce' K
 20 0 0 P
 G none
 #0

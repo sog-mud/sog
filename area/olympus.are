@@ -424,7 +424,7 @@ the Thunder Bolt~
 A huge hammer has been carelessly dropped here.~
 mithril~
 weapon FGK AN
-mace 8 7 blast G
+mace 8 7 'blast' G
 50 140 5400 P
 A
 18 5
@@ -450,7 +450,7 @@ the spear of Ares~
 A wicked spear rests on the ground here.~
 titanium~
 weapon FGJ AN
-spear 5 10 thrust K
+spear 5 10 'thrust' K
 48 180 2000 P
 A
 19 4
@@ -484,7 +484,7 @@ poseidon's Trident~
 A huge three pronged spear lies here.~
 oak~
 weapon FGK AN
-spear 7 7 pierce FK
+spear 7 7 'pierce' FK
 47 160 5700 P
 A
 4 2
@@ -495,7 +495,7 @@ a silver bow~
 A silver bow.~
 silver~
 weapon FGK AN
-bow 6 7 pierce F
+bow 6 7 'pierce' F
 47 150 10300 P
 A
 19 1
@@ -563,7 +563,7 @@ a notched axe~
 A notched axe.~
 iron~
 weapon FGK AN
-axe 4 10 slice 0
+axe 4 10 'slice' 0
 35 120 3600 P
 G none
 #914
@@ -655,7 +655,7 @@ the Sword of the Sun~
 A beautiful sword with the rising sun etched on the pommel is lying here.~
 unknown~
 weapon FGK AN
-sword 9 9 slash 0
+sword 9 9 'slash' 0
 50 200 6800 P
 A
 19 8
@@ -763,7 +763,7 @@ a silver arrow~
 A silver arrow with an inner glow lies here.~
 silver~
 weapon FGK AO
-arrow 6 7 pierce ABCDEFGHK
+arrow 6 7 'pierce' ABCDEFGHK
 47 20 10300 P
 A
 19 1

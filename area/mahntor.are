@@ -618,7 +618,7 @@ the rod of weaponry~
 A shiny metal rod lies here.~
 steel~
 weapon AGI AN
-exotic 3 12 blast 0
+exotic 3 12 'blast' 0
 28 240 4700 P
 A
 19 3
@@ -689,7 +689,7 @@ a shortsword named "Nightbringer"~
 A very evil looking shortsword lies here.~
 unknown~
 weapon CGJL AN
-sword 3 14 pierce 0
+sword 3 14 'pierce' 0
 39 90 3500 P
 A
 19 4
@@ -752,7 +752,7 @@ a huge mace named "Dawnbringer"~
 A huge mace lies here. It radiates an aura of power.~
 iron~
 weapon AGKL AN
-mace 5 9 blast F
+mace 5 9 'blast' F
 38 240 3200 P
 A
 19 3
@@ -814,7 +814,7 @@ a gnarled magius staff~
 A gnarled staff lies here.~
 platinium~
 weapon G AN
-staff 6 5 pound F
+staff 6 5 'pound' F
 27 100 2900 P
 A
 20 -2
@@ -879,7 +879,7 @@ a huge mithril mace~
 A huge mace made of mithril metal lies here.~
 mithril~
 weapon AG AN
-mace 5 5 crush 0
+mace 5 5 'crush' 0
 26 130 1960 P
 A
 19 3
@@ -953,7 +953,7 @@ an ice staff~
 A staff made of ice rests here.~
 ice~
 weapon G AN
-staff 7 4 pound BF
+staff 7 4 'pound' BF
 28 130 1470 P
 A
 12 20
@@ -1022,7 +1022,7 @@ a huge crossbow~
 A huge crossbow rests here.~
 wood~
 weapon G AN
-exotic 3 10 pierce F
+exotic 3 10 'pierce' F
 27 150 4300 P
 A
 19 2
@@ -1079,7 +1079,7 @@ a wicked shortsword~
 A wicked looking shortsword lies here.~
 steel~
 weapon G AN
-sword 4 8 pierce 0
+sword 4 8 'pierce' 0
 26 110 2300 P
 A
 19 1
@@ -1163,7 +1163,7 @@ mahn-Tor's Great Axe~
 An extremely huge axe is resting here.~
 titanium~
 weapon BG AN
-axe 7 5 slash 0
+axe 7 5 'slash' 0
 31 260 3400 P
 A
 19 4
@@ -1212,7 +1212,7 @@ blade ethereal лезвие~
 @eng A shimmering blade lies here.@rus Мерцающее лезвие (blade) лежит здесь.~
 unknown~
 weapon AJ AN
-sword 3 10 slash 0
+sword 3 10 'slash' 0
 25 30 3200 P
 A
 19 1
@@ -1353,7 +1353,7 @@ a kopesh sword~
 A sword with a curved blade lies here.~
 iron~
 weapon 0 AN
-sword 5 4 slash 0
+sword 5 4 'slash' 0
 17 130 1310 P
 E
 sword kopesh~
@@ -1385,7 +1385,7 @@ a battle axe~
 A dangerous looking battle axe rests here.~
 steel~
 weapon 0 AN
-axe 5 5 slash 0
+axe 5 5 'slash' 0
 17 180 1310 P
 G none
 #2366
@@ -1412,7 +1412,7 @@ a huge halberd~
 A huge halberd has been left here.~
 wood~
 weapon G AN
-polearm 3 8 cleave F
+polearm 3 8 'cleave' F
 18 180 690 P
 A
 19 1
@@ -1452,7 +1452,7 @@ a two-handed sword~
 A large sword lies here.~
 steel~
 weapon G AN
-sword 5 5 slash F
+sword 5 5 'slash' F
 22 180 2500 P
 A
 19 2
@@ -1492,7 +1492,7 @@ a minotaur glaive~
 A very large glaive rests here.~
 bronze~
 weapon G AN
-polearm 5 4 slash F
+polearm 5 4 'slash' F
 22 190 830 P
 A
 19 1
@@ -1532,7 +1532,7 @@ a huge morningstar~
 A huge morningstar rests here.~
 wood steel~
 weapon G AN
-mace 7 5 pound 0
+mace 7 5 'pound' 0
 29 200 2300 P
 A
 19 3
@@ -1549,7 +1549,7 @@ some huge spiked brass knuckles~
 A set of spiked brass knuckles lies here.~
 brass~
 weapon 0 AN
-exotic 4 4 punch 0
+exotic 4 4 'punch' 0
 17 90 1970 P
 E
 spiked brass knuckles~
@@ -1575,7 +1575,7 @@ a huge wooden maul~
 A huge wooden maul rests here.~
 wood~
 weapon 0 AN
-mace 5 5 blast 0
+mace 5 5 'blast' 0
 28 220 1700 P
 G none
 #2384
@@ -1602,7 +1602,7 @@ an ogre spear~
 A crude spear rests here.~
 wood~
 weapon 0 AN
-spear 2 10 thrust FK
+spear 2 10 'thrust' FK
 17 80 320 P
 G none
 #2387
@@ -1611,7 +1611,7 @@ an ogre war club~
 A large, crude club rests here.~
 wood~
 weapon 0 AN
-mace 5 4 pound 0
+mace 5 4 'pound' 0
 17 100 880 P
 G none
 #2388
@@ -1655,7 +1655,7 @@ a massive club~
 A massive club lies here, discarded.~
 wood~
 weapon 0 AN
-mace 4 7 blast F
+mace 4 7 'blast' F
 23 190 1520 P
 G none
 #2392

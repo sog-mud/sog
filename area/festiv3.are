@@ -1151,7 +1151,7 @@ tomahawk axe томагавк~
 @eng A small throwing axe lies on the ground.@rus Небольшой метательный топорик (axe) валяется на земле.~
 steel~
 weapon BY AN
-axe 15 7 slash DEK
+axe 15 7 'slash' DEK
 90 40 10000 P
 A
 18 11
@@ -1257,7 +1257,7 @@ stick reet spear bamboo копье~
 @eng A long piece of bamboo lies here.@rus Длинный кусок бамбука (stick) лежит здесь.~
 bamboo~
 weapon BI AN
-spear 11 12 pierce CHK
+spear 11 12 'pierce' CHK
 95 10 100 P
 A
 18 10
@@ -1328,7 +1328,7 @@ bow short~
 @eng A short wooden bow lies here.@rus Короткий деревянный лук (bow) лежит тут.~
 wood~
 weapon G AN
-bow 8 10 blast 0
+bow 8 10 'blast' 0
 80 15 1000 P
 A
 18 5
@@ -1393,7 +1393,7 @@ bookmark leather long закладка~
 @eng A long leather strip lies here.@rus Длинная кожаная полоска (bookmark) лежит здесь.~
 soft leather~
 weapon HM AN
-whip 9 11 blast G
+whip 9 11 'blast' G
 78 0 1000 P
 A
 3 1
@@ -1437,7 +1437,7 @@ sword long illusory mist меч~
 @eng A cloud of mist shaped like a sword is floating here.@rus Облако тумана в форме меча (sword) парит поблизости.~
 air~
 weapon ACFGORWY AN
-sword 13 13 slash DEFG
+sword 13 13 'slash' DEFG
 100 80 100000 P
 A
 2 1
@@ -1454,7 +1454,7 @@ arrow silver~
 @eng A silver arrow glows brightly.@rus Серебрянная стрела ярко сверкает.~
 silver~
 weapon AIORY AO
-arrow 15 15 pierce AGK
+arrow 15 15 'pierce' AGK
 90 10 0 P
 A
 18 20
@@ -1562,7 +1562,7 @@ bow long лук~
 @eng A huge bow lies here neglected.@rus Здесь лежит кем-то забытый длинный лук (bow).~
 ebony~
 weapon BG AN
-bow 6 20 blast 0
+bow 6 20 'blast' 0
 94 30 14000 P
 A
 18 8
@@ -1707,7 +1707,7 @@ sword veteran old меч~
 @eng A rusted sword lies here.@rus Тронутый ржавчиной меч (sword) лежит тут.~
 steel~
 weapon BHMTY AN
-sword 9 14 pierce D
+sword 9 14 'pierce' D
 90 100 10000 A
 A
 18 15
@@ -1894,7 +1894,7 @@ pen goose~
 @eng A feather shaped like a pen lies here.@rus Остро очиненное перо (pen) лежит здесь.~
 feathers~
 weapon BIJK AN
-exotic 5 7 pierce 0
+exotic 5 7 'pierce' 0
 25 10 1000 P
 A
 4 2
@@ -2061,7 +2061,7 @@ tournament sword меч~
 @eng A long sword is stuck in the ground.@rus Длинный меч (sword) воткнут в землю.~
 iron~
 weapon 0 AN
-sword 7 7 slash 0
+sword 7 7 'slash' 0
 50 100 10000 P
 G male
 #36361
@@ -2079,7 +2079,7 @@ mace tournament булава~
 @eng A large mace lies on the ground.@rus Большая булава (mace) лежит на земле.~
 iron~
 weapon 0 AN
-mace 10 5 crush 0
+mace 10 5 'crush' 0
 50 90 23450 P
 G female
 #36363
@@ -2115,7 +2115,7 @@ star morning tournament моргенштерн~
 @eng A heavy metal ball glows on the grass.@rus Большой металлический шар (star) сверкает среди травы.~
 iron~
 weapon A AN
-flail 16 3 crush 0
+flail 16 3 'crush' 0
 50 100 23980 P
 G male
 #36367
@@ -2168,7 +2168,7 @@ sword guard меч~
 @eng A short sword gleams here.@rus Короткий меч (sword) блестит на полу.~
 steel~
 weapon A AN
-sword 6 6 pierce 0
+sword 6 6 'pierce' 0
 25 50 500 P
 G male
 #36372
@@ -2177,7 +2177,7 @@ axe tournament топор~
 @eng A HUGE axe lies here.@rus ЗДОРОВЕННЫЙ топор (axe) лежит на земле.~
 iron~
 weapon 0 AN
-axe 6 9 chop 0
+axe 6 9 'chop' 0
 50 50 2500 P
 G male
 #36373
@@ -2288,7 +2288,7 @@ lance paladin пика~
 @eng A long lance lies here.@rus Длинная пика (lance) лежит здесь.~
 titanium~
 weapon IKLR AN
-lance 11 5 charge 0
+lance 11 5 'charge' 0
 50 100 56700 P
 G female
 #36384
@@ -2663,7 +2663,7 @@ club monk дубинка~
 @eng A heavy looking club stands here.@rus Тяжелая дубинка (club) прислонена к дереву.~
 wood~
 weapon GI AN
-mace 8 13 crush K
+mace 8 13 'crush' K
 75 100 0 P
 G female
 #36409
@@ -2850,7 +2850,7 @@ arrow titanium стрела~
 @eng A heavy looking arrow lies in the dirt.@rus Тяжелая стрела (arrow) лежит в грязи.~
 wood~
 weapon 0 AO
-arrow 12 12 pierce K
+arrow 12 12 'pierce' K
 82 10 1500 P
 G female
 #36424
@@ -2912,7 +2912,7 @@ mace iron heavy палица~
 @eng A huge mace stands at the corner.@rus Большая палица (mace) стоит в углу.~
 iron~
 weapon 0 AN
-mace 8 8 crush 0
+mace 8 8 'crush' 0
 60 100 16700 P
 G female
 #36430
@@ -2951,7 +2951,7 @@ sword katana samurai катана~
 @eng A Sword of samurai humms quietly in your hands.@rus Меч (sword) Самурая тихо звенит в твоих руках.~
 steel~
 weapon AHM AN
-sword 5 10 slash DE
+sword 5 10 'slash' DE
 50 100 30000 P
 G female
 #36434

@@ -369,7 +369,7 @@ a woodsman's axe~
 A large axe stained with tree sap is here.~
 steel~
 weapon 0 AN
-axe 5 6 slice 0
+axe 5 6 'slice' 0
 28 100 2500 P
 G none
 #29130
@@ -462,7 +462,7 @@ a pick~
 A pick is here.~
 metal~
 weapon 0 AN
-dagger 3 6 stab 0
+dagger 3 6 'stab' 0
 15 80 2476 P
 G none
 #29137

@@ -384,7 +384,7 @@ a huge curved blade~
 A very large curved blade lies here in a pool of blood.~
 unknown~
 weapon CGJL AN
-sword 5 7 slash 0
+sword 5 7 'slash' 0
 35 25 350 P
 A
 19 6
@@ -453,7 +453,7 @@ a black sword~
 A black sword calls for you to put it to use.~
 unknown~
 weapon BCEGJLM AN
-sword 5 8 slash 0
+sword 5 8 'slash' 0
 40 12 400 P
 A
 1 2
@@ -496,7 +496,7 @@ a finely crafted sword~
 A finely crafted sword lies about unused.~
 unknown~
 weapon ABGIK AN
-sword 5 9 slice 0
+sword 5 9 'slice' 0
 40 12 400 P
 A
 18 6
@@ -591,7 +591,7 @@ a Heron marked blade~
 The blade of a swordmaster lies at your feet.~
 iron~
 weapon GIM AN
-sword 10 11 slash DE
+sword 10 11 'slash' DE
 60 12 600 P
 A
 19 15
@@ -636,7 +636,7 @@ a heartstone dagger~
 A dagger made of a strange material is here.~
 unknown~
 weapon GM AN
-dagger 10 11 pierce D
+dagger 10 11 'pierce' D
 60 10 600 P
 A
 19 10
@@ -771,7 +771,7 @@ a seductive smile~
 A very strange object lies at your feet.~
 unknown~
 weapon EJLM AN
-exotic 5 10 blast 0
+exotic 5 10 'blast' 0
 50 1 500 P
 A
 18 3
@@ -786,7 +786,7 @@ a wicked-looking knife~
 A very sharp knife lies on the ground.~
 unknown~
 weapon GI AN
-dagger 5 9 pierce D
+dagger 5 9 'pierce' D
 45 4 450 P
 A
 19 3

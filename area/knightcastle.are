@@ -238,7 +238,7 @@ holy lance~
 {WVery beautiful Lance{x glowing here.~
 energy~
 weapon ABIKTa AN
-lance 12 12 charge DEI
+lance 12 12 'charge' DEI
 75 200 1000000 P
 A
 24 -50

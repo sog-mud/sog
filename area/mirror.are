@@ -918,7 +918,7 @@ an imperial sword~
 You see an imperial sword here.~
 steel~
 weapon G AN
-sword 3 6 slash 0
+sword 3 6 'slash' 0
 14 50 1420 P
 A
 19 2
@@ -936,7 +936,7 @@ an imperial mace~
 You see an imperial mace here.~
 mithril~
 weapon G AN
-mace 3 7 pound 0
+mace 3 7 'pound' 0
 15 50 1180 P
 A
 19 2
@@ -1138,7 +1138,7 @@ a two-handed sword~
 A nice two-handed sword hangs on a hook in the wall.~
 iron~
 weapon GK AN
-sword 5 7 cleave DF
+sword 5 7 'cleave' DF
 34 240 4400 P
 A
 19 4

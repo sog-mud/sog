@@ -302,7 +302,7 @@ a mithril dagger~
 A dagger made from mithril lies here. It looks evil.~
 mithril~
 weapon BEJ AN
-dagger 6 10 pierce 0
+dagger 6 10 'pierce' 0
 62 8 33000 P
 A
 18 12
@@ -367,7 +367,7 @@ an elven longsword~
 An ornately-fashioned sword lies here.~
 ~
 weapon AG AN
-sword 7 9 pierce 0
+sword 7 9 'pierce' 0
 63 10 15000 P
 A
 2 4
@@ -413,7 +413,7 @@ a scythe~
 A scythe lies here, glowing.~
 ~
 weapon ABEGJ AN
-polearm 7 8 stab 0
+polearm 7 8 'stab' 0
 66 20 2000 P
 A
 18 15
@@ -437,7 +437,7 @@ a mining pick~
 A pick is lying here.~
 ~
 weapon 0 AN
-axe 6 9 pierce 0
+axe 6 9 'pierce' 0
 60 5 0 P
 G none
 #30815
@@ -446,7 +446,7 @@ a whip~
 A whip is curled up on the floor here.~
 ~
 weapon 0 AN
-whip 7 9 whip 0
+whip 7 9 'whip' 0
 61 10 7000 P
 G none
 #30816
@@ -657,7 +657,7 @@ a hand axe~
 A hand axe hangs by a thong from a hook on one wall.~
 ~
 weapon 0 AN
-axe 6 8 chop 0
+axe 6 8 'chop' 0
 59 5 2500 P
 G none
 #30837
@@ -666,7 +666,7 @@ a throwing axe~
 A throwing axe hangs by a thong from a hook on one wall.~
 ~
 weapon 0 AN
-axe 8 9 chop K
+axe 8 9 'chop' K
 60 5 2500 P
 G none
 #30838
@@ -675,7 +675,7 @@ a bo stick~
 A bo stick rests against one wall here.~
 ~
 weapon 0 AN
-mace 6 8 pound 0
+mace 6 8 'pound' 0
 61 5 1500 P
 G none
 #30839
@@ -684,7 +684,7 @@ a jo stick~
 A bo stick rests against one wall here.~
 ~
 weapon 0 AN
-mace 6 8 pound 0
+mace 6 8 'pound' 0
 61 5 1500 P
 G none
 #30840
@@ -693,7 +693,7 @@ a quarterstaff~
 A quarterstaff is lying on the floor here.~
 ~
 weapon 0 AN
-staff 6 8 crush 0
+staff 6 8 'crush' 0
 59 5 2500 P
 G none
 #30841
@@ -702,7 +702,7 @@ a crossbow~
 A crossbow is resting against one wall here.~
 ~
 weapon 0 AN
-bow 6 8 pierce 0
+bow 6 8 'pierce' 0
 59 10 2350 P
 G none
 #30842

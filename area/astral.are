@@ -346,7 +346,7 @@ a massive slate-grey sledgehammer~
 The ground cracks under the weight of a grey hammer lying here.~
 iron~
 weapon JK AN
-mace 4 10 crush 0
+mace 4 10 'crush' 0
 38 350 5200 P
 A
 19 6
@@ -446,7 +446,7 @@ a silvery knife~
 A flat-bladed silvery knife lies here.~
 iron~
 weapon 0 AN
-dagger 2 4 stab 0
+dagger 2 4 'stab' 0
 6 30 480 P
 A
 19 1
@@ -465,7 +465,7 @@ a silvery dagger~
 A sharp-looking silvery dagger lies here.~
 silver~
 weapon 0 AN
-dagger 3 6 pierce 0
+dagger 3 6 'pierce' 0
 13 30 980 P
 A
 19 2
@@ -484,7 +484,7 @@ an extremely sharp and thin sword~
 Light glints off the edge of a razor-sharp sword.~
 steel~
 weapon 0 AN
-sword 4 4 slice 0
+sword 4 4 'slice' 0
 16 30 2300 P
 A
 19 3
@@ -505,7 +505,7 @@ a thin two-handed sword~
 A heavy yet thinly bladed two-handed sword lies here.~
 iron~
 weapon 0 AN
-sword 3 10 slash F
+sword 3 10 'slash' F
 24 160 2600 P
 A
 19 2
@@ -524,7 +524,7 @@ a silvery sword~
 A silvery sword gleams unnaturally with an alien light.~
 silver~
 weapon A AN
-sword 5 5 slash F
+sword 5 5 'slash' F
 19 130 4600 P
 A
 19 2
@@ -543,7 +543,7 @@ an iron barbed flail~
 A rusty iron flail with wicked barbs on it tears at the ground.~
 iron~
 weapon BE AN
-flail 6 6 claw 0
+flail 6 6 'claw' 0
 29 140 2800 P
 A
 18 3
@@ -562,7 +562,7 @@ the unholy sword of the githyanki~
 You feel tendrils of evil emanating from a wicked blade.~
 iron~
 weapon EHM AN
-sword 9 3 slash F
+sword 9 3 'slash' F
 31 250 5100 P
 A
 18 5

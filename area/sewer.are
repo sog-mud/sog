@@ -395,7 +395,7 @@ the devil rod~
 The mysterious devil rod lies on the floor.~
 oak~
 weapon G AN
-exotic 4 5 pound C
+exotic 4 5 'pound' C
 15 60 2300 P
 A
 1 1
@@ -413,7 +413,7 @@ the large mace~
 A large mace lies here.~
 iron~
 weapon G AN
-mace 2 6 crush 0
+mace 2 6 'crush' 0
 8 100 610 P
 A
 19 2
@@ -429,7 +429,7 @@ the small mace~
 A small mace has been left here.~
 iron~
 weapon G AN
-mace 2 6 crush 0
+mace 2 6 'crush' 0
 8 60 480 P
 A
 19 1
@@ -539,7 +539,7 @@ a short sword~
 There lies a short sword.~
 iron~
 weapon 0 AN
-sword 2 4 pierce 0
+sword 2 4 'pierce' 0
 5 40 540 P
 A
 18 1
@@ -550,7 +550,7 @@ a red dragon claw~
 On the floor rests an enormous red claw.~
 bone~
 weapon G AN
-exotic 3 12 claw 0
+exotic 3 12 'claw' 0
 31 190 5800 P
 A
 19 5
@@ -706,7 +706,7 @@ a short sword~
 There lies a short sword.~
 iron~
 weapon 0 AN
-sword 2 5 stab 0
+sword 2 5 'stab' 0
 7 40 610 P
 E
 short sword~

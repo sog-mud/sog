@@ -759,7 +759,7 @@ an ivory unicorn sword~
 A long spiral sword made of ivory rests here.~
 ivory~
 weapon 0 AN
-sword 7 7 pierce 0
+sword 7 7 'pierce' 0
 50 200 6700 P
 A
 18 3
@@ -786,7 +786,7 @@ an ivory mace~
 A mace made of ivory has been foolishly left behind.~
 ivory~
 weapon 0 AN
-mace 4 13 smash F
+mace 4 13 'smash' F
 50 130 8950 P
 A
 18 2
@@ -844,7 +844,7 @@ a golden eye dagger~
 A golden dagger with an eye inscribed on its blade seems to glare at you.~
 gold~
 weapon AHJ AN
-dagger 7 7 thrust B
+dagger 7 7 'thrust' B
 51 30 4800 P
 S 'parry' 30 A
 A
@@ -967,7 +967,7 @@ a golden eye sword~
 A sword with an open eye inscribed on its blade seems to glare at you.~
 gold~
 weapon AGY AN
-sword 7 10 cleave B
+sword 7 10 'cleave' B
 52 50 4340 P
 A
 1 2
@@ -1005,7 +1005,7 @@ a blue-tinted leather whip~
 A long blue-tinted leather whip is here.~
 leather~
 weapon BIM AN
-whip 11 5 thwack G
+whip 11 5 'thwack' G
 56 50 4400 P
 A
 1 -1

@@ -239,7 +239,7 @@ a cracked bone~
 A cracked piece of bone lies here.~
 bone~
 weapon 0 AN
-mace 3 3 pound 0
+mace 3 3 'pound' 0
 6 30 350 P
 A
 18 -1

@@ -401,7 +401,7 @@ a toy boomerang~
 A toy boomerang wants to be picked up.~
 wood~
 weapon 0 AN
-exotic 2 4 pound K
+exotic 2 4 'pound' K
 5 50 730 P
 G none
 #1503
@@ -410,7 +410,7 @@ a gnarled staff~
 A gnarled staff is here.~
 ebony~
 weapon 0 AN
-exotic 1 9 pound 0
+exotic 1 9 'pound' 0
 5 150 730 P
 G none
 #1504
@@ -419,7 +419,7 @@ a gnome sword~
 A gnome sword catches your eye.~
 iron~
 weapon 0 AN
-sword 3 3 slash 0
+sword 3 3 'slash' 0
 7 150 610 P
 G none
 #1505
@@ -477,7 +477,7 @@ an electrum sword~
 An electrum sword lies here.~
 steel~
 weapon AG AN
-sword 4 4 slash 0
+sword 4 4 'slash' 0
 12 200 930 P
 G none
 #1511
@@ -571,7 +571,7 @@ a large club~
 A large club sits here.~
 wood~
 weapon 0 AN
-mace 1 12 pound F
+mace 1 12 'pound' F
 6 220 460 P
 A
 18 -1
@@ -600,7 +600,7 @@ a wooden club~
 A wooden club sits here.~
 wood~
 weapon 0 AN
-mace 2 3 pound 0
+mace 2 3 'pound' 0
 3 100 220 P
 A
 18 -1

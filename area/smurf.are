@@ -226,7 +226,7 @@ a small axe~
 A small axe has been dropped here.~
 wood~
 weapon 0 AN
-axe 1 7 slash 0
+axe 1 7 'slash' 0
 3 20 370 P
 G none
 #104

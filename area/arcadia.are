@@ -931,7 +931,7 @@ trident трезубец~
 A long, perfectly balanced silver trident.~
 silver~
 weapon AG AN
-spear 6 6 pierce K
+spear 6 6 'pierce' K
 28 30 800 P
 G male
 #12003
@@ -964,7 +964,7 @@ sword slender меч клинок~
 @eng A small slender blade of good craftsmanship.@rus Маленький тонкий клинок (sword), выкованный с необыкновенным мастерством.~
 silver~
 weapon G AN
-sword 4 9 slash 0
+sword 4 9 'slash' 0
 32 10 800 P
 A
 18 3
@@ -999,7 +999,7 @@ kris blade wavy~
 @eng A dull kris blade with a broken handle and a few chips.@rus Кривой нож (kris) с тупым лезвием и сломанной рукоятью валяется здесь.~
 iron~
 weapon CG AN
-dagger 4 10 pierce D
+dagger 4 10 'pierce' D
 40 9 30 W
 A
 19 4
@@ -1010,7 +1010,7 @@ blade jagged кинжал~
 @eng A jagged, broken and chipped blade.@rus Кинжал (blade) со сломанным зазубренным лезвием.~
 unknown~
 weapon G AN
-sword 4 11 cleave 0
+sword 4 11 'cleave' 0
 43 13 200 W
 A
 24 -2
@@ -1040,7 +1040,7 @@ club дубинка дубина~
 @eng This heavy club is marred by several blood stains.@rus Большая дубина (club), густо измазанная кровью валяется здесь.~
 wood~
 weapon EJ AN
-mace 7 7 pound D
+mace 7 7 'pound' D
 38 7 20 A
 A
 19 7
@@ -1066,7 +1066,7 @@ A gleaming khopesh~
 A bright, wide-bladed khopesh with a gold and ivory handle.~
 unknown~
 weapon G AN
-sword 8 7 slash 0
+sword 8 7 'slash' 0
 56 30 1200 P
 G none
 #12014
@@ -1098,7 +1098,7 @@ A stitching needle~
 A small iron stitching needle.~
 iron~
 weapon AG AN
-dagger 6 9 pierce 0
+dagger 6 9 'pierce' 0
 51 1 200 P
 G none
 #12017
@@ -1155,7 +1155,7 @@ axe unfinished секира~
 @eng A large, impressive axe that seems just a little unbalanced.@rus Большая, острая секира (axe), которая лишь слегка незбалансирована, лежит здесь.~
 unknown~
 weapon 0 AN
-axe 5 10 chop 0
+axe 5 10 'chop' 0
 51 10 10 G
 A
 19 1
@@ -1199,7 +1199,7 @@ sword меч dark~
 @eng A crudely made sword of some dark metal that is obviously not fit for use.@rus Меч (sword) темного металла, еще не сделанный до конца, лежит здесь.~
 mithril~
 weapon CFHJKM AN
-exotic 6 6 slice 0
+exotic 6 6 'slice' 0
 48 29 10 W
 A
 19 -2
@@ -1363,7 +1363,7 @@ A white  mace~
 A large white marble mace.~
 marble~
 weapon GK AN
-mace 8 10 pound D
+mace 8 10 'pound' D
 70 25 1200 P
 A
 2 -1
@@ -1380,7 +1380,7 @@ A twisted spiked club~
 A large spiked club made of dark twisted wood.~
 wood~
 weapon GJ AN
-mace 8 10 blast 0
+mace 8 10 'blast' 0
 70 25 1200 W
 A
 3 -1
@@ -1432,7 +1432,7 @@ A sidhe broadsword~
 A well made sidhe broadsword with a strange inscription.~
 unknown~
 weapon G AN
-sword 10 8 slash 0
+sword 10 8 'slash' 0
 72 5 1200 P
 G none
 #12042
@@ -1502,7 +1502,7 @@ A noble's rapier~
 The iron sword of a sidhe noble.~
 iron~
 weapon G AN
-sword 8 12 slash 0
+sword 8 12 'slash' 0
 75 5 990 P
 A
 18 5

@@ -184,7 +184,7 @@ a commoner's longsword~
 A commoner's longsword made of adamantite has been left here.~
 adamantite~
 weapon 0 AN
-sword 2 7 slash 0
+sword 2 7 'slash' 0
 11 20 910 P
 A
 19 2
@@ -197,7 +197,7 @@ a noble's longsword~
 A drow noble's longsword made of adamantite lies here.~
 adamantite~
 weapon 0 AN
-sword 3 7 slash 0
+sword 3 7 'slash' 0
 15 10 1510 P
 A
 19 3
@@ -210,7 +210,7 @@ a snake headed whip~
 A whip with two snakes heads lies here.~
 leather~
 weapon AG AN
-whip 2 7 whip F
+whip 2 7 'whip' F
 11 10 920 P
 A
 19 3
@@ -223,7 +223,7 @@ a snake headed whip~
 A whip with three snake heads has been left here.~
 leather~
 weapon AG AN
-whip 3 7 whip 0
+whip 3 7 'whip' 0
 15 10 1020 P
 A
 19 3
@@ -236,7 +236,7 @@ a snake headed whip~
 A whip with four snake heads has been left here.~
 leather~
 weapon AG AN
-whip 5 5 whip 0
+whip 5 5 'whip' 0
 24 10 1530 P
 A
 19 3
@@ -249,7 +249,7 @@ a black longsword~
 A black longsword has been carelessly left here.~
 adamantite~
 weapon AG AN
-sword 4 6 slash 0
+sword 4 6 'slash' 0
 21 0 2100 P
 A
 19 3
@@ -262,7 +262,7 @@ a snake headed whip~
 A whip with five snake heads is lying here.~
 leather~
 weapon AGJ AN
-whip 4 6 whip 0
+whip 4 6 'whip' 0
 14 0 10 P
 A
 3 -1
@@ -275,7 +275,7 @@ a snake headed whip~
 A whip with six snake heads has been dropped here.~
 leather~
 weapon AGJ AN
-whip 5 5 whip 0
+whip 5 5 'whip' 0
 13 0 0 P
 A
 3 -2
@@ -339,7 +339,7 @@ a spider shaped dagger~
 A dagger with spider leg shaped blades lies on the ground.~
 unknown~
 weapon GJ AN
-dagger 4 8 stab 0
+dagger 4 8 'stab' 0
 30 25 3300 P
 A
 19 5
@@ -363,7 +363,7 @@ two Snake Headed whip~
 A two Snake Headed whip is lying on the ground.~
 snakeskin~
 weapon CGJRT AN
-whip 6 6 whip 0
+whip 6 6 'whip' 0
 24 140 1530 P
 A
 19 7

@@ -282,7 +282,7 @@ axe black pawn боевой топор~
 @eng The axe of a Black Pawn lies here.@rus Боевой топор (axe) черной пешки валяется на земле.~
 steel~
 weapon J AN
-axe 2 7 chomp 0
+axe 2 7 'chomp' 0
 10 100 750 G
 G male
 #4203
@@ -291,7 +291,7 @@ axe white pawn топор~
 @eng The axe of a White Pawn lies here.@rus Боевой топор (axe) белой пешки валяется у твоих ног.~
 steel~
 weapon K AN
-axe 2 7 chomp 0
+axe 2 7 'chomp' 0
 10 100 750 G
 G male
 #4204
@@ -326,7 +326,7 @@ lance black knight копье~
 @eng The Lance of the Black Knight lies here, waiting to rust.@rus Копье (lance) Черного Рыцаря валяется на земле, ржавея от бездействия.~
 bronze~
 weapon BJ AN
-lance 5 5 pierce D
+lance 5 5 'pierce' D
 17 50 2250 P
 A
 19 3
@@ -339,7 +339,7 @@ lance white knight копье~
 @eng The Lance of the White Knight lies here, waiting to rust.@rus Копье (lance) Белого Рыцаря валяется на земле, ржавея от бездействия.~
 bronze~
 weapon BK AN
-lance 5 5 pierce D
+lance 5 5 'pierce' D
 17 50 2300 P
 A
 19 3
@@ -458,7 +458,7 @@ flail black pawn цеп~
 @eng The flail of a Black Pawn lies here.@rus Цеп (flail), оставленный черной пешкой, лежит на земле.~
 steel~
 weapon J AN
-flail 2 7 blast 0
+flail 2 7 'blast' 0
 10 100 750 G
 G male
 #4219
@@ -467,7 +467,7 @@ flail white pawn цеп~
 @eng The flail of a White Pawn lies here.@rus Цеп (flail), оставленный белой пешкой, лежит на земле.~
 steel~
 weapon K AN
-flail 2 6 blast 0
+flail 2 6 'blast' 0
 10 100 750 G
 G male
 #4220
@@ -476,7 +476,7 @@ whip black pawn кнут~
 @eng The whip of a Black Pawn lies here.@rus Кнут (whip) черной пешки, оставлен зачем-то здесь.~
 steel~
 weapon J AN
-whip 2 7 whip 0
+whip 2 7 'whip' 0
 10 100 750 G
 G male
 #4221
@@ -485,7 +485,7 @@ whip white pawn кнут~
 @eng The whip of a White Pawn lies here.@rus Кнут (whip) белой пешки оставлен здесь непонятно зачем.~
 steel~
 weapon K AN
-whip 2 6 whip 0
+whip 2 6 'whip' 0
 10 100 750 G
 G male
 #4222
@@ -494,7 +494,7 @@ spear black pawn копье~
 @eng The spear of a Black Pawn lies here.@rus Копье (spear) черной пешки оставлено здесь.~
 steel~
 weapon J AN
-spear 2 7 thrust K
+spear 2 7 'thrust' K
 10 100 750 G
 G none
 #4223
@@ -503,7 +503,7 @@ spear white pawn копье~
 @eng The spear of a White Pawn lies here.@rus Копье (spear) белой пешки оставлено здесь.~
 steel~
 weapon K AN
-spear 2 7 thrust K
+spear 2 7 'thrust' K
 10 100 750 G
 G none
 #4224
@@ -512,7 +512,7 @@ halberd black pawn алебарда~
 @eng The halberd of a Black Pawn lies here.@rus Мрачная черная алебарда (halberd) лежит, брошенная, здесь.~
 steel~
 weapon J AN
-polearm 2 7 pierce 0
+polearm 2 7 'pierce' 0
 10 100 750 G
 G female
 #4225
@@ -521,7 +521,7 @@ halberd white pawn алебарда~
 @eng The halberd of a White Pawn lies here.@rus Алебарда (halberd) белой пешки валяется здесь, брошенная.~
 steel~
 weapon K AN
-polearm 2 7 pierce 0
+polearm 2 7 'pierce' 0
 10 100 750 G
 G female
 #4226
@@ -530,7 +530,7 @@ rapier black pawn рапира~
 @eng The rapier of a Black Pawn lies here.@rus Рапира (rapier) черной пешки валяется на земле.~
 steel~
 weapon J AN
-sword 2 7 pierce 0
+sword 2 7 'pierce' 0
 10 100 750 G
 G female
 #4227
@@ -539,7 +539,7 @@ rapier white pawn рапира~
 @eng The rapier of a White Pawn lies here.@rus Рапира (rapier) белой пешки валяется на земле.~
 steel~
 weapon K AN
-sword 2 7 pierce 0
+sword 2 7 'pierce' 0
 10 100 750 G
 G female
 #4228
@@ -548,7 +548,7 @@ kris black pawn кинжал~
 @eng The kris of a Black Pawn lies here.@rus Кривой кинжал (kris) из черного металла валяется на земле.~
 steel~
 weapon J AN
-dagger 2 7 pierce 0
+dagger 2 7 'pierce' 0
 10 100 750 G
 G male
 #4229
@@ -557,7 +557,7 @@ kris white pawn кинжал~
 @eng The kris of a White Pawn lies here.@rus Кривой кинжал (kris) из светлого металла валяется на земле.~
 steel~
 weapon K AN
-dagger 2 7 pierce 0
+dagger 2 7 'pierce' 0
 10 100 750 G
 G male
 #4230
@@ -566,7 +566,7 @@ crossbow black pawn арбалет~
 @eng The crossbow of a Black Pawn lies here.@rus Арбалет (crossbow) валяется здесь, оставленный черной пешкой.~
 steel~
 weapon J AN
-bow 2 7 blast 0
+bow 2 7 'blast' 0
 10 100 750 G
 G male
 #4231
@@ -575,7 +575,7 @@ crossbow white pawn арбалет~
 @eng The crossbow of a White Pawn lies here.@rus Арбалет (crossbow) валяется на земле, забытый белой пешкой.~
 steel~
 weapon K AN
-bow 2 7 blast 0
+bow 2 7 'blast' 0
 10 100 750 G
 G male
 #4232

@@ -265,7 +265,7 @@ a long spear~
 A strange spear lies here.~
 oak~
 weapon J AN
-spear 1 12 stab FK
+spear 1 12 'stab' FK
 11 100 1330 P
 A
 2 1
@@ -303,7 +303,7 @@ a huge, wicked-looking scythe~
 An evil, wicked-looking scythe lies in the shadows.~
 iron~
 weapon HJ AN
-polearm 5 5 slice F
+polearm 5 5 'slice' F
 19 160 1770 P
 A
 19 3
@@ -328,7 +328,7 @@ a rusty claymore~
 A huge rusted sword lies in a pool of water.~
 iron~
 weapon 0 AN
-sword 4 8 cleave F
+sword 4 8 'cleave' F
 28 100 3000 P
 G none
 #0

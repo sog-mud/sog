@@ -587,7 +587,7 @@ a hand axe~
 A hand axe is on the floor here.~
 iron~
 weapon 0 AN
-axe 1 8 chop 0
+axe 1 8 'chop' 0
 4 100 420 P
 E
 handaxe hand axe~
@@ -601,7 +601,7 @@ a meat cleaver~
 A sharp meat cleaver is just lying on the floor here!~
 iron~
 weapon 0 AN
-dagger 2 5 chop 0
+dagger 2 5 'chop' 0
 8 50 530 P
 A
 19 1
@@ -737,7 +737,7 @@ a pitchfork~
 A pitchfork is on the floor.~
 iron~
 weapon 0 AN
-spear 3 3 stab K
+spear 3 3 'stab' K
 7 100 122 P
 G none
 #616
@@ -914,7 +914,7 @@ a claymore~
 A VERY big sword is against the wall here.~
 iron~
 weapon G AN
-sword 4 6 cleave F
+sword 4 6 'cleave' F
 19 160 3100 P
 A
 19 4
@@ -1149,7 +1149,7 @@ the holy Avenger~
 A glowing silvery sword is hovering here, ready to possess an owner.~
 platinum~
 weapon GK AN
-sword 17 5 slice I
+sword 17 5 'slice' I
 72 250 5700 P
 A
 18 3
@@ -1213,7 +1213,7 @@ a ranseur~
 A heavy polearm is against the wall here, ready to inflict damage.~
 iron~
 weapon GK AN
-polearm 4 7 thrust F
+polearm 4 7 'thrust' F
 24 200 1460 P
 A
 19 -1
@@ -1330,7 +1330,7 @@ the golden claw~
 A small golden claw is on the floor~
 gold~
 weapon GK AN
-exotic 3 9 claw 0
+exotic 3 9 'claw' 0
 21 100 2600 P
 A
 19 2
@@ -1374,7 +1374,7 @@ a broom~
 A broom is against the wall here.~
 wood~
 weapon 0 AN
-exotic 2 3 beating 0
+exotic 2 3 'beating' 0
 1 80 760 P
 A
 19 -3
@@ -1396,7 +1396,7 @@ the Golden Claw~
 A huge golden claw is on the floor~
 gold~
 weapon GK AN
-exotic 4 10 claw 0
+exotic 4 10 'claw' 0
 39 200 7200 P
 A
 19 5
@@ -1407,7 +1407,7 @@ the golden claw~
 A large golden claw is on the floor~
 gold~
 weapon GK AN
-exotic 3 11 claw 0
+exotic 3 11 'claw' 0
 28 150 4100 P
 A
 19 3

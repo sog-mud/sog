@@ -334,7 +334,7 @@ bashball bat two-handed~
 @eng A bashball bat is laying here.@rus Бита (bashball) лежит тут.~
 wood~
 weapon 0 AN
-mace 4 5 pound F
+mace 4 5 'pound' F
 14 30 870 P
 A
 19 1
@@ -350,7 +350,7 @@ vibroblade~
 @eng The vibroblade is here.@rus Вибронож (blade) лежит здесь.~
 adamantite~
 weapon ABF AN
-dagger 6 5 slash 0
+dagger 6 5 'slash' 0
 18 20 2800 P
 A
 2 1
@@ -372,7 +372,7 @@ vacuum cleaner two-handed~
 @eng A Hoover vacuum cleaner is here idling.@rus Пылесос "Хувер" (vacuum) валяется здесь.~
 unknown~
 weapon B AN
-exotic 4 5 suction F
+exotic 4 5 'suction' F
 15 100 2100 P
 E
 vacuum cleaner~
@@ -386,7 +386,7 @@ knife~
 @eng A knife is sitting here...contemplating life.@rus Нож (knife) лежит тут...созерцающий жизнь.~
 steel~
 weapon 0 AN
-dagger 2 4 slice 0
+dagger 2 4 'slice' 0
 5 10 360 P
 E
 knife~
@@ -399,7 +399,7 @@ wet noodle~
 @eng A wet noodle is laying here with clam sauce on it.@rus Сырая лапшина (noodle) лежит здесь, вместе с холодным соусом на ней.~
 iron~
 weapon 0 AN
-whip 1 4 whip 0
+whip 1 4 'whip' 0
 5 10 670 P
 A
 3 1
@@ -414,7 +414,7 @@ judge club~
 @eng A Judge's club is resting here.@rus Дубина судьи (club) лежит здесь.~
 wood~
 weapon 0 AN
-mace 3 7 pound 0
+mace 3 7 'pound' 0
 17 30 1050 P
 A
 19 3
@@ -456,7 +456,7 @@ judge club~
 @eng A Judge's club is resting here.@rus Дубина судьи (club) лежит здесь.~
 wood~
 weapon 0 AN
-mace 3 11 pound 0
+mace 3 11 'pound' 0
 26 30 1700 P
 A
 19 2
@@ -472,7 +472,7 @@ club electric shock~
 @eng A sparking electric club is here.@rus Искрящаяся электрическая дубинка (club) лежит здесь.~
 steel~
 weapon A AN
-mace 4 5 shock 0
+mace 4 5 'shock' 0
 15 30 750 P
 G none
 #8016
@@ -481,7 +481,7 @@ stunner police stick~
 @eng A police issue stunner is here, must be stolen.@rus Казённая полицейская дубинка (stunner) лежит тут, должно быть ворованная.~
 wood~
 weapon 0 AN
-mace 3 9 pound G
+mace 3 9 'pound' G
 23 20 1160 P
 G none
 #0

@@ -146,7 +146,7 @@ a toy axe~
 An axe made of wood lies here.~
 wood~
 weapon 0 AN
-axe 1 5 chop 0
+axe 1 5 'chop' 0
 0 30 250 G
 E
 axe toy~
@@ -194,7 +194,7 @@ a broom~
 A stout straw broom lies on the floor.~
 wood~
 weapon 0 AN
-exotic 2 3 pound K
+exotic 2 3 'pound' K
 4 30 270 W
 A
 18 -1
@@ -243,7 +243,7 @@ a toy gun~
 A toy gun with a sharp bayonet lies here.~
 wood~
 weapon 0 AN
-spear 2 3 stab FK
+spear 2 3 'stab' FK
 4 20 300 G
 A
 17 -1

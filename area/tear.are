@@ -498,7 +498,7 @@ swordbreaker~
 @eng Strangle irons chunk lies here.@rus Странная железяка лежит здесь.~
 iron~
 weapon 0 AN
-exotic 8 12 cleave 0
+exotic 8 12 'cleave' 0
 55 200 50000 P
 G none
 #110168
@@ -516,7 +516,7 @@ bamboo pole~
 @eng Large pole lies here.@rus Большой шест лежит здесь.~
 bamboo~
 weapon B AN
-polearm 6 15 pound F
+polearm 6 15 'pound' F
 40 5 100 P
 G none
 #110170
@@ -525,7 +525,7 @@ stiletto~
 @eng Narrow long blade lies here.@rus Узкое длинное лезвие лежит здесь.~
 steel~
 weapon 0 AN
-dagger 5 12 pierce D
+dagger 5 12 'pierce' D
 40 50 1500 P
 G none
 #110171
@@ -534,7 +534,7 @@ stiletto~
 @eng Narrow long blade lies here.@rus Узкое длинное лезвие лежит здесь.~
 steel~
 weapon JL AN
-dagger 10 12 pierce D
+dagger 10 12 'pierce' D
 40 50 1500 P
 G none
 #110172
@@ -573,7 +573,7 @@ sword fear меч~
 @eng Long and looks heavy sword lies here.@rus Большой и тяжелый меч (sword) лежит здесь.~
 unknown~
 weapon M AN
-sword 8 12 pound DF
+sword 8 12 'pound' DF
 50 1000 10000 P
 A
 13 -500
@@ -629,7 +629,7 @@ halberd~
 @eng Large halberd lies here@rus Большая алебарда лежит здесь~
 unknown~
 weapon I AN
-polearm 5 11 chop F
+polearm 5 11 'chop' F
 45 200 250 P
 A
 19 10
@@ -720,7 +720,7 @@ sword-sting меч-жало~
 @eng a long, narrow blade lies here.@rus Длинное узкое лезвие (sword-sting) лежит здесь.~
 steel~
 weapon BM AN
-sword 6 12 pierce 0
+sword 6 12 'pierce' 0
 40 50 10000 P
 A
 19 4
@@ -751,7 +751,7 @@ knife~
 @eng Iron knife lies here.@rus Железный нож (knife) лежит здесь.~
 iron~
 weapon 0 AN
-dagger 5 7 pierce 0
+dagger 5 7 'pierce' 0
 35 20 700 P
 G male
 #110194
@@ -782,7 +782,7 @@ mattock мотыга~
 @eng Huge mattock lies here.@rus Огромная мотыга (mattock) лежит здесь.~
 iron~
 weapon 0 AN
-exotic 5 8 chop E
+exotic 5 8 'chop' E
 30 80 100 P
 G female
 #110197

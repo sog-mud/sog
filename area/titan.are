@@ -1428,7 +1428,7 @@ a groovy Bong Drum~
 A bongo drum is here, lieing on the ground.~
 wood~
 weapon AB AN
-exotic 5 5 pound 0
+exotic 5 5 'pound' 0
 24 200 4350 G
 A
 5 1
@@ -1443,7 +1443,7 @@ a groovy Guitar~
 A guitar is here, lieing on the ground.~
 wood~
 weapon AB AN
-exotic 5 6 chomp 0
+exotic 5 6 'chomp' 0
 25 200 6500 G
 A
 19 3
@@ -1456,7 +1456,7 @@ a groovy Wind-Pipe~
 A wind-pipe is here, lieing on the ground.~
 wood~
 weapon AB AN
-exotic 6 4 slash 0
+exotic 6 4 'slash' 0
 25 120 7500 G
 A
 19 4
@@ -1554,7 +1554,7 @@ a Standard Tournament Combat Weapon~
 A tournament weapon is here.~
 stone~
 weapon AB AN
-flail 5 8 cleave 0
+flail 5 8 'cleave' 0
 35 200 11407 P
 A
 22 -1
@@ -1767,7 +1767,7 @@ a Silver Dagger of The Titans~
 A large silver dagger is here on the ground.~
 silver~
 weapon AB AN
-dagger 5 6 stab 0
+dagger 5 6 'stab' 0
 25 120 5900 P
 A
 19 1
@@ -1780,7 +1780,7 @@ a Silver Sword of The Titans~
 A large silver sword is here on the ground.~
 silver~
 weapon AB AN
-sword 5 6 pierce 0
+sword 5 6 'pierce' 0
 25 250 5100 P
 A
 19 1
@@ -1791,7 +1791,7 @@ a Silver Mace of The Titans~
 A large silver mace is here on the ground.~
 silver~
 weapon AB AN
-mace 6 5 pound 0
+mace 6 5 'pound' 0
 25 250 5660 P
 A
 18 1
@@ -1802,7 +1802,7 @@ a Silver Axe of The Titans~
 A large silver axe is here on the ground.~
 silver~
 weapon AB AN
-axe 5 6 chomp 0
+axe 5 6 'chomp' 0
 25 250 5330 P
 A
 17 1
@@ -1815,7 +1815,7 @@ a Silver Spear of The Titans~
 A large silver spear is here on the ground.~
 silver~
 weapon AB AN
-spear 5 7 pierce K
+spear 5 7 'pierce' K
 25 250 5250 P
 A
 18 4
@@ -1826,7 +1826,7 @@ a Silver-Linked Whip of The Titans~
 A large silver whip is here on the ground.~
 silver~
 weapon AB AN
-whip 6 6 whip 0
+whip 6 6 'whip' 0
 30 200 1000 P
 A
 19 1
@@ -1971,7 +1971,7 @@ a patrol guard's club~
 A club rests here against a wall.~
 stone~
 weapon AB AN
-mace 5 8 pound 0
+mace 5 8 'pound' 0
 39 250 4570 P
 A
 1 -1
@@ -1991,7 +1991,7 @@ a Long Golden Dagger~
 A Jail Guard's Long Golden Dagger is here.~
 gold~
 weapon ABG AN
-dagger 5 6 cleave D
+dagger 5 6 'cleave' D
 25 120 4500 P
 A
 12 10
@@ -2201,7 +2201,7 @@ a Standard Demon Weapon~
 A dark demonic weapon is here on the ground.~
 stone~
 weapon ABCG AN
-exotic 5 9 wrath CF
+exotic 5 9 'wrath' CF
 35 200 14300 P
 A
 22 -1
@@ -2216,7 +2216,7 @@ an Enhanced Tournament Combat Weapon~
 A tournament weapon is here.~
 stone~
 weapon AB AN
-flail 6 8 cleave 0
+flail 6 8 'cleave' 0
 48 200 18907 P
 A
 22 -2

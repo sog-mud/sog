@@ -309,7 +309,7 @@ Ciquala's sword~
 A large, black sword lies here.~
 iron~
 weapon BCHJM AN
-sword 5 13 slice C
+sword 5 13 'slice' C
 55 80 34799 P
 A
 18 10
@@ -485,7 +485,7 @@ the torturer's whip~
 An enormous whip lies here.~
 iron~
 weapon ABFG AN
-whip 5 10 chop C
+whip 5 10 'chop' C
 48 90 14700 P
 A
 18 -10

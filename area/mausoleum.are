@@ -214,7 +214,7 @@ a Frostbrand sword~
 An ice-cold broad sword lies here.~
 iron~
 weapon GHIT AN
-sword 6 6 frbite B
+sword 6 6 'frbite' B
 35 9 12000 P
 A
 19 1
@@ -360,7 +360,7 @@ a guardian sword~
 A guardian sword lies here.~
 iron~
 weapon ABCEGIJMT AN
-sword 6 8 slash 0
+sword 6 8 'slash' 0
 55 4 55000 A
 A
 19 7
@@ -454,7 +454,7 @@ the flail of Pestilance~
 A worm-infested ball and chain lie here.~
 gold~
 weapon ABCJT AN
-flail 5 7 none 0
+flail 5 7 'none' 0
 40 16 16000 P
 A
 19 3
@@ -528,7 +528,7 @@ the Shadow Dagger~
 A black, glinting blade lies here waiting to be picked up.~
 iron~
 weapon ABHMT AN
-dagger 8 6 none 0
+dagger 8 6 'none' 0
 52 3 100000 P
 A
 19 8
@@ -546,7 +546,7 @@ the Shadow Dagger~
 A black, glinting blade lies here waiting to be picked up.~
 iron~
 weapon ABHM AN
-dagger 1 1 none 0
+dagger 1 1 'none' 0
 52 1 0 P
 A
 13 -100
@@ -568,7 +568,7 @@ the Claw of great Dracolich~
 A claw of great ancient Dracolich is here.~
 bone~
 weapon ABCEGHIMT AN
-exotic 7 8 none C
+exotic 7 8 'none' C
 60 30 150000 P
 A
 19 6

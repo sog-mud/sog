@@ -559,7 +559,7 @@ the Sword of the Ancients~
 The Sword of the Ancients rests here~
 steel~
 weapon GJLO AN
-sword 5 8 pierce D
+sword 5 8 'pierce' D
 40 320 18400 G
 A
 18 4
@@ -760,7 +760,7 @@ the Shadowshiv~
 A small, wicked looking dagger lies here, its blade as black as night.~
 steel~
 weapon BGHLM AN
-dagger 5 7 stab C
+dagger 5 7 'stab' C
 25 40 13060 G
 A
 18 -1
@@ -773,7 +773,7 @@ a Flaming Two-Handed Sword~
 An finely crafted two handed sword lies here engulfed in flamed.~
 fire~
 weapon GLO AN
-sword 5 11 blast AF
+sword 5 11 'blast' AF
 50 40 36740 G
 F A 0 0 I
 A
@@ -787,7 +787,7 @@ a Silver Trident~
 A trident crafted from fine silver has been placed here.~
 silver~
 weapon BCGHJLM AN
-spear 5 8 pierce K
+spear 5 8 'pierce' K
 36 180 16740 G
 A
 18 2
@@ -800,7 +800,7 @@ sword of Sharpness~
 A sword with a razor sharp blade lies here.~
 steel~
 weapon GLO AN
-sword 5 7 pierce D
+sword 5 7 'pierce' D
 33 70 8700 G
 A
 18 2
@@ -824,7 +824,7 @@ a Jeweled Dagger~
 A small dagger, encrusted with jewels lies here.~
 steel~
 weapon GLM AN
-dagger 6 7 stab 0
+dagger 6 7 'stab' 0
 37 70 22342 G
 G none
 #25020
@@ -876,7 +876,7 @@ the fire blade~
 A large sword lies here, smoldering in flames.~
 fire~
 weapon AGL AN
-sword 5 5 blast A
+sword 5 5 'blast' A
 25 400 13780 G
 G none
 #25025
@@ -885,7 +885,7 @@ glaive~
 A glaive rests here in the dirt.~
 steel~
 weapon GL AN
-polearm 9 5 slash 0
+polearm 9 5 'slash' 0
 44 120 18734 G
 E
 glaive~
@@ -1089,7 +1089,7 @@ the Real Hero' Weapon~
 An enormous, huge WEAPON lies here, filling the room with its power.~
 steel~
 weapon AGIOY AN
-exotic 10 11 slash D
+exotic 10 11 'slash' D
 51 300 100000 G
 G none
 #0

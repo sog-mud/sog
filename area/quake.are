@@ -97,7 +97,7 @@ chain~
 @eng Bike chain lies on the ground. Have you ever seen bike here?@rus Мотоциклетная цепь валяется на земле. ТЫ когда-нибудь видел здесь МОТОЦИКЛ?~
 3x-13~
 weapon ACE AN
-exotic 10 9 none 0
+exotic 10 9 'none' 0
 98 50 0 P
 A
 18 50
@@ -178,7 +178,7 @@ chainsaw~
 @eng A little stained but very good chainsaw@rus Слегка тронутая ржавчиной, но отлично пилящая бензопила~
 unknown~
 weapon CE AN
-exotic 5 14 slash 0
+exotic 5 14 'slash' 0
 70 35 250 P
 G none
 #35261
@@ -187,7 +187,7 @@ Rocket Launcher~
 ~
 steel~
 weapon 0 AN
-exotic 0 0 none 0
+exotic 0 0 'none' 0
 50 100 300 P
 G none
 #35262
@@ -209,7 +209,7 @@ RL~
 @eng Rocket launcher rotates here @rus Ракетница кружитя в воздухе, распространяя запах пороховой гари~
 titanium~
 weapon CT AN
-exotic 4 5 blast 0
+exotic 4 5 'blast' 0
 25 70 400 P
 A
 13 76
@@ -285,7 +285,7 @@ Ring~
 @eng The Mighty Ring of Shadow Master hang in the air@rus The Mighty Ring of Shadow Master hang in the air~
 Fog~
 weapon ABGI AB
-exotic 50 60 magic I
+exotic 50 60 'magic' I
 0 0 0 P
 A
 13 100
@@ -306,7 +306,7 @@ Dagger~
 @eng The Mighty Dagger of Shadows@rus Мощнейший Dagger Теней~
 Кристаллический~
 weapon BGHIORa AN
-dagger 20 30 magic H
+dagger 20 30 'magic' H
 37 0 1000 P
 A
 12 200
@@ -331,7 +331,7 @@ sword~
 @eng The Mighty Sword of Shadow Master hang in the air@rus The Mighty Sword of Shadow Master hang in the air~
 Steel~
 weapon ABGI AN
-sword 1000 2000 magic H
+sword 1000 2000 'magic' H
 0 0 0 P
 A
 18 10000

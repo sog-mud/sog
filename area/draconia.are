@@ -314,7 +314,7 @@ a jagged spear~
 A jagged spear has been left here.~
 wood steel~
 weapon 0 AN
-spear 2 7 thrust K
+spear 2 7 'thrust' K
 10 150 153 P
 G none
 #2201
@@ -323,7 +323,7 @@ a silver dagger~
 A silver dagger is lying here.~
 silver~
 weapon 0 AN
-dagger 4 7 pierce 0
+dagger 4 7 'pierce' 0
 22 10 2000 P
 A
 20 -2
@@ -334,7 +334,7 @@ a dragon's tooth knife~
 A dangerous looking knife made from a dragon's tooth has been left here.~
 bone~
 weapon 0 AN
-dagger 5 6 pierce 0
+dagger 5 6 'pierce' 0
 30 80 3200 P
 A
 19 4
@@ -409,7 +409,7 @@ an emerald sword~
 An emerald long sword is leaning against the wall.~
 steel~
 weapon 0 AN
-sword 5 6 slash D
+sword 5 6 'slash' D
 28 240 2300 P
 A
 19 2
@@ -420,7 +420,7 @@ a stone club~
 A heavy looking stone club is here.~
 stone~
 weapon 0 AN
-mace 3 6 crush 0
+mace 3 6 'crush' 0
 18 180 940 P
 G none
 #2224
@@ -603,7 +603,7 @@ a golden scimitar~
 A golden scimitar.~
 gold~
 weapon A AN
-sword 3 5 slash 0
+sword 3 5 'slash' 0
 16 100 2500 P
 A
 4 1
@@ -689,7 +689,7 @@ a dragon tailed whip~
 A dragon tailed whip is lying on the ground.~
 dragonskin~
 weapon BJ AN
-whip 6 5 whip 0
+whip 6 5 'whip' 0
 24 140 1530 P
 A
 19 3
@@ -702,7 +702,7 @@ a copper hammer~
 A copper hammer is lying on the ground.~
 copper wood~
 weapon 0 AN
-mace 4 5 crush 0
+mace 4 5 'crush' 0
 15 120 750 P
 G none
 #2287
@@ -711,7 +711,7 @@ a silver dagger~
 A silver dagger is lying here.~
 silver~
 weapon 0 AN
-dagger 2 4 pierce 0
+dagger 2 4 'pierce' 0
 5 10 360 P
 G none
 #2299

@@ -661,7 +661,7 @@ sword kas меч~
 @eng The Sword of Kas beckons to you!@rus Меч Каса (sword) манит тебя к себе.~
 steel~
 weapon BEGJM AN
-sword 5 10 pierce D
+sword 5 10 'pierce' D
 47 20 17000 P
 A
 17 20
@@ -720,7 +720,7 @@ rod bone жезл~
 @eng A Rod fashioned from a human femur lies here.@rus Жезл (rod), выточенный из человеческой кости, лежит здесь.~
 human femur~
 weapon EJ AN
-exotic 6 9 crush 0
+exotic 6 9 'crush' 0
 58 25 13000 P
 A
 12 15
@@ -766,7 +766,7 @@ sword dark меч~
 @eng A Dark Sword hums evilly here.@rus Темный меч (sword) издает монотонный гул, валяясь на земле.~
 steel~
 weapon BCEJ AN
-sword 6 10 slash 0
+sword 6 10 'slash' 0
 55 35 30000 P
 A
 1 1

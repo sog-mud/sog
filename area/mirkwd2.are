@@ -220,7 +220,7 @@ an elvish sword~
 A beautiful sword has been left here.~
 adamantite~
 weapon G AN
-sword 1 5 slash 0
+sword 1 5 'slash' 0
 5 30 500 G
 A
 18 2
@@ -275,7 +275,7 @@ an orcish scimitar~
 An Orcish scimitar has been left here.~
 iron~
 weapon G AN
-sword 1 6 cleave 0
+sword 1 6 'cleave' 0
 5 120 450 G
 A
 1 1
@@ -326,7 +326,7 @@ a fine elven sword~
 A fine Elven sword glimmers softly here.~
 metal~
 weapon AL AN
-sword 2 12 cleave DF
+sword 2 12 'cleave' DF
 14 45 600 G
 A
 2 1

@@ -213,7 +213,7 @@ a lumber axe~
 A heavy lumber axe lies here.~
 iron~
 weapon 0 AN
-axe 2 6 chop F
+axe 2 6 'chop' F
 8 100 820 P
 E
 axe lumber~
@@ -372,7 +372,7 @@ a long, grey branch~
 A long, grey branch rests heavily on the ground.~
 wood~
 weapon 0 AN
-mace 2 5 pound 0
+mace 2 5 'pound' 0
 6 300 290 P
 A
 18 -2
@@ -475,7 +475,7 @@ the morning star~
 The morning star is here collecting dust while it lies on the ground.~
 wood iron~
 weapon G AN
-mace 2 8 crush 0
+mace 2 8 'crush' 0
 15 100 750 P
 G none
 #0

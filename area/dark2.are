@@ -457,7 +457,7 @@ madboy's sword~
 Madboy's sword has been dropped here.~
 iron~
 weapon BGI AN
-sword 1 12 slash 0
+sword 1 12 'slash' 0
 7 50 500 P
 A
 3 -2
@@ -470,7 +470,7 @@ an Island Sword~
 An Island Sword has been dropped here.~
 iron~
 weapon BI AN
-sword 5 5 slash 0
+sword 5 5 'slash' 0
 15 150 1500 P
 G none
 #14517
@@ -509,7 +509,7 @@ an Island Mace~
 An Island Mace is lying here.~
 mithril~
 weapon G AN
-mace 5 5 pound 0
+mace 5 5 'pound' 0
 17 300 2620 P
 A
 19 5
@@ -550,7 +550,7 @@ a Watcher's Thrusting Dagger~
 A Watcher's Thrusting Dagger is sticking in the floor.~
 corundum~
 weapon GK AN
-dagger 5 6 thrust 0
+dagger 5 6 'thrust' 0
 20 50 3100 P
 A
 18 3
@@ -655,7 +655,7 @@ a toy bow~
 A toy bow has been dropped here.~
 wood~
 weapon 0 AN
-bow 1 1 none 0
+bow 1 1 'none' 0
 5 10 100 P
 G none
 #14533
@@ -682,7 +682,7 @@ a Goblin Spear~
 A Goblin Spear is lying on the floor.~
 wood~
 weapon AG AN
-spear 4 5 pierce DK
+spear 4 5 'pierce' DK
 12 50 1700 P
 G none
 #14536
@@ -706,7 +706,7 @@ A Dwarven Flail~
 A Dwarven Flail is lying on the floor.~
 wood~
 weapon AG AN
-flail 5 5 pound D
+flail 5 5 'pound' D
 17 250 3400 P
 G none
 #14538

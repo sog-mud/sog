@@ -284,7 +284,7 @@ the Great War Axe of Grumm~
 A quite large, two-handed and double bladed axe lies before you.~
 iron~
 weapon ABEGLRY AN
-axe 5 5 slash CDF
+axe 5 5 'slash' CDF
 18 140 5000 G
 A
 18 3
@@ -345,7 +345,7 @@ a stone shard~
 A sharp pointed rock lies here.~
 stone~
 weapon AG AN
-dagger 4 4 stab D
+dagger 4 4 'stab' D
 12 10 1100 G
 A
 19 3
@@ -362,7 +362,7 @@ a goblin's shortsword~
 It looks heavier than your average shortsword, but it could use sone oiling.~
 iron~
 weapon G AN
-sword 4 4 slash D
+sword 4 4 'slash' D
 12 50 900 G
 A
 19 1
@@ -386,7 +386,7 @@ a long two-handed sword~
 A long two-handed sword has been left here.~
 iron~
 weapon AG AN
-sword 4 6 slash DF
+sword 4 6 'slash' DF
 20 50 7900 G
 A
 18 2
@@ -552,7 +552,7 @@ a heavy iron mace~
 A heavy iron mace lies in the rubble.~
 iron~
 weapon 0 AN
-mace 4 5 pound 0
+mace 4 5 'pound' 0
 11 150 790 G
 G none
 #0

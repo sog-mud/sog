@@ -1390,7 +1390,7 @@ quest blade меч~
 @eng Questor's sword lies upon the ground, waiting for its owner.@rus Меч (sword) Квестора лежит на земле в ожидании хозяина.~
 adamantite~
 weapon BI AN
-sword 10 7 cleave EF
+sword 10 7 'cleave' EF
 62 450 5600 P
 E
 scimitar blade~
@@ -1472,7 +1472,7 @@ dagger кинжал~
 @eng A dagger with a long thin blade is here.@rus Кинжал (dagger) с длинным тонким лезвием лежит здесь.~
 steel~
 weapon 0 AN
-dagger 1 4 stab 0
+dagger 1 4 'stab' 0
 0 10 157 G
 G none
 #3021
@@ -1481,7 +1481,7 @@ sword small меч~
 @eng A small sword lies here.@rus Короткий меч (sword) лежит здесь.~
 steel~
 weapon 0 AN
-sword 1 5 slice 0
+sword 1 5 'slice' 0
 0 30 250 G
 G male
 #3022
@@ -1490,7 +1490,7 @@ sword long меч~
 @eng A long sword has been left here.@rus Длинный меч (sword) был оставлен здесь.~
 steel~
 weapon 0 AN
-sword 2 5 slash 0
+sword 2 5 'slash' 0
 7 50 610 G
 G male
 #3023
@@ -1499,7 +1499,7 @@ club дубина~
 @eng A stout wooden club is here.@rus Крепкая деревянная дубина (club) лежит здесь.~
 wood~
 weapon 0 AN
-mace 1 7 pound 0
+mace 1 7 'pound' 0
 3 30 220 G
 A
 18 -1
@@ -1510,7 +1510,7 @@ mace heavy палица~
 @eng A heavy iron mace is here.@rus Тяжелая железная палица (mace) лежит здесь.~
 iron~
 weapon 0 AN
-mace 2 4 pound 0
+mace 2 4 'pound' 0
 6 100 390 G
 A
 19 1
@@ -1521,7 +1521,7 @@ axe hand топорик~
 @eng A small hand axe lies forgotten on the floor.@rus Маленький топор (axe) оставлен кем-то на земле.~
 iron~
 weapon 0 AN
-axe 1 6 chop 0
+axe 1 6 'chop' 0
 1 50 310 G
 G male
 #3026
@@ -1530,7 +1530,7 @@ axe battle топор~
 @eng A large steel axe rests on the ground.@rus Большой стальной топор (axe) лежит на земле.~
 steel~
 weapon 0 AN
-axe 2 5 chop F
+axe 2 5 'chop' F
 5 90 650 G
 G none
 #3027
@@ -1539,7 +1539,7 @@ spear копье~
 @eng A long spear leans against the wall.@rus Длинное копье (spear) стоит у стены.~
 steel~
 weapon 0 AN
-spear 1 8 pierce K
+spear 1 8 'pierce' K
 4 50 84 G
 G none
 #3028
@@ -1548,7 +1548,7 @@ staff посох~
 @eng A stout wooden staff lies on the floor.@rus Прочный деревянный посох (staff) лежит на полу.~
 wood~
 weapon 0 AN
-staff 1 8 pound F
+staff 1 8 'pound' F
 9 40 580 G
 A
 17 -2
@@ -1559,7 +1559,7 @@ flail цеп~
 @eng A small iron flail is here.@rus Маленький стальной цеп (flail) лежит здесь.~
 iron~
 weapon 0 AN
-flail 1 7 pound 0
+flail 1 7 'pound' 0
 1 50 77 G
 A
 17 1
@@ -2064,7 +2064,7 @@ arrow wooden деревянная стрела~
 @eng A wooden arrow with an inner glow lies here.@rus Деревянная стрела (arrow) лежит здесь.~
 wood~
 weapon 0 AO
-arrow 6 7 pierce K
+arrow 6 7 'pierce' K
 33 10 500 P
 A
 18 1
@@ -2077,7 +2077,7 @@ arrow silver стрела~
 @eng A silver-headed arrow with an inner glow lies here.@rus Стрела с серебряным наконечником (arrow) лежит здесь.~
 wood~
 weapon 0 AO
-arrow 7 8 pierce K
+arrow 7 8 'pierce' K
 49 20 500 P
 A
 18 2
@@ -2090,7 +2090,7 @@ arrow golden стрела~
 @eng A golden-headed arrow with an inner glow lies here.@rus Стрела с золотым наконечником (arrow) лежит здесь.~
 wood~
 weapon 0 AO
-arrow 8 9 pierce K
+arrow 8 9 'pierce' K
 61 20 500 P
 A
 18 3
@@ -2103,7 +2103,7 @@ arrow adamantite стрела~
 @eng An adamantite-headed arrow with an inner glow lies here.@rus Стрела с адамантитовым наконечником (arrow) лежит здесь.~
 wood~
 weapon 0 AO
-arrow 9 10 pierce K
+arrow 9 10 'pierce' K
 72 20 500 P
 A
 18 4
@@ -2327,7 +2327,7 @@ sword long меч~
 @eng A long sword has been left here.@rus Длинный меч (sword) был оставлен здесь.~
 steel~
 weapon 0 AN
-sword 3 10 slash D
+sword 3 10 'slash' D
 26 50 2000 P
 E
 sword long~
@@ -3376,7 +3376,7 @@ long sword меч~
 @eng A glowing long sword is here.@rus Сверкающий длинный меч (sword) лежит здесь.~
 steel~
 weapon 0 AN
-sword 4 7 slash 0
+sword 4 7 'slash' 0
 29 50 3100 G
 A
 18 2
@@ -3393,7 +3393,7 @@ sword standard merc меч~
 @eng You see a standard issue sword here.@rus Форменный меч (sword) оставлен здесь.~
 steel~
 weapon G AN
-sword 3 7 slash 0
+sword 3 7 'slash' 0
 16 50 1280 P
 A
 19 1
@@ -3409,7 +3409,7 @@ dagger standard merc кинжал~
 @eng You see a standard issue dagger here.@rus Форменный кинжал (dagger) оставлен здесь.~
 steel~
 weapon G AN
-dagger 2 5 pierce 0
+dagger 2 5 'pierce' 0
 8 20 590 P
 A
 18 1
@@ -3427,7 +3427,7 @@ mace standard merc палица~
 @eng You see a standard issue mace here.@rus Форменная палица (mace) оставлен здесь.~
 iron~
 weapon G AN
-mace 2 4 pound 0
+mace 2 4 'pound' 0
 7 100 620 P
 A
 18 1

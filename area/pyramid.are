@@ -322,7 +322,7 @@ an egyptian mace~
 A hierogylph-engraved mace has been left here.~
 brass~
 weapon 0 AN
-mace 3 6 pound 0
+mace 3 6 'pound' 0
 6 100 370 P
 E
 egyptian mace~
@@ -350,7 +350,7 @@ an obsidian dirk~
 A flat dirk made of chipped obsidian lies here.~
 obsidian~
 weapon G AN
-dagger 3 7 pierce 0
+dagger 3 7 'pierce' 0
 15 10 910 P
 A
 18 1
@@ -439,7 +439,7 @@ a stone scimitar~
 A curved scimitar made of stone rests on the ground.~
 stone~
 weapon BG AN
-sword 5 5 slash 0
+sword 5 5 'slash' 0
 20 180 1820 P
 A
 19 2
@@ -570,7 +570,7 @@ a lion's paw~
 The mighty paw of a lion-like creature has been dropped here.~
 bone~
 weapon G AN
-exotic 4 15 claw 0
+exotic 4 15 'claw' 0
 26 200 4400 P
 A
 19 6

@@ -500,7 +500,7 @@ a comet's tail~
 A long, slender whip lies here.~
 leather~
 weapon AB AN
-whip 2 7 whip 0
+whip 2 7 'whip' 0
 10 90 390 P
 G none
 #9302
@@ -677,7 +677,7 @@ the Sting of Scorpio~
 Sting of the Zodiac lies here.~
 ebony~
 weapon AGK AN
-exotic 4 4 pierce 0
+exotic 4 4 'pierce' 0
 19 70 2700 P
 A
 19 2
@@ -694,7 +694,7 @@ the Arrow of Sagittarius~
 The Arrow of Sagittarius lies here.~
 wood~
 weapon AGK AO
-arrow 5 5 pierce GK
+arrow 5 5 'pierce' GK
 11 70 3400 P
 E
 arrow~
@@ -707,7 +707,7 @@ the Titanic Bow of Sagittarius~
 The Titanic Bow of Sagittarius lies here.~
 ebony-titanium~
 weapon AGK AN
-bow 3 9 blast 0
+bow 3 9 'blast' 0
 20 200 2800 P
 A
 19 4
@@ -826,7 +826,7 @@ the Great Dipper of the Skies~
 A dazzling white object lies on the ground.~
 unknown~
 weapon ABFGI AN
-exotic 5 6 blast 0
+exotic 5 6 'blast' 0
 29 200 4200 P
 A
 19 3

@@ -639,7 +639,7 @@ a small, thin sword~
 A small sword lies here.~
 ~
 weapon 0 AN
-sword 3 3 pierce 0
+sword 3 3 'pierce' 0
 2 1 8 P
 A
 18 3
@@ -652,7 +652,7 @@ a pointy translucent staff~
 A long, thin, shimmering object lies here.~
 ~
 weapon 0 AN
-staff 3 4 pound 0
+staff 3 4 'pound' 0
 5 0 144 P
 A
 18 2
@@ -663,7 +663,7 @@ the sword swallower's sword~
 A rubber sword swallower's sword.~
 ~
 weapon 0 AN
-sword 2 3 slice 0
+sword 2 3 'slice' 0
 1 0 10 P
 A
 18 1
@@ -692,7 +692,7 @@ a razor~
 A razor lies here.~
 ~
 weapon 0 AN
-exotic 1 5 stab 0
+exotic 1 5 'stab' 0
 2 1 20 P
 A
 19 2
@@ -731,7 +731,7 @@ a sharp knife~
 A sharp, well balanced knife lies on the ground.~
 ~
 weapon 0 AN
-dagger 2 3 stab D
+dagger 2 3 'stab' D
 2 1 12 P
 A
 18 2
@@ -755,7 +755,7 @@ a whip~
 A leather whip is lying on the ground.~
 ~
 weapon 0 AN
-whip 4 3 whip 0
+whip 4 3 'whip' 0
 8 1 256 P
 A
 18 5
@@ -1053,7 +1053,7 @@ a scalpel~
 A thin knife with a sharp blade lies here.~
 ~
 weapon 0 AN
-dagger 4 3 slice D
+dagger 4 3 'slice' D
 6 1 108 P
 A
 18 -2
@@ -1075,7 +1075,7 @@ a carving knife~
 A very sharp knife gleams from the floor.~
 ~
 weapon 0 AN
-dagger 6 3 pierce D
+dagger 6 3 'pierce' D
 16 1 2000 P
 A
 18 3

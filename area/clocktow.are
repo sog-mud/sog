@@ -669,7 +669,7 @@ standart set instrument набор~
 @eng A set of instruments lies here forgotten.@rus Набор инструментов (set), забытый часовщиком, лежит тут.~
 iron~
 weapon BR AN
-exotic 6 6 cleave G
+exotic 6 6 'cleave' G
 30 100 5000 P
 A
 14 -100
@@ -785,7 +785,7 @@ hand short стрелка маленькая~
 @eng A short arrow lies here neglected.@rus Маленькая стрелка (hand) от часов лежит тут.~
 copper~
 weapon AH AN
-spear 6 5 pierce DK
+spear 6 5 'pierce' DK
 25 50 4500 P
 G female
 #4911
@@ -794,7 +794,7 @@ hand long стрелка большая~
 @eng A long arrow lies here neglected.@rus Большая стрелка (hand) от часов лежит здесь.~
 copper~
 weapon 0 AN
-spear 6 6 pierce DK
+spear 6 6 'pierce' DK
 30 50 5600 P
 G female
 #4912
@@ -1087,7 +1087,7 @@ dagger clock кинжал~
 @eng A small dagger floats here in the air.@rus Небольшой кинжал (dagger) парит в воздухе.~
 air~
 weapon 0 AN
-dagger 1 18 pierce 0
+dagger 1 18 'pierce' 0
 6 20 0 P
 G male
 #4941
@@ -1096,7 +1096,7 @@ sword clock меч~
 @eng A long sword lies here.@rus Длинный меч (sword) лежит здесь.~
 brass~
 weapon 0 AN
-sword 3 8 slash 0
+sword 3 8 'slash' 0
 12 50 1500 P
 G male
 #4942
@@ -1105,7 +1105,7 @@ mace clock булава~
 @eng A havy mace lies here.@rus Тяжелая булава (mace) лежит здесь.~
 brass~
 weapon 0 AN
-mace 4 8 crush 0
+mace 4 8 'crush' 0
 18 60 3500 P
 G female
 #4943
@@ -1114,7 +1114,7 @@ lance clock пика~
 @eng A huge lance lies here.@rus Здоровенная пика (lance) лежит здесь.~
 brass~
 weapon 0 AN
-lance 12 3 none 0
+lance 12 3 'none' 0
 30 100 5000 P
 G female
 #4944

@@ -360,7 +360,7 @@ spear копье steel~
 @eng A superbly crafted steel spear lies on the floor.@rus Копье (spear) с острым стальным наконечником брошено тут.~
 steel~
 weapon KMY AN
-spear 13 4 pierce DK
+spear 13 4 'pierce' DK
 40 140 12000 P
 A
 18 5
@@ -395,7 +395,7 @@ sword меч black bastard~
 @eng A charred and etched bastard sword lies here.@rus Черный меч (sword) с гравировкой на рукояти лежит здесь.~
 steel~
 weapon CEJY AN
-sword 7 7 pierce DH
+sword 7 7 'pierce' DH
 40 160 9000 P
 A
 18 8
@@ -408,7 +408,7 @@ fist earth перчатка~
 @eng A massive mallet of dark metal lies upon the ground.@rus Перчатка (fist) из темного металла лежит здесь.~
 steel~
 weapon BEFMY AN
-exotic 10 7 crush D
+exotic 10 7 'crush' D
 51 300 100000 P
 A
 18 5

@@ -315,7 +315,7 @@ Setepios Sword~
 @eng Big sword@rus Большая тыкалка~
 steal~
 weapon 0 AN
-mace 1000 1000 slash H
+mace 1000 1000 'slash' H
 92 10 100000 P
 A
 18 1000
@@ -392,7 +392,7 @@ godlen chain sun~
 something strange lies here.~
 gold~
 weapon AIRS A
-flail 8 3 whip DH
+flail 8 3 'whip' DH
 15 5 0 P
 A
 13 10
@@ -407,7 +407,7 @@ Sword of Safira~
 Sword of Safira lies here.~
 steal~
 weapon CI AN
-dagger 8 6 stab C
+dagger 8 6 'stab' C
 10 100 4000 P
 A
 19 4
@@ -429,7 +429,7 @@ weapon~
 Third Power lies here.~
 energy~
 weapon CI AN
-dagger 5000 5000 stab ABCDGH
+dagger 5000 5000 'stab' ABCDGH
 92 1 1 P
 A
 19 10000
@@ -559,7 +559,7 @@ divine sword of andromeda~
 Andromedas sword lies here ...~
 steal~
 weapon RTa AN
-dagger 10 7 stab DH
+dagger 10 7 'stab' DH
 55 1 100 P
 A
 18 6
@@ -589,7 +589,7 @@ fishing rod~
 fishing rod lies here.~
 wood~
 weapon IM AN
-dagger 9 10 kiss DH
+dagger 9 10 'kiss' DH
 52 1 1 P
 A
 19 5
@@ -705,7 +705,7 @@ Sword of Honor~
 Strange sword is glowing here.~
 divine power~
 weapon AIKRa AN
-exotic 6 7 slash H
+exotic 6 7 'slash' H
 27 1 1 P
 A
 18 12
@@ -861,7 +861,7 @@ Mace of Stars~
 Strange glowing mace lies here.~
 steal~
 weapon A AN
-mace 7 7 pound G
+mace 7 7 'pound' G
 45 1 1 P
 S 'mace' 45 A
 A
@@ -935,7 +935,7 @@ the ebony kris~
 weapon~
 stone~
 weapon HIMY AN
-dagger 10 10 stab CDGH
+dagger 10 10 'stab' CDGH
 40 300 100000 P
 A
 18 20

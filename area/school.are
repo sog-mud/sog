@@ -381,7 +381,7 @@ mace sub merc булава~
 @eng You see a sub issue mace here.@rus Учебная булава (mace) брошена здесь.~
 bronze~
 weapon U AN
-mace 1 6 pound 0
+mace 1 6 'pound' 0
 1 60 250 P
 A
 18 1
@@ -399,7 +399,7 @@ dagger sub merc кинжал~
 @eng You see a sub issue dagger here.@rus Учебный кинжал (dagger) брошен здесь.~
 bronze~
 weapon U AN
-dagger 1 4 pierce 0
+dagger 1 4 'pierce' 0
 0 10 210 P
 A
 18 1
@@ -417,7 +417,7 @@ sword sub merc меч~
 @eng You see a sub issue sword here.@rus Учебный меч (sword) оставлен здесь.~
 bronze~
 weapon U AN
-sword 1 6 slash 0
+sword 1 6 'slash' 0
 1 30 360 P
 A
 18 1
@@ -748,7 +748,7 @@ spear sub merc копье~
 @eng You see a sub issue spear here.@rus Учебное копье (spear) лежит здесь.~
 wood~
 weapon U AN
-spear 1 6 thrust K
+spear 1 6 'thrust' K
 1 50 111 P
 A
 18 1
@@ -773,7 +773,7 @@ staff sub merc посох~
 @eng You see a sub issue staff here.@rus Учебный посох (staff) лежит здесь.~
 wood~
 weapon U AN
-staff 1 5 pound F
+staff 1 5 'pound' F
 1 40 290 P
 A
 18 2
@@ -800,7 +800,7 @@ axe sub merc топор~
 @eng You see a sub issue axe here.@rus Учебный топор (axe) лежит здесь.~
 bronze~
 weapon U AN
-axe 1 6 chop 0
+axe 1 6 'chop' 0
 1 50 350 P
 A
 18 1
@@ -825,7 +825,7 @@ flail sub merc цеп~
 @eng You see a sub issue flail here.@rus Ты видишь здесь учебный цеп (flail).~
 bronze~
 weapon U AN
-flail 1 5 crush 0
+flail 1 5 'crush' 0
 1 50 310 P
 A
 19 1
@@ -850,7 +850,7 @@ whip sub merc плеть~
 @eng You see a sub issue whip here.@rus Учебная плеть (whip) свернута кольцами.~
 leather~
 weapon U AN
-whip 2 2 whip 0
+whip 2 2 'whip' 0
 1 20 330 P
 A
 18 2
@@ -875,7 +875,7 @@ glaive sub merc алебарда~
 @eng You see a sub issue glaive here.@rus Учебная алебарда (glaive) прислонена к стене.~
 wood~
 weapon U AN
-polearm 1 7 slash F
+polearm 1 7 'slash' F
 1 80 183 P
 A
 19 1
@@ -900,7 +900,7 @@ bow sub merc лук~
 @eng You see a sub issue bow here.@rus Учебный лук (bow) лежит здесь.~
 wood~
 weapon U AN
-bow 1 7 none F
+bow 1 7 'none' F
 1 80 183 P
 A
 19 1
@@ -925,7 +925,7 @@ lance sub merc пика~
 @eng You see a sub issue lance here.@rus Учебная пика (lance) лежит здесь, забытая.~
 iron~
 weapon U AN
-lance 1 7 none F
+lance 1 7 'none' F
 1 80 183 P
 A
 19 1

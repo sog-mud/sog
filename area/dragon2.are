@@ -258,7 +258,7 @@ a tiny sword~
 A petite sword of dragons lies here on the ground, you almost didn't see it.~
 steel~
 weapon AGL AN
-sword 4 8 slice 0
+sword 4 8 'slice' 0
 36 20 2700 G
 A
 14 30
@@ -475,7 +475,7 @@ a can of spraypaint~
 A can of spraypaint is sitting here.~
 metal~
 weapon 0 AN
-exotic 1 1 pierce 0
+exotic 1 1 'pierce' 0
 1 1 1 G
 G none
 #2414
@@ -484,7 +484,7 @@ a Pixie Stick~
 A Pixie Stick lies here on the ground, it looks tasty.~
 crystal~
 weapon AL AN
-mace 5 7 pound D
+mace 5 7 'pound' D
 35 20 1700 G
 A
 19 3
@@ -611,7 +611,7 @@ the Staff of the Magius~
 A gnarled wooden shaft lies here, pulsing slightly.~
 wood~
 weapon ABCFGHM AN
-staff 5 11 pound D
+staff 5 11 'pound' D
 52 200 45780 G
 A
 19 6
@@ -634,7 +634,7 @@ a Pixie dagger~
 A petite dagger lies here on the ground, you almost didn't see it.~
 steel~
 weapon AGL AN
-dagger 4 8 stab 0
+dagger 4 8 'stab' 0
 33 5 647 G
 A
 14 20

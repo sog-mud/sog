@@ -130,7 +130,7 @@ an old black mace~
 An old, black iron mace lies here undisturbed~
 iron~
 weapon B AN
-mace 6 7 pound 0
+mace 6 7 'pound' 0
 40 25 1000 P
 G none
 #29351
@@ -227,7 +227,7 @@ an Ancient Longsword~
 An old longsword floats here, glowing slightly.~
 admantite~
 weapon AG AN
-sword 10 8 slash DH
+sword 10 8 'slash' DH
 70 12 2500 P
 A
 19 3
@@ -259,7 +259,7 @@ the Hell's Wraith~
 This sword was supposedly forged in the depths of Hell. It's wavy blade makes it appear much like a large kris. It is a bit unwieldly at first but the damage it inflicts is unbelievable.~
 admantite~
 weapon ABEGM AN
-exotic 10 8 bite CE
+exotic 10 8 'bite' CE
 73 10 5000 P
 A
 2 1

@@ -408,7 +408,7 @@ a rusty cleaver~
 A rusty cleaver lies on a counter top.~
 iron~
 weapon 0 AN
-dagger 1 6 chop 0
+dagger 1 6 'chop' 0
 1 20 230 P
 G none
 #1602
@@ -417,7 +417,7 @@ the fine mace~
 There is a large mace of fine quality here.~
 iron~
 weapon G AN
-mace 6 3 pound 0
+mace 6 3 'pound' 0
 10 110 570 P
 A
 19 1
@@ -430,7 +430,7 @@ a long elven dagger~
 A long elven dagger made of adamantite is here.~
 steel~
 weapon AG AN
-dagger 2 5 pierce 0
+dagger 2 5 'pierce' 0
 8 20 700 P
 A
 18 2
@@ -441,7 +441,7 @@ a steel broad sword~
 A fine steel broad sword is lying on the ground.~
 steel~
 weapon AG AN
-sword 3 6 slash 0
+sword 3 6 'slash' 0
 11 120 910 P
 A
 19 1
@@ -454,7 +454,7 @@ a steel broad sword~
 A very fine steel broad sword is lying on the ground.~
 steel~
 weapon AG AN
-sword 3 7 slash 0
+sword 3 7 'slash' 0
 15 120 1510 P
 A
 19 2
@@ -467,7 +467,7 @@ the rod of might~
 A Rod of Might is lying here.~
 oak~
 weapon BG AN
-mace 3 7 blast 0
+mace 3 7 'blast' 0
 14 130 1550 P
 A
 1 1
@@ -577,7 +577,7 @@ a short bow~
 A short bow has been carelessly left here.~
 wood~
 weapon 0 AN
-bow 2 4 pierce 0
+bow 2 4 'pierce' 0
 5 50 730 P
 E
 short bow~
@@ -590,7 +590,7 @@ a long bow~
 A long bow has been foolishly abandoned here.~
 wood~
 weapon AG AN
-bow 3 6 pound 0
+bow 3 6 'pound' 0
 12 70 220 P
 A
 13 5
@@ -601,7 +601,7 @@ an ancient long sword~
 An ancient long sword has been left here.~
 iron~
 weapon BG AN
-sword 3 8 slash 0
+sword 3 8 'slash' 0
 19 100 2500 P
 A
 19 4

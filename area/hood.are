@@ -191,7 +191,7 @@ a hefty length of chain~
 A hefty length of chain lies in a heap here on the floor.~
 iron~
 weapon A AN
-whip 2 6 whip 0
+whip 2 6 'whip' 0
 12 100 960 A
 A
 17 -2
@@ -222,7 +222,7 @@ a stiletto~
 A killer stiletto has been forgotten here.~
 steel~
 weapon 0 AN
-dagger 5 2 pierce 0
+dagger 5 2 'pierce' 0
 9 20 1090 G
 A
 18 4
@@ -268,7 +268,7 @@ a patrol club~
 A patrolman's club has carelessly been forgotten here.~
 wood~
 weapon 0 AN
-mace 1 10 pound 0
+mace 1 10 'pound' 0
 9 10 980 G
 A
 18 3
@@ -305,7 +305,7 @@ a lead pipe~
 A length of lead pipe sits here, just right for bashing heads.~
 lead~
 weapon 0 AN
-mace 2 6 pound 0
+mace 2 6 'pound' 0
 11 60 0 A
 A
 18 -1
@@ -358,7 +358,7 @@ a switchblade~
 A strange looking knife is here.~
 steel~
 weapon 0 AN
-dagger 1 12 stab 0
+dagger 1 12 'stab' 0
 9 5 760 G
 A
 18 2
@@ -369,7 +369,7 @@ a broken bottle~
 Yowch! You cut your foot on a broken bottle.~
 glass~
 weapon 0 AN
-dagger 2 7 slash 0
+dagger 2 7 'slash' 0
 11 10 0 W
 A
 18 -2

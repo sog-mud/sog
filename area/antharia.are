@@ -575,7 +575,7 @@ a sparkling trident~
 A sparkling trident, of Antharian make, is here.~
 copper~
 weapon I AN
-polearm 5 6 pierce 0
+polearm 5 6 'pierce' 0
 25 10 250 P
 A
 13 40
@@ -590,7 +590,7 @@ a sparkling trident~
 A sparkling trident, of Antharian make, is here.~
 copper~
 weapon I AN
-polearm 5 7 pierce 0
+polearm 5 7 'pierce' 0
 32 10 320 P
 A
 13 40
@@ -605,7 +605,7 @@ a sparkling trident~
 A sparkling trident, of Antharian make, is here.~
 copper~
 weapon I AN
-polearm 5 9 pierce 0
+polearm 5 9 'pierce' 0
 42 15 420 P
 A
 13 60

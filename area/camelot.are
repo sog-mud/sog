@@ -975,7 +975,7 @@ a squire's dagger~
 A leather hilted dagger lies here.~
 iron~
 weapon 0 AN
-dagger 5 5 pierce 0
+dagger 5 5 'pierce' 0
 20 2 500 P
 A
 18 2
@@ -988,7 +988,7 @@ a knight's mace~
 A clublike weapon with a spiked balled head lies here.~
 iron~
 weapon 0 AN
-mace 5 6 crush 0
+mace 5 6 'crush' 0
 23 5 800 P
 A
 18 1
@@ -1001,7 +1001,7 @@ a knight's lance~
 An 18' pole is sunk into the ground here.~
 iron~
 weapon 0 AN
-lance 5 6 stab 0
+lance 5 6 'stab' 0
 25 15 1000 P
 A
 18 3
@@ -1037,7 +1037,7 @@ benlad's axe~
 A two headed axe with the Hautdesert crest lies here.~
 iron~
 weapon GK AN
-axe 5 7 slash 0
+axe 5 7 'slash' 0
 31 7 2000 P
 A
 18 4
@@ -1110,7 +1110,7 @@ excalibur~
 A beautiful dragon hilted sword lies here!~
 admantite~
 weapon BKL AN
-sword 5 8 slice D
+sword 5 8 'slice' D
 38 4 4500 P
 A
 18 5
@@ -1397,7 +1397,7 @@ a spear glowing in an unholy dark light~
 A spear is here, glowing with an unholy dark light.~
 admantite~
 weapon ACEG AN
-spear 5 8 pierce CK
+spear 5 8 'pierce' CK
 34 10 2500 P
 A
 1 2
@@ -1438,7 +1438,7 @@ a massive spiked ball and chain~
 A massive spiked iron ball attached to a iron handle by a 3' chain is here.~
 iron~
 weapon 0 AN
-flail 5 7 crush 0
+flail 5 7 'crush' 0
 28 30 2300 P
 A
 19 4
@@ -1533,7 +1533,7 @@ a commander's steel broad sword~
 A commanders steel broad sword catches your eye.~
 iron~
 weapon 0 AN
-sword 5 6 slash 0
+sword 5 6 'slash' 0
 24 5 1700 P
 A
 18 3
@@ -1564,7 +1564,7 @@ an angle~
 An angle is here. A raider must be nearby.~
 iron~
 weapon 0 AN
-sword 5 7 slash 0
+sword 5 7 'slash' 0
 31 15 600 P
 A
 18 -3
@@ -1622,7 +1622,7 @@ lifecutter~
 A blue black crusader hilt sword is stuck in the ground~
 admantite~
 weapon C AN
-sword 5 7 slash C
+sword 5 7 'slash' C
 32 20 3200 P
 A
 18 4
@@ -1654,7 +1654,7 @@ an enormous axe~
 An enormous axe is resting here.~
 iron~
 weapon 0 AN
-axe 9 4 chop F
+axe 9 4 'chop' F
 33 25 2000 P
 A
 19 5

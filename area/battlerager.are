@@ -177,7 +177,7 @@ dagger fine gordall~
 @eng A fine dagger lies upon the ground.@rus Изящный кинжал (dagger) лежит на земле.~
 adamantite~
 weapon 0 AN
-dagger 4 7 pierce DE
+dagger 4 7 'pierce' DE
 32 450 5600 P
 G none
 #95406
@@ -186,7 +186,7 @@ sword fine gordall~
 @eng A fine sword lies upon the ground.@rus Изящный меч (sword) лежит на земле.~
 adamantite~
 weapon 0 AN
-sword 5 6 slash DE
+sword 5 6 'slash' DE
 33 450 5600 P
 G none
 #95407
@@ -195,7 +195,7 @@ axe fine gordall~
 @eng A fine two-handed axe lies upon the ground.@rus Изящный двуручный топор (axe) лежит на земле.~
 adamantite~
 weapon 0 AN
-axe 6 6 cleave DF
+axe 6 6 'cleave' DF
 36 450 5600 P
 G none
 #95408

@@ -2032,7 +2032,7 @@ a gleaming white sword~
 A white sword gleams brightly.~
 mithril~
 weapon IK AN
-sword 9 12 cleave 0
+sword 9 12 'cleave' 0
 80 200 10000 P
 A
 18 10
@@ -2260,7 +2260,7 @@ a tempered throwing dagger~
 A silver dagger with a sharply tempered edge gleams wickedly.~
 silver~
 weapon CE AN
-dagger 9 11 pierce DHK
+dagger 9 11 'pierce' DHK
 80 200 15000 P
 A
 18 20
@@ -2383,7 +2383,7 @@ a sharpened stiletto~
 A wickedly sharp stiletto gleams here.~
 silver~
 weapon CHI AN
-dagger 10 11 pierce DH
+dagger 10 11 'pierce' DH
 85 200 12500 P
 A
 18 15
@@ -2594,7 +2594,7 @@ a hunter's arrow~
 A sharp mithril arrow gleams here.~
 mithril~
 weapon A AN
-exotic 7 12 pierce EK
+exotic 7 12 'pierce' EK
 70 200 10000 P
 A
 18 10
@@ -2720,7 +2720,7 @@ a finely balance adamantite longsword~
 An adamantite longsword of superb craftsmanship gleams here.~
 adamantite~
 weapon AI AN
-sword 10 8 cleave D
+sword 10 8 'cleave' D
 70 300 17800 P
 A
 18 12
@@ -3015,7 +3015,7 @@ a honed shortsword 'Zedraikis'~
 A finely honed shortsword gleams wickedly.~
 mithril~
 weapon BCI AN
-sword 12 10 pierce ADH
+sword 12 10 'pierce' ADH
 89 250 55000 P
 A
 18 20
@@ -3118,7 +3118,7 @@ a drakyri dagger~
 A sharp mithril dagger lies here.~
 mithril~
 weapon AI AN
-dagger 8 8 pierce 0
+dagger 8 8 'pierce' 0
 62 200 7500 P
 A
 2 2

@@ -295,7 +295,7 @@ the neutralizer~
 A long thin sword with a wide blade makes you wonder.~
 iron~
 weapon BJK AN
-sword 4 5 slash 0
+sword 4 5 'slash' 0
 16 90 1280 P
 A
 19 2
@@ -308,7 +308,7 @@ the sword Excalibur~
 A sword gleams by the light of its magical silvery blade.~
 steel~
 weapon AGKL AN
-sword 10 4 slash 0
+sword 10 4 'slash' 0
 24 150 3400 P
 A
 1 1
@@ -429,7 +429,7 @@ a templar's sword~
 A sword made of wood has been left here.~
 wood~
 weapon I AN
-sword 2 6 slash 0
+sword 2 6 'slash' 0
 10 60 830 P
 A
 18 2

@@ -721,7 +721,7 @@ a short thrusting spear~
 A short thrusting spear is jabbed in the dirt here.~
 ~
 weapon 0 AN
-spear 5 6 stab K
+spear 5 6 'stab' K
 25 5 250 P
 A
 18 2
@@ -852,7 +852,7 @@ achilles' sword~
 Achilles' sword lies here.~
 ~
 weapon A AN
-sword 5 10 pierce 0
+sword 5 10 'pierce' 0
 45 10 450 P
 A
 18 8
@@ -865,7 +865,7 @@ a bronze sword~
 A bronze sword lies here.~
 ~
 weapon 0 AN
-sword 5 5 pierce 0
+sword 5 5 'pierce' 0
 20 5 200 P
 A
 18 -2
@@ -878,7 +878,7 @@ a bronze dagger~
 A bronze dagger with lions carved upon it lies here.~
 ~
 weapon 0 AN
-dagger 5 5 pierce 0
+dagger 5 5 'pierce' 0
 20 3 200 P
 G none
 #29514
@@ -918,7 +918,7 @@ a stone axe~
 A stone axe lies here.~
 ~
 weapon 0 AN
-axe 5 6 crush 0
+axe 5 6 'crush' 0
 25 15 250 P
 G none
 #29518

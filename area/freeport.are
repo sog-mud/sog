@@ -570,7 +570,7 @@ a fishing pole~
 A fishing pole is here, hooked and baited.~
 wood~
 weapon 0 AN
-exotic 3 5 none 0
+exotic 3 5 'none' 0
 10 3 100 P
 G none
 #29207
@@ -608,7 +608,7 @@ a trident~
 A trident has been left here.~
 wood~
 weapon G AN
-polearm 5 5 none 0
+polearm 5 5 'none' 0
 20 9 200 P
 A
 19 3
@@ -680,7 +680,7 @@ a dwarven thrower~
 A dwarven throwing hammer is here.~
 unknown~
 weapon GP AN
-mace 9 5 none K
+mace 9 5 'none' K
 40 20 1500 P
 A
 18 4
@@ -767,7 +767,7 @@ an emerald longsword~
 An emerald longsword is here.~
 stone~
 weapon G AN
-exotic 5 10 none 0
+exotic 5 10 'none' 0
 46 10 3200 P
 A
 17 -10

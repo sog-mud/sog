@@ -92,7 +92,7 @@ orc sword меч орк~
 @eng Dirty orc'ish sword lies here.@rus Грязный меч орков валяется тут.~
 iron~
 weapon E AN
-exotic 6 5 none 0
+exotic 6 5 'none' 0
 20 30 1500 P
 G none
 #30002

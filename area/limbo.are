@@ -408,7 +408,7 @@ arrow деревянная wooden стрела~
 @eng A wooden arrow lies on the ground.@rus Деревянная стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce K
+arrow 1 1 'pierce' K
 1 5 10 P
 G female
 #7
@@ -417,7 +417,7 @@ bow wooden лук деревянный~
 @eng A wooden bow lies on the ground.@rus Деревянный лук (bow) лежит на земле.~
 wood~
 weapon 0 AN
-bow 1 1 blast 0
+bow 1 1 'blast' 0
 1 5 10 P
 G male
 #8
@@ -538,7 +538,7 @@ holy hammer молот~
 @eng You see a large Holy Hammer.@rus Перед тобой огромный молот (hammer), излучающий божественную силу.~
 spirit~
 weapon AGIKL AN
-mace 9 0 divine I
+mace 9 0 'divine' I
 0 0 0 P
 G male
 #19
@@ -646,7 +646,7 @@ ranger staff посох~
 @eng There is a Ranger's Staff here on the ground.@rus Охотник забыл свой посох (staff) тут.~
 ebony~
 weapon A AN
-staff 0 0 pierce 0
+staff 0 0 'pierce' 0
 0 160 0 P
 G male
 #29
@@ -675,7 +675,7 @@ the %s Sword of %s~
 An enormous, huge SWORD lies here, filling the room with its power.~
 energy~
 weapon AGIOYc ANP
-sword 10 4 slash D
+sword 10 4 'slash' D
 21 100 100000 G
 G male
 #32
@@ -684,7 +684,7 @@ the %s Dagger of %s~
 An enormous, huge DAGGER lies here, filling the room with its power.~
 energy~
 weapon AGIOYc ANP
-dagger 10 4 pierce D
+dagger 10 4 'pierce' D
 21 100 100000 G
 A
 1 2
@@ -711,7 +711,7 @@ the %s Mace of %s~
 An enormous, huge MACE lies here, filling the room with its power.~
 energy~
 weapon AGIOYc ANP
-mace 10 4 pound D
+mace 10 4 'pound' D
 21 100 100000 G
 A
 1 2
@@ -738,7 +738,7 @@ arrow green стрела зеленая~
 @eng A green arrow lies on the ground.@rus Зеленая стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce HK
+arrow 1 1 'pierce' HK
 1 5 10 P
 G female
 #35
@@ -747,7 +747,7 @@ arrow red стрела багровая~
 @eng A red arrow lies on the ground.@rus Багровая стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce AK
+arrow 1 1 'pierce' AK
 1 5 10 P
 G female
 #36
@@ -756,7 +756,7 @@ arrow white стрела белая~
 @eng A white arrow lies on the ground.@rus Белая стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce BK
+arrow 1 1 'pierce' BK
 1 5 10 P
 G female
 #37
@@ -765,7 +765,7 @@ arrow стрела blue голубая~
 @eng A blue arrow lies on the ground.@rus Голубая стрела (arrow) лежит на земле.~
 wood~
 weapon 0 AO
-arrow 1 1 pierce GK
+arrow 1 1 'pierce' GK
 1 5 10 P
 G female
 #38
@@ -1232,7 +1232,7 @@ golden dagger кинжал~
 @eng There is a shiny golden dagger on the ground.@rus Блестящий золотистый кинжал (dagger) лежит на земле.~
 gold~
 weapon AIPTW AN
-dagger 10 1 pierce DK
+dagger 10 1 'pierce' DK
 20 80 0 P
 G male
 #81
@@ -1241,7 +1241,7 @@ golden mace булава~
 @eng A shiny gold mace is on the ground.@rus Блестящая золотистая булава (mace) лежит на земле.~
 gold~
 weapon AIPTW AN
-mace 8 1 crush 0
+mace 8 1 'crush' 0
 20 200 0 P
 G female
 #82
@@ -1265,7 +1265,7 @@ sword golden меч~
 @eng There is a shiny golden sword on the ground.@rus Блестящий золотистый меч (sword) лежит на земле.~
 gold~
 weapon AIPTW AN
-sword 10 1 pierce D
+sword 10 1 'pierce' D
 20 80 0 P
 G male
 #84
@@ -1326,7 +1326,7 @@ eyed sword~
 A sword with an eye on it is here.~
 platinum~
 weapon Bc AN
-exotic 10 1 pierce D
+exotic 10 1 'pierce' D
 15 60 0 P
 A
 18 20
@@ -1431,7 +1431,7 @@ the %s Ring of %s~
 An enormous, RING lies here, filling the room with its power.~
 energy~
 weapon AGIOYc ABP
-exotic 0 0 none 0
+exotic 0 0 'none' 0
 120 30 100000 G
 A
 17 -30
@@ -1454,7 +1454,7 @@ the %s Weapon of %s~
 An enormous, huge WEAPON lies here, filling the room with its power.~
 energy~
 weapon AGIOYc ANP
-exotic 10 4 slash D
+exotic 10 4 'slash' D
 21 100 100000 G
 A
 1 2
@@ -1481,7 +1481,7 @@ a chaos blade~
 A shiny gold dagger is on the ground.~
 gold~
 weapon AIPTW AN
-dagger 8 1 pierce D
+dagger 8 1 'pierce' D
 20 200 0 P
 A
 6 2
@@ -1492,7 +1492,7 @@ a katana sword~
 A katana sword is forgotten here.~
 iron~
 weapon a AN
-sword 10 1 slash D
+sword 10 1 'slash' D
 15 60 0 P
 E
 katana~
@@ -1505,7 +1505,7 @@ a golden lance~
 There is a shiny golden lance on the ground.~
 gold~
 weapon AIPTW AN
-lance 10 1 none D
+lance 10 1 'none' D
 20 80 0 P
 G none
 #0

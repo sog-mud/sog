@@ -530,7 +530,7 @@ sting~
 Sting lies here.~
 mithril~
 weapon ABK AN
-dagger 2 7 bite 0
+dagger 2 7 'bite' 0
 17 10 3500 P
 A
 2 2
@@ -594,7 +594,7 @@ an elven spear~
 An elven spear lies here.~
 wood~
 weapon BGK AN
-spear 3 7 thrust K
+spear 3 7 'thrust' K
 16 50 500 P
 A
 18 2
@@ -605,7 +605,7 @@ a mithril axe~
 A mithril axe lies here.~
 mithril~
 weapon ACMO AN
-axe 3 8 chop 0
+axe 3 8 'chop' 0
 17 120 1440 P
 A
 19 3
@@ -627,7 +627,7 @@ a tiny dagger~
 A tiny dagger lies here.~
 steel~
 weapon 0 AN
-dagger 1 6 pierce 0
+dagger 1 6 'pierce' 0
 1 30 230 P
 G none
 #1110
@@ -663,7 +663,7 @@ a bardiche~
 A long weapon with a sharp end is on the floor.~
 wood~
 weapon 0 AN
-polearm 3 10 cleave F
+polearm 3 10 'cleave' F
 21 100 1810 P
 A
 18 4
@@ -674,7 +674,7 @@ a flail~
 A flail is on the floor.~
 iron~
 weapon 0 AN
-flail 2 4 smash 0
+flail 2 4 'smash' 0
 5 80 390 P
 G none
 #1115
@@ -683,7 +683,7 @@ a wooden bardiche~
 A long weapon with a wooden blade is on the floor.~
 wood~
 weapon 0 AN
-polearm 2 3 pound F
+polearm 2 3 'pound' F
 3 100 980 P
 A
 18 4
@@ -694,7 +694,7 @@ a shiriff's dagger~
 A tiny but very sharp dagger lies here.~
 steel~
 weapon 0 AN
-dagger 2 4 pierce 0
+dagger 2 4 'pierce' 0
 6 10 480 P
 A
 19 1
@@ -707,7 +707,7 @@ the Thain's club~
 You see see a heavy club. Looks just right for whomping heads.~
 wood~
 weapon 0 AN
-mace 2 9 pound 0
+mace 2 9 'pound' 0
 12 30 620 P
 G none
 #0

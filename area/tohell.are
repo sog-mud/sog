@@ -1091,7 +1091,7 @@ a wicked-looking trident~
 A wicked-looking trident is stuck into the ground.~
 unknown~
 weapon AEGJ AN
-spear 4 12 stab FK
+spear 4 12 'stab' FK
 45 70 3100 P
 A
 19 3
@@ -1106,7 +1106,7 @@ a black leather whip~
 A black leather whip lies on the ground.~
 unknown~
 weapon BEJ AN
-whip 6 6 whip 0
+whip 6 6 'whip' 0
 35 70 2100 P
 A
 18 2
@@ -1117,7 +1117,7 @@ a hickey maker~
 A hickey maker lies on the ground, making a soft sucking sound.~
 unknown~
 weapon 0 AN
-mace 4 10 suction 0
+mace 4 10 'suction' 0
 37 70 6300 P
 A
 18 3
@@ -1132,7 +1132,7 @@ a black-hilted sword called "Farslayer"~
 A black-hilted sword with engravings on the blade lies here.~
 unknown~
 weapon BFGHM AN
-sword 6 10 pierce F
+sword 6 10 'pierce' F
 53 70 15300 P
 A
 19 10
@@ -1183,7 +1183,7 @@ the Vorpal Blade~
 A magnificently crafted blade lies here, humming softly.~
 unknown~
 weapon 0 AN
-sword 4 9 slice EF
+sword 4 9 'slice' EF
 33 60 4800 P
 A
 19 5
@@ -1194,7 +1194,7 @@ a flaming claw~
 A flaming claw lies here, burning brightly.~
 unknown~
 weapon 0 AN
-exotic 7 6 claw A
+exotic 7 6 'claw' A
 46 40 9400 P
 A
 19 4
@@ -1224,7 +1224,7 @@ demon teeth~
 A bunch of very sharp, slimey teeth lie here.~
 unknown~
 weapon 0 AN
-exotic 7 5 bite 0
+exotic 7 5 'bite' 0
 36 10 7600 P
 A
 18 5
@@ -1253,7 +1253,7 @@ a circular saw~
 A circular saw lies here.~
 unknown~
 weapon B AN
-axe 6 6 slice 0
+axe 6 6 'slice' 0
 43 70 7300 P
 A
 18 6
@@ -1275,7 +1275,7 @@ a bloody black talon~
 A severed bloody, black talon lies here.~
 unknown~
 weapon EG AN
-dagger 5 9 claw C
+dagger 5 9 'claw' C
 46 60 7500 P
 A
 12 25
@@ -1299,7 +1299,7 @@ hell hound teeth~
 The bloody teeth of a hell hound sit here.~
 unknown~
 weapon 0 AN
-dagger 8 5 bite A
+dagger 8 5 'bite' A
 43 20 7500 P
 A
 2 2
@@ -1321,7 +1321,7 @@ an ice spear~
 A spear made out of ice lies here.~
 unknown~
 weapon 0 AN
-spear 6 8 pierce BFK
+spear 6 8 'pierce' BFK
 48 50 1330 P
 G none
 #10420
@@ -1330,7 +1330,7 @@ a large meat hook~
 A large meat hook is stuck into the ground.~
 unknown~
 weapon 0 AN
-polearm 9 5 stab BF
+polearm 9 5 'stab' BF
 47 30 2400 P
 A
 19 2
@@ -1359,7 +1359,7 @@ an electric eraser~
 A electric eraser lies on the ground, waiting for an erasermate.~
 unknown~
 weapon 0 AN
-mace 4 11 grep 0
+mace 4 11 'grep' 0
 44 10 7400 P
 A
 19 4
@@ -1405,7 +1405,7 @@ the sharp teeth of a lawyer~
 A set of sharp, evil-looking teeth lie here. Probably a lawyer's.~
 unknown~
 weapon G AN
-exotic 5 11 none C
+exotic 5 11 'none' C
 52 20 11800 P
 A
 3 1
@@ -1455,7 +1455,7 @@ an ionic torque wrench~
 You see an ionic torque wrench on the ground.~
 unknown~
 weapon 0 AN
-mace 6 8 pound 0
+mace 6 8 'pound' 0
 49 30 6500 P
 A
 19 5
@@ -1553,7 +1553,7 @@ a photon-displacement matrix~
 You see a photon-displacement matrix on the ground.~
 unknown~
 weapon AB AN
-exotic 5 9 blast 0
+exotic 5 9 'blast' 0
 45 70 6700 P
 A
 19 4
@@ -1588,7 +1588,7 @@ a manes' claws~
 The severed claws of a sub-demon lie here, twitching.~
 unknown~
 weapon 0 AN
-dagger 2 16 claw 0
+dagger 2 16 'claw' 0
 32 40 2900 P
 A
 19 5
@@ -1599,7 +1599,7 @@ a welding torch~
 A welding torch sits on the ground.~
 unknown~
 weapon 0 AN
-exotic 5 9 flame A
+exotic 5 9 'flame' A
 47 70 6400 P
 A
 19 4
@@ -1638,7 +1638,7 @@ a cleaver~
 You see a nasty-looking cleaver stuck in the ground.~
 unknown~
 weapon 0 AN
-axe 5 9 cleave 0
+axe 5 9 'cleave' 0
 45 60 6400 P
 A
 19 3

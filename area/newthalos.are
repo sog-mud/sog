@@ -1499,7 +1499,7 @@ a morningstar~
 A small spiked metal ball connected to a rod by links of chain lies here.~
 wood iron~
 weapon 0 AN
-flail 3 6 blast 0
+flail 3 6 'blast' 0
 10 50 620 P
 G none
 #9504
@@ -1508,7 +1508,7 @@ an awl-pike~
 An awl pike lies here.~
 iron~
 weapon 0 AN
-spear 1 10 pierce K
+spear 1 10 'pierce' K
 6 30 108 P
 G none
 #9505
@@ -1517,7 +1517,7 @@ a bardiche~
 A bardiche lies here.~
 steel~
 weapon 0 AN
-polearm 2 6 cleave F
+polearm 2 6 'cleave' F
 8 40 270 P
 G none
 #9506
@@ -1526,7 +1526,7 @@ a bec de corbine~
 A bec de corbine lies here.~
 steel~
 weapon 0 AN
-polearm 1 8 pierce F
+polearm 1 8 'pierce' F
 2 30 148 P
 G none
 #9507
@@ -1535,7 +1535,7 @@ a bill-guisarme~
 A bill-guisarme lies here.~
 iron~
 weapon 0 AN
-polearm 1 8 slash F
+polearm 1 8 'slash' F
 2 30 148 P
 G none
 #9508
@@ -1544,7 +1544,7 @@ a fauchard~
 A fauchard lies here.~
 mithril~
 weapon 0 AN
-polearm 1 8 slash F
+polearm 1 8 'slash' F
 2 30 148 P
 G none
 #9509
@@ -1553,7 +1553,7 @@ a glaive~
 A glaive lies here.~
 iron~
 weapon 0 AN
-polearm 1 10 chop F
+polearm 1 10 'chop' F
 4 30 192 P
 G none
 #9510
@@ -1562,7 +1562,7 @@ a guisarme~
 A guisarme lies here.~
 steel~
 weapon 0 AN
-polearm 2 4 slash F
+polearm 2 4 'slash' F
 3 40 169 P
 G none
 #9511
@@ -1571,7 +1571,7 @@ a sickle~
 A sickle lies here.~
 steel~
 weapon 0 AN
-sword 1 4 slash 0
+sword 1 4 'slash' 0
 0 10 210 P
 G none
 #9512
@@ -1580,7 +1580,7 @@ a two-handed bastard sword~
 A two handed bastard sword lies here.~
 iron~
 weapon 0 AN
-sword 3 5 cleave F
+sword 3 5 'cleave' F
 13 160 1190 P
 G none
 #9513
@@ -1589,7 +1589,7 @@ a scimitar~
 A scimitar lies here.~
 iron~
 weapon 0 AN
-sword 1 9 slash 0
+sword 1 9 'slash' 0
 5 100 490 P
 G none
 #9514
@@ -1598,7 +1598,7 @@ a rapier~
 A rapier lies here.~
 steel~
 weapon 0 AN
-sword 3 4 slash 0
+sword 3 4 'slash' 0
 11 100 850 P
 G none
 #9515
@@ -2213,7 +2213,7 @@ a pair of sewing shears~
 A pair of sewing shears lies here.~
 steel~
 weapon 0 AN
-dagger 2 4 chop 0
+dagger 2 4 'chop' 0
 5 20 360 P
 G none
 #9584
@@ -2222,7 +2222,7 @@ a meat cleaver~
 A meat cleaver lies here~
 iron~
 weapon KL AN
-dagger 1 5 cleave 0
+dagger 1 5 'cleave' 0
 0 50 190 P
 G none
 #9585
@@ -2231,7 +2231,7 @@ a fountain pen~
 A fountain pen lies here.~
 marble~
 weapon B AN
-dagger 2 8 stab 0
+dagger 2 8 'stab' 0
 11 10 640 P
 E
 fountain pen~
@@ -2244,7 +2244,7 @@ a sledge hammer~
 A sledge hammer lies here.~
 iron~
 weapon 0 AN
-mace 2 7 smash F
+mace 2 7 'smash' F
 10 240 660 P
 G none
 #9587
@@ -2273,7 +2273,7 @@ a riding crop~
 A riding crop lies here.~
 leather~
 weapon 0 AN
-whip 1 4 whip 0
+whip 1 4 'whip' 0
 0 10 105 P
 G none
 #9590
@@ -2282,7 +2282,7 @@ a chessboard~
 A heavy marble chessboard lies here.~
 wood~
 weapon 0 AN
-exotic 1 5 thwack 0
+exotic 1 5 'thwack' 0
 0 100 380 P
 G none
 #9591
@@ -2300,7 +2300,7 @@ something~
 Something lies here.~
 something~
 weapon 0 AN
-exotic 3 5 drain 0
+exotic 3 5 'drain' 0
 7 0 920 P
 G none
 #9593
@@ -2358,7 +2358,7 @@ the Daemon Claw~
 A glove with blades mounted on it lies here~
 bone~
 weapon B AN
-exotic 3 7 claw 0
+exotic 3 7 'claw' 0
 14 200 1520 P
 A
 18 -2
@@ -2369,7 +2369,7 @@ the wolverine claw~
 A claw from some animal lies here.~
 bone~
 weapon B AN
-exotic 3 7 claw 0
+exotic 3 7 'claw' 0
 15 200 1680 P
 G none
 #9600
@@ -2378,7 +2378,7 @@ the halberd~
 A mighty halberd lies against the wall.~
 iron~
 weapon GI AN
-polearm 3 8 chop F
+polearm 3 8 'chop' F
 22 160 1240 P
 A
 19 3

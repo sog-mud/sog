@@ -490,7 +490,7 @@ dagger кинжал zoo~
 @eng A small, iron dagger with multi-coloured writting lies here.@rus Маленький, стальной кинжал (dagger) с многоцветной рукоятью лежит здесь.~
 iron~
 weapon 0 AN
-dagger 3 5 pierce 0
+dagger 3 5 'pierce' 0
 10 80 750 P
 E
 writting~

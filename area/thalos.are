@@ -342,7 +342,7 @@ a two-handed sword~
 A nice two-handed sword hangs on a hook in the wall.~
 iron~
 weapon GK AN
-sword 3 11 chop F
+sword 3 11 'chop' F
 26 240 3300 P
 A
 19 3
@@ -550,7 +550,7 @@ a long slim dagger~
 A long slim dagger has been left here.~
 steel~
 weapon G AN
-dagger 2 5 pierce 0
+dagger 2 5 'pierce' 0
 8 10 590 P
 A
 19 2

@@ -312,7 +312,7 @@ a nightgaunt's tickler~
 A nightgaunt's tickler has been left here.~
 dragonskin~
 weapon H AN
-whip 2 4 slime 0
+whip 2 4 'slime' 0
 7 80 540 P
 A
 19 3
@@ -403,7 +403,7 @@ a whisper thin rapier~
 A rapier is lying here.~
 steel~
 weapon B AN
-sword 4 2 pierce 0
+sword 4 2 'pierce' 0
 16 40 3500 P
 A
 18 1
@@ -497,7 +497,7 @@ a rusty curved scimitar~
 A sword has been left lying here~
 iron~
 weapon 0 AN
-sword 2 3 slash 0
+sword 2 3 'slash' 0
 3 60 370 P
 E
 rusty sword scimitar~
@@ -606,7 +606,7 @@ the pitch-black flaming longsword~
 A pitch-black long swor here~
 steel~
 weapon G AN
-sword 3 11 slash AC
+sword 3 11 'slash' AC
 28 200 2200 P
 A
 18 2

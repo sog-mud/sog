@@ -73,7 +73,7 @@ grand katana of war~
 @eng A long curved sword lying here.@rus длинный изогнутый меч лежит здесь~
 japan steel~
 weapon IMT AN
-sword 100 30 pierce D
+sword 100 30 'pierce' D
 96 10 0 P
 F A 0 0 V
 A
@@ -136,7 +136,7 @@ axe bloody amputation~
 A large axe is here, its blade stuck in the ground.~
 medicine steel~
 weapon 0 AN
-axe 9 9 chop DEI
+axe 9 9 'chop' DEI
 60 0 0 P
 G none
 #44006

@@ -1170,7 +1170,7 @@ a shiny silver sword~
 A shiny silver sword lies on the ground here.~
 silver~
 weapon G AN
-sword 4 7 slash 0
+sword 4 7 'slash' 0
 23 10 100 P
 G none
 #19004
@@ -1234,7 +1234,7 @@ a bent sword~
 A sword with a rusted, bent blade is here.~
 steel~
 weapon GHM AN
-sword 4 11 slash 0
+sword 4 11 'slash' 0
 45 10 200 P
 A
 18 -5
@@ -1285,7 +1285,7 @@ a pool cue~
 A wooden pool cue is here.~
 wood~
 weapon G AN
-mace 5 6 blast 0
+mace 5 6 'blast' 0
 25 4 100 P
 G none
 #19013
@@ -1323,7 +1323,7 @@ a small steel knife~
 A small steel knife is here.~
 steel~
 weapon G AN
-dagger 6 3 pierce 0
+dagger 6 3 'pierce' 0
 19 2 10 P
 E
 small steel dagger~
@@ -1511,7 +1511,7 @@ a unicorn's golden horn~
 A unicorn's horn is here.~
 gold~
 weapon AGK AN
-exotic 5 12 stab 0
+exotic 5 12 'stab' 0
 39 30 30000 P
 A
 18 8
@@ -1880,7 +1880,7 @@ a prism sword~
 A clear glass sword lies here, reflecting all sorts of rainbow colors.~
 glass~
 weapon G AN
-sword 4 10 slice 0
+sword 4 10 'slice' 0
 35 10 4000 P
 A
 18 5
@@ -1893,7 +1893,7 @@ a hoe~
 A hoe lies here.~
 iron~
 weapon G AN
-exotic 4 7 charge 0
+exotic 4 7 'charge' 0
 25 14 100 P
 G none
 #19066
@@ -1947,7 +1947,7 @@ a kendo~
 A long wooden staff lies here.~
 wood~
 weapon GH AN
-staff 5 9 crush D
+staff 5 9 'crush' D
 45 10 100 P
 A
 2 1
@@ -2020,7 +2020,7 @@ a pocketknife~
 A pocketknife lies here.~
 steel~
 weapon G AN
-dagger 1 6 pierce 0
+dagger 1 6 'pierce' 0
 2 2 10 P
 G none
 #19079
@@ -2080,7 +2080,7 @@ a pair of clippers~
 A pair of clippers lie here.~
 steel~
 weapon G AN
-exotic 4 4 slice 0
+exotic 4 4 'slice' 0
 25 10 10 P
 G none
 #19085
@@ -2089,7 +2089,7 @@ a thick wooden staff~
 A rough wooden staff lies here.~
 wood~
 weapon 0 AN
-staff 4 4 crush 0
+staff 4 4 'crush' 0
 19 10 0 P
 G none
 #19086
@@ -2127,7 +2127,7 @@ a gaff~
 A fisherman's gaff lies here.~
 steel~
 weapon G AN
-spear 5 6 pierce DK
+spear 5 6 'pierce' DK
 25 10 100 P
 G none
 #19090
@@ -2223,7 +2223,7 @@ some fangs~
 Someone's teeth (?) are lying here.~
 bone~
 weapon N AN
-exotic 6 6 bite 0
+exotic 6 6 'bite' 0
 35 5 100 P
 A
 19 2
@@ -2261,7 +2261,7 @@ a broken bottle~
 A broken bottle lies here.~
 glass~
 weapon G AN
-exotic 6 6 slime 0
+exotic 6 6 'slime' 0
 40 2 100 P
 A
 18 -5
@@ -2318,7 +2318,7 @@ a horn of bone~
 A unicorn's bony horn lies here.~
 bone~
 weapon EGHJ AN
-exotic 6 7 pierce 0
+exotic 6 7 'pierce' 0
 45 5 100 P
 A
 1 -1
@@ -2366,7 +2366,7 @@ an eclipse sword~
 A sword of pure obsidian lies here, seeming to swallow up the rays of light.~
 obsidian~
 weapon FGHJM AN
-sword 5 10 slash DG
+sword 5 10 'slash' DG
 35 20 20000 P
 A
 13 -50
@@ -2608,7 +2608,7 @@ a blood-red dagger~
 A blood-red dagger lies here.~
 steel~
 weapon EGJ AN
-dagger 6 10 pierce AD
+dagger 6 10 'pierce' AD
 45 10 10000 P
 A
 19 15
@@ -2998,7 +2998,7 @@ taliesin~
 A beautiful sword lies here.~
 gold~
 weapon GM AN
-sword 5 9 slash 0
+sword 5 9 'slash' 0
 45 0 1000 P
 A
 13 50

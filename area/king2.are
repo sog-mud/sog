@@ -481,7 +481,7 @@ sapowox's Universal Nothingness~
 You are quite unable to perceive Sapowox's Universal Nothingness here.~
 nothingness~
 weapon BGM AN
-exotic 6 7 peck 0
+exotic 6 7 'peck' 0
 45 70 16750 G
 A
 18 2
@@ -551,7 +551,7 @@ a training sword~
 A training sword with blunt edges is leaned against a wall.~
 iron~
 weapon G AN
-sword 5 8 scratch 0
+sword 5 8 'scratch' 0
 35 70 9000 G
 A
 18 -2
@@ -659,7 +659,7 @@ a large broadsword~
 There is a large broadsword lying here.~
 steel~
 weapon 0 AN
-sword 5 10 pierce 0
+sword 5 10 'pierce' 0
 50 140 27216 G
 G none
 #15216
@@ -686,7 +686,7 @@ a large flail~
 There is a large flail lying here.~
 steel~
 weapon 0 AN
-flail 5 7 pound 0
+flail 5 7 'pound' 0
 35 140 16216 G
 G none
 #15219
@@ -695,7 +695,7 @@ a large halberd named "Protector"~
 There is a large halberd named "Protector" lying here.~
 steel~
 weapon G AN
-polearm 5 10 stab 0
+polearm 5 10 'stab' 0
 48 140 19716 G
 A
 18 2
@@ -730,7 +730,7 @@ a short broadsword~
 There is a short broadsword lying here.~
 steel~
 weapon 0 AN
-sword 5 8 pierce 0
+sword 5 8 'pierce' 0
 40 140 17276 G
 G none
 #15223
@@ -752,7 +752,7 @@ the Executioner's evil weapon~
 There is a big evil weapon lying here.~
 steel~
 weapon 0 AN
-exotic 6 11 blast CG
+exotic 6 11 'blast' CG
 60 400 3284 G
 G none
 #15225

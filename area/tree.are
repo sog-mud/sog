@@ -241,7 +241,7 @@ a body-wrecker~
 A body-wrecker polearm lies here.~
 steel~
 weapon 0 AN
-polearm 5 6 cleave 0
+polearm 5 6 'cleave' 0
 23 270 6334 G
 G none
 #2901
@@ -250,7 +250,7 @@ a huge hammer of cold iron~
 A hammer of iron with silver and nickel detail lies here.~
 iron~
 weapon EJ AN
-mace 5 9 pound 0
+mace 5 9 'pound' 0
 38 250 16400 G
 G none
 #2902
@@ -259,7 +259,7 @@ a holy bastard sword~
 A beautiful sword lies on the ground here.~
 steel~
 weapon AGIK AN
-sword 5 7 pierce 0
+sword 5 7 'pierce' 0
 28 190 9000 G
 A
 13 25

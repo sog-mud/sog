@@ -286,7 +286,7 @@ a hammer~
 There is a dwarven hammer laying here.~
 iron wood~
 weapon 0 AN
-mace 4 5 pound 0
+mace 4 5 'pound' 0
 17 30 880 P
 G none
 #6505
@@ -322,7 +322,7 @@ dwarven club~
 There is a dwarven club laying here.~
 wood~
 weapon 0 AN
-mace 2 7 pound 0
+mace 2 7 'pound' 0
 10 10 510 P
 G none
 #6509
@@ -331,7 +331,7 @@ a two-handed dwarven axe~
 A two-handed Dwarven axe is here.~
 wood steel~
 weapon 0 AN
-axe 3 7 cleave F
+axe 3 7 'cleave' F
 17 50 4100 P
 A
 1 2
@@ -422,7 +422,7 @@ a mining pick~
 There is a mining pick here.~
 iron wood~
 weapon I AN
-axe 2 3 pierce 0
+axe 2 3 'pierce' 0
 3 10 240 P
 G none
 #6519

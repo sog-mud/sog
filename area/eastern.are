@@ -259,7 +259,7 @@ a small mining pick~
 A small mining pick made of what appears to be silver lies on the ground.~
 wood silver-iron~
 weapon J AN
-axe 1 9 pierce 0
+axe 1 9 'pierce' 0
 5 30 320 P
 G none
 #5001
@@ -281,7 +281,7 @@ the halberd~
 A mighty halberd lies against the wall.~
 steel~
 weapon GI AN
-polearm 3 14 cleave F
+polearm 3 14 'cleave' F
 29 160 1620 P
 A
 19 3
@@ -305,7 +305,7 @@ a large leg bone~
 A large leg bone rests on the ground.~
 bone~
 weapon 0 AN
-mace 1 4 pound 0
+mace 1 4 'pound' 0
 0 50 140 P
 G none
 #5006
@@ -406,7 +406,7 @@ a long, curved sabre~
 A long, curved sabre stands upright in the ground.~
 steel~
 weapon L AN
-sword 3 7 slash 0
+sword 3 7 'slash' 0
 16 70 1410 P
 A
 18 3
@@ -419,7 +419,7 @@ a curved scimitar~
 A curved scimitar lies at your feet.~
 steel~
 weapon L AN
-sword 2 8 slash 0
+sword 2 8 'slash' 0
 12 60 990 P
 A
 18 2
@@ -432,7 +432,7 @@ a long, pointed cutlass~
 A long, pointed cutlass lies here.~
 adamantite~
 weapon L AN
-sword 3 6 slash 0
+sword 3 6 'slash' 0
 12 50 930 P
 G none
 #5019
@@ -459,7 +459,7 @@ a strange energy bow~
 A strange energy bow lies here.~
 unknown~
 weapon ABGI AN
-bow 5 5 blast 0
+bow 5 5 'blast' 0
 21 200 2600 P
 G none
 #5022

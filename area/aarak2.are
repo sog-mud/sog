@@ -832,7 +832,7 @@ a sword~
 You see a sword here.~
 steel~
 weapon AG AN
-sword 5 6 pierce 0
+sword 5 6 'pierce' 0
 25 100 1000 P
 A
 18 3
@@ -845,7 +845,7 @@ a mace~
 You see a mace here.~
 bronze~
 weapon AG AN
-mace 5 7 crush 0
+mace 5 7 'crush' 0
 27 100 3000 P
 A
 18 3
@@ -1160,7 +1160,7 @@ a small mace~
 You see a small mace here.~
 wood~
 weapon 0 AN
-mace 5 5 pound 0
+mace 5 5 'pound' 0
 16 10 999 G
 A
 18 1
@@ -1173,7 +1173,7 @@ a small rat sticker~
 A small rat sticker would come in handy, and there is one here.~
 rubber~
 weapon 0 AN
-mace 5 5 pound 0
+mace 5 5 'pound' 0
 15 100 8880 G
 A
 17 -5
@@ -1192,7 +1192,7 @@ a large rat sticker~
 A large rat sticker causes you to dream of a large rat dinner.~
 rubber~
 weapon 0 AN
-mace 5 5 pound 0
+mace 5 5 'pound' 0
 17 140 7770 G
 A
 18 1

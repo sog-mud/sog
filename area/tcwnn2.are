@@ -326,7 +326,7 @@ an ornate Longsword~
 An ornate Longsword is lying here.~
 copper~
 weapon G AN
-sword 5 11 pierce 0
+sword 5 11 'pierce' 0
 50 25 500 P
 A
 18 4
@@ -451,7 +451,7 @@ a finely-made broadsword~
 A knight's broadsword lies here.~
 copper~
 weapon AGK AN
-sword 5 13 slash 0
+sword 5 13 'slash' 0
 58 10 580 P
 A
 18 8
@@ -570,7 +570,7 @@ a crossbow~
 A finely-crafted crossbow lies here.~
 copper~
 weapon 0 AP
-bow 5 11 pierce 0
+bow 5 11 'pierce' 0
 48 10 480 P
 A
 18 6
@@ -704,7 +704,7 @@ a belaying pin~
 A belaying pin lies here.~
 copper~
 weapon 0 AN
-exotic 3 5 pound 0
+exotic 3 5 'pound' 0
 8 5 80 P
 G none
 #31232
@@ -787,7 +787,7 @@ a cutlass~
 A cutlass lies here.~
 copper~
 weapon 0 AN
-exotic 3 5 slash 0
+exotic 3 5 'slash' 0
 8 7 80 P
 G none
 #31241

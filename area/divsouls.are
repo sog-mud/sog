@@ -2524,7 +2524,7 @@ a diamond longsword~
 A diamond longsword gleams sharply in the light.~
 diamond~
 weapon A AN
-sword 7 10 cleave 0
+sword 7 10 'cleave' 0
 63 370 5650 P
 A
 19 4
@@ -2554,7 +2554,7 @@ a pair of pruning shears~
 A pair of pruning shears lie here.~
 metal~
 weapon 0 AN
-exotic 10 7 stab 0
+exotic 10 7 'stab' 0
 70 370 1000 P
 A
 19 3
@@ -2580,7 +2580,7 @@ a sculptor's chisel~
 The sharp chisel of a master sculptor lies here.~
 diamond~
 weapon 0 AN
-dagger 9 8 pierce D
+dagger 9 8 'pierce' D
 68 250 4500 P
 A
 19 3
@@ -2833,7 +2833,7 @@ a deathblade~
 A dark blade lies here, dripping with the blood of the slain.~
 adamantite~
 weapon BJ AN
-sword 8 9 drain C
+sword 8 9 'drain' C
 65 420 4500 P
 A
 19 2
@@ -2859,7 +2859,7 @@ a blood drenched dagger~
 A sharp dagger gleams with fresh blood.~
 obsidian~
 weapon AJ AN
-dagger 7 10 pierce D
+dagger 7 10 'pierce' D
 65 250 2550 P
 A
 19 4
@@ -2913,7 +2913,7 @@ fang of the vampire~
 The bloody fang of a vampire lies here.~
 bone~
 weapon B AN
-dagger 8 10 pierce CD
+dagger 8 10 'pierce' CD
 70 250 4300 P
 A
 19 4
@@ -3123,7 +3123,7 @@ a sliver of darkness~
 A sliver of darkness glimmers here.~
 shadow~
 weapon C AN
-dagger 13 6 pierce D
+dagger 13 6 'pierce' D
 70 250 6230 P
 A
 19 4
@@ -3183,7 +3183,7 @@ Shadow's Edge~
 A dark stiletto blends in with its surroundings.~
 shadow~
 weapon C AN
-dagger 15 8 pierce CD
+dagger 15 8 'pierce' CD
 87 250 6650 P
 A
 19 6
@@ -3432,7 +3432,7 @@ a brilliant red tailfeather~
 A long red feather gleams brightly.~
 feathers~
 weapon A AN
-spear 10 10 pierce DGK
+spear 10 10 'pierce' DGK
 80 380 3450 P
 A
 19 5
@@ -3691,7 +3691,7 @@ a crimson hilted stiletto~
 An adamantite stiletto with a hilt the color of dark blood gleams here.~
 adamantite~
 weapon AC AN
-dagger 10 15 pierce CD
+dagger 10 15 'pierce' CD
 90 180 12500 P
 A
 19 25
@@ -3924,7 +3924,7 @@ an adamantite shortsword~
 An adamantite shortsword lies here, gleaming wickedly.~
 adamantite~
 weapon C AN
-sword 10 10 pierce D
+sword 10 10 'pierce' D
 80 220 5500 P
 A
 19 6
@@ -3937,7 +3937,7 @@ an adamantite kris~
 A sharp adamantite kris is here.~
 adamantite~
 weapon C AN
-dagger 10 8 pierce D
+dagger 10 8 'pierce' D
 73 150 5000 P
 A
 19 5
@@ -3950,7 +3950,7 @@ an adamantite stiletto~
 A well tempered adamantite stiletto lies here.~
 adamantite~
 weapon C AN
-dagger 10 7 pierce 0
+dagger 10 7 'pierce' 0
 65 150 4700 P
 A
 19 5
@@ -3963,7 +3963,7 @@ an adamantite throwing knife~
 A sharp blue black knife gleams here.~
 adamantite~
 weapon C AN
-dagger 9 6 pierce HK
+dagger 9 6 'pierce' HK
 55 150 4500 P
 A
 19 4
@@ -3976,7 +3976,7 @@ an adamantite dagger~
 A long dagger forged of adamantite lies here.~
 adamantite~
 weapon C AN
-dagger 5 11 pierce 0
+dagger 5 11 'pierce' 0
 49 150 4000 P
 A
 19 4

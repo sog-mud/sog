@@ -612,7 +612,7 @@ a polearm~
 A battered Orcish polearm is here.~
 iron~
 weapon 0 AN
-polearm 2 9 slash 0
+polearm 2 9 'slash' 0
 10 130 350 P
 A
 18 -2
@@ -821,7 +821,7 @@ a chair leg~
 A chair leg that has been fashioned into a crude club is here.~
 iron~
 weapon 0 AN
-exotic 3 5 chop 0
+exotic 3 5 'chop' 0
 7 10 10 P
 A
 18 -1
@@ -852,7 +852,7 @@ a wicked-looking knife~
 A wicked-looking knife is here.~
 iron~
 weapon 0 AN
-dagger 3 5 pierce 0
+dagger 3 5 'pierce' 0
 9 130 570 P
 A
 19 4
@@ -944,7 +944,7 @@ a wooden mallet~
 A wooden mallet is here.~
 wood~
 weapon 0 AN
-mace 3 5 slash 0
+mace 3 5 'slash' 0
 12 75 10 P
 E
 mallet~
@@ -957,7 +957,7 @@ a stump of wood~
 A stump of wood sharpened into a stake is here.~
 wood~
 weapon 0 AN
-exotic 2 8 cleave 0
+exotic 2 8 'cleave' 0
 11 15 10 P
 E
 stump stake~
@@ -1005,7 +1005,7 @@ a crude stone club~
 A crude stone club lies here.~
 stone~
 weapon 0 AN
-mace 3 6 crush 0
+mace 3 6 'crush' 0
 12 130 1500 P
 A
 18 -4
@@ -1022,7 +1022,7 @@ a piece of y-shaped wood~
 This would make an excellent frame for a slingshot. ~
 wood~
 weapon 0 AN
-exotic 2 6 crush 0
+exotic 2 6 'crush' 0
 10 25 100 P
 A
 18 -1
@@ -1055,7 +1055,7 @@ a magnificent-looking sword~
 A magnificent-looking sword is here. Pick it up!~
 iron~
 weapon AG AN
-sword 5 5 slash 0
+sword 5 5 'slash' 0
 15 125 700 P
 A
 1 1
@@ -1091,7 +1091,7 @@ a chisel with a silver blade~
 A chisel with a silver blade is here.~
 iron~
 weapon AG AN
-dagger 4 4 pierce 0
+dagger 4 4 'pierce' 0
 12 40 600 P
 A
 19 2
@@ -1179,7 +1179,7 @@ a steel sword~
 This sword doesn't look any better than your own weapon...~
 steel~
 weapon 0 AN
-sword 4 4 slice 0
+sword 4 4 'slice' 0
 10 250 50 P
 E
 sword~
@@ -1475,7 +1475,7 @@ the Warlock's sword~
 The Warlock's sword has been dropped here.~
 iron~
 weapon GJ AN
-sword 5 6 slice C
+sword 5 6 'slice' C
 21 120 5300 P
 A
 5 -2
@@ -1546,7 +1546,7 @@ a bullwhip~
 A piece of leather nearly ten feet long has been curled up here.~
 linen~
 weapon 0 AN
-whip 3 5 whip 0
+whip 3 5 'whip' 0
 12 90 370 P
 A
 18 -2

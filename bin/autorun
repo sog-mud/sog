@@ -3,14 +3,14 @@ umask 002
 
 #
 # locale settings for FreeBSD
-#LANG=ru_RU.KOI8-R; export LANG
-LANG=koi8-r; export LANG
+LANG=ru_RU.KOI8-R; export LANG
+#LANG=koi8-r; export LANG
 LC_TIME=en_US.ISO_8859-1; export LC_TIME
 
 #
 # mud home -- all other paths and filenames are relative from $home
-#home=/usr/local/sog
-home=/home/mud
+home=/usr/local/sog
+#home=/home/mud
 
 #
 # logging control

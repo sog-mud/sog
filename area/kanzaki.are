@@ -119,7 +119,7 @@ Sword of Enforcement~
 @eng A huge two-handed sword lies here, frightening you with its size.@rus Огромный двуручный меч лежит здесь, пугая тебя своим размером.~
 mithril~
 weapon BT AN
-sword 15 11 chop DF
+sword 15 11 'chop' DF
 100 400 100000 P
 A
 18 15
@@ -146,7 +146,7 @@ holy avenger sword~
 @eng A silvery longsword shines here blindingly.@rus Длинный серебристый меч ослепительно сияет здесь.~
 silver~
 weapon AKLS AN
-sword 25 25 chop DEI
+sword 25 25 'chop' DEI
 96 0 0 P
 A
 6 22
@@ -242,7 +242,7 @@ axe battle urukhay~
 A large two-bladed battle axe lies on the ground, humming with might.~
 steel~
 weapon BHPY AN
-axe 11 12 cleave DFH
+axe 11 12 'cleave' DFH
 91 500 100 P
 A
 19 20
@@ -255,7 +255,7 @@ flamberge blaze sword~
 A huge wavy blade lies here, enshrouded in flames.~
 adamantite~
 weapon AHKLP AN
-sword 3 44 flame ADF
+sword 3 44 'flame' ADF
 91 500 10000 P
 A
 19 20
@@ -268,7 +268,7 @@ flaming sword~
 A longsword enshrouded in flames lies here.~
 steel~
 weapon AHP AN
-sword 12 10 slash AD
+sword 12 10 'slash' AD
 91 100 0 P
 A
 18 20

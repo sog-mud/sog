@@ -187,7 +187,7 @@ axe huge flaming fire orrin~
 @eng Huge {YFlaming{x Axe has been left here.@rus Orrin забыл здесь свою секиру (axe), может стоит вернуть?~
 fire~
 weapon ABKLRSTac ANP
-axe 1 9999 flame AD
+axe 1 9999 'flame' AD
 95 300 2147483647 P
 F A 19 100000 a
 F A 18 100000 a
@@ -262,7 +262,7 @@ silver stake~
 Brilliant stake lies here.~
 silver~
 weapon AGIK AN
-exotic 6 7 sting DI
+exotic 6 7 'sting' DI
 40 245 16230 P
 A
 18 8
@@ -273,7 +273,7 @@ knight's dagger of burning~
 Strange dagger lies here~
 steel~
 weapon AIY AN
-dagger 10 8 thrust AD
+dagger 10 8 'thrust' AD
 70 300 85461 P
 A
 19 7
@@ -304,7 +304,7 @@ deadly axe of might~
 @eng Large two-handed axe lies here.@rus Большой двуручный топор (axe) лежит здесь.~
 unknown~
 weapon 0 AN
-axe 6 16 grep DEF
+axe 6 16 'grep' DEF
 70 524 150000 P
 A
 19 8
@@ -317,7 +317,7 @@ club~
 Dimly log lies here.~
 wood~
 weapon 0 AN
-mace 7 3 pound 0
+mace 7 3 'pound' 0
 15 10 1000 P
 G female
 #18714
@@ -326,7 +326,7 @@ axe~
 Tiny axe has been left on the ground.~
 unknown~
 weapon 0 AN
-axe 6 3 claw 0
+axe 6 3 'claw' 0
 5 50 1000 P
 G male
 #18715
@@ -344,7 +344,7 @@ sword~
 Small sword lies here.~
 unknown~
 weapon 0 AN
-sword 3 6 slash 0
+sword 3 6 'slash' 0
 5 20 1000 P
 G male
 #18717
@@ -353,7 +353,7 @@ rusty nail~
 Rusty nail lies on the ground.~
 iron~
 weapon 0 AN
-whip 2 9 scratch 0
+whip 2 9 'scratch' 0
 3 0 900 P
 G male
 #18718
@@ -377,7 +377,7 @@ ice dagger~
 A small graceful dagger lies here.~
 ice~
 weapon 0 AN
-dagger 5 7 chill B
+dagger 5 7 'chill' B
 20 0 25678 P
 G male
 #18720
@@ -386,7 +386,7 @@ flaming mace~
 flaming mace lies here.~
 fire~
 weapon AB AN
-mace 7 5 flame AD
+mace 7 5 'flame' AD
 25 0 32536 P
 G male
 #18721
@@ -395,7 +395,7 @@ slime~
 A big piece of slime passes here.~
 acid~
 weapon BCM AN
-exotic 8 6 slime DH
+exotic 8 6 'slime' DH
 35 0 150000 P
 A
 18 5
@@ -408,7 +408,7 @@ Blackjade's head~
 Blackjade's head float in the air.~
 flesh~
 weapon EHZ AN
-exotic 13 10 kiss DG
+exotic 13 10 'kiss' DG
 80 200 100000 P
 A
 8 2

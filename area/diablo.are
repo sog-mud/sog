@@ -98,7 +98,7 @@ tooth~
 @eng A tooth of piranha lies here.@rus Сломаный зуб (tooth) пираньи лежит здесь.~
 unknown~
 weapon FH AN
-spear 10 11 pierce DHK
+spear 10 11 'pierce' DHK
 75 150 1000 P
 G none
 #33302
@@ -124,7 +124,7 @@ pole fishing~
 @eng A broken fishing pole lies here.@rus Сломаная удочка (fishing pole) плавает в воде.~
 wood~
 weapon 0 AN
-mace 11 10 pound 0
+mace 11 10 'pound' 0
 75 50 324 P
 G none
 #33304

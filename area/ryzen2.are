@@ -312,7 +312,7 @@ a Spinagon's spear~
 A long spear with a wickedly sharp blade.~
 mithril~
 weapon EG AN
-spear 5 8 thrust DEFHK
+spear 5 8 'thrust' DEFHK
 35 9 1300 P
 A
 19 6
@@ -364,7 +364,7 @@ a silver longsword~
 A silver longsword covered in mystical battle runes lies here~
 silver~
 weapon GI AN
-sword 5 5 slash D
+sword 5 5 'slash' D
 23 4 1350 P
 A
 18 1

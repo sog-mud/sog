@@ -86,7 +86,7 @@ a chaos blade~
 A shiny gold dagger is on the ground.~
 gold~
 weapon AIPTW AN
-dagger 6 6 pierce D
+dagger 6 6 'pierce' D
 20 200 0 P
 G none
 #95504

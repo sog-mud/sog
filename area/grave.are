@@ -163,7 +163,7 @@ a shovel~
 A shovel is lying here.~
 iron ebony~
 weapon 0 AN
-mace 1 5 pound 0
+mace 1 5 'pound' 0
 0 80 169 P
 E
 shovel~
@@ -176,7 +176,7 @@ a rake~
 A rake is lying here.~
 unknown~
 weapon 0 AN
-mace 1 4 claw 0
+mace 1 4 'claw' 0
 0 80 140 P
 E
 rake~
@@ -234,7 +234,7 @@ a silver dagger~
 A long silver dagger is lying here.~
 silver~
 weapon 0 AN
-dagger 2 4 pierce 0
+dagger 2 4 'pierce' 0
 6 10 430 P
 A
 19 1

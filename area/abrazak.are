@@ -246,7 +246,7 @@ Abrazak's mace~
 abrazak's mace~
 divinity~
 weapon 0 AN
-mace 2000 2000 stab BCDEGHI
+mace 2000 2000 'stab' BCDEGHI
 100 0 0 P
 S 'critical strike' 1000 0
 S 'resistance' 500 0
@@ -261,7 +261,7 @@ scythe~
 {DScythe{x~
 unknown~
 weapon RYa ANP
-dagger 10000 10000 pierce ABCDEGHI
+dagger 10000 10000 'pierce' ABCDEGHI
 99 0 0 P
 A
 19 100000
@@ -337,7 +337,7 @@ G none
 @eng A strange staff is lying here.@rus Странного вида посох (staff) оставлен кем-то.~
 wood~
 weapon GI AN
-staff 10 20 none 0
+staff 10 20 'none' 0
 95 0 0 P
 G none
 #15018
@@ -386,7 +386,7 @@ shtuchka~
 shtuchka~
 unknown~
 weapon 0 AN
-exotic 0 0 none 0
+exotic 0 0 'none' 0
 10 0 0 P
 S 'vampire' 100 A
 G none

@@ -721,7 +721,7 @@ A locust stinger~
 A large barbed sting is here.~
 stone~
 weapon EQ AN
-dagger 6 20 pierce GH
+dagger 6 20 'pierce' GH
 91 6 4500 G
 A
 18 10
@@ -780,7 +780,7 @@ A golden sickle~
 A golden sickle is here.~
 gold~
 weapon GIKL AN
-exotic 10 10 slice E
+exotic 10 10 'slice' E
 80 45 3500 P
 A
 19 5
@@ -828,7 +828,7 @@ The white bow of the conquerer~
 A great white bow lies here.~
 admantite~
 weapon EJM AN
-bow 10 10 blast AFH
+bow 10 10 'blast' AFH
 85 10 12000 P
 A
 19 5
@@ -854,7 +854,7 @@ The sword of war~
 A great two-handed sword lies here.~
 admantite~
 weapon EJM AN
-sword 11 12 slash DEFH
+sword 11 12 'slash' DEFH
 85 20 14000 P
 A
 19 10
@@ -918,7 +918,7 @@ The scythe of the Grim reaper~
 An unholy scythe, devours the light here.~
 unknown~
 weapon CEFJMQ AN
-polearm 11 10 cleave CDFH
+polearm 11 10 'cleave' CDFH
 85 20 14000 P
 A
 19 10
@@ -931,7 +931,7 @@ The holy lance of archangel Michael~
 A lance hums with a heavenly aura.~
 admantite~
 weapon ABGIKMS AN
-lance 12 10 pierce A
+lance 12 10 'pierce' A
 91 15 20000 P
 A
 19 10
@@ -1077,7 +1077,7 @@ The sharp, two-edged sword of the mouth~
 A huge two handed sword lies here.~
 admantite~
 weapon IKLM AN
-sword 3 43 slash DF
+sword 3 43 'slash' DF
 91 30 25000 P
 G none
 #14031

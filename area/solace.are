@@ -916,7 +916,7 @@ a black hilted sword called, "Doomgiver"~
 A black hilted sword with engravings on the blade lie here.~
 copper~
 weapon FG AN
-sword 5 7 slice 0
+sword 5 7 'slice' 0
 30 30 300 P
 A
 18 5
@@ -980,7 +980,7 @@ a black hilted sword called, "Dragonslicer"~
 A black hilted sword with engravings on the blade lie here.~
 copper~
 weapon FG AN
-sword 5 7 slice 0
+sword 5 7 'slice' 0
 28 30 280 P
 A
 18 2
@@ -1124,7 +1124,7 @@ black hilted sword called, "Shieldbreaker"~
 A black hilted sword with engravings on the blade lie here.~
 copper~
 weapon BFGM AN
-sword 5 6 pierce 0
+sword 5 6 'pierce' 0
 27 35 270 P
 A
 13 50
@@ -1254,7 +1254,7 @@ a red steel warhammer called, "Mage Masher"~
 A red steel warhammer with engravings on the head lies here.~
 copper~
 weapon BG AN
-mace 5 5 crush 0
+mace 5 5 'crush' 0
 20 35 200 P
 A
 18 4
@@ -1288,7 +1288,7 @@ enchanted longsword~
 A blade with runes etched in it is on the floor.~
 copper~
 weapon G AN
-sword 4 5 none 0
+sword 4 5 'none' 0
 15 7 150 P
 A
 18 2
@@ -1301,7 +1301,7 @@ enchanted hammer~
 A hammer with runes etched in it is on the floor.~
 copper~
 weapon G AN
-mace 4 5 none 0
+mace 4 5 'none' 0
 15 12 150 P
 A
 18 2
@@ -1312,7 +1312,7 @@ enchanted pike~
 A polearm with runes etched in it is on the floor.~
 copper~
 weapon G AN
-polearm 4 5 none 0
+polearm 4 5 'none' 0
 15 15 150 P
 A
 18 2
@@ -1410,7 +1410,7 @@ taxes and fines~
 A bunch of taxes and fines are here waiting to take your money.~
 copper~
 weapon 0 AN
-exotic 5 4 suction 0
+exotic 5 4 'suction' 0
 17 40 170 P
 A
 15 -10000
@@ -1421,7 +1421,7 @@ enchanted two-handed sword~
 A large two-handed sword with runes etched in it is on the floor.~
 copper~
 weapon G AN
-sword 6 6 magic F
+sword 6 6 'magic' F
 16 30 160 P
 A
 18 4
@@ -1594,7 +1594,7 @@ a frozen asparagus spear~
 A frozen asparagus spear is on the ground melting.~
 copper~
 weapon 0 AN
-spear 3 5 none K
+spear 3 5 'none' K
 10 15 100 P
 A
 18 1
@@ -1715,7 +1715,7 @@ travellers dagger~
 A small dagger is here. It looks like the kind alot of travellers carry.~
 copper~
 weapon 0 AN
-dagger 4 4 pierce 0
+dagger 4 4 'pierce' 0
 12 10 120 P
 G none
 #10284
@@ -1760,7 +1760,7 @@ a travellers sword~
 You see a travellers sword here.~
 copper~
 weapon G AN
-sword 5 4 slash 0
+sword 5 4 'slash' 0
 16 5 160 P
 G none
 #10289
@@ -1787,7 +1787,7 @@ a travellers hammer~
 You see a travellers hammer here.~
 copper~
 weapon 0 AN
-mace 5 5 none 0
+mace 5 5 'none' 0
 19 5 190 P
 G none
 #10292

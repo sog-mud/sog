@@ -582,7 +582,7 @@ a fiery dagger~
 A dagger made of fire crackles mysteriously here.~
 unknown~
 weapon A AN
-dagger 5 6 pierce A
+dagger 5 6 'pierce' A
 29 20 2800 P
 A
 19 4
@@ -626,7 +626,7 @@ a sparking lightning sword~
 A lightning bolt fashioned into a sword spits sparks here.~
 unknown~
 weapon AB AN
-sword 5 5 slash G
+sword 5 5 'slash' G
 25 100 2200 P
 A
 19 3
@@ -769,7 +769,7 @@ a stone club~
 A large stone club lies on the ground.~
 stone~
 weapon 0 AN
-mace 3 7 pound F
+mace 3 7 'pound' F
 13 160 730 P
 A
 19 1
@@ -829,7 +829,7 @@ a flame lance~
 A lance of blue flame burns the ground around it.~
 flame~
 weapon A AN
-lance 2 15 thrust A
+lance 2 15 'thrust' A
 29 140 220 P
 A
 18 3
@@ -842,7 +842,7 @@ an icicle~
 A glowing icicle dagger lies here amid a patch of frost.~
 ice~
 weapon A AN
-dagger 6 4 pierce B
+dagger 6 4 'pierce' B
 28 10 1630 P
 A
 1 -1
@@ -855,7 +855,7 @@ the avalanche~
 An avalanche is about to crush you!~
 unknown~
 weapon 0 AN
-exotic 1 25 blast 0
+exotic 1 25 'blast' 0
 24 160 3000 P
 A
 18 -1
@@ -866,7 +866,7 @@ the morning star~
 A chain with a star on the end lies here.~
 wood~
 weapon A AN
-flail 6 4 crush 0
+flail 6 4 'crush' 0
 23 110 3300 P
 A
 17 -6
@@ -879,7 +879,7 @@ the Shock Whip~
 A whip hums innocently too itself.~
 leather~
 weapon B AN
-whip 3 8 stab 0
+whip 3 8 'stab' 0
 20 100 64 P
 A
 1 -2

@@ -853,7 +853,7 @@ a wooden mallet~
 A wooden mallet is here.~
 wood~
 weapon 0 AN
-mace 8 10 crush 0
+mace 8 10 'crush' 0
 90 10 7000 P
 A
 18 -1
@@ -978,7 +978,7 @@ a cutlass~
 An arm-length curved sword is here.~
 steel~
 weapon 0 AN
-sword 7 8 slash 0
+sword 7 8 'slash' 0
 54 6 3000 P
 A
 18 5
@@ -1360,7 +1360,7 @@ a throwing dagger~
 A well balanced blue metal throwing dagger is here.~
 metal~
 weapon GQ AN
-dagger 5 10 pierce K
+dagger 5 10 'pierce' K
 50 2 1000 P
 A
 18 8
@@ -1444,7 +1444,7 @@ a garrote wire~
 A long piece of wire lies on the ground.~
 metal~
 weapon 0 AN
-whip 10 9 grep 0
+whip 10 9 'grep' 0
 80 1 1000 P
 G none
 #17060
@@ -1462,7 +1462,7 @@ a mighty two handed battle axe~
 A mighty two handed battle axe lies neglected in the dirt.~
 steel~
 weapon 0 AN
-axe 11 11 chop DEF
+axe 11 11 'chop' DEF
 88 45 9000 P
 A
 19 10
@@ -1499,7 +1499,7 @@ Frostbite sword winter~
 A long bastard sword made of ice lies here melting.~
 ice~
 weapon DFL AN
-sword 10 13 frbite 0
+sword 10 13 'frbite' 0
 90 30 0 P
 A
 1 -2

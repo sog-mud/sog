@@ -153,7 +153,7 @@ a 4 Foot Blue Glass Graffix(R)~
 A Beautiful Blue Glass Bong has a full bowl of weed.~
 glass~
 weapon AJ AN
-exotic 6 9 suction 0
+exotic 6 9 'suction' 0
 60 7 7200 P
 A
 18 10
@@ -197,7 +197,7 @@ a Bowl~
 An ornate bowl with a clear red chamber for resinating bud.~
 ~
 weapon AK AN
-exotic 6 9 suction 0
+exotic 6 9 'suction' 0
 54 6 12000 P
 A
 13 10

@@ -1083,7 +1083,7 @@ a mithril hammer~
 A mithril hammer has been left here~
 mithril~
 weapon G AN
-mace 3 6 pound 0
+mace 3 6 'pound' 0
 12 190 1410 P
 A
 18 2
@@ -1114,7 +1114,7 @@ a long sword~
 A long sword has been left here.~
 steel~
 weapon 0 AN
-sword 1 8 slash 0
+sword 1 8 'slash' 0
 6 80 720 P
 A
 18 1
@@ -1127,7 +1127,7 @@ a silver dagger~
 A finely crafted dagger made of silver is on the ground here.~
 silver~
 weapon 0 AN
-dagger 4 3 pierce 0
+dagger 4 3 'pierce' 0
 10 50 970 P
 A
 18 2
@@ -1140,7 +1140,7 @@ a curved scimitar~
 A curved scimitar is here in a jewel-covered sheath.~
 iron~
 weapon 0 AN
-sword 3 7 slash 0
+sword 3 7 'slash' 0
 13 100 990 P
 A
 13 3
@@ -1151,7 +1151,7 @@ a wooden staff~
 A wooden staff is against the wall here.~
 wood~
 weapon 0 AN
-staff 1 4 crush 0
+staff 1 4 'crush' 0
 0 60 42 P
 G none
 #1321
@@ -1423,7 +1423,7 @@ a meat cleaver~
 A meat cleaver is sticking in the wall here.~
 mithril~
 weapon 0 AN
-dagger 4 5 cleave D
+dagger 4 5 'cleave' D
 17 20 840 P
 G none
 #1356
@@ -1445,7 +1445,7 @@ a silvery dagger~
 A long dagger that seems to be made of silver is here.~
 silver~
 weapon G AN
-dagger 4 5 pierce 0
+dagger 4 5 'pierce' 0
 15 10 910 P
 A
 18 1
@@ -1619,7 +1619,7 @@ a runed chisel~
 A runed chisel is here.~
 diamond~
 weapon AG AN
-dagger 3 6 pierce 0
+dagger 3 6 'pierce' 0
 20 60 2100 P
 A
 2 1
@@ -1672,7 +1672,7 @@ a huge spiked club~
 A huge spiked club has been left here.~
 oak~
 weapon 0 AN
-mace 3 5 crush 0
+mace 3 5 'crush' 0
 15 290 750 P
 G none
 #1382
@@ -1726,7 +1726,7 @@ an iron shod staff~
 A grey piece of wood shod in iron has been left here.~
 wood~
 weapon G AN
-staff 4 8 pound F
+staff 4 8 'pound' F
 27 70 1280 P
 A
 18 3
@@ -1785,7 +1785,7 @@ a sharp shard of obsidian~
 A piece of black glass is here.~
 obsidian~
 weapon J AN
-dagger 4 8 slice 0
+dagger 4 8 'slice' 0
 29 80 2500 P
 A
 19 3
@@ -1833,7 +1833,7 @@ an ivory hilted dagger~
 An ivory hilted dagger has been left here~
 mithril~
 weapon GIK AN
-dagger 4 7 pierce 0
+dagger 4 7 'pierce' 0
 27 10 2100 P
 A
 18 1
@@ -1910,7 +1910,7 @@ the ebony kris~
 A wavy bladed knife made of ebony is here.~
 ebony~
 weapon G AN
-dagger 6 7 pierce D
+dagger 6 7 'pierce' D
 46 30 10700 P
 A
 2 2

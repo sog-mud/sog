@@ -42,7 +42,7 @@ bone club~
 @eng You see a large club made of bone here.@rus Большая дубина из кости лежит здесь.~
 bone~
 weapon C AN
-mace 7 6 crush 0
+mace 7 6 'crush' 0
 20 0 0 P
 A
 18 -2
