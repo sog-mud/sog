@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.26 1998-06-20 20:53:27 fjoe Exp $
+ * $Id: save.c,v 1.27 1998-06-21 13:12:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -100,7 +100,7 @@ void	fread_obj	args((CHAR_DATA *ch,  FILE *fp));
 
 void save_char_obj(CHAR_DATA *ch)
 {
-	char strsave[MAX_INPUT_LENGTH];
+	char strsave[PATH_MAX];
 	FILE *fp;
 
 	if (IS_NPC(ch) || ch->level < 2)
@@ -113,7 +113,8 @@ void save_char_obj(CHAR_DATA *ch)
 	if (IS_IMMORTAL(ch) || ch->level >= LEVEL_IMMORTAL)
 	{
 		fclose(fpReserve);
-		sprintf(strsave, "%s%s",GOD_DIR, capitalize(ch->name));
+		snprintf(strsave, sizeof(strsave),
+			 "%s%s", GOD_DIR, capitalize(ch->name));
 		if ((fp = fopen(strsave,"w")) == NULL)
 		{
 			bug("Save_char_obj: fopen",0);
@@ -130,7 +131,8 @@ void save_char_obj(CHAR_DATA *ch)
 	}
 
 	fclose(fpReserve);
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(ch->name));
+	snprintf(strsave, sizeof(strsave),
+		 "%s%s", PLAYER_DIR, capitalize(ch->name));
 	if ((fp = fopen(TEMP_FILE, "w")) == NULL)
 	{
 		bug("Save_char_obj: fopen", 0);
@@ -608,8 +610,7 @@ void add_race_skills(CHAR_DATA* ch, int race);
  */
 bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 {
-	char strsave[MAX_INPUT_LENGTH];
-	char buf[100];
+	char strsave[PATH_MAX];
 	CHAR_DATA *ch;
 	FILE *fp;
 	bool found;
@@ -680,15 +681,17 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	fclose(fpReserve);
 	
 	/* decompress if .gz file exists */
-	sprintf(strsave, "%s%s%s", PLAYER_DIR, capitalize(name),".gz");
-	if ((fp = fopen(strsave, "r")) != NULL)
-	{
+	snprintf(strsave, sizeof(strsave),
+		 "%s%s%s", PLAYER_DIR, capitalize(name),".gz");
+	if ((fp = fopen(strsave, "r")) != NULL) {
+		char buf[PATH_MAX*2];
 		fclose(fp);
-		sprintf(buf,"gzip -dfq %s",strsave);
+		snprintf(buf, sizeof(buf), "gzip -dfq %s", strsave);
 		system(buf);
 	}
 
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(name));
+	snprintf(strsave, sizeof(strsave),
+		 "%s%s", PLAYER_DIR, capitalize(name));
 	if ((fp = fopen(strsave, "r")) != NULL)
 	{
 		int iNest;
@@ -825,8 +828,7 @@ void fread_char(CHAR_DATA *ch, FILE *fp)
 	int percent;
 
 
-	sprintf(buf,"Loading %s.",ch->name);
-	log(buf);
+	log_printf(buf,"Loading %s.",ch->name);
 	ch->pcdata->bank_s = 0;
 	ch->pcdata->bank_g = 0;
 
