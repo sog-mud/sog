@@ -23,9 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_colors.c,v 1.5.2.1 1999-12-16 12:40:06 fjoe Exp $
+ * $Id: comm_colors.c,v 1.5.2.2 2000-02-02 05:00:32 fjoe Exp $
  */
 
+#include <stdio.h>
 #include <string.h>
 
 #include "typedef.h"
@@ -57,6 +58,9 @@ enum {
 	COLOR_BEEP,
 	COLOR_CR,
 	COLOR_LF,
+	COLOR_LT,
+	COLOR_GT,
+	COLOR_AMP,
 
 	COLOR_MAX
 };
@@ -95,7 +99,10 @@ FORMAT_DATA format_table[] =
 			str_empty,	/* special colors */
 			str_empty,
 			str_empty,
-			"\n\r"
+			"\n\r",
+			"<",
+			">",
+			"&"
 		}
 	},
 
@@ -123,6 +130,9 @@ FORMAT_DATA format_table[] =
 			"\007",
 			str_empty,
 			"\n\r",
+			"<",
+			">",
+			"&"
 		}
 	},
 
@@ -149,12 +159,17 @@ FORMAT_DATA format_table[] =
 			"<FONT COLOR=#C0C0C0>",
 			str_empty,
 			str_empty,
-			"\n"
+			"\n",
+			"&lt;",
+			"&gt;",
+			"&amp;"
 		}
 	},
 
 	{ NULL }
 };
+
+static const char special_symbols[] = "\r\n;<>";
 
 /*
  * Parse color symbols. len MUST BE > 1
@@ -165,8 +180,7 @@ void parse_colors(const char *i, char *o, size_t len, int format)
 
 	reset_color = curr_color = COLOR_CLEAR;
 	for (p = o; *i && p - o < len - 1; i++) {
-		if (*i == '\r'
-		||  *i == '\n'
+		if (strchr(special_symbols, *i) != NULL
 		||  (*i == '{' && *(i+1))) {
 			strnzcpy(p, len - 1 - (p - o),
 				 color(*i == '{' ? *++i : *i, format));
@@ -185,70 +199,53 @@ static const char* color(char type, int format)
 	switch (type) {
 /* normal colors */
 	case 'd':
-	case '0':
 		color = COLOR_BLACK;
 		break;
 	case 'r':
-	case '1':
 		color = COLOR_RED;
 		break;
 	case 'g':
-	case '2':
 		color = COLOR_GREEN;
 		break;
 	case 'y':
-	case '3':
 		color = COLOR_YELLOW;
 		break;
 	case 'b':
-	case '4':
 		color = COLOR_BLUE;
 		break;
 	case 'm':
-	case '5':
 		color = COLOR_MAGENTA;
 		break;
 	case 'c':
-	case '6':
 		color = COLOR_CYAN;
 		break;
 	case 'w':
-	case '7':
 		color = COLOR_WHITE;
 		break;
 
 /* light colors */
 	case 'D':
-	case '8':
-	case ')':
 		color = COLOR_DARK_GREY;
 		break;
 	case 'R':
-	case '!':
 		color = COLOR_BRIGHT_RED;
 		break;
 	case 'G':
-	case '@':
 		color = COLOR_BRIGHT_GREEN;
 		break;
 	case 'Y':
-	case '#':
 		color = COLOR_BRIGHT_YELLOW;
 		break;
 	case 'B':
-	case '$':
 		color = COLOR_BRIGHT_BLUE;
 		break;
 	case 'M':
-	case '%':
 		color = COLOR_BRIGHT_MAGENTA;
 		break;
 	case 'C':
-	case '^':
 		color = COLOR_BRIGHT_CYAN;
 		break;
 	case 'W':
-	case '&':
 		color = COLOR_BRIGHT_WHITE;
 		break;
 
@@ -263,6 +260,12 @@ static const char* color(char type, int format)
 		return format_table[format].colors[COLOR_CR];
 	case '\n':
 		return format_table[format].colors[COLOR_LF];
+	case '<':
+		return format_table[format].colors[COLOR_LT];
+	case '>':
+		return format_table[format].colors[COLOR_GT];
+	case '&':
+		return format_table[format].colors[COLOR_AMP];
 /* special cases */
 	case 'z':
 		return format_table[format].colors[curr_color = reset_color];
