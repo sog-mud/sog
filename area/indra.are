@@ -1,11 +1,31 @@
 #AREADATA
-Ver 7
-Name indra~
+Name Temle Of Pain~
 Builders indra~
 VNUMs 34000 34199
-Credits indra~
+Credits Indra~
 Security 1
 LevelRange 0 0
 End
+
+#ROOMS
+#34000
+@eng Deserted road@rus Заброшенная дорога~
+~
+0 T forest
+D1
+~
+~
+Z 0 34001
+S
+#34001
+~
+~
+0 0 inside
+D3
+~
+~
+Z 0 34000
+S
+#0
 
 #$
