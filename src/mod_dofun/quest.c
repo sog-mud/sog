@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.13 2003-02-26 19:32:22 tatyana Exp $
+ * $Id: quest.c,v 1.123.2.14 2003-02-26 20:19:52 tatyana Exp $
  */
 
 #include <sys/types.h>
@@ -1102,9 +1102,16 @@ static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 	QUESTOR_TELLS_YOU(questor, ch);
 
 	katana = get_obj_list(ch, "katana", ch->carrying, GETOBJ_F_ANY);
-	if (katana == NULL) {
+	if (katana == NULL
+	||  katana->pObjIndex->vnum != OBJ_VNUM_KATANA_SWORD) {
 		act_puts("    Sorry, $N, but you don't have your katana "
 			 "with you.", questor, NULL, ch, TO_VICT, POS_DEAD);
+		return FALSE;
+	}
+
+	if (affect_find(katana->affected, gsn_katana_bought) != NULL) {
+		act_puts("    Your katana already filled with power!",
+			 questor, NULL, ch, TO_VICT, POS_DEAD);
 		return FALSE;
 	}
 
