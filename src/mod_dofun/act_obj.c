@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.50 2003-09-11 10:39:42 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.51 2004-02-18 22:25:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2239,6 +2239,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	int		cost, roll;
 	uint		gold, silver;
+	int		carry_w;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2289,6 +2290,13 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	}
 	silver = cost - (cost / 100) * 100;
 	gold = cost / 100;
+
+	if ((carry_w = can_carry_w(ch)) >= 0
+	&&  get_carry_weight(ch) + COINS_WEIGHT(silver, gold)) {
+		do_tell_raw(
+		    keeper, ch, "I'm afraid you can't carry that weight.");
+		return;
+	}
 
 	if (gold && silver) {
 		act_puts3("You sell $P for $j gold and $J silver $qJ{pieces}.",
@@ -3657,6 +3665,7 @@ static void sac_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	int             silver;
 	CHAR_DATA      *gch;
 	int             members;
+	int		carry_w;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
 		if (gch->on == obj) {
@@ -3666,37 +3675,38 @@ static void sac_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 		}
 	}
 
-	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC)) {
+	if (!CAN_WEAR(obj, ITEM_TAKE) || IS_OBJ_STAT(obj, ITEM_NOSAC)) {
 		act_puts("$p is not an acceptable sacrifice.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
-	silver = UMAX(1, number_fuzzy(obj->level));
+	if (oprog_call(OPROG_SAC, obj, ch, NULL))
+		return;
 
+	silver = UMAX(1, number_fuzzy(obj->level));
 	if (obj->pObjIndex->item_type != ITEM_CORPSE_NPC
 	&&  obj->pObjIndex->item_type != ITEM_CORPSE_PC)
 		silver = UMIN(silver, obj->cost);
 
-	act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
-		 ch, (const void*) silver, NULL, TO_CHAR, POS_DEAD);
-
-	ch->silver += silver;
-
-	if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT)) {
-		/* AUTOSPLIT code */
-		members = 0;
-		for (gch = ch->in_room->people; gch != NULL;
-		     gch = gch->next_in_room)
-			if (is_same_group(gch, ch))
-				members++;
-
-		if (members > 1 && silver > 1)
-			dofun("split", ch, "%d", silver);
-	}
 	act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
+	if ((carry_w = can_carry_w(ch)) < 0
+	||  get_carry_weight(ch) + COINS_WEIGHT(silver, 0) <= (uint) carry_w) {
+		act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
+		    ch, (const void*) silver, NULL, TO_CHAR, POS_DEAD);
+		ch->silver += silver;
 
-	if (oprog_call(OPROG_SAC, obj, ch, NULL))
-		return;
+		if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOSPLIT)) {
+			/* AUTOSPLIT code */
+			members = 0;
+			for (gch = ch->in_room->people; gch != NULL;
+			     gch = gch->next_in_room)
+				if (is_same_group(gch, ch))
+					members++;
+
+			if (members > 1 && silver > 1)
+				dofun("split", ch, "%d", silver);
+		}
+	}
 
 	wiznet("$N sends up $p as a burnt offering.",
 	       ch, obj, WIZ_SACCING, 0, 0);
