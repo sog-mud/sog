@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.3 1998-12-16 11:21:03 fjoe Exp $
+ * $Id: comm_info.c,v 1.4 1999-01-06 10:56:41 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -73,6 +73,11 @@ void info_newconn(int infofd)
 
 	if (getpeername(fd, (struct sockaddr *) &sock, &size) < 0) {
 		perror("info_newconn: getpeername");
+#ifdef WIN32
+		closesocket(fd);
+#else
+		close(fd);
+#endif
 		return;
 	}
 
@@ -92,6 +97,7 @@ void info_newconn(int infofd)
 #if !defined (WIN32)
 	if (fcntl(fd, F_SETFL, FNDELAY) < 0) {
 		perror("new_descriptor: fcntl: FNDELAY");
+		close(fd);
 		return;
 	}
 #endif
