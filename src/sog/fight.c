@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.8 2000-04-06 05:28:35 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.9 2000-04-06 06:36:35 osya Exp $
  */
 
 /***************************************************************************
@@ -1997,8 +1997,13 @@ make_corpse(CHAR_DATA *ch, CHAR_DATA *killer)
 		obj_next = obj->next_content;
 		obj_from_char(obj);
 		if (killer != NULL
-		&&  !IS_IMMORTAL(killer)
-		&&  (90 + ch->level - killer->level) < number_percent()) {
+		&& !IS_IMMORTAL(killer)
+		&& !IS_NPC(killer)
+		&& obj->pObjIndex->item_type != ITEM_POTION
+		&& obj->pObjIndex->item_type != ITEM_SCROLL
+		&& obj->pObjIndex->item_type != ITEM_STAFF
+		&& obj->pObjIndex->item_type != ITEM_PILL
+		&& (90 + ch->level - killer->level) < number_percent()) {
 			act("$p cracks and shatters into tiny pieces.", ch, obj, NULL, TO_ROOM);
 			extract_obj(obj, 0);
 			continue;
