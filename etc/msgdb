@@ -632,11 +632,6 @@ Typing delete with an argument will undo delete status.
 @eng But you are already vampire. Kill them! Kill them!
 @rus Ты не можешь стать еще большим вампиром чем сейчас!
 ~
-@eng 
-You peek at the inventory:
-@rus 
-Ты всматриваешься в снаряжение:
-~
 @eng Do you want it to get better or worse?
 @rus Тебе хочется улучшить или ухудшить погоду?
 ~
@@ -1089,6 +1084,7 @@ Get back to questor before your time runs out!
 @eng There are $j $qj{silver coins} in the pile.@rus Ты $gn{насчитал} $j $c3{$qj{серебряных монет}}.~
 @eng $p looks better than $P.@rus $p $gp{выглядит} лучше $c1{$P}.~
 @eng $n wears $p about $s waist.@rus $n $gn{надевает} $c3{$p} на талию.~
+@eng You peek at the inventory:@rus Ты всматриваешься в снаряжение:~
 @eng {csleeping{x@rus {cспишь{x~
 @eng {R### TERMINATES ###{x@rus {R### УНИЧТОЖАЕТ ###{x~
 @eng You can't remove $p.@rus Ты не можешь снять $c3{$p}.~
