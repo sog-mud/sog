@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.48 2002-03-21 15:47:33 fjoe Exp $
+ * $Id: init_mpc.c,v 1.49 2002-11-20 14:28:48 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -347,6 +347,7 @@ const char *mpc_dynafuns[] = {
 	"get_obj_room",
 	"get_obj_wear",
 	"get_obj_world",
+	"get_pet",
 	"get_pulse",
 	"get_random_fighting",
 	"get_room_index",

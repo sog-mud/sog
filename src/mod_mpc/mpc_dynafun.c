@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.27 2002-01-08 20:21:39 tatyana Exp $
+ * $Id: mpc_dynafun.c,v 1.28 2002-11-20 14:28:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -563,6 +563,12 @@ bool
 room_is(ROOM_INDEX_DATA *r, int f)
 {
 	return IS_SET(r->room_flags, f);
+}
+
+CHAR_DATA *
+get_pet(CHAR_DATA *ch)
+{
+	return GET_PET(ch);
 }
 
 #else /* !defined(MPC) */
