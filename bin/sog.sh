@@ -12,8 +12,8 @@ export SOG_HOME
 #
 # check uid
 uid=`id -P | awk -F: '{ print $1 }'`
-if [ "$uid" != "sog2" ]; then
-	echo "SoG must be run under user \`sog2'"
+if [ "$uid" != "sog" ]; then
+	echo "SoG must be run under user \`sog'"
 	exit 1
 fi
 
