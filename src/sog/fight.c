@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.59 2002-02-07 11:53:11 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.60 2002-03-06 11:11:25 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2855,6 +2855,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 				msg_char = "$N is unaffected by your $U!";
 				msg_vict = "$n's $U is powerless against you.";
 			}
+			flags = 0;
 		}
 		else {
 			vs = vp;
