@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_fishing.c,v 1.1.2.6 2003-09-30 01:24:54 fjoe Exp $
+ * $Id: act_fishing.c,v 1.1.2.7 2004-02-19 17:23:05 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -159,7 +159,6 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 	int success, fish_vnum, sk;
 	OBJ_DATA *fish, *pole;
 	OBJ_INDEX_DATA *index;
-	int carry_w, carry_n;
 
 	if (IS_NPC(ch))
 		return;
@@ -291,14 +290,7 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 	act("You reel in $p! Nice catch!", ch, fish, NULL, TO_CHAR);
 	act("Wow! $n reels in a helluva catch! Looks like $p!",
             ch, fish, NULL, TO_ROOM);
-
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(fish) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-		get_carry_weight(ch) + get_obj_weight(fish) > carry_w))
-		obj_to_room(fish, ch->in_room);
-	else
-		obj_to_char(fish, ch);
+	obj_to_char_check(fish, ch);
 
 	WAIT_STATE(ch, 31);
 	SET_FIGHT_TIME(ch);

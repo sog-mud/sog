@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.82 2004-02-19 14:30:17 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.83 2004-02-19 17:23:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1792,7 +1792,6 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
 	AFFECT_DATA af;
-	int carry_w, carry_n;
 
 	if (is_affected(ch, gsn_request)) {
 		char_puts("Wait for a while to request again.\n", ch);
@@ -1862,14 +1861,12 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
 		char_puts("Your hands are full.\n", ch);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
@@ -2375,7 +2372,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output,
 "     {G| {RItems Carried : {x%9d/%-9d {RArmor vs magic  : {x%5d     {G|{x\n",
-		ch->carry_number, can_carry_n(ch),
+		get_carry_number(ch), can_carry_n(ch),
 		GET_AC(ch,AC_EXOTIC));
 
 	buf_printf(output,
@@ -2457,7 +2454,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output, "You are carrying {c%d{x/{c%d{x items "
 		"with weight {c%ld{x/{c%d{x pounds.\n",
-		ch->carry_number, can_carry_n(ch),
+		get_carry_number(ch), can_carry_n(ch),
 		get_carry_weight(ch), can_carry_w(ch));
 
 	if (ch->level > 20 || IS_NPC(ch))
@@ -3447,7 +3444,6 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
 	int chance;
-	int carry_w, carry_n;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -3527,14 +3523,12 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
 		char_puts("Your hands are full.\n", ch);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
@@ -3737,9 +3731,10 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		af.bitvector	= 0;
 		affect_to_obj(arrow, &af);
 
-		obj_to_char(arrow, ch);
-		act_puts("You successfully make $p.",
-			 ch, arrow, NULL, TO_CHAR, POS_DEAD);
+		act("You successfully make $p.",
+			 ch, arrow, NULL, TO_CHAR);
+		act("$n makes $p.", ch, arrow, NULL, TO_ROOM);
+		obj_to_char_check(arrow, ch);
 	}
 }
 
@@ -3807,8 +3802,9 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	af.bitvector 	= 0;
 	affect_to_obj(bow, &af);
 
-	obj_to_char(bow, ch);
-	act_puts("You successfully make $p.", ch, bow, NULL, TO_CHAR, POS_DEAD);
+	act("You successfully make $p.", ch, bow, NULL, TO_CHAR);
+	act("$n makes $p.", ch, bow, NULL, TO_ROOM);
+	obj_to_char_check(bow, ch);
 }
 
 void do_make(CHAR_DATA *ch, const char *argument)

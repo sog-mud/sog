@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mining.c,v 1.1.2.3 2003-09-30 01:25:01 fjoe Exp $
+ * $Id: mining.c,v 1.1.2.4 2004-02-19 17:23:09 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -77,7 +77,6 @@ void do_mine(CHAR_DATA *ch, const char *argument)
 	int color = -1;
 	int ore_chance;
 	int chance_mod = 1;
-	int carry_w, carry_n;
 
 	if (IS_NPC(ch))
 		return;
@@ -206,16 +205,9 @@ void do_mine(CHAR_DATA *ch, const char *argument)
 			affect_to_obj(ore, &af);
 		}
 
-		if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      	      ch->carry_number + get_obj_number(ore) > carry_n)
-		||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	             get_carry_weight(ch) + get_obj_weight(ore) > carry_w))
-			obj_to_room(ore, ch->in_room);
-		else
-			obj_to_char(ore, ch);
-
-		act_puts("You have find $p.",
-			 ch, ore, NULL, TO_CHAR, POS_DEAD);
+		act("You have found $p.", ch, ore, NULL, TO_CHAR);
+		act("$n founds $p.", ch, ore, NULL, TO_ROOM);
+		obj_to_char_check(ore, ch);
 	}
 }
 
@@ -228,7 +220,6 @@ void do_smelt(CHAR_DATA *ch, const char *argument)
 	int chance;
 	int vnum = -1;
 	int sn;
-	int carry_w, carry_n;
 
 	if (IS_NPC(ch))
 		return;
@@ -328,16 +319,9 @@ void do_smelt(CHAR_DATA *ch, const char *argument)
 		obj_from_char(ore);
 		obj_from_char(obj);
 
-		if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      	      ch->carry_number + get_obj_number(bar) > carry_n)
-		||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	             get_carry_weight(ch) + get_obj_weight(bar) > carry_w))
-			obj_to_room(bar, ch->in_room);
-		else
-			obj_to_char(bar, ch);
-
-		act_puts("Now you have $p.",
-			 ch, bar, NULL, TO_CHAR, POS_DEAD);
+		act("Now you have $p.", ch, bar, NULL, TO_CHAR);
+		act("$n smelts $p.", ch, bar, NULL, TO_ROOM);
+		obj_to_char_check(bar, ch);
 }
 
 void do_forge(CHAR_DATA *ch, const char *argument)
@@ -350,7 +334,6 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	int vnum = -1;
 	int sn;
 	char *material;
-	int carry_w, carry_n;
 
 	if (IS_NPC(ch))
 		return;
@@ -425,8 +408,10 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 
 			forge = create_obj(index, 0);
 			obj_to_room(forge, ch->in_room);
-			act_puts("You have successfully established $p.",
-				 ch, forge, NULL, TO_CHAR, POS_DEAD);
+			act("You have successfully established $p.",
+			    ch, forge, NULL, TO_CHAR);
+			act("$n successfully establishes $p.",
+			    ch, forge, NULL, TO_ROOM);
 			return;
 		}
 	}
@@ -582,10 +567,8 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-
 	mana = SKILL(sn)->min_mana;
 	wait = SKILL(sn)->beats;
-
 
 	if (ch->mana < mana) {
 		char_puts("You don't have enough energy "
@@ -637,16 +620,9 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	obj_from_char(bar);
 	obj_from_char(obj);
 
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-      	      ch->carry_number + get_obj_number(item) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-             get_carry_weight(ch) + get_obj_weight(item) > carry_w))
-		obj_to_room(item, ch->in_room);
-	else
-		obj_to_char(item, ch);
-
-	act_puts("You have successfully made $p.",
-		 ch, item, NULL, TO_CHAR, POS_DEAD);
+	act("You have successfully made $p.", ch, item, NULL, TO_CHAR);
+	act("$n makes $p.", ch, item, NULL, TO_CHAR);
+	obj_to_char_check(item, ch);
 }
 
 void do_anvil(CHAR_DATA *ch, const char *argument)
@@ -716,6 +692,7 @@ void do_anvil(CHAR_DATA *ch, const char *argument)
 	}
 
 	anvil = create_obj(index, 0);
+	act("You have made $p.", ch, anvil, NULL, TO_CHAR);
+	act("$n makes $p.", ch, anvil, NULL, TO_ROOM);
 	obj_to_room(anvil, ch->in_room);
-	act_puts("You have made $p.", ch, anvil, NULL, TO_CHAR, POS_DEAD);
 }

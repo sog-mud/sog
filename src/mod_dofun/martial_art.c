@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.36 2003-09-30 01:36:59 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.37 2004-02-19 17:23:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2292,15 +2292,13 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 			trophy->value[2] = LEVEL(ch);
 			trophy->value[3] = LEVEL(ch);
 
-			
-			obj_to_char(trophy, ch);
-			  check_improve(ch, gsn_trophy, TRUE, 1);
-			
+			check_improve(ch, gsn_trophy, TRUE, 1);
 			act("You make a poncho from $p!",
 			    ch, part, NULL, TO_CHAR);
 			act("$n makes a poncho from $p!",
 			    ch, part, NULL, TO_ROOM);
-			
+			obj_to_char_check(trophy, ch);
+
 			extract_obj(part, 0);
 			return;
 		}
@@ -3362,11 +3360,10 @@ void do_katana(CHAR_DATA *ch, const char *argument)
 		katana->value[2] = ch->level / 10;
 		katana->ed = ed_new2(katana->pObjIndex->ed, ch->name);
 
-		obj_to_char(katana, ch);
 		check_improve(ch, gsn_katana, TRUE, 1);
-
 		act("You make a katana from $p!",ch,part,NULL,TO_CHAR);
 		act("$n makes a katana from $p!",ch,part,NULL,TO_ROOM);
+		obj_to_char_check(katana, ch);
 
 		extract_obj(part, 0);
 		return;
@@ -3772,7 +3769,7 @@ do_poncho(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *corpse;
 	OBJ_INDEX_DATA *index;
 	char arg[MAX_INPUT_LENGTH];
-	int chance, mana, carry_w, carry_n;
+	int chance, mana;
 
 	if ((chance = get_skill(ch, gsn_chameleon_poncho)) == 0) {
 		char_puts("Huh?\n", ch);
@@ -3853,20 +3850,13 @@ do_poncho(CHAR_DATA *ch, const char *argument)
 		mlstr_cpy(&poncho->owner, &ch->short_descr);
 		poncho->cost  = ch->level * 10;
 
-		if (((carry_n = can_carry_n(ch)) >= 0 &&
-		      ch->carry_number + get_obj_number(poncho) > carry_n)
-		||  ((carry_w = can_carry_w(ch)) >= 0 &&
-		      get_carry_weight(ch) + get_obj_weight(poncho) > carry_w))
-			obj_to_room(poncho, ch->in_room);
-		else
-			obj_to_char(poncho, ch);
-
 		check_improve(ch, gsn_chameleon_poncho, TRUE, 1);
 
 		act("You make a poncho from $p!",
 		    ch, corpse, NULL, TO_CHAR);
 		act("$n makes a poncho from $p!",
 		    ch, corpse, NULL, TO_ROOM);
+		obj_to_char_check(poncho, ch);
 
 		extract_obj(corpse, 0);
 		return;
@@ -3885,7 +3875,7 @@ do_hunters_trophy(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *corpse;
 	OBJ_INDEX_DATA *index;
 	char arg[MAX_INPUT_LENGTH];
-	int chance, carry_w, carry_n, mana;
+	int chance, mana;
 
 	if ((chance = get_skill(ch, gsn_hunters_trophy)) == 0) {
 		char_puts("Huh?\n", ch);
@@ -3937,7 +3927,7 @@ do_hunters_trophy(CHAR_DATA *ch, const char *argument)
 	if (index == NULL) {
 		printlog("[******] BUG: NULL index, vnum %d.",
 		    OBJ_VNUM_HUNTERS_TROPHY);
-		act("Somethinh wrong, report it to immortals.",
+		act("Something wrong, report it to immortals.",
 		    ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -3948,18 +3938,10 @@ do_hunters_trophy(CHAR_DATA *ch, const char *argument)
 	mlstr_cpy(&trophy->owner, &ch->short_descr);
 	trophy->cost  = ch->level;
 
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(trophy) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	      get_carry_weight(ch) + get_obj_weight(trophy) > carry_w))
-		obj_to_room(trophy, ch->in_room);
-	else
-		obj_to_char(trophy, ch);
-
 	check_improve(ch, gsn_hunters_trophy, TRUE, 1);
-
 	act("You make a trophy from $p!", ch, corpse, NULL, TO_CHAR);
 	act("$n makes a trophy from $p!", ch, corpse, NULL, TO_ROOM);
+	obj_to_char_check(trophy, ch);
 
 	extract_obj(corpse, 0);
 }

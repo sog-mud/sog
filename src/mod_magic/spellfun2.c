@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.64 2003-09-30 01:25:10 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.65 2004-02-19 17:23:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -306,15 +306,11 @@ void spell_ranger_staff(int sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *staff;
 	AFFECT_DATA tohit;
 	AFFECT_DATA todam;
-	int carry_w, carry_n;
 
 	staff = create_obj(get_obj_index(OBJ_VNUM_RANGER_STAFF), 0);
 	staff->level = ch->level;
 	staff->value[1] = 5 + level / 14;
 	staff->value[2] = 4 + level / 15;
-
-	char_puts("You create a ranger's staff!\n",ch);
-	act("$n creates a ranger's staff!",ch,NULL,NULL,TO_ROOM);
 
 	tohit.where		 = TO_OBJECT;
 	tohit.type               = sn;
@@ -336,14 +332,10 @@ void spell_ranger_staff(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	staff->timer = level;
 	staff->level = ch->level;
-	
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(staff) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(staff) > carry_w))
-		obj_to_room(staff, ch->in_room);
-	else
-		obj_to_char(staff,ch);
+
+	act("You create $p!", ch, staff, NULL, TO_CHAR);
+	act("$n creates $p!", ch, staff, NULL, TO_ROOM);
+	obj_to_char_check(staff, ch);
 }
 
 void spell_transform(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -637,7 +629,6 @@ void spell_shield_of_enforcer(int sn, int level, CHAR_DATA *ch, void *vo)
 	int shield_vnum;
 	OBJ_DATA *shield;
 	AFFECT_DATA af;
-	int carry_w, carry_n;
 
 	if (level >= 71)
 		shield_vnum = OBJ_VNUM_ENFORCER_SHIELD4;
@@ -674,16 +665,9 @@ void spell_shield_of_enforcer(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.location	= APPLY_CHA;
 	affect_to_obj(shield, &af);
 
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(shield) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(shield) > carry_w))
-		obj_to_room(shield, ch->in_room);
-	else
-		obj_to_char(shield, ch);
-
 	act("You create $p!", ch, shield, NULL, TO_CHAR);
 	act("$n creates $p!", ch, shield, NULL, TO_ROOM);
+	obj_to_char_check(shield, ch);
 }
  
 void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -1175,7 +1159,6 @@ void spell_chaos_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *blade;
 	AFFECT_DATA af;
-	int carry_w, carry_n;
 	
 	blade = create_obj(get_obj_index(OBJ_VNUM_CHAOS_WEAPON), 0);
 	blade->level = level;
@@ -1199,8 +1182,6 @@ void spell_chaos_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
 			blade->value[0] = WEAPON_DAGGER;
 			break;
 	}
-	char_puts("You create a weapon of chaos!\n",ch);
-	act("$n creates a weapon of chaos!",ch,NULL,NULL,TO_ROOM);
 
 	af.where        = TO_OBJECT;
 	af.type         = sn;
@@ -1215,13 +1196,9 @@ void spell_chaos_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.location     = APPLY_DAMROLL;
 	affect_to_obj(blade,&af);
 
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(blade) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(blade) > carry_w))
-		obj_to_room(blade, ch->in_room);
-	else
-		obj_to_char(blade,ch);
+	act("You create $p!", ch, blade, NULL, TO_CHAR);
+	act("$n creates $p!", ch, blade, NULL, TO_ROOM);
+	obj_to_char_check(blade, ch);
 }    
 
 void spell_wrath(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -1524,10 +1501,10 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo)
 	};
 	potion->value[1] = spell;
 	extract_obj(obj, 0);
+
 	act("You brew $p from your resources!", ch, potion, NULL, TO_CHAR);
 	act("$n brews $p from $s resources!", ch, potion, NULL, TO_ROOM);
-
-	obj_to_char(potion, ch);
+	obj_to_char_check(potion, ch);
 	extract_obj(vial, 0);
 }
 
@@ -1589,10 +1566,8 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo)
 void spell_enforcer_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *badge;
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj_next;
 	AFFECT_DATA af;
-	int carry_w, carry_n;
 
 	if ((get_eq_char(ch, WEAR_NECK_1)  != NULL) &&
 	(get_eq_char(ch, WEAR_NECK_2)  != NULL))
@@ -1645,18 +1620,12 @@ void spell_enforcer_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_obj(badge,&af);
 
 	badge->timer = 200;
-	act("You create $p!",ch, badge, NULL, TO_CHAR);
+
+	act("You create $p!", ch, badge, NULL, TO_CHAR);
 	act("$n creates $p!", ch, badge, NULL, TO_ROOM);
-
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(badge) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(badge) > carry_w)) {
-		obj_to_room(badge, ch->in_room);
+	obj_to_char_check(badge, ch);
+	if (badge->carried_by != ch)
 		return;
-	}
-
-	obj_to_char(badge, victim);
 
 	if (get_eq_char(ch, WEAR_NECK_1)  == NULL) {
 		equip_char(ch, badge, WEAR_NECK_1);
@@ -1669,7 +1638,7 @@ void spell_enforcer_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 	} else
 		char_puts("But you are wearing something else.\n", ch);
 
-}    
+}
 
 void spell_remove_badge(int sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -2060,7 +2029,6 @@ void spell_dragonplate(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *plate;
 	AFFECT_DATA af;
-	int carry_w, carry_n;
 	
 	plate = create_obj(get_obj_index(OBJ_VNUM_PLATE), 0);
 	plate->level = ch->level;
@@ -2081,19 +2049,12 @@ void spell_dragonplate(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.location     = APPLY_DAMROLL;
 	affect_to_obj(plate,&af);
 
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(plate) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(plate) > carry_w))
-		obj_to_room(plate, ch->in_room);
-	else
-		obj_to_char(plate, ch);
-	
-	act("You create $p!",ch,plate,NULL,TO_CHAR);
-	act("$n creates $p!",ch,plate,NULL,TO_ROOM);
+	act("You create $p!", ch, plate, NULL, TO_CHAR);
+	act("$n creates $p!", ch, plate, NULL, TO_ROOM);
+	obj_to_char_check(plate, ch);
 }
 
-void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo)	
+void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *gch;
 	CHAR_DATA *squire;
@@ -2159,7 +2120,6 @@ void spell_dragon_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *sword;
 	char arg[MAX_INPUT_LENGTH];
 	AFFECT_DATA af;
-	int carry_w, carry_n;
 	
 	target_name = one_argument(target_name, arg, sizeof(arg));
 	sword_vnum = 0;
@@ -2205,18 +2165,11 @@ void spell_dragon_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
 	else if (IS_NEUTRAL(ch))
 		SET_BIT(sword->extra_flags,(ITEM_ANTI_GOOD | ITEM_ANTI_EVIL));
 	else if (IS_EVIL(ch))
-		SET_BIT(sword->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD));	
+		SET_BIT(sword->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD));
 
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(sword) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(sword) > carry_w))
-		obj_to_room(sword, ch->in_room);
-	else
-		obj_to_char(sword, ch);
-	
-	act("You create $p!",ch,sword,NULL,TO_CHAR);
-	act("$n creates $p!",ch,sword,NULL,TO_ROOM);
+	act("You create $p!", ch, sword, NULL, TO_CHAR);
+	act("$n creates $p!", ch, sword, NULL, TO_ROOM);
+	obj_to_char_check(sword, ch);
 }
 
 void spell_entangle(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -3331,39 +3284,24 @@ void spell_eyed_sword(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *eyed;
 	int i;
-	int carry_w, carry_n;
-/*
-	if (IS_SET(ch->quest,QUEST_EYE)
-	{
-	 char_puts("You created your sword ,before.\n",ch);
-	 return;
-	}
-	SET_BIT(ch->quest,QUEST_EYE);
-*/
+
 	if (IS_GOOD(ch))
 		i=0;
 	else if (IS_EVIL(ch))
 		i=2;
 	else i = 1;
-	
+
 	eyed	= create_obj_of(get_obj_index(OBJ_VNUM_EYED_SWORD),
 				&ch->short_descr);
 	eyed->level = ch->level;
 	mlstr_cpy(&eyed->owner, &ch->short_descr);
 	eyed->ed = ed_new2(eyed->pObjIndex->ed, ch->name);
-	eyed->value[2] = (ch->level / 10) + 3;  
+	eyed->value[2] = (ch->level / 10) + 3;
 	eyed->cost = 0;
 
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(eyed) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(eyed) > carry_w))
-		obj_to_room(eyed, ch->in_room);
-	else
-		obj_to_char(eyed, ch);
-
-	char_puts("You create YOUR sword with your name.\n",ch);
-	char_puts("Don't forget that you won't be able to create this weapon anymore.\n",ch);
+	act_char("You create YOUR sword with your name.", ch);
+	act("$n creates $p.", ch, eyed, NULL, TO_ROOM);
+	obj_to_char_check(eyed, ch);
 }
 
 void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo) 
@@ -3502,12 +3440,12 @@ void spell_magic_jar(int sn, int level, CHAR_DATA *ch, void *vo)
 	mlstr_cpy(&fire->owner, &victim->short_descr);
 	fire->ed = ed_new2(fire->pObjIndex->ed, victim->name);
 	fire->cost = 0;
-	obj_to_char(fire, ch);
 	SET_BIT(PC(victim)->plr_flags, PLR_NOEXP);
 	act_puts("You catch $N's spirit into your vial.",
 		 ch, NULL, victim, TO_CHAR, POS_DEAD);
 	act_puts("$n catches your spirit into vial.",
 		 ch, NULL, victim, TO_VICT, POS_DEAD);
+	obj_to_char_check(fire, ch);
 }
 
 void turn_spell(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -3712,7 +3650,6 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo)
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *fire;
 	int i;
-	int carry_w, carry_n;
 
 	target_name = one_argument(target_name, arg, sizeof(arg));
 	if (str_cmp(arg, "cold") && str_cmp(arg, "fire")) {
@@ -3744,15 +3681,9 @@ void spell_fire_shield (int sn, int level, CHAR_DATA *ch, void *vo)
 	else if (IS_EVIL(ch))
 		SET_BIT(fire->extra_flags,(ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD));
 
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(fire) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(fire) > carry_w))
-		obj_to_room(fire, ch->in_room);
-	else
-		obj_to_char(fire, ch);
-
-	char_puts("You create the fire shield.\n",ch);
+	act("You create $p!", ch, fire, NULL, TO_CHAR);
+	act("$n creates $p!", ch, fire, NULL, TO_ROOM);
+	obj_to_char_check(fire, ch);
 }
 
 void spell_witch_curse(int sn, int level, CHAR_DATA *ch, void *vo)

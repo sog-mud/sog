@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.48 2004-02-04 22:06:21 sg Exp $
+ * $Id: spellfun.c,v 1.181.2.49 2004-02-19 17:23:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -801,15 +801,13 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo)
 	mushroom->value[1] = level;
 	mushroom->level = level;
 	obj_to_room(mushroom, ch->in_room);
-	act("$p suddenly appears.", ch, mushroom, NULL, TO_ROOM);
-	act("$p suddenly appears.", ch, mushroom, NULL, TO_CHAR);
+	act("$p suddenly appears.", ch, mushroom, NULL, TO_ALL);
 }
 
 #define OBJ_VNUM_ROSE_BOUQUET			34430
 #define OBJ_VNUM_ROSE_BASKET			34431
 void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo)
 {
-	int carry_w, carry_n;
 	OBJ_DATA *rose;
 	int vnum;
 
@@ -825,20 +823,12 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	rose = create_obj(get_obj_index(vnum), 0);
-
 	if (rose == NULL)
 		return;
 
 	act("$n has created $p.", ch, rose, NULL, TO_ROOM);
 	act("You create $p.", ch, rose, NULL, TO_CHAR);
-
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(rose) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(rose) > carry_w))
-		obj_to_room(rose, ch->in_room);
-	else
-		obj_to_char(rose, ch);
+	obj_to_char_check(rose, ch);
 }
 
 void spell_create_spring(int sn, int level,CHAR_DATA *ch,void *vo)
@@ -848,8 +838,7 @@ void spell_create_spring(int sn, int level,CHAR_DATA *ch,void *vo)
 	spring = create_obj(get_obj_index(OBJ_VNUM_SPRING), 0);
 	spring->timer = level;
 	obj_to_room(spring, ch->in_room);
-	act("$p flows from the ground.", ch, spring, NULL, TO_ROOM);
-	act("$p flows from the ground.", ch, spring, NULL, TO_CHAR);
+	act("$p flows from the ground.", ch, spring, NULL, TO_ALL);
 }
 
 void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo)
@@ -2603,7 +2592,6 @@ void spell_holy_hammer(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *hammer;
 	AFFECT_DATA af;
-	int carry_w, carry_n;
 
 	hammer = create_obj(get_obj_index(OBJ_VNUM_HOLY_HAMMER), 0);
 	hammer->level = ch->level;
@@ -2618,23 +2606,14 @@ void spell_holy_hammer(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier	= level/7 +3;
 
 	af.location	= APPLY_HITROLL;
-
 	affect_to_obj(hammer, &af);
 
 	af.location	= APPLY_DAMROLL;
-
 	affect_to_obj(hammer, &af);
 
-	if (((carry_n = can_carry_n(ch)) >= 0 &&
-	      ch->carry_number + get_obj_number(hammer) > carry_n)
-	||  ((carry_w = can_carry_w(ch)) >= 0 &&
-	     get_carry_weight(ch) + get_obj_weight(hammer) > carry_w))
-		obj_to_room(hammer, ch->in_room);
-	else
-		obj_to_char(hammer, ch);
-
-	act ("You create a Holy Hammer.", ch, NULL, NULL, TO_CHAR);
-	act ("$n creates a Holy Hammer.", ch, NULL, NULL, TO_ROOM);
+	act("You create a Holy Hammer.", ch, NULL, NULL, TO_CHAR);
+	act("$n creates a Holy Hammer.", ch, NULL, NULL, TO_ROOM);
+	obj_to_char_check(hammer, ch);
 }
 
 void spell_hold_person(int sn, int level, CHAR_DATA *ch, void *vo)

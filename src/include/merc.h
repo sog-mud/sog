@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.43 2004-02-19 14:30:16 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.44 2004-02-19 17:23:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1928,6 +1928,7 @@ int trust_level(CHAR_DATA *ch);
 #define MONEY_WEIGHT(obj)	COINS_WEIGHT((obj)->value[0], (obj)->value[1])
 #define get_carry_weight(ch)	((ch)->carry_weight +			\
 				 COINS_WEIGHT((ch)->silver, (ch)->gold))
+#define get_carry_number(ch)	((ch)->carry_number)
 
 #define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pMobIndex->mptrig_types, (trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
@@ -2055,7 +2056,9 @@ int	get_age 	(CHAR_DATA *ch);
 int	get_curr_stat	(CHAR_DATA *ch, int stat);
 int	get_max_train	(CHAR_DATA *ch, int stat);
 int	can_carry_n	(CHAR_DATA *ch);
+bool	can_carry_more_n(CHAR_DATA *ch, int n);
 int	can_carry_w	(CHAR_DATA *ch);
+bool	can_carry_more_w(CHAR_DATA *ch, int w);
 int	age_to_num	(int);
 
 bool	is_name 	(const char *str, const char *namelist);
@@ -2087,6 +2090,7 @@ void	affect_join	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	char_from_room	(CHAR_DATA *ch);
 void	char_to_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_char	(OBJ_DATA *obj, CHAR_DATA *ch);
+void	obj_to_char_check(OBJ_DATA *obj, CHAR_DATA *ch);
 void	obj_from_char	(OBJ_DATA *obj);
 int	apply_ac	(OBJ_DATA *obj, int iWear, int type);
 OBJ_DATA *	get_eq_char	(CHAR_DATA *ch, int iWear);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.54 2004-02-19 14:30:19 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.55 2004-02-19 17:23:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -483,7 +483,6 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA      *victim;
 	OBJ_DATA       *obj;
-	int carry_w, carry_n;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -495,7 +494,6 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		/* 'give NNNN coins victim' */
 		int amount;
 		bool silver;
-		int carry_w;
 
 		amount = atoi(arg);
 
@@ -540,10 +538,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 
-		if ((carry_w = can_carry_w(victim)) >= 0
-		&&  get_carry_weight(victim) +
-		    COINS_WEIGHT(silver ? amount : 0, silver ? 0 : amount) >
-								carry_w) {
+		if (!can_carry_more_w(victim, COINS_WEIGHT(silver ? amount : 0, silver ? 0 : amount))) {
 			act("$N can't carry that much weight.",
 			    ch, NULL, victim, TO_CHAR);
 			return;
@@ -678,14 +673,12 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		}
 	}
 
-	if ((carry_n = can_carry_n(victim)) >= 0
-	&&  victim->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(victim, get_obj_number(obj))) {
 		act("$N has $S hands full.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(victim)) >= 0
-	&&  get_carry_weight(victim) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(victim, get_obj_weight(obj))) {
 		act("$N can't carry that much weight.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
@@ -1741,8 +1734,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj_inve;
 	int             percent;
 	int		sn;
-	int		carry_n, carry_w;
-	
+
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
@@ -1856,9 +1848,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 
-		if ((carry_w = can_carry_w(ch)) >= 0
-		&&  get_carry_weight(ch) +
-		    COINS_WEIGHT(amount_s, amount_g) > carry_w) {
+		if (!can_carry_more_w(ch, COINS_WEIGHT(amount_s, amount_g))) {
 			char_puts("You can't carry that much weight.\n", ch);
 			return;
 		}
@@ -1889,14 +1879,12 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
 		char_puts("You have your hands full.\n", ch);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
@@ -2035,7 +2023,6 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj, *t_obj;
 	char            arg[MAX_INPUT_LENGTH];
 	uint		number, count = 1;
-	int		carry_w, carry_n;
 
 	if ((keeper = find_keeper(ch)) == NULL)
 		return;
@@ -2096,14 +2083,12 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + number * get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, number * get_obj_number(obj))) {
 		char_puts("You can't carry that many items.\n", ch);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + number * get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, number * get_obj_weight(obj))) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
@@ -2239,7 +2224,6 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	int		cost, roll;
 	uint		gold, silver;
-	int		carry_w;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2291,8 +2275,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	silver = cost - (cost / 100) * 100;
 	gold = cost / 100;
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + COINS_WEIGHT(silver, gold) > carry_w) {
+	if (!can_carry_more_w(ch, COINS_WEIGHT(silver, gold))) {
 		tell_char(
 		    keeper, ch, "I'm afraid you can't carry that weight.");
 		return;
@@ -2918,7 +2901,6 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	int	fee;
 	bool	silver = FALSE;
 	char	arg[MAX_INPUT_LENGTH];
-	int carry_w;
 
 	if (IS_NPC(ch)) {
 		char_puts("You don't have a bank account.\n", ch);
@@ -2957,11 +2939,8 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	}
 
 	fee = UMAX(1, amount * (silver ? 10 : 2) / 100);
-	
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) +
-	    COINS_WEIGHT(silver ? (amount - fee) : 0,
-			 silver ? 0 : (amount - fee)) > carry_w) {
+
+	if (!can_carry_more_w(ch, COINS_WEIGHT(silver ? (amount - fee) : 0, silver ? 0 : (amount - fee)))) {
 		char_puts("You can't carry that weight.\n", ch);
 		return;
 	}
@@ -3665,7 +3644,6 @@ static void sac_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	int             silver;
 	CHAR_DATA      *gch;
 	int             members;
-	int		carry_w;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
 		if (gch->on == obj) {
@@ -3690,8 +3668,7 @@ static void sac_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	act("You sacrifice $p to gods.", ch, obj, NULL, TO_CHAR);
 	act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
-	if ((carry_w = can_carry_w(ch)) < 0
-	||  get_carry_weight(ch) + COINS_WEIGHT(silver, 0) <= (uint) carry_w) {
+	if (can_carry_more_w(ch, COINS_WEIGHT(silver, 0))) {
 		act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
 		    ch, (const void*) silver, NULL, TO_CHAR, POS_DEAD);
 		ch->silver += silver;

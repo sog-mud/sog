@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.49 2004-02-19 14:30:17 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.50 2004-02-19 17:23:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1178,16 +1178,12 @@ void do_split(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		int carry_w;
-
 		if (gch == ch
 		||  !is_same_group(gch, ch)
 		||  IS_AFFECTED(gch, AFF_CHARM))
 			continue;
 
-		if ((carry_w = can_carry_w(gch)) >= 0
-		&&  get_carry_weight(gch) +
-		    COINS_WEIGHT(share_silver, share_gold) > carry_w) {
+		if (!can_carry_more_w(gch, COINS_WEIGHT(share_silver, share_gold))) {
 			act("$N can't carry that much weight.",
 			    ch, NULL, gch, TO_CHAR);
 			extra_silver += share_silver;

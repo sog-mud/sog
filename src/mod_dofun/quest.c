@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.15 2003-09-30 01:25:01 fjoe Exp $
+ * $Id: quest.c,v 1.123.2.16 2004-02-19 17:23:09 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1029,11 +1029,10 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			     ch->name);
 	}
 
-	obj_to_char(reward, ch);
-
 	act("$N gives {W$p{x to $n.", ch, reward, questor, TO_ROOM);
 	act_puts("$N gives you {W$p{x.",
 		 ch, reward, questor, TO_CHAR, POS_DEAD);
+	obj_to_char_check(reward, ch);
 
 	return TRUE;
 }
