@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.198 2000-02-10 14:08:31 fjoe Exp $
+ * $Id: act_comm.c,v 1.199 2000-02-20 09:52:32 avn Exp $
  */
 
 /***************************************************************************
@@ -499,7 +499,7 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->chan, CHAN_NOSHOUT))
 		do_shout(ch, str_empty);
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 
 	argument = garble(ch, argument);
 	act_puts("You shout '{Y$t{x'",
@@ -540,7 +540,7 @@ void do_music(CHAR_DATA *ch, const char *argument)
 	
 	if (IS_SET(ch->chan, CHAN_NOMUSIC))
 		do_music(ch, str_empty);
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 
 	argument = garble(ch, argument);
 	act_puts("You music '{W$t{x'",
@@ -581,7 +581,7 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 
 	if (!IS_IMMORTAL(ch)) {
 		if (ch->mana < ch->max_mana) {
@@ -734,7 +734,7 @@ void do_save(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	char_save(ch, 0);
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 }
 
 void do_follow(CHAR_DATA *ch, const char *argument)
@@ -824,7 +824,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 			   ch, argument, &found);
 
 		if (found) {
-			WAIT_STATE(ch, PULSE_VIOLENCE);
+			WAIT_STATE(ch, get_pulse("violence"));
 			char_puts("Ok.\n", ch);
 		} else
 			char_puts("You have no followers here.\n", ch);
@@ -849,7 +849,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 
 	act("$n orders you to '$t', you do.", ch, argument, victim, TO_VICT);
 	interpret_raw(victim, argument, TRUE);
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 	char_puts("Ok.\n", ch);
 }
 
