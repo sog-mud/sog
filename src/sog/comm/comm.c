@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.93 1998-09-15 02:51:37 fjoe Exp $
+ * $Id: comm.c,v 1.94 1998-09-16 09:58:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -284,7 +284,6 @@ int main(int argc, char **argv)
 	 */
 	
 	resolver_init();
-#if 0
 	signal(SIGHUP, cleanup);
 	signal(SIGINT, cleanup);
 	signal(SIGQUIT, cleanup);
@@ -299,7 +298,6 @@ int main(int argc, char **argv)
 	signal(SIGPIPE, cleanup);
 	signal(SIGALRM, cleanup);
 	signal(SIGTERM, cleanup);
-#endif
 
 	control = init_socket(port);
 	msgdb_load();
@@ -2951,7 +2949,8 @@ int log_area_popularity(void)
 void cleanup(int s)
 {
 	resolver_done();
-	exit(0);
+	signal(s, SIG_DFL);
+	raise(s);
 }
 
 char *get_stat_alias(CHAR_DATA *ch, int where)
