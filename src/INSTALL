@@ -3,3 +3,6 @@
 3) make depend
 4) make all
 5) make install
+
+You need pmake to build SoG under Linux.
+
