@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.5 1998-04-18 07:11:56 fjoe Exp $
+ * $Id: save.c,v 1.6 1998-04-21 11:48:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1226,6 +1226,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	    if ( !str_cmp( word, "Title" )  || !str_cmp( word, "Titl"))
 	    {
 		ch->pcdata->title = fread_string( fp );
+		smash_percent(ch->pcdata->title);
 		fMatch = TRUE;
 		break;
 	    }

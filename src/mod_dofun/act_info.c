@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.9 1998-04-18 07:11:52 fjoe Exp $
+ * $Id: act_info.c,v 1.10 1998-04-21 11:48:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2601,6 +2601,7 @@ void do_title(CHAR_DATA *ch, char *argument)
 		argument[45] = '\0';
 
 	smash_tilde(argument);
+	smash_percent(argument);
 	set_title(ch, argument);
 	send_to_char("Ok.\n\r", ch);
 }
