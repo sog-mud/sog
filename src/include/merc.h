@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.413 2004-02-13 14:48:13 fjoe Exp $
+ * $Id: merc.h,v 1.414 2004-02-19 13:31:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1985,17 +1985,12 @@ struct room_index_data
 #define RESET_WAIT_STATE(ch)	((ch)->wait = 1)
 #define DAZE_STATE(ch, npulse)	((ch)->daze = UMAX((ch)->daze, (npulse)))
 
-#define GOLD_WEIGHT(gold)	((gold) * 2 / 5)
-#define SILVER_WEIGHT(silver)	((silver) / 10)
-
-#define COINS_WEIGHT(is_gold, amount)	((is_gold) ?			\
-				GOLD_WEIGHT(amount) :			\
-				SILVER_WEIGHT(amount))
+#define COINS_WEIGHT(silver, gold) ((silver) / 10 + (gold) * 2 / 5)
+#define MONEY_WEIGHT(obj)	COINS_WEIGHT(INT((obj)->value[0]),	\
+					     INT((obj)->value[1]))
 #define get_carry_weight(ch)	((ch)->carry_weight +			\
-				 SILVER_WEIGHT((ch)->silver) +		\
-				 GOLD_WEIGHT((ch)->gold))
-#define MONEY_WEIGHT(obj)	(SILVER_WEIGHT(INT(obj->value[0])) +	\
-				 GOLD_WEIGHT(INT(obj->value[1])))
+				 COINS_WEIGHT((ch)->silver, (ch)->gold))
+#define get_carry_number(ch)	((ch)->carry_number)
 
 #define GET_AVE(v1, v2)		((1 + INT(v2)) * INT(v1) / 2)
 #define GET_WEAPON_AVE(obj)	GET_AVE((obj)->value[1], (obj)->value[2])

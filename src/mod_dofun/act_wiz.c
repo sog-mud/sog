@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.326 2004-02-19 10:53:10 tatyana Exp $
+ * $Id: act_wiz.c,v 1.327 2004-02-19 13:31:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1330,7 +1330,7 @@ DO_FUN(do_mstat, ch, argument)
 	buf_printf(output, BUF_END, "Fighting: %s Deaths: %d Carry number: %d (%d) Carry weight: %d (%d)\n", // notrans
 		   victim->fighting ? victim->fighting->name : "(none)" , // notrans
 		   IS_NPC(victim) ? 0 : PC(victim)->death,
-		   victim->carry_number, can_carry_n(victim),
+		   get_carry_number(victim), can_carry_n(victim),
 		   get_carry_weight(victim), can_carry_w(victim));
 
 	if (!IS_NPC(victim)) {

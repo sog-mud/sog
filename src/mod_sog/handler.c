@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.382 2004-02-16 21:09:09 fjoe Exp $
+ * $Id: handler.c,v 1.383 2004-02-19 13:31:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1427,6 +1427,20 @@ can_carry_n(CHAR_DATA *ch)
 	return MAX_WEAR + get_curr_stat(ch,STAT_DEX) - 10 + ch->size;
 }
 
+static bool
+can_carry_x(CHAR_DATA *ch, int (*can_carry)(CHAR_DATA *), int n)
+{
+	int capacity;
+
+	return (capacity = can_carry(ch)) < 0 || n <= capacity;
+}
+
+bool
+can_carry_more_n(CHAR_DATA *ch, int n)
+{
+	return can_carry_x(ch, can_carry_n, get_carry_number(ch) + n);
+}
+
 /*
  * Retrieve a character's carry capacity.
  */
@@ -1445,6 +1459,12 @@ can_carry_w(CHAR_DATA *ch)
 
 	return (str_app[get_curr_stat(ch,STAT_STR)].carry + ch->level * 25) * 3
 	    / 2;
+}
+
+bool
+can_carry_more_w(CHAR_DATA *ch, int w)
+{
+	return can_carry_x(ch, can_carry_w, get_carry_weight(ch) + w);
 }
 
 /*
@@ -2908,7 +2928,6 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 	/* variables for AUTOSPLIT */
 	CHAR_DATA      *gch;
 	int             members;
-	int		carry_w, carry_n;
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)
 	||  (obj->item_type == ITEM_CORPSE_PC &&
@@ -2919,15 +2938,13 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 		return FALSE;
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
 		act_puts("$P: you can't carry that many items.",
 			 ch, NULL, obj, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
 		act_puts("$P: you can't carry that much weight.",
 			 ch, NULL, obj, TO_CHAR, POS_DEAD);
 		return FALSE;
@@ -2945,8 +2962,7 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 	}
 
 	if (obj->item_type == ITEM_MONEY) {
-		if (carry_w >= 0
-		&&  get_carry_weight(ch) + MONEY_WEIGHT(obj) > carry_w) {
+		if (!can_carry_more_w(ch, MONEY_WEIGHT(obj))) {
 			act_puts("$P: you can't carry that much weight.",
 				 ch, NULL, obj, TO_CHAR, POS_DEAD);
 			return FALSE;
@@ -3525,8 +3541,6 @@ remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
 bool
 give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 {
-	int carry_w, carry_n;
-
 	if (obj->wear_loc != WEAR_NONE) {
 		act_char("You must remove it first.", ch);
 		return FALSE;
@@ -3543,14 +3557,12 @@ give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 		return FALSE;
 	}
 
-	if ((carry_n = can_carry_n(victim)) >= 0
-	&&  victim->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(victim, get_obj_number(obj))) {
 		act("$N has $S hands full.", ch, NULL, victim, TO_CHAR);
 		return FALSE;
 	}
 
-	if ((carry_w = can_carry_w(victim)) >= 0
-	&&  get_carry_weight(victim) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(victim, get_obj_weight(obj))) {
 		act("$N can't carry that much weight.",
 		    ch, NULL, victim, TO_CHAR);
 		return FALSE;

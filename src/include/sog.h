@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.51 2004-02-12 22:01:09 sg Exp $
+ * $Id: sog.h,v 1.52 2004-02-19 13:31:40 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -115,8 +115,12 @@ DECLARE_FUN2(OBJ_DATA, nth_obj,
 
 DECLARE_FUN1(int, can_carry_n,
 	     ARG(CHAR_DATA), ch)
+DECLARE_FUN2(bool, can_carry_more_n,
+	     ARG(CHAR_DATA), ch, ARG(int), n)
 DECLARE_FUN1(int, can_carry_w,
 	     ARG(CHAR_DATA), ch)
+DECLARE_FUN2(bool, can_carry_more_w,
+	     ARG(CHAR_DATA), ch, ARG(int), w)
 
 DECLARE_FUN1(int, get_obj_number,
 	     ARG(OBJ_DATA), obj)

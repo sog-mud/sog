@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.438 2004-02-17 23:58:38 fjoe Exp $
+ * $Id: act_info.c,v 1.439 2004-02-19 13:31:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1823,7 +1823,6 @@ DO_FUN(do_request, ch, argument)
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
 	AFFECT_DATA *paf;
-	int carry_w, carry_n;
 
 	if (is_sn_affected(ch, "reserved")) {
 		act_char("Wait for a while to request again.", ch);
@@ -1890,14 +1889,12 @@ DO_FUN(do_request, ch, argument)
 		return;
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
 		act_char("Your hands are full.", ch);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
 		act_char("You can't carry that much weight.", ch);
 		return;
 	}
@@ -2361,20 +2358,20 @@ DO_FUN(do_score, ch, argument)
 
 	buf_printf(output, BUF_END,
 "     {G| {RItems Carried : {x%9d/%-9d {RArmor vs magic  : {x%5d     {G|{x\n",
-		ch->carry_number, can_carry_n(ch),
+		get_carry_number(ch), can_carry_n(ch),
 		GET_AC(ch,AC_EXOTIC));
 
 	buf_printf(output, BUF_END,
 "     {G| {RWeight Carried: {x%9d/%-9d {RArmor vs bash   : {x%5d     {G|{x\n",
-	get_carry_weight(ch), can_carry_w(ch), GET_AC(ch,AC_BASH));
+	get_carry_weight(ch), can_carry_w(ch), GET_AC(ch, AC_BASH));
 
 	buf_printf(output, BUF_END,
 "     {G| {RGold          : {Y%9d           {RArmor vs pierce : {x%5d     {G|{x\n",
-		 ch->gold, GET_AC(ch,AC_PIERCE));
+		 ch->gold, GET_AC(ch, AC_PIERCE));
 
 	buf_printf(output, BUF_END,
 "     {G| {RSilver        : {W%9d           {RArmor vs slash  : {x%5d     {G|{x\n",
-		 ch->silver, GET_AC(ch,AC_SLASH));
+		 ch->silver, GET_AC(ch, AC_SLASH));
 
 	buf_printf(output, BUF_END,
 "     {G| {RCurrent exp   : {x%9d           {RSaves vs Spell  : {x%5d     {G|{x\n",
@@ -2439,7 +2436,7 @@ DO_FUN(do_oscore, ch, argument)
 
 	buf_printf(output, BUF_END, "You are carrying {c%d{x/{c%d{x items "
 		"with weight {c%d{x/{c%d{x pounds.\n",
-		ch->carry_number, can_carry_n(ch),
+		get_carry_number(ch), can_carry_n(ch),
 		get_carry_weight(ch), can_carry_w(ch));
 
 	if (ch->level > 20 || IS_NPC(ch))
@@ -3567,7 +3564,6 @@ DO_FUN(do_demand, ch, argument)
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
 	int chance;
-	int carry_w, carry_n;
 
 	if (IS_NPC(ch))
 		return;
@@ -3638,14 +3634,12 @@ DO_FUN(do_demand, ch, argument)
 		return;
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
 		act_char("Your hands are full.", ch);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
 		act_char("You can't carry that much weight.", ch);
 		return;
 	}

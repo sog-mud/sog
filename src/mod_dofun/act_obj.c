@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.297 2004-02-18 22:53:29 fjoe Exp $
+ * $Id: act_obj.c,v 1.298 2004-02-19 13:31:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -112,6 +112,9 @@ static OBJ_DATA *	get_obj_keeper	(CHAR_DATA * ch, CHAR_DATA * keeper,
 static void		sac_obj		(CHAR_DATA * ch, OBJ_DATA *obj);
 static bool		put_obj		(CHAR_DATA *ch, OBJ_DATA *container,
 					 OBJ_DATA *obj, int* count);
+
+static void		give_coins(CHAR_DATA *ch, CHAR_DATA *victim,
+				   int silver, int gold);
 
 DO_FUN(do_get, ch, argument)
 {
@@ -497,7 +500,6 @@ DO_FUN(do_give, ch, argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	int carry_w;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -507,25 +509,28 @@ DO_FUN(do_give, ch, argument)
 
 	if (is_number(arg)) {
 		/* 'give NNNN coins victim' */
-		int amount;
-		bool silver;
+		int silver, gold;
+		int change_silver, change_gold;
 
-		amount = atoi(arg);
-
+		silver = atoi(arg);
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (arg[0] == '\0') {
 			do_give(ch, str_empty);
 			return;
 		}
 
-		if (amount <= 0
+		if (silver <= 0
 		||  (str_cmp(arg, "coins") && str_cmp(arg, "coin") &&
 		     str_cmp(arg, "gold") && str_cmp(arg, "silver"))) {
 			act_char("Sorry, you can't do that.", ch);
 			return;
 		}
 
-		silver = str_cmp(arg, "gold");
+		if (!str_cmp(arg, "gold")) {
+			gold = silver;
+			silver = 0;
+		} else
+			gold = 0;
 
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (!str_cmp(arg, "to"))
@@ -540,93 +545,75 @@ DO_FUN(do_give, ch, argument)
 			return;
 		}
 
-		if (!IS_NPC(victim) && IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
+		if (!IS_NPC(victim)
+		&&  IS_SET(PC(victim)->plr_flags, PLR_NOGIVE)) {
 			act("$N do not wish take any.",
 			    ch, NULL, victim, TO_CHAR);
 			return;
 		}
 
-		if ((!silver && ch->gold < amount)
-		||  (silver && ch->silver < amount)) {
+		if (ch->gold < gold || ch->silver < silver) {
 			act_char("You haven't got that much.", ch);
 			return;
 		}
 
-		if ((carry_w = can_carry_w(victim)) >= 0
-		&&  get_carry_weight(victim) +
-		    COINS_WEIGHT(!silver, amount) > carry_w) {
+		if (!can_carry_more_w(victim, COINS_WEIGHT(silver, gold))) {
 			act("$N can't carry that much weight.",
 			    ch, NULL, victim, TO_CHAR);
 			return;
 		}
 
-		if (silver)
-			ch->silver -= amount;
-		else
-			ch->gold -= amount;
+		ch->silver -= silver;
+		ch->gold -= gold;
 
 		act_puts3("$n gives you $J $t.",
 			  ch, silver ? "silver" : "gold", victim,
-			  (const void*) amount,
+			  (const void *) (silver ? silver : gold),
 			  TO_VICT, POS_RESTING);
 		act("$n gives $N some coins.", ch, NULL, victim, TO_NOTVICT);
 		act_puts3("You give $N $J $t.",
 			  ch, silver ? "silver" : "gold", victim,
-			  (const void*) amount,
+			  (const void *) (silver ? silver : gold),
 			  TO_CHAR, POS_DEAD);
 
 		if (pull_mob_trigger(
 		     TRIG_MOB_BRIBE, victim, ch,
-		     (void *) (silver ? amount : amount * 100)) > 0
+		     (void *) (silver + gold * 100)) > 0
 		||  IS_EXTRACTED(victim))
 			return;
 
-		if (IS_NPC(victim)
-		&&  MOB_IS(victim, MOB_CHANGER)
-		&&  !IS_EXTRACTED(ch)) {
-			int change;
-			char buf[MAX_INPUT_LENGTH];
-
-			change = (silver ? 95 * amount / 100 / 100
-				  : 95 * amount);
-
-			if (!silver && change > victim->silver)
-				victim->silver += change;
-
-			if (silver && change > victim->gold)
-				victim->gold += change;
-
-			if (change < 1 && can_see(victim, ch)) {
-				tell_char(victim, ch, "I'm sorry, you did not give me enough to change.");
-
-				snprintf(buf, sizeof(buf),
-					 "%d %s %s",		// notrans
-					 amount, silver ? "silver" : "gold",
-					 ch->name);
-				dofun("give", victim, buf);
-			} else if (can_see(victim, ch)) {
-				snprintf(buf, sizeof(buf),
-					 "%d %s %s",		// notrans
-					 change, silver ? "gold" : "silver",
-					 ch->name);
-				dofun("give", victim, buf);
-
-				if (silver) {
-					snprintf(buf, sizeof(buf),
-					      "%d silver %s",	// notrans
-					      (95 * amount / 100 - change * 100), ch->name);
-					dofun("give", victim, buf);
-				}
-
-				tell_char(victim, ch, "Thank you, come again.");
-			}
-		} else {
-			if (silver)
-				victim->silver += amount;
-			else
-				victim->gold += amount;
+		if (!IS_NPC(victim)
+		||  !MOB_IS(victim, MOB_CHANGER)) {
+			victim->silver += silver;
+			victim->gold += gold;
+			return;
 		}
 
+		if (IS_EXTRACTED(ch) || !can_see(victim, ch))
+			return;
+
+		/*
+		 * MOB_CHANGER
+		 */
+		change_silver = 95 * gold;
+		change_gold = 95 * silver / 100 / 100;
+		if (change_silver + change_gold < 1) {
+			tell_char(victim, ch, "I'm sorry, you did not give me enough to change.");
+			give_coins(victim, ch, silver, gold);
+			return;
+
+		}
+		if (change_silver > victim->silver)
+			victim->silver += change_silver;
+		if (gold && change_gold > victim->gold)
+			victim->gold += change_gold;
+
+		if (silver) {
+			change_silver +=
+			    (95 * silver / 100 - change_gold * 100);
+		}
+		give_coins(victim, ch, change_silver, change_gold);
+		tell_char(victim, ch, "Thank you, come again.");
 		return;
 	}
 
@@ -1786,7 +1773,6 @@ DO_FUN(do_steal, ch, argument)
 	OBJ_DATA       *obj_inve;
 	int		chance;
 	int             percent;
-	int		carry_n, carry_w;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -1887,42 +1873,38 @@ DO_FUN(do_steal, ch, argument)
 	||  !str_cmp(arg1, "coins")
 	||  !str_cmp(arg1, "silver")
 	||  !str_cmp(arg1, "gold")) {
-		int amount;
-		bool is_gold = FALSE;
+		int silver, gold;
 
 		if (!str_cmp(arg1, "gold")) {
-			is_gold = TRUE;
-			amount = victim->gold * number_range(1, 7) / 100;
-		} else
-			amount = victim->silver * number_range(1, 20) / 100;
+			silver = 0;
+			gold = victim->gold * number_range(1, 7) / 100;
+		} else {
+			gold = 0;
+			silver = victim->silver * number_range(1, 20) / 100;
+		}
 
-		if (amount <= 0) {
+		if (silver + gold < 1) {
 			act_char("You couldn't get any coins.", ch);
 			return;
 		}
 
-		if ((carry_w = can_carry_w(ch)) >= 0
-		&&  get_carry_weight(ch) +
-		    COINS_WEIGHT(is_gold, amount) > carry_w) {
+		if (!can_carry_more_w(ch, COINS_WEIGHT(silver, gold))) {
 			act_char("You can't carry that weight.", ch);
 			return;
 		}
 
-		if (is_gold) {
-			ch->gold += amount;
-			victim->gold -= amount;
-		} else {
-			ch->silver += amount;
-			victim->silver -= amount;
-		}
+		ch->gold += gold;
+		victim->gold -= gold;
+		ch->silver += silver;
+		victim->silver -= silver;
 
-		if (is_gold) {
+		if (gold) {
 			act_puts("Bingo!  You got $j $qj{gold coins}.",
-				 ch, (const void *) amount, NULL,
+				 ch, (const void *) gold, NULL,
 				 TO_CHAR, POS_DEAD);
 		} else {
 			act_puts("Bingo!  You got $j $qj{silver coins}.",
-				 ch, (const void *) amount, NULL,
+				 ch, (const void *) silver, NULL,
 				 TO_CHAR, POS_DEAD);
 		}
 
@@ -1943,14 +1925,12 @@ DO_FUN(do_steal, ch, argument)
 		return;
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
 		act_char("You have your hands full.", ch);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
 		act_char("You can't carry that much weight.", ch);
 		return;
 	}
@@ -2091,7 +2071,6 @@ DO_FUN(do_buy, ch, argument)
 	OBJ_DATA       *obj, *t_obj;
 	char            arg[MAX_INPUT_LENGTH];
 	uint		number, cost, count = 1;
-	int		carry_w, carry_n;
 
 	if ((keeper = find_keeper(ch)) == NULL)
 		return;
@@ -2148,14 +2127,12 @@ DO_FUN(do_buy, ch, argument)
 		return;
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + (int) number * get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, number * get_obj_number(obj))) {
 		act_char("You can't carry that many items.", ch);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + (int) number * get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, number * get_obj_weight(obj))) {
 		act_char("You can't carry that much weight.", ch);
 		return;
 	}
@@ -2307,7 +2284,6 @@ DO_FUN(do_sell, ch, argument)
 	OBJ_DATA       *obj;
 	int		roll;
 	uint		cost, gold, silver;
-	int		carry_w;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2359,9 +2335,7 @@ DO_FUN(do_sell, ch, argument)
 	silver = cost - (cost / 100) * 100;
 	gold = cost / 100;
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + SILVER_WEIGHT(silver) +
-	    GOLD_WEIGHT(gold) > (uint) carry_w) {
+	if (!can_carry_more_w(ch, COINS_WEIGHT(silver, gold))) {
 		tell_char(keeper, ch, "I'm afraid you can't carry that weight.");
 		return;
 	}
@@ -2999,11 +2973,9 @@ DO_FUN(do_balance, ch, argument)
 
 DO_FUN(do_withdraw, ch, argument)
 {
-	int	amount;
-	int	fee;
-	bool	silver = FALSE;
+	int	silver, gold;
+	int	silver_fee, gold_fee;
 	char	arg[MAX_INPUT_LENGTH];
-	int	carry_w;
 
 	if (IS_NPC(ch)) {
 		act_char("You don't have a bank account.", ch);
@@ -3021,58 +2993,63 @@ DO_FUN(do_withdraw, ch, argument)
 		return;
 	}
 
-	amount = atoi(arg);
-	if (amount <= 0) {
+	silver = atoi(arg);
+	if (silver <= 0) {
 		act_char("What?", ch);
 		return;
 	}
 
-	if (!str_cmp(argument, "silver"))
-		silver = TRUE;
-	else if (str_cmp(argument, "gold") && argument[0] != '\0') {
+	if (!str_cmp(argument, "silver")
+	||  !str_cmp(argument, "coin")
+	||  !str_cmp(argument, "coins"))
+		gold = 0;
+	else if (!str_cmp(argument, "gold")) {
+		gold = silver;
+		silver = 0;
+	} else {
 		act_char("You can withdraw gold and silver coins only.", ch);
 		return;
 	}
 
-	if ((silver && amount > PC(ch)->bank_s)
-	||  (!silver && amount > PC(ch)->bank_g)) {
+	if (silver > PC(ch)->bank_s || gold > PC(ch)->bank_g) {
 		act_char("Sorry, we don't give loans.", ch);
 		return;
 	}
 
-	fee = UMAX(1, amount * (silver ? 10 : 2) / 100);
-
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) +
-	    COINS_WEIGHT(!silver, amount - fee) > carry_w) {
+	silver_fee = silver ? UMAX(1, silver * 10 / 100) : 0;
+	gold_fee = gold ? UMAX(1, gold * 2 / 100) : 0;
+	if (!can_carry_more_w(ch, COINS_WEIGHT(silver - silver_fee, gold - gold_fee))) {
 		act_char("You can't carry that weight.", ch);
 		return;
 	}
 
 	if (silver) {
-		ch->silver += amount - fee;
-		PC(ch)->bank_s -= amount;
+		ch->silver += silver - silver_fee;
+		PC(ch)->bank_s -= silver;
 		act_puts("Here are your $j $qj{silver coins}",
-			 ch, (const void *) amount, NULL,
+			 ch, (const void *) silver, NULL,
 			 TO_CHAR | ACT_NOLF, POS_DEAD);
-	} else {
-		ch->gold += amount - fee;
-		PC(ch)->bank_g -= amount;
-		act_puts("Here are your $j $qj{gold coins}",
-			 ch, (const void *) amount, NULL,
-			 TO_CHAR | ACT_NOLF, POS_DEAD);
+		act_puts(", minus a $j $qj{coins} withdrawal fee.",
+			 ch, (const void *) silver_fee, NULL,
+			 TO_CHAR, POS_DEAD);
 	}
-
-	act_puts(", minus a $j $qj{coins} withdrawal fee.",
-		 ch, (const void *) fee, NULL, TO_CHAR, POS_DEAD);
+	if (gold) {
+		ch->gold += gold - gold_fee;
+		PC(ch)->bank_g -= gold;
+		act_puts("Here are your $j $qj{gold coins}",
+			 ch, (const void *) gold, NULL,
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
+		act_puts(", minus a $j $qj{coins} withdrawal fee.",
+			 ch, (const void *) gold_fee, NULL,
+			 TO_CHAR, POS_DEAD);
+	}
 
 	act("$n steps up to the teller window.", ch, NULL, NULL, TO_ROOM);
 }
 
 DO_FUN(do_deposit, ch, argument)
 {
-	int	amount;
-	bool	silver = FALSE;
+	int	silver, gold;
 	char	arg[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch)) {
@@ -3091,43 +3068,48 @@ DO_FUN(do_deposit, ch, argument)
 		return;
 	}
 
-	amount = atoi(arg);
-	if (amount <= 0) {
+	silver = atoi(arg);
+	if (silver <= 0) {
 		act_char("What?", ch);
 		return;
 	}
 
-	if (!str_cmp(argument, "silver"))
-		silver = TRUE;
-	else if (str_cmp(argument, "gold") && argument[0] != '\0') {
+	if (!str_cmp(argument, "silver")
+	||  !str_cmp(argument, "coin")
+	||  !str_cmp(argument, "coins"))
+		gold = 0;
+	else if (!str_cmp(argument, "gold")) {
+		gold = silver;
+		silver = 0;
+	} else {
 		act_char("You can deposit gold and silver coins only.", ch);
 		return;
 	}
 
-	if ((silver && amount > ch->silver)
-	||  (!silver && amount > ch->gold)) {
+	if (silver > ch->silver || gold > ch->gold) {
 		act_char("That's more than you've got.", ch);
 		return;
 	}
 
 	if (silver) {
-		PC(ch)->bank_s += amount;
-		ch->silver -= amount;
-		if (amount == 1)
+		PC(ch)->bank_s += silver;
+		ch->silver -= silver;
+		if (silver == 1)
 			act_char("Oh $gn{boy}! One silver coin!", ch);
 		else {
 			act_puts("$j $qj{silver coins} deposited. Come again soon!",
-				 ch, (const void *) amount, NULL,
+				 ch, (const void *) silver, NULL,
 				 TO_CHAR, POS_DEAD);
 		}
-	} else {
-		PC(ch)->bank_g += amount;
-		ch->gold -= amount;
-		if (amount == 1) 
+	}
+	if (gold) {
+		PC(ch)->bank_g += gold;
+		ch->gold -= gold;
+		if (gold == 1)
 			act_char("Oh $gn{boy}! One gold coin!", ch);
 		else {
 			act_puts("$j $qj{gold coins} deposited. Come again soon!",
-				 ch, (const void *) amount, NULL,
+				 ch, (const void *) gold, NULL,
 				 TO_CHAR, POS_DEAD);
 		}
 	}
@@ -3634,7 +3616,6 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 	uint		silver;
 	CHAR_DATA      *gch;
 	int             members;
-	int		carry_w;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
 		if (gch->on == obj) {
@@ -3662,8 +3643,7 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 
 	act("You sacrifice $p to gods.", ch, obj, NULL, TO_CHAR);
 	act("$n sacrifices $p to gods.", ch, obj, NULL, TO_ROOM);
-	if ((carry_w = can_carry_w(ch)) < 0
-	||  get_carry_weight(ch) + SILVER_WEIGHT(silver) <= (uint) carry_w) {
+	if (can_carry_more_w(ch, COINS_WEIGHT(silver, 0))) {
 		act_puts("Gods give you $j silver $qj{coins} for your sacrifice.",
 			 ch, (const void *) silver, NULL, TO_CHAR, POS_DEAD);
 		ch->silver += silver;
@@ -3923,6 +3903,7 @@ DO_FUN(do_keep, ch, argument)
 	SET_OBJ_STAT(obj, ITEM_KEEP);
 	act("You keep $p.", ch, obj, NULL, TO_CHAR);
 }
+
 DO_FUN(do_unkeep, ch, argument)
 {
 	char		arg[MAX_INPUT_LENGTH];
@@ -3949,6 +3930,7 @@ DO_FUN(do_unkeep, ch, argument)
 }
 
 #define OBJ_VNUM_SHARPSTONE		34484
+
 DO_FUN(do_sharpen_weapon, ch, argument)
 {
 	AFFECT_DATA *paf;
@@ -4073,5 +4055,22 @@ DO_FUN(do_sharpen_weapon, ch, argument)
 			extract_obj(weapon, 0);
 			return;
 		}
+	}
+}
+
+static void
+give_coins(CHAR_DATA *ch, CHAR_DATA *victim, int silver, int gold)
+{
+	char buf[MAX_INPUT_LENGTH];
+
+	if (silver) {
+		snprintf(buf, sizeof(buf), "%d silver '%s'",	// notrans
+			 silver, victim->name);
+		dofun("give", ch, buf);
+	}
+	if (gold) {
+		snprintf(buf, sizeof(buf), "%d gold '%s'",	// notrans
+			 gold, victim->name);
+		dofun("give", ch, buf);
 	}
 }
