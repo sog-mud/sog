@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.37 2004-02-20 00:00:22 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.38 2004-02-22 15:51:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -718,14 +718,6 @@ void game_loop_unix(void)
 				}
 			}
 
-			if (d->character != NULL && d->character->daze > 0)
-				--d->character->daze;
-
-			if (d->character != NULL && d->character->wait > 0) {
-				--d->character->wait;
-				continue;
-			}
-
 			read_from_buffer(d);
 			if (d->incomm[0] != '\0') {
 				d->fcommand = TRUE;
@@ -743,6 +735,12 @@ void game_loop_unix(void)
 				if (d->connected != CON_RESOLV)
 					d->incomm[0]	= '\0';
 			}
+
+			if (d->character != NULL && d->character->daze > 0)
+				--d->character->daze;
+
+			if (d->character != NULL && d->character->wait > 0)
+				--d->character->wait;
 		}
 
 		/*
