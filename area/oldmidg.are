@@ -898,25 +898,6 @@ BJQVe 0 H 0 AB 1000 0
 FHIK
 stand stand male 5000
 0 0 huge unknown
-M speech 3018 eros~
-M speech 3017 enki~
-M speech 3016 seth~
-M speech 3015 venus~
-M speech 3014 hera~
-M speech 3013 goktengri~
-M speech 3012 ares~
-M speech 3011 teshub~
-M speech 3010 odin~
-M speech 3009 phobos~
-M speech 3008 deimos~
-M speech 3007 ehrumen~
-M speech 3006 ahuramazda~
-M speech 3005 shamash~
-M speech 3004 siebele~
-M speech 3003 zeus~
-M speech 3002 atum-ra~
-M speech 3001 religion~
-M greet 3000 100~
 r bash 33
 r pierce 33
 r slash 33

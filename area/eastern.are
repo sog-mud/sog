@@ -642,7 +642,7 @@ S
 #5004
 @eng A long tunnel@rus Темный туннель~
 @eng The tunnel branches off to the south.
-@rus Туннель продолжаетсЯ на юг(south).
+@rus Туннель продолжается на юг.
 ~
 0 AD noswim
 D1
@@ -671,8 +671,8 @@ water and lime from above. The tunnel continues to the east and the river
 leads back west. To the north is a roughly-hewn hallway. There is also
 a tunnel south.
 @rus Ты плывешь по черному подземному озеру. Сверху отовсюду капает вода...
-Потолок весь покрыт известью. На севере(north) видна пещера,
-темный туннель уходит на восток(east) и запад(west).
+Потолок весь покрыт известью. На севере видна пещера, темный туннель 
+уходит на восток и запад.
 ~
 0 AD noswim
 D0
@@ -1053,7 +1053,7 @@ S
 #5023
 @eng Sloping passage@rus Тропинка~
 @eng You are on a path that gently slopes up from the underground pool.
-@rus Ты находишьсЯ на тропинке, плавно спускающейск подземному озеру.
+@rus Ты находишься на тропинке, плавно спускающейся к подземному озеру.
 ~
 0 AD mountain
 D0

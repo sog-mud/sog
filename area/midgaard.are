@@ -2389,25 +2389,6 @@ BJQVe D H 0 AB 1000 0
 FHIK
 stand stand male 5000
 0 0 huge unknown
-M greet 3000 100~
-M speech 3001 religion~
-M speech 3002 atum-ra~
-M speech 3003 zeus~
-M speech 3004 siebele~
-M speech 3005 shamash~
-M speech 3006 ahuramazda~
-M speech 3007 ehrumen~
-M speech 3008 deimos~
-M speech 3009 phobos~
-M speech 3010 odin~
-M speech 3011 teshub~
-M speech 3012 ares~
-M speech 3013 goktengri~
-M speech 3014 hera~
-M speech 3015 venus~
-M speech 3016 seth~
-M speech 3017 enki~
-M speech 3018 eros~
 r bash 33
 r pierce 33
 r slash 33
@@ -11820,72 +11801,6 @@ S
 0
 
 #MOBPROGS
-#3000
-if isvisible $n
-smile $n
-endif
-~
-#3001
-if isvisible $n
-say Hmm, yes, religion. Do you really interested in that?
-say Read the help first. Type '{Chelp religion{G'.
-say Do not forget that once you choose your religion
-say you cannot change it anymore
-else
-say I don't speak with people I can't see.
-endif
-~
-#3002
-mob religion $n atum-ra
-~
-#3003
-mob religion $n zeus
-~
-#3004
-mob religion $n siebele
-~
-#3005
-mob religion $n shamash
-~
-#3006
-mob religion $n ahuramazda
-~
-#3007
-mob religion $n ehrumen
-~
-#3008
-mob religion $n deimos
-~
-#3009
-mob religion $n phobos
-~
-#3010
-mob religion $n odin
-~
-#3011
-mob religion $n teshub
-~
-#3012
-mob religion $n ares
-~
-#3013
-mob religion $n goktengri
-~
-#3014
-mob religion $n hera
-~
-#3015
-mob religion $n venus
-~
-#3016
-mob religion $n seth
-~
-#3017
-mob religion $n enki
-~
-#3018
-mob religion $n eros
-~
 #3019
 if isvisible $n
 tell $n Don't you want a quest?

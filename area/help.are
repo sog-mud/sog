@@ -1471,19 +1471,6 @@ PASSWORD изменяет твой текущий пароль.
 Эта команда защищена от подсматривания богами.
 PASSWORD NULL нужен, когда по каким-то причинам у персонажа отсутствует пароль.
 ~
-0 TITLE~
-@eng Syntax: {ctitle{x <string>
-
-Sets your title to a given string.
-
-The game supplies a title when your character is created and when you
-advance a level.  You can use TITLE to set your title to something else.
-@rus Синтаксис: {ctitle{x <строка>
- 
-Устанавливает твой титул в виде указанной строки.
-Игра автоматически проставляет свой титул при создании персонажа или получении
-им нового уровня. Ты можешь использовать данную команду чтобы поменять его.
-~
 0 WIMPY~
 @eng Syntax: {cwimpy{x
 Syntax: {cwimpy{x <number>
@@ -6607,18 +6594,13 @@ NOAFFECT strips all affects from char.
  
 NOAFFECT снимает любые аффекты с персонажа.
 ~
-immortal 'WIZ NOTITLE' NOTITLE 'WIZ ITITLE' ITITLE~
-@eng Syntax: {cnotitle{x <char>
-Syntax: {cititle{x <char> <new title>
+0 TITLE~
+@eng Syntax: {ctitle{x <char> <new title>
  
-NOTITLE provents character from changing his title. Use this when character
-uses offensive titles. ITITLE changes character's title to given one.
-@rus Синтаксис: {cnotitle{x <персонаж>
-Синтаксис: {cititle{x <персонаж> <новый титул>
+TITLE changes character's title to given one.
+@rus Синтаксис: {ctitle{x <персонаж> <новый титул>
  
-NOTITLE запрещают персонажу устанавливать себе титул. Используй это, когда
-персонаж устанавливает себе оскорбительные титулы. ITITLE служит для принуди-
-тельной смены титула у персонажа.
+TITLE устанавливает титул указанного персонажа.
 ~
 0 WIZLIST~
 @eng {WDEITIES OF THIS WORLD{x
