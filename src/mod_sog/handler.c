@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.41 1998-08-03 15:09:02 fjoe Exp $
+ * $Id: handler.c,v 1.42 1998-08-04 07:58:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3447,8 +3447,8 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE)
 	||  room_is_private(victim->in_room)
-	||  IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	||  IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON))
+	||  IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
+	||  IS_SET(victim->in_room->room_flags, ROOM_NO_RECALL))
 		return FALSE;
 
 	if (IS_NPC(victim)) {
