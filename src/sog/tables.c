@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.175 2001-11-01 13:21:46 kostik Exp $
+ * $Id: tables.c,v 1.176 2001-11-09 16:09:20 kostik Exp $
  */
 
 /***************************************************************************
@@ -112,6 +112,7 @@ flaginfo_t mob_act_flags[] =
 	{ "indoors",		ACT_INDOORS,		TRUE	},
 	{ "rideable",		ACT_RIDEABLE,		TRUE	},
 	{ "update_always",	ACT_UPDATE_ALWAYS,	TRUE	},
+	{ "immobile",		ACT_IMMOBILE,		TRUE	},
 	{ "notrack",		ACT_NOTRACK,		TRUE	},
 
 	{ NULL, 0, FALSE }
@@ -242,6 +243,7 @@ flaginfo_t off_flags[] =
 	{ "distance",		OFF_DISTANCE,		TRUE	},
 	{ "deathblow",		OFF_DEATHBLOW,		TRUE	},
 	{ "spellbane",		OFF_SPELLBANE,		TRUE	},
+	{ "thorny",		OFF_THORNY,		TRUE	},
 	{ "assist_all",		ASSIST_ALL,		TRUE	},
 	{ "assist_align",	ASSIST_ALIGN,		TRUE	},
 	{ "assist_race",	ASSIST_RACE,		TRUE	},
@@ -1289,6 +1291,9 @@ flaginfo_t dam_classes[] =
 	{ "charm",		DAM_CHARM,			TRUE	},
 	{ "sound",		DAM_SOUND,			TRUE	},
 	{ "harm",		DAM_HARM,			TRUE	},
+	{ "air",		DAM_AIR,			TRUE	},
+	{ "earth",		DAM_EARTH,			TRUE	},
+	{ "water",		DAM_WATER,			TRUE	},
 
 	{ "iron",		DAM_IRON,			TRUE	},
 	{ "wood",		DAM_WOOD,			TRUE	},
@@ -1323,6 +1328,9 @@ flaginfo_t resist_info_flags[] =
 	{ "charming spells",	DAM_CHARM,		TRUE	},
 	{ "sound based attack",	DAM_SOUND,		TRUE	},
 	{ "harm spells",	DAM_HARM,		TRUE	},
+	{ "air based attacks",	DAM_AIR,		TRUE	},
+	{ "earth based attacks",DAM_EARTH,		TRUE	},
+	{ "water based attacks",DAM_WATER,		TRUE	},
 
 	{ "iron weapons",	DAM_IRON,		TRUE	},
 	{ "wooden weapons",	DAM_WOOD,		TRUE	},

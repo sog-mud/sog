@@ -5,6 +5,7 @@ Form instant_decay sentient~
 Resist fire -50
 Resist cold 33
 Resist weapon 33
+Resist water 100
 End
 
 #$

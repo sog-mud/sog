@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills_impl.c,v 1.4 2001-09-13 12:03:05 fjoe Exp $
+ * $Id: skills_impl.c,v 1.5 2001-11-09 16:09:18 kostik Exp $
  */
 
 #include <stdio.h>
@@ -109,6 +109,7 @@ DECLARE_MOB_SKILL(mob_distance);
 DECLARE_MOB_SKILL(mob_deathblow);
 DECLARE_MOB_SKILL(mob_spellbane);
 DECLARE_MOB_SKILL(mob_dual_wield);
+DECLARE_MOB_SKILL(mob_thorns);
 
 static size_t mob_skill_count;
 
@@ -155,6 +156,7 @@ static mob_skill_t mob_skill_tab[] =
 	{ "bow",		mob_weapon		},	// notrans
 	{ "arrow",		mob_weapon		},	// notrans
 	{ "lance",		mob_weapon		},	// notrans
+	{ "thorns",		mob_thorns		},
 
 	{ NULL, NULL }
 };
@@ -392,4 +394,11 @@ MOB_SKILL(mob_crush)
 MOB_SKILL(mob_weapon)
 {
 	return 40 + 5 * mob->level / 2;
+}
+
+MOB_SKILL(mob_thorns)
+{
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_THORNY))
+		return 100;
+	return 0;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.373 2001-11-07 13:09:12 kostik Exp $
+ * $Id: merc.h,v 1.374 2001-11-09 16:09:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -521,6 +521,7 @@ struct wiznet_type
 #define ACT_WIMPY		(H)
 #define ACT_PET			(I)
 #define ACT_IMMSUMMON		(J)
+#define ACT_IMMOBILE		(K)		/* never moves, fights, etc */
 #define ACT_HUNTER		(L)
 #define ACT_CLERIC		(Q)
 #define ACT_MAGE		(R)
@@ -573,6 +574,7 @@ struct wiznet_type
 #define OFF_DISTANCE		(X)
 #define OFF_SPELLBANE		(Y)
 #define OFF_DEATHBLOW		(Z)
+#define OFF_THORNY		(aa)
 
 /* body form */
 #define FORM_EDIBLE		(A)

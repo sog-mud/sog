@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.256 2001-10-21 21:33:52 fjoe Exp $
+ * $Id: act_comm.c,v 1.257 2001-11-09 16:09:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -516,6 +516,9 @@ DO_FUN(do_immtalk, ch, argument)
 
 DO_FUN(do_yell, ch, argument)
 {
+	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
+		return;
+
 	if (IS_SET(ch->chan, CHAN_NOCHANNELS)) {
 		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;

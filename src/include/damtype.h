@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.h,v 1.18 2001-09-23 16:24:10 fjoe Exp $
+ * $Id: damtype.h,v 1.19 2001-11-09 16:09:10 kostik Exp $
  */
 
 #ifndef _DAMTYPE_H_
@@ -55,20 +55,23 @@
 #define DAM_HARM	16
 #define DAM_CHARM	17
 #define DAM_SOUND	18
+#define DAM_EARTH	19
+#define DAM_AIR		20
+#define DAM_WATER	21
 
 /* material damtypes */
-#define DAM_IRON	19
-#define DAM_WOOD	20
-#define DAM_SILVER	21
+#define DAM_IRON	22
+#define DAM_WOOD	23
+#define DAM_SILVER	24
 
 /*
  * special damtypes (used ONLY as defaults for corresponding
  * damtype groups)
  */
-#define DAM_WEAPON	22
-#define DAM_MAGIC	23
+#define DAM_WEAPON	25
+#define DAM_MAGIC	26
 
-#define DAM_NONE	24	/* should be the last */
+#define DAM_NONE	27	/* should be the last */
 
 #define MAX_RESIST	DAM_NONE
 

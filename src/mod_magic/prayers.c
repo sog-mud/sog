@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.23 2001-11-07 13:09:13 kostik Exp $
+ * $Id: prayers.c,v 1.24 2001-11-09 16:09:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -131,6 +131,7 @@ DECLARE_SPELL_FUN(prayer_hold_animal);
 DECLARE_SPELL_FUN(prayer_light);
 DECLARE_SPELL_FUN(prayer_darkness);
 DECLARE_SPELL_FUN(prayer_air_elemental);
+DECLARE_SPELL_FUN(prayer_wall_of_thorns);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -908,7 +909,7 @@ SPELL_FUN(prayer_desert_fist, sn, level, ch, vo)
 	    victim, NULL, NULL, TO_CHAR);
 	dam = dice(level, 14);
 	sand_effect(victim, level, dam);
-	damage(ch, victim, dam, sn, DAM_OTHER, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_EARTH, DAMF_SHOW);
 }
 
 /* RT calm spell stops all fighting in the room */
@@ -1650,10 +1651,10 @@ earthquake_cb(void *vo, va_list ap)
 			return NULL;
 
 		if (IS_AFFECTED(vch, AFF_FLYING))
-			damage(ch, vch, 0, sn, DAM_BASH, DAMF_SHOW);
+			damage(ch, vch, 0, sn, DAM_EARTH, DAMF_SHOW);
 		else
 			damage(ch, vch, level + dice(2, 8), sn,
-			       DAM_BASH, DAMF_SHOW);
+			       DAM_EARTH, DAMF_SHOW);
 		return NULL;
 	}
 
@@ -2594,6 +2595,86 @@ SPELL_FUN(prayer_air_elemental, sn, level, ch, vo)
 	elemental->master = elemental->leader = ch;
 
 	char_to_room(elemental, ch->in_room);
+}
+
+#define MOB_VNUM_THORN_WALL_EAST	32
+#define MOB_VNUM_THORN_WALL_WEST	33
+#define MOB_VNUM_THORN_WALL_NORTH	34
+#define MOB_VNUM_THORN_WALL_SOUTH	35
+
+SPELL_FUN(prayer_wall_of_thorns, sn, level, ch, vo)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *vch;
+	CHAR_DATA *wall;
+	AFFECT_DATA *paf;
+	int i;
+	int vnum;
+
+	if (is_sn_affected(ch, sn)) {
+		act_puts("You cannot grow a wall of thorns yet.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (ch->in_room == NULL
+	|| (ch->in_room->sector_type != SECT_FIELD
+	&& ch->in_room->sector_type != SECT_FOREST
+	&& ch->in_room->sector_type != SECT_HILLS
+	&& ch->in_room->sector_type != SECT_MOUNTAIN)
+	|| IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act_char("You cannot grow a wall of thorns here.", ch);
+		return;
+	}
+
+	if (IS_NULLSTR(target_name)) {
+		act_char("Where do you want to place a wall?", ch);
+		return;
+	}
+
+	target_name = one_argument(target_name, arg, sizeof(arg));
+
+	if (!str_cmp(arg, "east"))
+		vnum = MOB_VNUM_THORN_WALL_EAST;
+	else if (!str_cmp(arg, "west"))
+		vnum = MOB_VNUM_THORN_WALL_WEST;
+	else if (!str_cmp(arg, "north"))
+		vnum = MOB_VNUM_THORN_WALL_NORTH;
+	else if (!str_cmp(arg, "south"))
+		vnum = MOB_VNUM_THORN_WALL_SOUTH;
+	else {
+		act_char("You cannot place a wall there.", ch);
+		return;
+	}
+
+	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
+		if (IS_NPC(vch) && vch->pMobIndex->vnum == vnum) {
+			act("But $N is already grown.", ch, NULL, vch, TO_CHAR);
+			return;
+		}
+	}
+
+	wall = create_mob(vnum, 0);
+	if (wall == NULL)
+		return;
+
+	SET_HIT(wall, number_range(level * 15, ch->level * 35));
+	SET_MANA(wall, ch->max_mana);
+	wall->level = level;
+	for (i = 0; i < 4; i++)
+		wall->armor[i] = 100;
+	wall->gold = wall->silver = 0;
+
+	act("Suddenly a $N grows from the ground.", ch, NULL, wall, TO_ALL);
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 24;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	char_to_room(wall, ch->in_room);
 }
 
 static void

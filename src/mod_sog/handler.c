@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.340 2001-11-07 13:09:17 kostik Exp $
+ * $Id: handler.c,v 1.341 2001-11-09 16:09:17 kostik Exp $
  */
 
 /***************************************************************************
@@ -1704,6 +1704,9 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	int act_flags;
 	AFFECT_DATA *paf;
 
+	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
+		return FALSE;
+
 	if (RIDDEN(ch) && !IS_NPC(ch->mount))
 		return move_char(ch->mount, door, flags);
 
@@ -2182,6 +2185,9 @@ damsubst_t damsubst_tab[] = {
 	{ DAM_CHARM,		DAM_MAGIC },
 	{ DAM_SOUND,		DAM_MAGIC },
 	{ DAM_HARM,		DAM_MAGIC },
+	{ DAM_AIR,		DAM_MAGIC },
+	{ DAM_EARTH,		DAM_MAGIC },
+	{ DAM_WATER,		DAM_MAGIC },
 	{ DAM_OTHER,		DAM_MAGIC },
 };
 
@@ -2271,7 +2277,8 @@ get_resist(CHAR_DATA *ch, int dam_class, bool default_mod)
 	case DAM_MENTAL:
 		if (IS_IMMORTAL(ch))
 			return 100;
-		mod += (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 36) / 2;
+		mod += (get_curr_stat(ch, STAT_WIS)
+		    + get_curr_stat(ch, STAT_INT) - 36) / 2;
 		break;
 	case DAM_HOLY:
 		mod += ch->alignment / 500;

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.337 2001-11-07 13:09:16 kostik Exp $
+ * $Id: fight.c,v 1.338 2001-11-09 16:09:16 kostik Exp $
  */
 
 /***************************************************************************
@@ -131,6 +131,9 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 	if (victim == ch || ch == NULL || victim == NULL)
 		return;
 
+	if (IS_NPC(ch) && IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
+		return;
+
 	/*
 	 * Can't beat a dead char!
 	 * Guard against weird room-leavings.
@@ -157,6 +160,29 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 		}
 	}
 	dam_class = get_dam_class(ch, wield);
+
+	if (!wield) {
+		if (number_percent() < get_skill(ch, "iron hand")) {
+			int old_damclass = dam_class;
+			int resist = get_resist(victim, dam_class, TRUE);
+			int tmp_resist;
+			if ((tmp_resist = get_resist(victim, DAM_PIERCE, TRUE))
+			    < resist) {
+				dam_class = DAM_PIERCE;
+				resist = tmp_resist;
+			}
+			if ((tmp_resist = get_resist(victim, DAM_BASH, TRUE))
+			    < resist) {
+				dam_class = DAM_BASH;
+				resist = tmp_resist;
+			}
+			if (get_resist(victim, DAM_SLASH, TRUE) < resist)
+				dam_class = DAM_SLASH;
+
+			if (old_damclass != dam_class)
+				check_improve(ch, "iron hand", TRUE, 8);
+		}
+	}
 
 	/* get the weapon skill */
 	weapon_sn = get_weapon_sn(wield);
@@ -688,6 +714,22 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			one_hit(ch, victim, "twist", loc);
 			check_improve(ch, "twist", TRUE, 6);
 		}
+	}
+
+	if (!IS_EXTRACTED(ch) && !IS_EXTRACTED(victim)
+	    && number_percent() < get_skill(victim, "thorns")) {
+		int thorn_damage = dice_wlb(dam, 2, NULL, ch);
+		if (!wield) {
+			if (number_percent() > get_skill(ch, "iron hand"))
+				dam = dam * 3 / 2;
+		}
+
+		act("You are hurt by sharp thorns of $N.", ch, NULL,
+		    victim, TO_CHAR);
+		act("$n is hurt by sharp thorns of $N.", ch, NULL, victim,
+		    TO_NOTVICT);
+		damage(victim, ch, thorn_damage, "thorns" , DAM_PIERCE,
+		    DAMF_SHOW);
 	}
 }
 

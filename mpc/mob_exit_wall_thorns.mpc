@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_exit_wall_thorns.mpc,v 1.1 2001-11-09 16:09:06 kostik Exp $
+ */
+
+act("$n blocks your way.", $n, NULL, $N, TO_VICT);
+return 1;

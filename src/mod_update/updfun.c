@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.49 2001-10-21 22:13:29 fjoe Exp $
+ * $Id: updfun.c,v 1.50 2001-11-09 16:09:19 kostik Exp $
  */
 
 #include <stdio.h>
@@ -206,11 +206,10 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 		    ch, NULL, NULL, TO_ROOM);
 		act("You gasp for fresh air, but inhale water.",
 		    ch, NULL, NULL, TO_CHAR);
-		ch->hit -= ch->max_hit/20;
-		if (ch->hit < 1) {
-			handle_death(ch, ch);
+		damage(ch, ch, ch->max_hit / 20, NULL, DAM_WATER, DAMF_NONE);
+
+		if (IS_EXTRACTED(ch))
 			return NULL;
-		}
 		bust_prompt = TRUE;
 	}
 
@@ -1060,11 +1059,15 @@ FOREACH_CB_FUN(track_update_cb, vo, ap)
 	||  RIDDEN(ch))
 		return NULL;
 
+	if (IS_SET(ch->pMobIndex->act, ACT_IMMOBILE))
+		return NULL;
+
 	/*
 	 * track the victim
 	 */
 	npc = NPC(ch);
 	victim = npc->target ? npc->target : npc->last_fought;
+
 
 	if (victim != NULL) {
 		add_mind(ch, victim->name);

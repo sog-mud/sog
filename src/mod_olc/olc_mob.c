@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.88 2001-10-21 22:13:25 fjoe Exp $
+ * $Id: olc_mob.c,v 1.89 2001-11-09 16:09:15 kostik Exp $
  */
 
 #include "olc.h"
@@ -1019,7 +1019,7 @@ OLC_FUN(mobed_clone)
 	}
 
 	EDIT_MOB(ch, pMob);
-	if (pMob == pFrom) 
+	if (pMob == pFrom)
 		return FALSE;
 
 	free_string(pMob->name);
@@ -1054,6 +1054,7 @@ OLC_FUN(mobed_clone)
 	pMob->invis_level	= pFrom->invis_level;
 	pMob->incog_level	= pFrom->incog_level;
 	pMob->fvnum		= pFrom->fvnum;
+	pMob->xp_multiplier	= pFrom->xp_multiplier;
 
 	free_string(pMob->race);
 	pMob->race		= str_qdup(pFrom->race);

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.274 2001-11-07 13:09:14 kostik Exp $
+ * $Id: spellfun.c,v 1.275 2001-11-09 16:09:13 kostik Exp $
  */
 
 /***************************************************************************
@@ -1387,7 +1387,7 @@ SPELL_FUN(spell_faerie_fog, sn, level, ch, vo)
 		if (ich->invis_level > 0)
 			continue;
 
-		if (ich == ch || saves_spell(level, ich, DAM_OTHER))
+		if (ich == ch || saves_spell(level, ich, DAM_AIR))
 			continue;
 
 		affect_bit_strip(ich, TO_INVIS, ID_ALL_INVIS);
@@ -2252,7 +2252,7 @@ SPELL_FUN(spell_teleport, sn, level, ch, vo)
 	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
 	||  (!IS_NPC(ch) && victim->fighting != NULL)
 	||  (victim != ch
-	&&  (saves_spell(level - 5, victim,DAM_OTHER)))) {
+	&&  (saves_spell(level - 5, victim, DAM_OTHER)))) {
 		act_char("You failed.", ch);
 		return;
 	}
@@ -2292,7 +2292,7 @@ SPELL_FUN(spell_ventriloquate, sn, level, ch, vo)
 		if (is_name(speaker, vch->name))
 			continue;
 
-		if (saves_spell(level, vch, DAM_OTHER)) {
+		if (saves_spell(level, vch, DAM_MENTAL)) {
 			act("Someone makes $t say '{G$T{x'",
 			    vch, speaker, target_name, TO_CHAR);
 		} else {
@@ -2307,7 +2307,7 @@ SPELL_FUN(spell_weaken, sn, level, ch, vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
 
-	if (is_sn_affected(victim, sn) || saves_spell(level, victim,DAM_OTHER))
+	if (is_sn_affected(victim, sn) || saves_spell(level, victim, DAM_OTHER))
 		return;
 
 	paf = aff_new(TO_AFFECTS, sn);
@@ -2983,10 +2983,10 @@ hurricane_cb(void *vo, va_list ap)
 	else
 		*pdam = *pdam / 2;
 
-	if (saves_spell(level, vch, DAM_OTHER))
-		damage(ch, vch, *pdam/2, sn, DAM_OTHER, DAMF_SHOW);
+	if (saves_spell(level, vch, DAM_AIR))
+		damage(ch, vch, *pdam/2, sn, DAM_AIR, DAMF_SHOW);
 	else
-		damage(ch, vch, *pdam, sn, DAM_OTHER, DAMF_SHOW);
+		damage(ch, vch, *pdam, sn, DAM_AIR, DAMF_SHOW);
 	return NULL;
 }
 
@@ -5981,7 +5981,7 @@ SPELL_FUN(spell_fear, sn, level, ch, vo)
 	}
 
 	if (is_sn_affected(victim, sn)
-	||  saves_spell(level, victim, DAM_OTHER))
+	||  saves_spell(level, victim, DAM_MENTAL))
 		return;
 
 	paf = aff_new(TO_AFFECTS, sn);
@@ -6416,7 +6416,7 @@ SPELL_FUN(spell_insanity, sn, level, ch, vo)
 	}
 
 	if (IS_AFFECTED(victim, AFF_BLOODTHIRST)
-	||  saves_spell(level, victim,DAM_OTHER))
+	||  saves_spell(level, victim, DAM_MENTAL))
 		return;
 
 	paf = aff_new(TO_AFFECTS, sn);

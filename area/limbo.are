@@ -367,6 +367,82 @@ stand stand female 0
 r fire -50
 r cold 33
 r charm 100
+#32
+wall thorns east~
+@eng wall of thorns@rus ~~стена~~ колючек~
+@eng Way to the east is blocked by a wall of thorns.@rus Путь на восток прегражден стеной из колючек.~
+@eng A huge, thorny plant grows here, you cannot pass through it. But may be
+machete or good fireball will help?
+@rus Огромное и колючее растение не дает пройти. Хотя.. возможно большое мачете
+или хороший огонек поможет?
+~
+tree~
+EJK I Wd 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0 0
+a
+stand stand none 0
+0 0 gargantuan unknown
+g @eng none@rus female~
+x 0
+m mob_exit mob_exit_wall_thorns east~
+#33
+wall thorns west~
+@eng wall of thorns@rus ~~стена~~ колючек~
+@eng Way to the west is blocked by the wall of thorns.@rus Путь на запад прегражден стеной из колючек.~
+@eng A huge, thorny plant grows here, you cannot pass through it. But may be
+machete or good fireball will help?
+@rus Огромное и колючее растение не дает пройти. Хотя.. возможно большое мачете
+или хороший огонек поможет?
+~
+tree~
+EJK 0 Wd 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0 0
+a
+stand stand none 0
+0 0 gargantuan unknown
+g @eng none@rus female~
+x 0
+m mob_exit mob_exit_wall_thorns west~
+#34
+wall thorns north~
+@eng wall of thorns@rus ~~стена~~ колючек~
+@eng Way to the north is blocked by the wall of thorns.@rus Путь на север прегражден стеной из колючек.~
+@eng A huge, thorny plant grows here, you cannot pass through it. But may be
+machete or good fireball will help?
+@rus Огромное и колючее растение не дает пройти. Хотя.. возможно большое мачете
+или хороший огонек поможет?
+~
+tree~
+EJK 0 Wd 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0 0
+a
+stand stand none 0
+0 0 gargantuan unknown
+g @eng none@rus female~
+x 0
+m mob_exit mob_exit_wall_thorns north~
+#35
+wall thorns south~
+@eng wall of thorns@rus ~~стена~~ колючек~
+@eng Way to the south blocked by the wall of thorns.@rus Путь на юг прегражден стеной из колючек.~
+@eng A huge, thorny plant grows here, you cannot pass through it. But may be
+machete or good fireball will help?
+@rus Огромное и колючее растение не дает пройти. Хотя.. возможно большое мачете
+или хороший огонек поможет?
+~
+tree~
+EJK 0 Wd 0 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0 0
+a
+stand stand none 0
+0 0 gargantuan unknown
+g @eng none@rus female~
+x 0
+m mob_exit mob_exit_wall_thorns south~
 #50
 junkseller junk seller~
 Junkseller~

@@ -4,6 +4,7 @@ Aff flying~
 Form instant_decay~
 Resist fire -50
 Resist negative -50
+Resist water 100
 LuckBonus 0
 End
 
