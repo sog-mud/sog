@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.105 2001-11-23 09:00:11 avn Exp $
+ * $Id: olc_room.c,v 1.106 2001-11-24 14:37:18 avn Exp $
  */
 
 #include "olc.h"
@@ -1231,7 +1231,7 @@ DO_FUN(do_resets, ch, argument)
 			 */
 			OBJ_INDEX_DATA *obj_to;
 
-			if (arg4[0] == '\0') {
+			if (!is_number(arg4)) {
 				do_resets(ch, "?");
 				return;
 			}
@@ -1283,7 +1283,7 @@ DO_FUN(do_resets, ch, argument)
 			 */
 			int loc = WEAR_NONE;
 
-			if (arg4[0] == '\0') {
+			if (!is_number(arg4)) {
 				do_resets(ch, "?");
 				return;
 			}
