@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.102 1999-01-21 12:23:39 kostik Exp $
+ * $Id: spellfun.c,v 1.103 1999-01-21 13:36:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -1016,6 +1016,13 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if (check_dispel(level,victim,sn_lookup("sanctuary")))
 	{
 		act("The white aura around $n's body vanishes.",
+		    victim,NULL,NULL,TO_ROOM);
+		found = TRUE;
+	}
+
+	if (check_dispel(level, victim, sn_lookup("black shroud")))
+	{
+		act("The black aura around $n's body vanishes.",
 		    victim,NULL,NULL,TO_ROOM);
 		found = TRUE;
 	}
@@ -2083,6 +2090,13 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	    act("The white aura around $n's body vanishes.",
 	        victim,NULL,NULL,TO_ROOM);
 	    found = TRUE;
+	}
+
+	if (check_dispel(level, victim, sn_lookup("black shroud")))
+	{
+	    act("The black aura around $n's body vanishes.",
+		victim,NULL,NULL,TO_ROOM);
+	     found = TRUE;
 	}
 
 	if (IS_AFFECTED(victim,AFF_SANCTUARY) 
@@ -3884,7 +3898,7 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (is_affected(victim, sn_lookup("black shroud"))) {
 		if (victim == ch)
-	 	  char_puts("But you are surronded by black shroud.\n", ch);
+	 	  char_puts("But you are surrounded by black shroud.\n", ch);
 		else
 		  act("But $n is surrounded by black shroud.\n",
 			ch, NULL, victim, TO_CHAR);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.182 1999-01-21 12:23:38 kostik Exp $
+ * $Id: act_info.c,v 1.183 1999-01-21 13:36:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -388,6 +388,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(32, 'G', IS_GOOD(victim) &&
 				  IS_AFFECTED(ch, AFF_DETECT_GOOD));
 		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
+		FLAG_SET(34, 'W', IS_AFFECTED(victim, AFF_SANCTUARY));
 
 		if (is_affected(victim, sn_lookup("black shroud"))) {
 			FLAG_SET(35, 'B', TRUE);
