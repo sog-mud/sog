@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.25 1999-06-24 20:35:07 fjoe Exp $
+ * $Id: healer.c,v 1.26 1999-07-01 18:13:46 avn Exp $
  */
 
 /*-
@@ -45,20 +45,25 @@ typedef struct
 	int		price;
 } heal_t;
 
+/*
+ * negative price means skill healing, available to BR.
+ * for positive prices call spellfun(), for negative dofun()
+ */
 heal_t heal_table[] =
 {
-    { "light",		"cure light wounds",	"cure light", 0, 10 },
-    { "serious",	"cure serious wounds",	"cure serious", 0, 15 },
-    { "critical",	"cure critical wounds",	"cure critical", 0, 25 },
-    { "heal",		"healing spell",	"heal", 0, 50 },
-    { "blind",		"cure blindness",	"cure blindness", 0, 20 },
-    { "disease",	"cure disease",		"cure disease", 0, 15 },
-    { "poison",		"cure poison",		"cure poison", 0, 25 },
-    { "uncurse",	"remove curse",		"remove curse", 0, 50 },
-    { "refresh",	"restore movement",	"refresh", 0, 5 },
-    { "mana",		"restore mana",		"mana restore", 20, 10 },
-    { "master",		"master heal spell",	"master healing", 0, 200 },
-    { "energize",	"restore 300 mana",	"mana restore", 0, 200 },
+    { "light",	  "cure light wounds",	  "cure light",	     0, 10	},
+    { "serious",  "cure serious wounds",  "cure serious",    0, 15	},
+    { "critical", "cure critical wounds", "cure critical",   0, 25	},
+    { "heal",	  "healing spell",	  "heal",	     0, 50	},
+    { "blind",	  "cure blindness",	  "cure blindness",  0, 20	},
+    { "disease",  "cure disease",	  "cure disease",    0, 15	},
+    { "poison",	  "cure poison",	  "cure poison",     0, 25	},
+    { "uncurse",  "remove curse",	  "remove curse",    0, 50	},
+    { "refresh",  "restore movement",	  "refresh",	     0, 5,	},
+    { "mana",	  "restore mana",	  "mana restore",   20, 10	},
+    { "master",	  "master heal spell",	  "master healing",  0, 200 	},
+    { "energize", "restore 300 mana",	  "mana restore",    0, 200	},
+    { "herbs",	  "ranger's healing",	  "herbs",	     0, -100	},
 
     { NULL }
 };
@@ -67,10 +72,9 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 {
     CHAR_DATA *mob;
     char arg[MAX_INPUT_LENGTH];
-    int sn;
+    char buf[MAX_STRING_LENGTH];
     int cost;
     heal_t *h;
-    skill_t *sk;
 
     /* check for healer */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
@@ -83,11 +87,6 @@ void do_heal(CHAR_DATA *ch, const char *argument)
         return;
     }
 
-    if (HAS_SKILL(ch, gsn_spellbane)) {
-	char_puts("You are Battle Rager, not the filthy magician\n",ch);
-	return;
-    }
-
     one_argument(argument, arg, sizeof(arg));
 
     if (arg[0] == '\0') {
@@ -95,7 +94,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	act("$N offers the following spells.",ch,NULL,mob,TO_CHAR);
 	for (h = heal_table; h->keyword; h++)
 	    char_printf(ch, "%10s : %20s : %d gold\n",
-		h->keyword, h->name, h->price);
+		h->keyword, h->name, (h->price>0)?h->price:-h->price);
 	char_puts(" Type heal <type> to be healed.\n",ch);
 	return;
     }
@@ -110,6 +109,12 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	return;
     }
     cost = 100 * h->price;
+    if (ch->clan && ch->clan == mob->clan) cost /= 2;
+
+    if (HAS_SKILL(ch, gsn_spellbane) && (h->price > 0)) {
+	char_puts("You are Battle Rager, not the filthy magician\n",ch);
+	return;
+    }
 
     if (cost > (ch->gold * 100 + ch->silver))
     {
@@ -121,29 +126,17 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     WAIT_STATE(ch,PULSE_VIOLENCE);
 
     if (!can_see(mob, ch)) {
-	dofun("say", mob, "I can't cast on those whom I don't see.");
+	dofun("say", mob, "I can't heal those I don't see.");
 	return;
     }
 
+    if (cost < 0) {
+	deduct_cost(ch, -cost);
+	dofun(h->spellname, mob, ch->name);
+	return;
+    }
+
+    snprintf(buf, sizeof(buf), "'%s' %s", h->spellname, ch->name);
     deduct_cost(ch, cost);
-
-    sn = sn_lookup(h->spellname);
-    if (sn == -1) {
-	bug("do_heal: invalid spell name", 0);
-	return;
-    }
-
-	sk = SKILL(sn);
-	if (sk->skill_type != ST_SPELL) {
-		bug("do_heal: skill is not a spell", 0);
-		return;
-	}
-
-	if (sk->fun == NULL) {
-		bug("do_heal: no spell fun for skill", 0);
-		return;
-	}
-
-	say_spell(mob, sn);
-	sk->fun(sn, h->level ? h->level : mob->level, mob, ch);
+    dofun("cast", mob, buf);
 }

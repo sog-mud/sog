@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.79 1999-06-29 18:28:42 avn Exp $
+ * $Id: tables.c,v 1.80 1999-07-01 18:13:46 avn Exp $
  */
 
 /***************************************************************************
@@ -1345,6 +1345,32 @@ const 	struct attack_type	attack_table	[]		=
 	{ "flame",	"flame",		DAM_FIRE	},
 	{ "chill",	"chill",		DAM_COLD	},
 	{ "kiss",	"kiss",			DAM_MENTAL	}, /* 40 */
+	{ NULL }
+};
+
+flag_t desc_con_table[] =
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "Playing",		CON_PLAYING,			FALSE	},
+	{ "Get name",		CON_GET_NAME,			FALSE	},
+	{ "Get old password",	CON_GET_OLD_PASSWORD,		FALSE	},
+	{ "Confirm new name",	CON_CONFIRM_NEW_NAME,		FALSE	},
+	{ "Get new password",	CON_GET_NEW_PASSWORD,		FALSE	},
+	{ "Confirm new pwd",	CON_CONFIRM_NEW_PASSWORD,	FALSE	},
+	{ "Get new race",	CON_GET_NEW_RACE,		FALSE	},
+	{ "Get new sex",	CON_GET_NEW_SEX,		FALSE	},
+	{ "Get new class",	CON_GET_NEW_CLASS,		FALSE	},
+	{ "Choose align",	CON_GET_ALIGNMENT,		FALSE	},
+	{ "Reading imotd",	CON_READ_IMOTD,			FALSE	},
+	{ "Reading motd",	CON_READ_MOTD,			FALSE	},
+	{ "Roll stats",		CON_ROLL_STATS,			FALSE	},
+	{ "Accept stats",	CON_ACCEPT_STATS,		FALSE	},
+	{ "Pick hometown",	CON_PICK_HOMETOWN,		FALSE	},
+	{ "Get ethos",		CON_GET_ETHOS,			FALSE	},
+	{ "Create done",	CON_CREATE_DONE,		FALSE	},
+	{ "Get codepage",	CON_GET_CODEPAGE,		FALSE	},
+	{ "Resolving",		CON_RESOLV,			FALSE	},
 	{ NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.221 1999-06-30 20:11:10 fjoe Exp $
+ * $Id: merc.h,v 1.222 1999-07-01 18:13:46 avn Exp $
  */
 
 /***************************************************************************
@@ -161,9 +161,6 @@ struct weather_data
 #define CON_GET_NEW_SEX 		 7
 #define CON_GET_NEW_CLASS		 8
 #define CON_GET_ALIGNMENT		 9
-#define CON_DEFAULT_CHOICE		10
-#define CON_GEN_GROUPS			11
-#define CON_PICK_WEAPON 		12
 #define CON_READ_IMOTD			13
 #define CON_READ_MOTD			14
 #define CON_BREAK_CONNECT		15

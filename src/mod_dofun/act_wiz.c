@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.172 1999-07-01 07:44:52 fjoe Exp $
+ * $Id: act_wiz.c,v 1.173 1999-07-01 18:13:45 avn Exp $
  */
 
 /***************************************************************************
@@ -2087,6 +2087,10 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (!IS_NPC(victim)) {
+		if (ch->level < LEVEL_GOD) {
+			char_puts("Not at your level.\n", ch);
+			return;
+		}
 		if (ch == victim) {
 			char_puts("Ho ho ho.\n", ch);
 			return;
@@ -2755,9 +2759,9 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		count++;
-		buf_printf(output, "[%3d %2d] %s (%s)",
+		buf_printf(output, "[%3d %16s] %s (%s)",
 			   d->descriptor,
-			   d->connected,
+			   flag_string(desc_con_table, d->connected),
 			   buf,
 			   d->ip);
 		if (vch && vch->timer)
@@ -2788,7 +2792,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
-		char_puts("Force whom to do what?\n", ch);
+		dofun("help", ch, "'WIZ FORCE'");
 		return;
 	}
 
@@ -2822,7 +2826,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	    CHAR_DATA *vch;
 	    CHAR_DATA *vch_next;
 	
-	    if (ch->level < MAX_LEVEL - 2) {
+	    if (ch->level < MAX_LEVEL - 3) {
 	        char_puts("Not at your level!\n",ch);
 	        return;
 	    }
@@ -2857,7 +2861,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	} else {
 		CHAR_DATA *victim;
 
-		if ((victim = get_char_punish(ch, arg, GCP_NOPUNISH)) == NULL)
+		if ((victim = get_char_punish(ch, arg, GCP_NPC)) == NULL)
 		    return;
 
 		if (!IS_NPC(victim) && ch->level < MAX_LEVEL -3) {
@@ -3832,6 +3836,8 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *room;
 	ROOM_INDEX_DATA *room_next;
+	ROOM_AFFECT_DATA *raf;
+	char buf[MAX_STRING_LENGTH];
 	int count = 0;
 
 	if (!top_affected_room) 
@@ -3839,9 +3845,16 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 
 	for (room = top_affected_room; room ; room = room_next) {
 		room_next = room->aff_next;
+	    for (raf = room->affected; raf; raf = raf->next) {
+		snprintf(buf, sizeof(buf), "{c%d){x [Vnum : {C%5d{x] "
+			"spell '{c%s{x', owner: {C$N{x, level {c%d{x "
+			"for {c$j{x hours",
+			count, room->vnum,
+			skill_name(raf->type),
+			raf->level);
+		act(buf, ch, (const void *)raf->duration, raf->owner, TO_CHAR);
+	    }
 		count++;
-		char_printf(ch, "%d) [Vnum : %5d] %s, owner: %s\n",
-			count, room->vnum , mlstr_cval(&room->name, ch));
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.159 1999-06-30 20:11:09 fjoe Exp $
+ * $Id: act_obj.c,v 1.160 1999-07-01 18:13:44 avn Exp $
  */
 
 /***************************************************************************
@@ -2202,20 +2202,15 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 {
 	CHAR_DATA      *victim;
 	char            arg[MAX_INPUT_LENGTH];
-	int		sn;
-
-	if (IS_NPC(ch)
-	||  (sn = sn_lookup("herbs")) < 0)
-		return;
 
 	one_argument(argument, arg, sizeof(arg));
 
-	if (is_affected(ch, sn)) {
+	if (!IS_NPC(ch) && is_affected(ch, gsn_herbs)) {
 		char_puts("You can't find any more herbs.\n", ch);
 		return;
 	}
 
-	WAIT_STATE(ch, SKILL(sn)->beats);
+	WAIT_STATE(ch, SKILL(gsn_herbs)->beats);
 
 	if (arg[0] == '\0')
 		victim = ch;
@@ -2224,19 +2219,20 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (ch->in_room->sector_type != SECT_INSIDE
-	&&  ch->in_room->sector_type != SECT_CITY
-	&&  number_percent() < get_skill(ch, sn)) {
+	if ((ch->in_room->sector_type != SECT_INSIDE
+	  &&  ch->in_room->sector_type != SECT_CITY
+	  &&  number_percent() < get_skill(ch, gsn_herbs))
+	|| (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_HEALER))) {
 		AFFECT_DATA     af;
 		af.where = TO_AFFECTS;
-		af.type = sn;
+		af.type = gsn_herbs;
 		af.level = ch->level;
 		af.duration = 5;
 		af.location = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = 0;
 
-		affect_to_char(ch, &af);
+		if (!IS_NPC(ch)) affect_to_char(ch, &af);
 
 		char_puts("You gather some beneficial herbs.\n", ch);
 		act("$n gathers some herbs.", ch, NULL, NULL, TO_ROOM);
@@ -2251,18 +2247,21 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 			act("$n looks better.", victim, NULL, NULL, TO_ROOM);
 		}
 		victim->hit = UMIN(victim->max_hit, victim->hit + 5 * ch->level);
-		check_improve(ch, sn, TRUE, 1);
-		if (is_affected(victim, gsn_plague)) {
+		check_improve(ch, gsn_herbs, TRUE, 1);
+		if (is_affected(victim, gsn_plague))
 			if (check_dispel(ch->level, victim, gsn_plague)) {
-				char_puts("Your sores vanish.\n", victim);
 				act("$n looks relieved as $s sores vanish.",
 				    victim, NULL, NULL, TO_ROOM);
 			}
-		}
+		if (is_affected(victim, gsn_poison))
+			if (check_dispel(ch->level, victim, gsn_poison)) {
+				act("$n does not look so green anymore.",
+				    victim, NULL, NULL, TO_ROOM);
+			}
 	} else {
 		char_puts("You search for herbs but find none here.\n", ch);
 		act("$n looks around for herbs.", ch, NULL, NULL, TO_ROOM);
-		check_improve(ch, sn, FALSE, 1);
+		check_improve(ch, gsn_herbs, FALSE, 1);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.72 1999-06-29 18:28:42 avn Exp $
+ * $Id: skills.c,v 1.73 1999-07-01 18:13:46 avn Exp $
  */
 
 /***************************************************************************
@@ -325,7 +325,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 			skill = 40 + ch->level; 
 		else if (sn == gsn_sword || sn == gsn_dagger ||
 			 sn == gsn_spear || sn == gsn_mace ||
-			 sn == gsn_axe || sn == gsn_flail ||
+			 sn == gsn_axe || sn == gsn_flail || sn == gsn_staff ||
 			 sn == gsn_whip || sn == gsn_polearm ||
 			 sn == gsn_bow || sn == gsn_arrow || sn == gsn_lance)
 			skill = 40 + 5 * ch->level / 2;
