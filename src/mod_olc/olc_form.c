@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.10 1999-02-17 09:38:16 fjoe Exp $
+ * $Id: olc_form.c,v 1.11 1999-02-17 10:59:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -356,7 +356,7 @@ OLC_FUN(formed_form)
 		word_form_add(w, num, argument);
 	else
 		word_form_del(w, num);
-	return FALSE;
+	return TRUE;
 }
 
 OLC_FUN(formed_del)
@@ -370,6 +370,7 @@ OLC_FUN(formed_del)
 	EDIT_HASH(ch, l, hash);
 
 	word_del(hash, w->name);
+	touch_lang(l, ch->desc->editor);
 	edit_done(ch->desc);
 
 	return FALSE;
