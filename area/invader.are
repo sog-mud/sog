@@ -10,11 +10,14 @@ End
 #MOBILES
 #95600
 keeper guardian invader~
-the invader guardian~
-The invader guardian is here, serving his cabal.
+@eng the invader guardian@rus ~~страж~~ инвайдеров~
+@eng The invader guardian is here, serving his cabal.
+@rus Страж инвайдеров стоит здесь (guardian) , защищая свою кабалу.
 ~
-This strong serves as the guardian of the Invader Cabal. His mission is
+@eng This strong serves as the guardian of the Invader Cabal. His mission is
 to destroy anyone who dares to penatrate into the chamber.
+@rus Это страж {DКабалы Инвайдеров{x.  Его задача - уничтожить любого, кто
+попытается проникнуть сюда.  
 ~
 human~
 ABJKWef DFJTVZclmtu -1000 0
@@ -27,14 +30,19 @@ M grall 95600 100~
 C Invader~
 #95601
 evil cleric cabal invader~
-the evil cleric~
-The dark cleric is healing and refreshing his invader brothers.
+@eng the evil cleric@rus ~~жрец~~ Зла~
+@eng The dark cleric is healing and refreshing his invader brothers.
+@rus Темный монах (cleric) стоит у входа, готовый помочь своим братьям.
 ~
-This cleric is one most powerful clerics in this realms. He saw all the
+@eng This cleric is one most powerful clerics in this realms. He saw all the
 lands being raided. In spite of his old age, he stills serves for his
 cabal. In his way, now he's using his powers to heal and refresh his cabal
 mates, waiting the day when he is going to have the chance to invade the
 whole Realms of Anatolia as in the history.
+@rus Этот монах - один из сильнейших в ремесле лекаря.  Он многое повидал
+путешествуя по миру.  Несмотря на свой преклонный возраст он весьма полезен
+кабале.  Его задача - используя свои знания и мощь лечить братьев, ожидая
+того дня, когда весь этот мир склонится перед Инвайдерами.  
 ~
 human~
 ABQVae DFmu -1000 0
@@ -48,68 +56,68 @@ C Invader~
 
 #OBJECTS
 #95600
-gray altar skull container~
+altar skull~
 the skull~
-On the altar you see the skull with gray bones.~
+@eng On the altar you see the skull with dark bones.@rus Алтарь, похожий на череп из темной кости (skull) стоит в центре.~
 bone~
-container CEORY P
+container CERY P
 10 ABCD 95602 15 100
 60 2 20 P
 G none
 #95601
 globe sphere~
-the nothing globe~
-A small, sphere shaped unexistance area floats in the air.~
-unknown~
+@eng the nothing globe@rus ~~шар~~ пустоты~
+@eng A small, sphere shaped unexistance area floats in the air.@rus Маленькая сфера (sphere) нематериальной субстанции плавает в воздухе.~
+nothing~
 treasure CEORTe AO
 0 0 0 0 0
 0 2 10000 P
 G none
 #95602
-skull grayish jaw~
-grayish jaw of a skull~
-A gray jaw of a skull.~
+jaw~
+@eng darkish jaw of a skull@rus ~~челюсть~~ ~
+@eng A dark jaw of a skull.@rus Челюсть (jaw) лежит в углу.~
 bone~
 key CEORYf A
 0 0 0 0 0
 40 2 0 P
-G none
+G female
 #95603
 white object portal~
-Magical White Portal~
-A magically created white object casts strange shadows across the clearing.~
+@eng white portal@rus ~~белый~~ ~~портал~~~
+@eng Three magically created objects ({Wwhite{x, {Ggreen{x and {Ddark{x)                            casts strange shadows across the clearing.@rus Три магических объекта ({Wwhite{x, {Ggreen{x и {Ddark{x) мерцают вокруг алтаря.~
 energy~
-portal AO 0
+portal 0 0
 0 0 B 95600 0
 0 0 0 P
-G none
+G male
 #95604
 dark object portal~
-Dark Portal~
-A magically created dark object casts strange shadows across the clearing.~
+@eng dark portal@rus ~~черный портал~~~
+~
 energy~
-portal AO 0
+portal A 0
 0 0 E 0 0
 0 0 0 P
-G none
+G male
 #95605
 green object portal~
-Magical Green Portal~
-A magically created green object casts strange shadows across the clearing.~
+@eng green portal@rus ~~зеленый~~ ~~портал~~~
+~
 energy~
-portal AO 0
+portal A 0
 0 0 B 3124 0
 0 0 0 P
-G none
+G male
 #95606
 shadow~
-shadow cloak~
-Mistical shadow is ready to cuddle you.~
-unknown~
-furniture R P
-ACD 0 HK DGH DGH
+@eng shadow@rus ~~тень~~~
+@eng Powerful shadow concentrates around the altar.@rus Истекающая силой тень (shadow) сгустилась вокруг алтаря.~
+shadow~
+furniture CER P
+ACD 0 IL DGH DGH
 0 0 0 P
-G none
+G female
 #0
 
 #ROOMS
@@ -224,10 +232,13 @@ Z 0 95607
 S
 #95607
 Shadowy chambers~
-You are inside chamber, with dancing shadows on the walls. The walls are
+@eng You are inside chamber, with dancing shadows on the walls. The walls are
 almost black in colour. It's as if it has been burnt by a powerful spell.
 The walls has small cracks along it and there are many symbols on them,
 mostly about death, eg. skulls, demon claws, fangs...
+@rus Ты попал в зал с танцующими на стенах тенями.  Их черные камни несут на
+себе следы мощнейшей магии.  Повсюду высечены изображения демонов, черепов,
+клыков...  Ты вспомнил о смерти...  К чему бы это?  
 ~
 0 ADK inside
 D0
@@ -261,12 +272,13 @@ wall is a large skin sheet with blood script on it. The title with big
 letters reads ' The Brotherhood of Invader's '. On the west wall there is
 a black stone with blood script on it. The title with big letters reads  
 'Death Angel'.
-@rus Ты заходишь в зал выложенный черным камнем. Расчерченная алым пентаграмма как
-паутина облепила плиты пола. Гиганский черный алтарь, похожий на человеческий
-череп возвышается в центре. Множество огоньков расставленных повсюду свечей
-подрагивают при малейшем движении. На восточной стене исписанной кровью, 
-виднеется надпись "{RБратство Инвайдеров{x". На черных камнях западной стены
-среди потеков крови можно различить руны обозначающие - "{DАнгел Смерти{x".
+@rus Ты заходишь в зал выложенный черным камнем.  Расчерченная алым
+пентаграмма как паутина облепила плиты пола.  Гиганский черный алтарь,
+похожий на человеческий череп возвышается в центре.  Множество огоньков
+расставленных повсюду свечей подрагивают при малейшем движении.  На
+восточной стене прибита исчерканная рунами шкура, на ней видна надпись
+"{RБратство Инвайдеров{x".  На черных камнях западной стены среди потеков
+крови можно различить руны обозначающие - "{DАнгел Смерти{x".  
 ~
 0 ADK inside
 D2
@@ -290,7 +302,8 @@ INVADERS!
 ~
 0 AD inside
 D0
-You see the dark corridor.
+@eng You see the dark corridor.
+@rus Перед тобой темный проход.
 ~
 ~
 Z -1 95607
@@ -307,14 +320,14 @@ S
 D 0 95600 5 1	* The Well: door to the down: closed
 D 0 95601 4 1	* Bottom of the Well: door to the up: closed
 M 0 95600 1 95607 1	* the invader guardian (Shadowy chambers)
-E 0 95602 0 17		*	grayish jaw of a skull: held in the hands
+E 0 95602 0 17		*	darkish jaw of a skull: held in the hands
 M 0 95601 1 95608 1	* the evil cleric (The Pentagram)
+O 0 95605 0 95608	* green portal (The Pentagram)
+O 0 95604 0 95608	* dark portal (The Pentagram)
+O 0 95603 0 95608	* white portal (The Pentagram)
+O 0 95606 0 95608	* shadow (The Pentagram)
 O 0 95600 0 95608	* the skull (The Pentagram)
 P 0 95601 1 95600 1	* the skull: the nothing globe
-O 0 95603 0 95608	* Magical White Portal (The Pentagram)
-O 0 95604 0 95608	* Dark Portal (The Pentagram)
-O 0 95605 0 95608	* Magical Green Portal (The Pentagram)
-O 0 95606 0 95608	* shadow cloak (The Pentagram)
 S
 
 #MOBPROGS

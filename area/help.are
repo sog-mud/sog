@@ -3716,7 +3716,8 @@ Syntax: asave changed               - save changed areas
 Syntax: asave clans                 - save changed clans
 Syntax: asave msgdb                 - save msgdb
 Syntax: asave socials               - save socials
-Syntax: asave langs                 - save langs (with genders/cases tables)
+Syntax: asave langs                 - save langs 
+Syntax: asave rules                 - save expl/impl rules
  
 Please note that 'asave world/changed' will save only authorized areas.
  

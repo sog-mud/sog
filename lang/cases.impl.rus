@@ -109,9 +109,20 @@ Form 6 -юю~
 End
 
 #RULE
-Name -да~
+Name -ожа~
 BaseLen -1
-Form 1 -ы~
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name -ежа~
+BaseLen -1
+Form 1 -и~
 Form 2 -е~
 Form 3 -у~
 Form 4 -ой~
@@ -120,14 +131,112 @@ Form 6 -у~
 End
 
 #RULE
-Name -да~
+Name -ча~
+BaseLen -1
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name -ца~
 BaseLen -1
 Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name -га~
+BaseLen -1
+Form 1 -и~
 Form 2 -е~
 Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name -ша~
+BaseLen -1
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name -ик~
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
+Name -ок~
+BaseLen -2
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ка~
+End
+
+#RULE
+Name -це~
+BaseLen -1
+Form 1 -а~
+Form 2 -у~
+Form 3 -е~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -е~
+End
+
+#RULE
+Name -ще~
+BaseLen -1
+Form 1 -а~
+Form 2 -у~
+Form 3 -е~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -е~
+End
+
+#RULE
+Name -о~
+BaseLen -1
+Form 1 -а~
+Form 2 -у~
+Form 3 -о~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -о~
+End
+
+#RULE
+Name -ия~
+BaseLen -1
+Form 1 -и~
+Form 2 -и~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -и~
+Form 6 -ю~
 End
 
 #$

@@ -73,7 +73,7 @@ stand stand male 0
 #OBJECTS
 #95300
 spider altar~
-@eng a huge violet altar carved as a spider@rus Огромный фиолетовый алтарь, похожий на паука~
+@eng a huge violet altar carved as a spider@rus огромный фиолетовый алтарь, похожий на паука~
 @eng A hude spider shaped altar is standing at the center of room.@rus Алтарь (spider altar), похожий на огромного паука, стоит в центре комнаты.~
 ivory~
 container AORY P
@@ -81,23 +81,23 @@ container AORY P
 60 1 20 P
 G none
 #95301
-orb~
-Orb of Magic~
-Orb of magic is here.~
+orb шар~
+@eng Orb of Magic@rus шар магии~
+@eng Orb of magic is here.@rus Щар магии (orb) здесь.~
 ebony~
 treasure AGRe A
 0 0 0 0 0
 0 1 100000 P
-G none
+G male
 #95302
-key~
-a spider shaped key~
-A spider shaped  key is on the ground.~
+key ключ~
+@eng a spider shaped key@rus ключ в форме паука~
+@eng A spider shaped  key is on the ground.@rus Ключ в форме паука (key) лежит на земле.~
 steel~
 key ORYf AO
 0 0 0 0 0
 40 4 0 P
-G none
+G male
 #95303
 white object portal~
 @eng Magical White Portal@rus Белый магический портал~
@@ -120,7 +120,7 @@ portal AO 0
 G none
 #95305
 sofa~
-@eng sofa of meditation@rus ~~софа~~ для медитации ~
+@eng sofa of meditation@rus ~~софа~~ для медитации~
 @eng Sofa of meditation is here.@rus Софа (sofa) для медитации стоит в углу комнаты.~
 unknown~
 furniture GRT P

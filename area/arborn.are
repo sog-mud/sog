@@ -368,6 +368,19 @@ A
 A
 12 50
 G none
+#36116
+plain rod~
+@eng plain-looking staff@rus ~~обыкновенный~~ ~~посох~~~
+@eng Plain-looking staff lies in the dust.@rus Обыкновенный посох лежит в пыли.~
+unknown~
+staff HKRZ AOP
+50 20 20 'detect hide' 0
+45 0 0 P
+F
+I 0 0 A
+F
+R 0 0 O
+G none
 #0
 
 #ROOMS

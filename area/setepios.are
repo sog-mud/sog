@@ -4,7 +4,7 @@ VNUMs 38000 38999
 Credits Setepios~
 Security 1
 LevelRange 0 0
-Flags closed~
+Flags closed noquest~
 End
 
 #MOBILES
@@ -484,6 +484,27 @@ A
 19 5
 A
 13 50
+G none
+#38025
+ring of heavens~
+{MRing of Heavens{x~
+What is it on the floor ?~
+unknown~
+armor GIRY AB
+1 1 1 1 0
+25 1 10000 P
+A
+20 -10
+A
+18 7
+A
+19 5
+A
+1 1
+A
+12 30
+A
+13 30
 G none
 #38095
 {rБольшой пионерский БАРАБАН{w dark glass~

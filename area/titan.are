@@ -3005,13 +3005,19 @@ D2
 Z 0 18033
 S
 #18033
-The City Entrance~
-Welcome to The City of The Titans! Many races are known and accepted 
+@eng The City Entrance@rus Вход в город~
+@eng Welcome to The City of The Titans! Many races are known and accepted 
 here. This city consists of more people than Midgaard, Thalos and Ofcol 
 put together! You wonder where the best Inn would be. It would be nice to 
 kick of your hiking boots and site down to a warm fire and a long, enjoyable 
 pipe. Better start looking for an Inn. The exits are west and east to the 
 stables, north to the bridge, and south to the city.
+@rus Добро пожаловать в Город Титанов! Представители многих рас поселились здесь.
+В городе живет народу больше, чем в Мидгаарде, Талосе и Офколе, вместе взятыми.
+Интересно, где находятся лучшие постоялые дворы ? Хорошо было бы отбросить
+свои дорожные ботинки и присесть к теплому огню с дорогой, ароматной сигарой...
+Лучше уже начинать искать ночлег! На Западе (West) и Востоке (East) отсюда
+расположены конюшни, на Севере (North) мост, на Юге (South) начинается город.
 ~
 0 AS city
 D0
@@ -3035,12 +3041,17 @@ To the stables.
 Z 0 18035
 S
 #18034
-The Eastern Stables~
-You have entered the Eastern Stables, a place to board your horse for 
+@eng The Eastern Stables@rus Восточные Конюшни~
+@eng You have entered the Eastern Stables, a place to board your horse for 
 a price. No one seems to be around at this time, but perhaps if you tie 
 the horse up, you can pay them in the morning. It seems to be a nice place 
 for horses to rest awhile; fresh hay, lots of water, and clean stalls. 
 The exit is west back to the main road.
+@rus Вы вошли в Восточные Конюшни, за небольшую плату тут присмотрят за Вашим
+конем. В данный момент здесь никого не оказалось, но, если Вы оставите коня
+на привязи, то сможете заплатить утром. Похоже, здесь неплохое место для того,
+чтобы лошадь немного отдохнула; свежее сено, много воды, чистое стойло.
+Единственный выход на Запад (West), обратно на главную дорогу.
 ~
 0 AS inside
 D3
@@ -3050,12 +3061,17 @@ Back to the main road.
 Z 0 18033
 S
 #18035
-The Western Stables~
-You have entered the Western Stables, a fine place to board your horse for
+@eng The Western Stables@rus Западные Конюшни~
+@eng You have entered the Western Stables, a fine place to board your horse for
 a price. No one seems to be around at this time, but perhaps if you tie the 
 horse up, you can pay them tomorrow. It seems to be a nice place for horses 
 to res awhile; fresh hay, lots of water, and clean stalls. 
 The exit is east back to the main road.
+@rus Вы вошли в Западные Конюшни, за небольшую плату тут присмотрят за Вашим
+конем. В данный момент здесь никого не оказалось, но, если Вы оставите коня
+на привязи, то сможете заплатить завтра. Похоже, здесь неплохое место для
+того, чтобы лошадь немного отдохнула; свежее сено, много воды, чистое стойло.
+Единственный выход на Восток (East), обратно на главную дорогу.
 ~
 0 AS inside
 D1
@@ -3065,12 +3081,17 @@ Back to the main road.
 Z 0 18033
 S
 #18036
-The Main Road~
-As you walk along the main road you notice several shops along the east 
+@eng The Main Road@rus Главная Дорога~
+@eng As you walk along the main road you notice several shops along the east 
 and the west sides. All closed for the night, but they seem to be interesting 
 shops. The roads are paved with stones, very neat and tidy, with narrow 
 sidewalks along each side, and torch posts at every 50 feet or so. 
 The road continues south and back north.
+@rus Проходя вдоль главной дороги, Вы замечаете несколько магазинов по западной
+и восточной сторонам. Все они закрыты на ночь, но выглядят довольно
+интересными. Дорога вымощена очень ровными и аккуратными камнями, с узкими
+тротуарами с каждой стороны и фонарями, развешанными примерно через каждые
+15 метров. Дорога продолжается на Юг (South) и на Север (North).
 ~
 0 AS city
 D0
@@ -3085,11 +3106,16 @@ The road continues.
 Z 0 18037
 S
 #18037
-The Main Road at The Prison~
-You have come along a neatly kept prison to the east. Built of strong red 
+@eng The Main Road at The Prison@rus Главная Дорога возле Тюрьмы~
+@eng You have come along a neatly kept prison to the east. Built of strong red 
 brick, this prison looks to be one that is heavily guarded. You cannot belive 
 that there can be people in such a town that would even think of commiting 
 crime! The road continues south, north and east to the prison.
+@rus Вы проходите как раз вдоль расположенной на востоке тюрьмы. Построенная из
+крепкого красного кирпича, эта тюрьма выглядит хорошо охраняемой. Трудно
+поверить, что в этом городе нашлись люди, который могли бы даже подумать о
+совершении преступления! Дорога продолжается на Юг (South), Север (North)
+и на Восток (East) к Тюрьме.
 ~
 0 AS city
 D0
@@ -3109,12 +3135,17 @@ The main road continues.
 Z 0 18045
 S
 #18038
-The Main Office of The Prison~
-You have entered a large room, with several desks and cabinets. At the far 
+@eng The Main Office of The Prison@rus Главный Офис в Тюрьме~
+@eng You have entered a large room, with several desks and cabinets. At the far 
 back you see a sign that says 'Cells' and points downwards to the unknown. 
 You see some guards and some sherriffs here, but they are too busy to pay any 
 attention to you. The exits are north to the stairwell, and back west to the
 road.
+@rus Вы вошли в большое помещение, заставленное столами и шкафами. В дальней
+стороне Вы видите знак с надписью "Камеры", указывающий куда-то вниз
+в неизвестность. Вы замечаете здесь нескольких охранников и шерифов, но
+они слишком заняты, чтобы уделить Вам свое внимание. Выходы ведут на
+Север (North) к лестничному колодцу и на Запад (West), обратно на дорогу.
 ~
 0 AS city
 D0
@@ -3535,15 +3566,15 @@ the north you see the road you came from, Along The Southern Main Streets, to
 the south you see that the road continues, to several Inns. All the way west 
 you notice that a wide road takes you down to a grocer store and many others. 
 To the east in the far distance, you see a giant Castle.
-@rus     Вы очутились на большой, шумной Торговой Площади. Множество народу
+@rus Вы очутились на большой, шумной Торговой Площади. Множество народу
 толпится вокруг, обсуждая что-то между собой, или слушая группу музыкантов,
 разрывающих окружающий воздух и Ваши перепонки дикими звуками. Улицы
 вымощены крупным неровным булыжником,что неудобно для ходьбы, поэтому Вы
 чувствуете себя довольно таки уставшим. На Севере (North) Вы видите
-Длинную Главную Южную Улицу, эта же дорога тянется дальше на Юг (South) к
-нескольким постоялым дворам. Вы замечаете, что в Западном (West) направлении,
-широкая дорога приведет Вас к бакалейной и другим лавкам. На Востоке (East)
-в далеке Вы видите гигантский Замок.
+Главную Южную Улицу, эта же дорога тянется дальше на Юг (South) к нескольким
+постоялым дворам. Вы замечаете, что в Западном (West) направлении широкая
+дорога приведет Вас к бакалейной и другим лавкам. На Востоке (East) вдалеке
+Вы видите гигантский Замок.
 ~
 0 AS forest
 D0

@@ -54,6 +54,17 @@ Form 6 -у~
 End
 
 #RULE
+Name свиток~
+BaseLen 4
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ка~
+End
+
+#RULE
 Name нары~
 BaseLen 3
 Form 2 -ам~
@@ -613,6 +624,17 @@ Form 6 -ок~
 End
 
 #RULE
+Name челнок~
+BaseLen 4
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ка~
+End
+
+#RULE
 Name доктор~
 BaseLen 6
 Form 1 -а~
@@ -753,6 +775,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name шахматная~
+BaseLen 7
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE
@@ -1010,6 +1043,17 @@ Form 5 -ях~
 End
 
 #RULE
+Name граната~
+BaseLen 6
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name золотые монеты~
 Form 1 золотых монет~
 End
@@ -1109,6 +1153,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name голубая~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE
@@ -1565,6 +1620,17 @@ Form 5 -ах~
 End
 
 #RULE
+Name бродяга~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name кока-кола~
 Form 3 кока-колу~
 Form 6 кока-колу~
@@ -1896,6 +1962,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name мешок~
+BaseLen 3
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ок~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ка~
 End
 
 #RULE

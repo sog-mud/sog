@@ -95,6 +95,7 @@ A
 20 -200
 A
 18 200
+G none
 #34402
 abysmality~
 {Babysmality{w~
@@ -103,6 +104,7 @@ kender's skin~
 drink RYa AP
 -1 -1 'cranberry juice' 0 0
 1 10 -1 P
+G none
 #34404
 spring crystal~
 @eng {WSpring with crystal and clear water{w@rus {WРодник с кристально-чистой водой{w~
@@ -111,14 +113,16 @@ unknown~
 fountain AIORTY P
 -1 -1 'water' 0 0
 1 0 0 P
+G none
 #34405
 trunk fallen tree~
-@eng {cFallen tree{w@rus {cСтвол упавшего дерева{w~
+@eng fallen tree@rus ~~ствол~~ упавшего дерева~
 @eng {cCovered with soft moss trunk of a fallen tree.{w@rus {cПокрытый мягким мхом ствол упавшего дерева.{w~
 tree~
 furniture AIORSTYZa P
 BD ABCDEFGHIJKLMNOPQRSTUVWXYZabcde AEHKN EHI EHI
 1 0 0 P
+G none
 #34406
 food~
 @eng {rHot and tasty bite of roasted meat{w@rus {rВкусный и горЯчий шашлык из свежей баранины{w~
@@ -127,6 +131,7 @@ food~
 food SY A
 CE CE 0 0 0
 1 1 1 P
+G none
 #34407
 glass vodka~
 @eng {WHeeled glass filled with {BKosoruloFF{W vodka{w@rus {WГраненый стакан водовки {BКосорылоФФ{w~
@@ -135,6 +140,7 @@ glass~
 drink IU AO
 1 1 'vodka' 0 0
 1 0 1 P
+G none
 #34408
 hero helm oleg~
 {WThe Real Hero helm of Oleg{x~
@@ -149,6 +155,7 @@ A
 18 15
 A
 19 15
+G none
 #34409
 ring portal~
 @eng {Wring of repatriation{w@rus {Wk0льц0 b0зbpaщeHuЯ дomоu{x~
@@ -157,6 +164,7 @@ unknown~
 portal ARTYa ABP
 A A AB 34400 0
 96 1 2147483647 P
+G none
 #34410
 karmael statue piss~
 @eng Pissed Karmael@rus {YСтатуя писающего Кармаеля стоит здесь!{\{Y    Он одет в форму штандартенфюрера СС фон{\{Y    Штирлица, глаза дико выпучены!  Он рад!{x~
@@ -165,6 +173,7 @@ sand~
 fountain RTYa AP
 -1 -1 'salt water' 0 0
 1 20000 2147483647 P
+G none
 #0
 
 #ROOMS
@@ -187,7 +196,7 @@ S
 M 0 34400 1 34400 1	* {ysympathetic bear{w ({GClearing in the woods{w)
 G 0 34406 0		*	{rHot and tasty bite of roasted meat{w
 G 0 34407 0		*	{WHeeled glass filled with {BKosoruloFF{W vodka{w
-O 0 34405 0 34400	* {cFallen tree{w ({GClearing in the woods{w)
+O 0 34405 0 34400	* fallen tree ({GClearing in the woods{w)
 O 0 34404 0 34400	* {WSpring with crystal and clear water{w ({GClearing in the woods{w)
 S
 
