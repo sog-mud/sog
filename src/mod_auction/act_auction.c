@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.9 2002-12-03 17:15:54 tatyana Exp $
+ * $Id: act_auction.c,v 1.10 2002-12-03 17:38:03 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -107,7 +107,7 @@ do_auction(CHAR_DATA *ch, const char *argument)
 		} else { /* stop the auction */
 			act_auction("Sale of $p has been stopped by $N.",
 				    auction.item, ch, NULL,
-				    ACT_FORMSH, POS_DEAD);
+				    ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 			auction_give_obj(auction.seller);
 
 			/* return money to the buyer */
@@ -195,7 +195,7 @@ do_auction(CHAR_DATA *ch, const char *argument)
 
 	        act_auction("A bet of $J gold has been received on $p.",
 			    auction.item, NULL, (const void*) newbet,
-			    ACT_FORMSH, POS_RESTING);
+			    ACT_FORMSH | ACT_NOCANSEE, POS_RESTING);
 	        return;
 	}
 
@@ -211,7 +211,8 @@ do_auction(CHAR_DATA *ch, const char *argument)
 
 	if (auction.item != NULL) {
 		act_puts("Try again later - $p is being auctioned right now!",
-			 ch, auction.item, NULL, TO_CHAR, POS_DEAD);
+			 ch, auction.item, NULL, TO_CHAR | ACT_NOCANSEE,
+			 POS_DEAD);
 		return;
 	}
 
@@ -298,7 +299,8 @@ do_auction(CHAR_DATA *ch, const char *argument)
 		auction.going = 0;
 
 		act_auction("A new item has been received: {Y$p{x.",
-			    obj, NULL, NULL, ACT_FORMSH, POS_RESTING);
+			    obj, NULL, NULL, ACT_FORMSH | ACT_NOCANSEE,
+			    POS_RESTING);
 		break;
 	} /* switch */
 }
