@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.71 1998-10-17 16:49:40 fjoe Exp $
+ * $Id: spellfun.c,v 1.72 1998-10-17 16:55:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1260,7 +1260,6 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  IS_SET(victim->imm_flags, IMM_CHARM)
 	||  saves_spell(level, victim, DAM_CHARM) 
 	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
-	||  IS_IMMORTAL(victim)
 	||  (victim->in_room &&
 	     IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
 		return;

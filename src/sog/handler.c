@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.76 1998-10-17 16:20:11 fjoe Exp $
+ * $Id: handler.c,v 1.77 1998-10-17 16:55:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -311,21 +311,28 @@ int check_immune(CHAR_DATA *ch, int dam_type)
 		case(DAM_NEGATIVE):	bit = IMM_NEGATIVE;	break;
 		case(DAM_HOLY):		bit = IMM_HOLY;		break;
 		case(DAM_ENERGY):	bit = IMM_ENERGY;	break;
-		case(DAM_MENTAL):	bit = IMM_MENTAL;	break;
+		case(DAM_MENTAL):
+			if (IS_IMMORTAL(ch))
+				return IS_IMMUNE;
+			bit = IMM_MENTAL;
+			break;
 		case(DAM_DISEASE):	bit = IMM_DISEASE;	break;
 		case(DAM_DROWNING):	bit = IMM_DROWNING;	break;
 		case(DAM_LIGHT):	bit = IMM_LIGHT;	break;
-		case(DAM_CHARM):	bit = IMM_CHARM;	break;
+		case(DAM_CHARM):
+			if (IS_IMMORTAL(ch))
+				return IS_IMMUNE;
+			bit = IMM_CHARM;
+			break;
 		case(DAM_SOUND):	bit = IMM_SOUND;	break;
 		default:		return def;
 	}
 
-	if (IS_SET(ch->imm_flags,bit))
+	if (IS_SET(ch->imm_flags, bit))
 		immune = IS_IMMUNE;
-	else if (IS_SET(ch->res_flags,bit) && immune != IS_IMMUNE)
+	else if (IS_SET(ch->res_flags, bit) && immune != IS_IMMUNE)
 		immune = IS_RESISTANT;
-	else if (IS_SET(ch->vuln_flags,bit))
-	{
+	else if (IS_SET(ch->vuln_flags, bit)) {
 		if (immune == IS_IMMUNE)
 		    immune = IS_RESISTANT;
 		else if (immune == IS_RESISTANT)
