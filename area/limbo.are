@@ -1315,14 +1315,14 @@ The letters '%s' is carved on the handle.
 g @rus none~
 #99
 golden lance~
-a golden lance~
-There is a shiny golden lance on the ground.~
+@eng a golden lance@rus ~~золотистая~~ ~~пика~~~
+@eng There is a shiny golden lance on the ground.@rus Блестящая золотистая пика (lance) лежит на земле.~
 gold~
 weapon AIP CD AN
 lance 10 1 'none' D
 20 80 0 P
 m obj_fight obj_fight_golden_weapon 100~
-g @rus none~
+g @rus female~
 #0
 
 #ROOMS

@@ -346,6 +346,7 @@ $N преданно $gN{глядит} на тебя.~
 @eng $N's skin is already hard as rock.@rus Кожа $c1{$N} и без этого тверда как скала.~
 @eng $N's speech is already garbled.@rus Речь $c1{$N} уже искажена.~
 @eng $N's thin light ray ###DISINTEGRATES### you!@rus Луч света от $c1{$N} ###РАЗДЕЛЯЕТ### тебя на составные части!~
+@eng $N, your evil days are numbered!@rus $N, дни твоих злодеяний сочтены!~
 @eng $N{x$t {xis here, riding $I.@rus $N{x$t {xздесь, верхом на $c5{$I}.~
 @eng $N{x$t {xis here.@rus $N{x$t {xздесь.~
 @eng $P is beyond my power.@rus Починить $P мне не по силам.~
@@ -760,6 +761,7 @@ $n loses his position and falls down!~
 @eng $n sits down on the ground.@rus $n $gn{садится} на землю.~
 @eng $n sits in $p.@rus $n $gn{садится} в $c3{$p}.~
 @eng $n sits on $p.@rus $n $gn{садится} на $c3{$p}.~
+@eng $n skipped $p by the ocean...@rus $n $gn{бросил} $p в океан...~
 @eng $n slams into $d, and tries to break it!@rus $n с разбегу $gn{ударяется} в $c3{$d}!~
 @eng $n slaps $N.@rus $n $gn{дал} пощечину $c2{$N}.~
 @eng $n slaps you.@rus $n $gn{дал} тебе пощечину.~
@@ -849,7 +851,7 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $n tries to disarm $N, but fails.@rus $n $gn{пытается} обезоружить $c6{$N}, но безуспешно.~
 @eng $n tries to disarm you, but fails.@rus $n $gn{пытался} обезоружить тебя, но $gn{ему} не удалось.~
 @eng $n tries to disarm you, but you grip and escape!@rus $n $gN{пытается} выбить оружие из твоих рук, но ты лишь крепче сжимаешь его!~
-@eng $n tries to disarm you, but your weapon won't budge!@rus $n $gn{пытается}выбить оружие из твоих рук, но оно даже не двигается!~
+@eng $n tries to disarm you, but your weapon won't budge!@rus $n $gn{пытается} выбить оружие их твоих рук, но оно даже не двигается!~
 @eng $n tries to enchant $p, but he forgets how for a moment.@rus $n $gn{пытался} наделить магической силой $c3{$p}, но на мгновение $gn{забыл} как это делается. ~
 @eng $n tries to enchant $p, but is too inexperienced.@rus $n $gn{пытается} наделить магической силой $c3{$p}, но $gn{он}, к сожалению, слишком $gn{неопытен}.~
 @eng $n tries to entangle you but fails.@rus $n $gn{попытался} опутать тебя, но у него не вышло.~
@@ -1466,6 +1468,7 @@ $t~
 @eng Flame? What is that?@rus Пламя? Какое еще пламя?~
 @eng Follow whom?@rus Последовать за кем?~
 @eng For more information, type: help quests.@rus Для получения дополнительной информации набери: help quests.~
+@eng Forgive me God for I have sinned...@rus Прости меня, Боже, ибо $gn{согрешил}...~
 @eng Forgive me, my master, I can't give it to anyone.@rus Прости меня. Я никому не могу отдать это.~
 @eng Form added.@rus Форма добавлена.~
 @eng Form deleted.@rus Форма удалена.~
@@ -2388,6 +2391,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Wiznet status: %s
 @rus Статус: %s
 ~
+@eng Wow! $p skipped $K $qK{times}@rus Ух ты! $p отскочил $K $qK{раз}~
 @eng Wow! Everything looks so different.@rus Ух, ты! Все так необычно!~
 @eng Wow. One gold coin.@rus Ух ты. Целый золотой.~
 @eng Wow. One silver coin.@rus Ух ты. Целый серебрянный.~
@@ -3143,7 +3147,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You get $P from $p.@rus Ты берешь $c3{$P} с $c1{$p}.~
 @eng You get $p from $P.@rus Ты достаешь $c3{$p} из $c1{$P}.~
 @eng You get $p.@rus Ты подбираешь $c3{$p}.~
-@eng You get a little madder.@rus Ты выглядишь слегка $gn{сумашедшим}.~
+@eng You get a little madder.@rus Ты $gn{стал} выгладеть чуть более $gn{сумасшедшим}.~
 @eng You get your feet dirty.@rus Ты весело шлепаешь ногами по грязи.~
 @eng You give $N $J $t.@rus Ты даешь $c2{$N} $J $c3{$qJ{$c1{$t}}}.~
 @eng You give $p to $N.@rus Ты отдаешь $c3{$p} $c2{$N}.~
@@ -3445,6 +3449,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You sit down.@rus Ты садишься.~
 @eng You sit in $p.@rus Ты садишься на $c3{$p}.~
 @eng You sit on $p.@rus Ты садишься на $c3{$p}.~
+@eng You skip $p by the ocean...@rus Ты $gn{бросил} $p в океан...~
 @eng You slam into $N, and crush $M!@rus Ты ударяешь $c1{$N}, раздробляя $gN{его}!~
 @eng You slam into $N, and send $M flying!@rus Ты бросаешься на $c6{$N}, сбивая $gN{его} с ног!~
 @eng You slam into $d, and try to break it!@rus Ты с разбегу ударяешься в $d!~
