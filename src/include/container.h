@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.h,v 1.6 2001-12-03 22:28:19 fjoe Exp $
+ * $Id: container.h,v 1.7 2001-12-10 22:20:44 fjoe Exp $
  */
 
 #ifndef _CONTAINER_H_
 #define _CONTAINER_H_
 
-#define CA_F_INSERT	(A)
-#define CA_F_UPDATE	(B)
+#define CA_F_NOUPDATE	(A)
+#define CA_F_NOINSERT	(B)
 
 struct c_ops_t {
 	void (*c_init)(void *c, void *info);
@@ -60,10 +60,9 @@ struct c_ops_t {
 
 #define c_lookup(c, k)		(C_OPS(c)->c_lookup((c), (k)))
 
-#define c_insert(c, k)		(C_OPS(c)->c_add((c), (k), CA_F_INSERT))
-#define c_update(c, k)		(C_OPS(c)->c_add((c), (k),  CA_F_UPDATE))
-#define c_replace(c, k)		(C_OPS(c)->c_add(			\
-				    (c), (k), CA_F_INSERT | CA_F_UPDATE))
+#define c_insert(c, k)		(C_OPS(c)->c_add((c), (k), CA_F_NOUPDATE))
+#define c_update(c, k)		(C_OPS(c)->c_add((c), (k),  CA_F_NOINSERT))
+#define c_get(c, k)		(C_OPS(c)->c_add((c), (k), 0))
 
 #define c_delete(c, k)		(C_OPS(c)->c_delete((c), (k)))
 #define c_move(c, k, k_new)	(C_OPS(c)->c_move((c), (k), (k_new)))
