@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.c,v 1.3 2001-08-28 16:37:41 avn Exp $
+ * $Id: db.c,v 1.4 2001-12-10 15:34:36 fjoe Exp $
  */
 
 #include <errno.h>
@@ -91,8 +91,10 @@ db_load_dir(DBDATA *dbdata, const char *path, const char *ext)
 	snprintf(mask, sizeof(mask), "*%s", ext);	// notrans
 
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+#if !defined(LINUX)
 		if (dp->d_type != DT_REG)
 			continue;
+#endif
 
 		if (fnmatch(mask, dp->d_name, 0) == FNM_NOMATCH)
 			continue;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.14 2001-12-08 10:22:45 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.15 2001-12-10 15:34:35 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -256,8 +256,10 @@ load_mprogs()
 	snprintf(mask, sizeof(mask), "*%s", MPC_EXT);		// notrans
 
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+#if !defined(LINUX)
 		if (dp->d_type != DT_REG)
 			continue;
+#endif
 
 		if (fnmatch(mask, dp->d_name, 0) == FNM_NOMATCH)
 			continue;
