@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.38 2004-02-22 15:51:57 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.39 2004-02-22 20:33:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1087,7 +1087,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		unsigned char *r;
 
 		if (*p != IAC) {
-			p++;
+			*p = d->codepage->from[*p++];
 			continue;
 			/* NOTREACHED */
 		}
@@ -1158,6 +1158,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 {
 	int i, j, k;
 	bool repeat;
+	char *inbuf;
 
 	/*
 	 * Hold horses if pending command already.
@@ -1168,33 +1169,45 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	/*
 	 * Look for at least one new line.
 	 */
-	for (i = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++)
-		if (d->inbuf[i] == '\0')
+	inbuf = d->inbuf;
+again:
+	for (i = 0; inbuf[i] != '\n' && inbuf[i] != '\r'; i++) {
+		if (inbuf[i] == '\0') {
+			if (inbuf == d->inbuf
+			&&  d->character != NULL
+			&&  d->character->wait == 0) {
+				/*
+				 * Try again with queued commands buffer
+				 */
+				inbuf = d->qbuf;
+				goto again;
+			}
 			return;
+		}
+	}
 
 	/*
 	 * Canonical input processing.
 	 */
-	for (i = 0, k = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++) {
+	for (i = 0, k = 0; inbuf[i] != '\n' && inbuf[i] != '\r'; i++) {
 		if (k >= MAX_INPUT_LENGTH - 2) {
 			write_to_descriptor(d,
 					    "Line too long.\n\r", 0);
 
 			/* skip the rest of the line */
-			for (; d->inbuf[i] != '\0'; i++)
-				if (d->inbuf[i] == '\n' || d->inbuf[i] == '\r')
+			for (; inbuf[i] != '\0'; i++)
+				if (inbuf[i] == '\n' || inbuf[i] == '\r')
 					break;
 
-			d->inbuf[i]   = '\n';
-			d->inbuf[i+1] = '\0';
+			inbuf[i]   = '\n';
+			inbuf[i+1] = '\0';
 			break;
 		}
 
-		if (d->inbuf[i] == '\b' && k > 0)
+		if (inbuf[i] == '\b' && k > 0)
 			--k;
-		else if ((unsigned)d->inbuf[i] >= ' ')
-			d->incomm[k++] =
-				d->codepage->from[(unsigned char) d->inbuf[i]];
+		else if ((unsigned) inbuf[i] >= ' ')
+			d->incomm[k++] = inbuf[i];
 	}
 
 	/*
@@ -1257,10 +1270,30 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	/*
 	 * Shift the input buffer.
 	 */
-	while (d->inbuf[i] == '\n' || d->inbuf[i] == '\r')
+	while (inbuf[i] == '\n' || inbuf[i] == '\r')
 		i++;
-	for (j = 0; (d->inbuf[j] = d->inbuf[i+j]) != '\0'; j++)
+	for (j = 0; (inbuf[j] = inbuf[i+j]) != '\0'; j++)
 		;
+}
+
+void
+append_to_qbuf(DESCRIPTOR_DATA *d, const char *txt)
+{
+	size_t old_len, len;
+
+	if (!d)
+		return;
+
+	old_len = strlen(d->qbuf);
+	len = strlen(txt);
+	if (old_len + len + 2 >= sizeof(d->qbuf)) {
+		printlog("%s input overflow!", d->host);
+		write_to_descriptor(d, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
+		snprintf(d->qbuf, sizeof(d->qbuf), "quit\n");
+		return;
+	}
+
+	snprintf(d->qbuf + old_len, sizeof(d->qbuf) - old_len, "%s\n", txt);
 }
 
 /*

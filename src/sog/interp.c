@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.11 2004-02-22 16:36:08 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.12 2004-02-22 20:33:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,7 +92,7 @@ void interpret(CHAR_DATA *ch, const char *argument)
 void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 {
 	char command[MAX_INPUT_LENGTH];
-	const char *logline;
+	const char *save_argument;
 	cmd_t *cmd = NULL;
 	social_t *soc = NULL;
 	int min_pos;
@@ -112,7 +112,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (argument[0] == '\0')
 		return;
 
-	logline = argument;
+	save_argument = argument;
 
 	/*
 	 * Grab the command word.
@@ -124,7 +124,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
  	if (IS_IMMORTAL(ch)) {
 		if ((imm_log = dfopen(GODS_PATH, IMMLOG_FILE, "a+"))) {
 			fprintf(imm_log, "%s [%s] %s\n",
-				strtime(time(NULL)), ch->name, logline);
+				strtime(time(NULL)), ch->name, save_argument);
 			fprintf(imm_log, buf);
 			fclose(imm_log);
 		}
@@ -179,7 +179,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (ch->desc && ch->desc->snoop_by) {
 		char buf[MAX_INPUT_LENGTH];
 
-		snprintf(buf, sizeof(buf), "# %s\n\r", logline);
+		snprintf(buf, sizeof(buf), "# %s\n\r", save_argument);
 		write_to_snoop(ch->desc, buf, 0);
 	}
 
@@ -254,8 +254,10 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		return;
 	}
 
-	if (!IS_NPC(ch) && ch->wait > 0 && !IS_SET(cmd_flg, CMD_HARMLESS))
+	if (!IS_NPC(ch) && ch->wait > 0 && !IS_SET(cmd_flg, CMD_HARMLESS)) {
+		append_to_qbuf(ch->desc, save_argument);
 		return;
+	}
 
 	/*
 	 * Log
@@ -264,8 +266,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	     fLogAll ||
 	     cmd_log == LOG_ALWAYS)
 	&&  cmd_log != LOG_NEVER
-	&&  logline[0] != '\0')
-		wizlog("Log %s: %s", vch->name, logline);
+	&&  save_argument[0] != '\0')
+		wizlog("Log %s: %s", vch->name, save_argument);
 
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
