@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.45.2.4 2000-03-27 08:43:31 osya Exp $
+ * $Id: const.h,v 1.45.2.5 2000-03-28 07:22:18 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -94,6 +94,7 @@ extern const char NEWS_FILE	[];
 extern const char CHANGES_FILE	[];
 extern const char SHUTDOWN_FILE	[];
 extern const char EQCHECK_FILE	[];
+extern const char EQCHECK_SAVE_ALL_FILE [];
 extern const char BAN_FILE	[];
 extern const char MAXON_FILE	[];
 extern const char AREASTAT_FILE	[];
