@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.c,v 1.8 2000-01-26 09:43:10 fjoe Exp $
+ * $Id: colors.c,v 1.9 2000-03-30 04:28:53 avn Exp $
  */
 
 #include <stdio.h>
@@ -169,7 +169,7 @@ FORMAT_DATA format_table[] =
 	{ NULL }
 };
 
-static const char special_symbols[] = "\r\n;<>";
+static const char special_symbols[] = "\r\n&<>";
 
 /*
  * Parse color symbols. len MUST BE > 1
