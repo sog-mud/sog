@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.3 1998-09-15 15:17:16 fjoe Exp $
+ * $Id: tables.c,v 1.4 1998-09-17 11:07:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1806,7 +1806,7 @@ const	struct	pc_race_type	pc_race_table	[MAX_PC_RACE]	=
 
     {
 	"felar",	"Felar",250,{ -1, -1, 100, 100,-1 ,100,100,100 ,100,-1,-1,-1,100},
-	{ "hand to hand" },
+	{ "hand to hand", "tail" },
 	{ -1, -1, 0, 2, 2 ,0},	{ 17, 17, 20, 23, 23,25 }, SIZE_MEDIUM,
 	10,-10,0,CR_NONE,SLANG_CAT
     },
