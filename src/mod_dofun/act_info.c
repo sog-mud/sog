@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.42 1998-05-20 12:26:55 efdi Exp $
+ * $Id: act_info.c,v 1.43 1998-05-20 22:02:57 efdi Exp $
  */
 
 /***************************************************************************
@@ -2783,8 +2783,10 @@ void do_scan(CHAR_DATA *ch, char *argument)
 	in_room = ch->in_room;
 	for (i=1; i <= range; i++) {
 		exit = in_room->exit[door];
+		if (!exit)
+			return;
 		to_room = exit->u1.to_room;
-		if (!exit || !to_room)
+		if (!to_room)
 			return;
 
 		if (IS_SET(exit->exit_info,EX_CLOSED)) {
