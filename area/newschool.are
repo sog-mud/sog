@@ -15,7 +15,7 @@ teacher учитель~
 ~
 human~
 0 0 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
@@ -29,7 +29,7 @@ shopkeeper продавец~
 ~
 human~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0

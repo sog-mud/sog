@@ -101,7 +101,7 @@ rat big крыса~
 ~
 rat~
 Y 0 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
@@ -122,7 +122,7 @@ rats often.
 ~
 rat~
 FY 0 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
@@ -139,7 +139,7 @@ But, may be, rats do not consider it as rival.
 ~
 rat~
 Y 0 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
@@ -154,7 +154,7 @@ gnome гном~
 ~
 gnome~
 B 0 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand male 0
@@ -169,7 +169,7 @@ guard стражник~
 ~
 human~
 B 0 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand male 0
@@ -187,7 +187,7 @@ woman girl девушка~
 ~
 half-elf~
 B 0 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand male 0
@@ -203,7 +203,7 @@ chemist аптекарь~
 ~
 human~
 Be H 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand male 0
@@ -224,7 +224,7 @@ in the forest is more usual picture.
 ~
 elf~
 B A 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand male 0
@@ -238,7 +238,7 @@ guard стражник~
 ~
 troll~
 W 0 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
@@ -254,7 +254,7 @@ owner хозяин~
 ~
 dwarf~
 0 0 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
@@ -270,7 +270,7 @@ figure фигура странник~
 ~
 rockseer~
 0 E 0 0 0 0 0
-0 0 1d1+1 0d0+0 0d0+0 ''
+0 0 1d1+1 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand female 0
@@ -283,7 +283,7 @@ dog собака~
 ~
 dog~
 W 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
@@ -296,7 +296,7 @@ mayor мэр man мужчина~
 ~
 human~
 0 0 0 0 0 0 0
-0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
@@ -545,7 +545,7 @@ sword меч~
 @eng You notice the sparkling sword.@rus Сверкающий меч (sword) привлек твое внимание.~
 unknown~
 weapon 0 0 0
-exotic 0 0 '' 0
+exotic 0 0 'none' 0
 0 0 0 P
 E
 sword меч~
@@ -1023,7 +1023,7 @@ sword меч~
 @rus Камень на рукояти этого меча (sword) привлекает к себе внимание.~
 unknown~
 weapon 0 0 AN
-exotic 0 0 '' 0
+exotic 0 0 'none' 0
 0 0 0 P
 g @eng male@rus male~
 #40253

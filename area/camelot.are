@@ -1099,7 +1099,7 @@ ghost small привидение маленькое~
 ~
 ghost~
 GJUY 0 0 ABF ABH 0 0
-1 0 5d5+1 1d1+10 1d1+1 ''
+1 0 5d5+1 1d1+10 1d1+1 'none'
 0 0 0 0
 0
 stand stand none 0
@@ -1839,7 +1839,7 @@ g @eng none@rus male~
 @eng Huge and heavy sword lies before you.@rus Двуручный тяжелый меч лежит тут.~
 steel~
 weapon 0 0 AN
-sword 4 6 '' F
+sword 4 6 'slash' F
 0 0 0 P
 f object damroll 5 0
 f object hitroll -1 0
