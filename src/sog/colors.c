@@ -23,11 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.c,v 1.15 2003-09-29 23:11:54 fjoe Exp $
+ * $Id: colors.c,v 1.16 2003-09-30 01:04:07 fjoe Exp $
  */
 
 #include <stdio.h>
 #include <string.h>
+#include <compat/compat.h>
 
 #include <typedef.h>
 #include <colors.h>

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.c,v 1.6 2003-09-30 00:31:38 fjoe Exp $
+ * $Id: db.c,v 1.7 2003-09-30 01:04:07 fjoe Exp $
  */
 
 #include <errno.h>
@@ -32,6 +32,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <compat/compat.h>
 #include <compat/fnmatch.h>
 
 #include <typedef.h>

@@ -35,6 +35,7 @@ static const char rcsid[] =
 
 #include <sys/types.h>
 #include <string.h>
+#include <compat/compat.h>
 
 /*
  * Appends src to string dst of size siz (unlike strncat, siz is the

@@ -39,6 +39,7 @@ static const char rcsid[] =
 
 #include <sys/types.h>
 #include <string.h>
+#include <compat/compat.h>
 
 /*
  * Copy src to string dst of size siz.  At most siz-1 characters

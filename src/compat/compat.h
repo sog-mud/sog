@@ -1,5 +1,5 @@
 /*
- * $Id: compat.h,v 1.4 2003-09-30 00:09:26 fjoe Exp $
+ * $Id: compat.h,v 1.5 2003-09-30 01:04:05 fjoe Exp $
  */
 
 #ifndef _COMPAT_H_
@@ -8,16 +8,20 @@
 #if !defined(__FreeBSD__)
 size_t strlcat(char *, const char *, size_t);
 size_t strlcpy(char *, const char *, size_t);
-char* strsep(char**, const char*);
 #endif /* !FreeBSD */
 
 #ifdef SUNOS
 int snprintf(char*, size_t, const char*, ...);
 #define vsnprintf(s, size, fmt, va) vsprintf(s, fmt, va)
+
+char* strsep(char**, const char*);
+
 #define d_namlen d_reclen
 #endif /* SUNOS */
 
 #ifdef SVR4
+char* strsep(char**, const char*);
+
 #define d_namlen d_reclen
 #endif /* SVR4 */
 
