@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.72 1999-03-15 12:57:20 kostik Exp $
+ * $Id: martial_art.c,v 1.73 1999-03-16 10:30:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -234,13 +234,16 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
-			char_puts("But you aren't fighting anyone!\n",ch);
+			char_puts("But you aren't fighting anyone!\n", ch);
 			return;
 		}
 	}
-	else if ((victim = get_char_room(ch, arg)) == NULL) {
+	else
+		victim = get_char_room(ch, arg);
+
+	if (!victim || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
-		char_puts("They aren't here.\n",ch);
+		char_puts("They aren't here.\n", ch);
 		return;
 	}
 
@@ -381,7 +384,10 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 	}
-	else if ((victim = get_char_room(ch, arg)) == NULL) {
+	else 
+		victim = get_char_room(ch, arg);
+
+	if (!victim || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n", ch);
 		return;
@@ -516,7 +522,10 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 			return;
  		}
 	}
-	else if ((victim = get_char_room(ch, arg)) == NULL) {
+	else 
+		victim = get_char_room(ch, arg);
+
+	if (!victim || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't here.\n",ch);
 		return;
@@ -1455,6 +1464,11 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (victim->in_room != ch->in_room) {
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
 	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim) {
 		act("But $N is your friend!", ch, NULL, victim, TO_CHAR);
 		return;
@@ -2219,19 +2233,21 @@ void do_explode(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-
-	if (victim == NULL) {
+	if (ch->fighting)
+		victim = ch->fighting;
+	else {
 		one_argument(argument, arg, sizeof(arg));
-		if (arg == NULL) { 
+		if (arg[0] == '\0') { 
 			char_puts("You play with the exploding material.\n",
 				  ch);
 			return;
 		}
-		if ((victim = get_char_room(ch,arg)) == NULL) {
-			WAIT_STATE(ch, MISSING_TARGET_DELAY);
-			char_puts("They aren't here.\n", ch);
-			return;
-		}
+	}
+
+	if (!victim || victim->in_room != ch->in_room) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		char_puts("They aren't here.\n", ch);
+		return;
 	}
 
 	mana = SKILL(gsn_explode)->min_mana;
@@ -2595,6 +2611,11 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
+	if (victim->in_room != ch->in_room) {
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
 	if ((axe = get_eq_char(ch,WEAR_WIELD)) == NULL) {
 		char_puts("You must be wielding a weapon.\n", ch);
 		return;
@@ -2765,8 +2786,6 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		return;
 	}
  
-	WAIT_STATE(ch, SKILL(gsn_cleave)->beats);
-
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
@@ -2774,10 +2793,17 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 	}
-	else if ((victim = get_char_room(ch,arg)) == NULL) {
+	else
+		victim = get_char_room(ch, arg);
+
+	if (!victim || victim->in_room != ch->in_room) {
 		char_puts("They aren't here.\n", ch);
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		return;
 	}
+
+	WAIT_STATE(ch, SKILL(gsn_tail)->beats);
+
 /*
 	if (victim->position < POS_FIGHTING) {
 		act("You'll have to let $M get back up first.",
@@ -3110,7 +3136,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 		return;
 	}
  
-	if ((victim = ch->fighting) == NULL)
+	if ((victim = ch->fighting) == NULL || victim->in_room != ch->in_room)
 		return;
 
 	if (victim->position < POS_FIGHTING)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.216 1999-03-11 09:04:28 fjoe Exp $
+ * $Id: act_info.c,v 1.217 1999-03-16 10:30:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1598,7 +1598,8 @@ DO_FUN(do_who)
 {
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
-	int flags = 0;
+	flag32_t flags = 0;
+	flag32_t ralign = 0;
 
 	int iLevelLower = 0;
 	int iLevelUpper = MAX_LEVEL;
@@ -1672,6 +1673,11 @@ DO_FUN(do_who)
 			continue;
 		}
 
+		if ((i = flag_value(ralign_names, arg))) {
+			SET_BIT(ralign, i);
+			continue;
+		}
+
 		if (is_number(arg)) {
 			switch (++nNumber) {
 			case 1:
@@ -1716,7 +1722,8 @@ DO_FUN(do_who)
 		if (wch->level < iLevelLower || wch->level > iLevelUpper
 		||  (IS_SET(flags, WHO_F_IMM) && wch->level < LEVEL_IMMORTAL)
 		||  (IS_SET(flags, WHO_F_PK) && !in_PK(ch, wch))
-		||  (IS_SET(flags, WHO_F_CLAN) && !wch->clan))
+		||  (IS_SET(flags, WHO_F_CLAN) && !wch->clan)
+		||  (ralign && ((RALIGN(wch) & ralign) == 0)))
 			continue;
 
 		if (IS_SET(flags, WHO_F_TATTOO)) {
@@ -1743,7 +1750,7 @@ DO_FUN(do_who)
 			||  !is_name(class->name, class_names))
 				continue;
 		}
-			
+
 		nMatch++;
 		do_who_raw(ch, wch, output);
 	}

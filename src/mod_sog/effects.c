@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.13 1998-12-01 10:53:51 fjoe Exp $
+ * $Id: effects.c,v 1.14 1999-03-16 10:30:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -734,7 +734,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 		break; 
 	    case ITEM_POTION:
 		chance +=10;
-		msg = "$p is broken into peace by crashing sands.";
+		msg = "$p is broken into pieces by crashing sands.";
 		break;
 	}
 
@@ -906,7 +906,7 @@ void scream_effect(void *vo, int level, int dam, int target)
 	if ( check_material ( obj, "glass" ) )
 	{
 	 chance += 30;
-	 msg = "$p breaks into tiny small peaces";
+	 msg = "$p breaks into tiny small pieces.";
 	}
 	else
         switch ( obj->pIndexData->item_type )
@@ -919,14 +919,14 @@ void scream_effect(void *vo, int level, int dam, int target)
             break;
         case ITEM_SCROLL:
             chance += 50;
-            msg = "$p breaks into tiny peaces!";
+            msg = "$p breaks into tiny pieces!";
             break;
         case ITEM_DRINK_CON:
 	    msg = "$p breaks and liquid spoils!";
 	    chance += 5;
 	    break;
         case ITEM_PILL:
-            msg = "$p breaks into peaces!";
+            msg = "$p breaks into pieces!";
             break;
         }
 

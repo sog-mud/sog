@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.131 1999-03-10 17:23:24 fjoe Exp $
+ * $Id: act_obj.c,v 1.132 1999-03-16 10:30:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2077,10 +2077,6 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0' && ch->fighting == NULL) {
-		char_puts("Zap whom or what?\n", ch);
-		return;
-	}
 	if ((wand = get_eq_char(ch, WEAR_HOLD)) == NULL) {
 		char_puts("You hold nothing in your hand.\n", ch);
 		return;
@@ -2095,13 +2091,14 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 
 	obj = NULL;
 	if (arg[0] == '\0') {
-		if (ch->fighting != NULL) {
+		if (ch->fighting && ch->fighting->in_room == ch->in_room)
 			victim = ch->fighting;
-		} else {
+		else {
 			char_puts("Zap whom or what?\n", ch);
 			return;
 		}
-	} else {
+	}
+	else {
 		if ((victim = get_char_room(ch, arg)) == NULL
 		    && (obj = get_obj_here(ch, arg)) == NULL) {
 			WAIT_STATE(ch, MISSING_TARGET_DELAY);

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.31 1999-03-10 17:23:31 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.32 1999-03-16 10:30:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -344,7 +344,8 @@ void do_mpassist(CHAR_DATA *ch, const char *argument)
     if ((victim = get_char_room(ch, arg)) == NULL)
 	return;
 
-    if (victim == ch || ch->fighting != NULL || victim->fighting == NULL)
+    if (victim == ch || ch->fighting != NULL || victim->fighting == NULL ||
+	victim->fighting->in_room != ch->in_room)
 	return;
 
     multi_hit(ch, victim->fighting, TYPE_UNDEFINED);

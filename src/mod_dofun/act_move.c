@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.156 1999-03-10 17:23:23 fjoe Exp $
+ * $Id: act_move.c,v 1.157 1999-03-16 10:30:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3444,8 +3444,16 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->fighting) {
-		char_puts("You cannot concentrate on throwing spear.\n", ch);
-		return;
+		CHAR_DATA *vch;
+
+		for (vch = ch->in_room->people; vch; vch = vch->next_in_room)
+			if (vch->fighting == ch)
+				break;
+		if (vch) {
+			char_puts("You cannot concentrate on throwing "
+				  "spears.\n", ch);
+			return;
+		}
 	}
 
 	direction = find_exit(ch, arg1);

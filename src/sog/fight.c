@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.150 1999-03-10 17:23:26 fjoe Exp $
+ * $Id: fight.c,v 1.151 1999-03-16 10:30:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -184,6 +184,9 @@ void violence_update(void)
 
 		SET_FIGHT_TIME(ch);
 
+		if (victim->in_room != ch->in_room)
+			continue;
+
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 			if (ch->fighting == NULL)
@@ -191,7 +194,8 @@ void violence_update(void)
 			oprog_call(OPROG_FIGHT, obj, ch, NULL);
 		}
 
-		if ((victim = ch->fighting) == NULL)
+		if ((victim = ch->fighting) == NULL
+		||  victim->in_room != ch->in_room)
 			continue;
 
 		/*
