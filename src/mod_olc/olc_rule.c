@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.18 1999-11-30 20:15:42 avn Exp $
+ * $Id: olc_rule.c,v 1.19 1999-12-04 15:06:56 avn Exp $
  */
 
 #include "olc.h"
@@ -136,7 +136,7 @@ OLC_FUN(ruleed_create)
 	rulecl_t *rcl;
 	ruleops_t *rops;
 	lang_t *l;
-	rule_t rnew;
+	rule_t rnew, *rimpl;
 	char arg[MAX_STRING_LENGTH];
 	char arg2[MAX_STRING_LENGTH];
 	bool impl;
@@ -172,15 +172,27 @@ OLC_FUN(ruleed_create)
 	if (olced_busy(ch, rops->id, NULL, rcl))
 		return FALSE;
 
-	rule_init(&rnew);
-	rnew.name 	= str_dup(argument);
-	rnew.arg	= impl ? 0 : strlen(argument);
+	if (impl) {
+		rule_init(&rnew);
+		rnew.name 	= str_dup(argument);
+		rnew.arg	= 0;
+		ch->desc->pEdit = irule_insert(rcl, atoi(arg2), &rnew);
+	} else {
+		if ((rimpl = irule_find(rcl, argument)) == NULL) {
+			char_puts("No appropriate implicit rule found.\n", ch);
+			rule_init(&rnew);
+			rnew.name 	= str_dup(argument);
+		} else {
+			erule_create(&rnew, rimpl, argument);
+		}
+		ch->desc->pEdit = erule_add(rcl, &rnew);
+	}
+
 	OLCED(ch)	= olced_lookup(rops->id);
-	ch->desc->pEdit = impl ? irule_insert(rcl, atoi(arg2), &rnew) :
-				 erule_add(rcl, &rnew);
 	ch->desc->pEdit2= rcl; 
 	SET_BIT(rcl->rcl_flags, rops->bit);
 	char_puts("RuleEd: rule created.\n", ch);
+	ruleed_show(ch, str_empty, cmd);
 	return FALSE;
 }
 
