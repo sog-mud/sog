@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.20 1999-12-28 08:58:55 fjoe Exp $
+ * $Id: varr.c,v 1.21 2000-03-28 21:59:38 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -262,6 +262,7 @@ vstr_search(varr *v, const char *name)
 	return varr_foreach(v, vstr_search_cb, name);
 }
 
+#if !defined(HASHTEST)
 static void *
 vstr_dump_cb(void *p, va_list ap)
 {
@@ -282,4 +283,4 @@ vstr_dump(varr *v, BUFFER *buf)
 	if (col % 4)
 		buf_add(buf, "\n");
 }
-
+#endif

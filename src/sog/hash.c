@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.11 1999-12-28 08:58:54 fjoe Exp $
+ * $Id: hash.c,v 1.12 2000-03-28 21:59:37 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -117,6 +117,7 @@ hash_isempty(hash_t *h)
 	return TRUE;
 }
 
+#if !defined(HASHTEST)
 void *
 hash_random_item(hash_t *h)
 {
@@ -132,6 +133,7 @@ hash_random_item(hash_t *h)
 		return VARR_GET(v, number_range(0, v->nused - 1));
 	}
 }
+#endif
 
 /*
  * hash_foreach -- call `cb' for each item in hash
@@ -157,6 +159,7 @@ void *hash_foreach(hash_t *h, foreach_cb_t cb, ...)
 	return rv;
 }
 
+#if !defined(HASHTEST)
 static varrdata_t v_print =
 {
 	sizeof(const char *), 8,
@@ -175,6 +178,7 @@ hash_printall(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb)
 	vstr_dump(&v, buf);
 	varr_destroy(&v);
 }
+#endif
 
 /*-------------------------------------------------------------------
  * static functions

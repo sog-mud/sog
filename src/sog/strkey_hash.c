@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.13 1999-12-28 08:58:54 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.14 2000-03-28 21:59:38 fjoe Exp $
  */
 
 #include <limits.h>
@@ -49,10 +49,12 @@ void strkey_init(void *p)
 	*(const char **) p = str_empty;
 }
 
+#if !defined(HASHTEST)
 void strkey_destroy(void *p)
 {
 	free_string(*(const char **) p);
 }
+#endif
 
 int k_hash_str(const void *k, size_t hsize)
 {
@@ -74,6 +76,7 @@ int ke_cmp_csstr(const void *k, const void *e)
 	return str_cscmp((const char *) k, *(const char **) e);
 }
 
+#if !defined(HASHTEST)
 int ke_cmp_mlstr(const void *k, const void *e)
 {
 	return str_cmp((const char *) k, mlstr_mval((mlstring *) e));
@@ -83,6 +86,7 @@ int ke_cmp_csmlstr(const void *k, const void *e)
 {
 	return str_cscmp((const char *) k, mlstr_mval((mlstring *) e));
 }
+#endif
 
 void *
 strkey_lookup(hash_t *h, const char *name)
@@ -124,6 +128,7 @@ strkey_search(hash_t *h, const char *name)
 	return hash_foreach(h, vstr_search_cb, name);
 }
 
+#if !defined(HASHTEST)
 void *
 mlstrkey_search_cb(void *p, va_list ap)
 {
@@ -162,6 +167,7 @@ const char *fread_strkey(rfile_t *fp, hash_t *h, const char *id)
 	STRKEY_CHECK(h, name, id);
 	return name;
 }
+#endif
 
 char *
 strkey_filename(const char *name, const char *ext)
@@ -193,6 +199,7 @@ strkey_filename(const char *name, const char *ext)
 	return buf[ind];
 }
 
+#if !defined(HASHTEST)
 void *
 add_strname_cb(void *p, va_list ap)
 {
@@ -210,4 +217,4 @@ add_mlstrname_cb(void *p, va_list ap)
 	*q = str_dup(mlstr_mval((mlstring *) p));
 	return NULL;
 }
-
+#endif

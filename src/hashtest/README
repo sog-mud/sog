@@ -1,0 +1,4 @@
+Samples:
+./hashtest 'this is a test' 20 1000000
+./hashtest 'this is a test' 100 1000000
+./hashtest 'this is a test' 200 1000000
