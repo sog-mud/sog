@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.11 1998-05-05 03:22:19 fjoe Exp $
+ * $Id: resource.c,v 1.12 1998-05-05 18:08:15 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -15,9 +15,10 @@ struct msg {
 	int sexdep;
 };
 
-static int nlang;
 static int nmsgid;
-static struct msg** lang_table;
+static struct msg** ilang_table;
+char** ilang_names;
+int nilang;
 
 enum {
 	DEP_NONE,
@@ -33,10 +34,10 @@ char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	struct msg *m;
 
-	if (msgid >= nmsgid || ch->i_lang >= nlang)
+	if (msgid >= nmsgid || ch->i_lang >= nilang)
 		return BLANK_STRING;
 
-	m = lang_table[ch->i_lang]+msgid;
+	m = ilang_table[ch->i_lang]+msgid;
 	if (m->sexdep) {
 		if (m->sexdep == DEP_VICTIM)
 			ch = victim;
@@ -157,19 +158,29 @@ void msgdb_load()
 		exit(EX_NOINPUT);
 	}
 
-	if (fscanf(f, "%d", &nlang) != 1 || nlang <= 0) {
+	if (fscanf(f, "%d", &nilang) != 1 || nilang <= 0) {
 		fprintf(stderr, "%s: syntax error\n", LANG_LST);
 		exit(EX_DATAERR);
 	}
-	lang_table = alloc_perm(nlang * sizeof(*lang_table));
+	ilang_table = alloc_perm(nilang * sizeof(*ilang_table));
+	ilang_names = alloc_perm((nilang+1) * sizeof(*ilang_names));
+	ilang_names[nilang] = NULL;
 
-	for (i = 0; i < nlang; i++) {
-		if (fscanf(f, "%s", buf) != 1) {
-			fprintf(stderr, "%s: syntax error\n", LANG_LST);
+	for (i = 0; i < nilang; i++) {
+		char buf2[BUFSZ];
+
+		if (fgets(buf, sizeof(buf), f) == NULL) {
+			fprintf(stderr, "%s: premature end of file\n",
+				LANG_LST);
 			exit(EX_DATAERR);
 		}
 
-		lang_load(i, buf);
+		if (fscanf(f, "%s %s", buf, buf2) != 2) {
+			fprintf(stderr, "%s: syntax error\n", LANG_LST);
+			exit(EX_DATAERR);
+		}
+		ilang_names[i] = str_dup(buf);
+		lang_load(i, buf2);
 	}
 
 	for (i = 0; i < nmsgid; i++)
@@ -197,7 +208,7 @@ lang_load(int langnum, char* fname)
 		exit(EX_NOINPUT);
 	}
 
-	lang_table[langnum] = alloc_perm(nmsgid * sizeof(**lang_table));
+	ilang_table[langnum] = alloc_perm(nmsgid * sizeof(**ilang_table));
 
 	while (fgets(buf, sizeof(buf), f)) {
 		char* p;
@@ -228,11 +239,12 @@ lang_load(int langnum, char* fname)
 
 			name = strsep(&p, WS);
 			if ((msgid = msgid_lookup(name)) < 0) {
-				fprintf(stderr, "%s:%d: '%s': unknown identifier\n",
+				fprintf(stderr, "%s:%d: '%s': unknown "
+						"identifier\n",
 					fname, line, name);
 				exit(EX_DATAERR);
 			}
-			curr = lang_table[langnum] + msgid;
+			curr = ilang_table[langnum] + msgid;
 
 			if (p != NULL) {
 				while (*p && strchr(WS, *p) != NULL)
@@ -341,7 +353,7 @@ lang_load(int langnum, char* fname)
 
 	for (i = 0; i < nmsgid; i++) {
 		int undefined = 0;
-		struct msg *m = lang_table[langnum] + i;
+		struct msg *m = ilang_table[langnum] + i;
 
 		if (m->sexdep) {
 			int j;

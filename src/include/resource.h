@@ -2,15 +2,15 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.36 1998-05-05 03:22:19 fjoe Exp $
+ * $Id: resource.h,v 1.37 1998-05-05 18:08:15 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
 char* vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim);
 void msgdb_load();
 
-#define LANG_ENG 0
-#define LANG_RUS 1
+extern char** ilang_names;
+extern nilang;
 
 enum {
 	INFO_NOTHING, 
@@ -66,10 +66,10 @@ enum {
 	INFO_YOU_ARE_USING,
 	INFO_IS_USING,
 	INFO_YOU_PEEK_AT_THE_INVENTORY,
-	COMM_SWITCH_TO_RUSSIAN,
-	COMM_SWITCH_TO_ENGLISH,
+	COMM_INTERFACE_LANGUAGE_UNDEFINED,
 	COMM_SHOW_LANGUAGE,
-	COMM_LANGUAGE_USAGE,
+	COMM_LANGUAGE_USAGE_PRE,
+	COMM_LANGUAGE_USAGE_POST,
 	INFO_COND_EXCELLENT,
 	INFO_COND_GOOD,
 	INFO_COND_FINE,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.10 1998-04-26 17:08:00 efdi Exp $
+ * $Id: act_comm.c,v 1.11 1998-05-05 18:08:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,22 +66,33 @@ bool proper_order	args( (CHAR_DATA *ch, char *argument ) );
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 int lang_lookup		args( (const char *name ) );
 
-void do_i_lang( CHAR_DATA *ch, char *argument)
+void do_ilang(CHAR_DATA *ch, char *argument)
 {
+	int i;
+
 	if( *argument == '\0' ) {
-		act_printf(ch, NULL, NULL, TO_CHAR, 0, 
-			COMM_SHOW_LANGUAGE, 
-			ch->i_lang ? "russian" : "english");
+		if (ch->i_lang >= nilang) {
+			char_puts(msg(COMM_INTERFACE_LANGUAGE_UNDEFINED, ch),
+				  ch);
+			return;
+		}
+		char_printf(ch, msg(COMM_SHOW_LANGUAGE, ch),
+			    ilang_names[ch->i_lang]);
 		return;
 	}
-	if( !strncmp("russian", argument, strlen(argument)) ) {
-		ch->i_lang = 1;
-		act_printf(ch, NULL, NULL, TO_CHAR, 0, COMM_SWITCH_TO_RUSSIAN );
-	} else if( !strncmp("english", argument, strlen(argument)) ) {
-		ch->i_lang = 0;
-		act_printf(ch, NULL, NULL, TO_CHAR, 0, COMM_SWITCH_TO_ENGLISH);
-	} else
-		act_printf(ch, NULL, NULL, TO_CHAR, 0, COMM_LANGUAGE_USAGE);
+
+	for (i = 0; ilang_names[i] != NULL; i++)
+		if (!str_prefix(argument, ilang_names[i])) {
+			ch->i_lang = i;
+			char_printf(ch, msg(COMM_SHOW_LANGUAGE, ch),
+				    ilang_names[i]);
+			return;
+		}
+
+	char_puts(msg(COMM_LANGUAGE_USAGE_PRE, ch), ch);
+	for (i = 0; ilang_names[i] != NULL; i++)
+		char_printf(ch, "%s%s", i == 0 ? "" : " | ", ilang_names[i]);
+	char_puts(msg(COMM_LANGUAGE_USAGE_POST, ch), ch);
 }
 
 /* RT code to delete yourself */
