@@ -5,11 +5,9 @@ Aff flying~
 Off fast~
 Form edible~
 Parts head legs heart brains guts feet eye wings~
-Resist bash 33
-Resist pierce 33
-Resist slash 33
 Resist fire -50
 Resist cold -50
+Resist weapon 33
 End
 
 #$

@@ -5,10 +5,8 @@ Det evil~
 Off fade~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Resist bash -50
-Resist pierce -50
-Resist slash -50
 Resist cold -50
+Resist weapon -50
 End
 
 #$

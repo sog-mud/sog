@@ -3,13 +3,11 @@ Name cloud giant~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Flags noch~
-Resist bash 25
-Resist pierce 25
-Resist slash 25
 Resist fire -30
 Resist cold -30
 Resist lightning 50
 Resist mental -30
+Resist weapon 25
 Damtype smash
 End
 

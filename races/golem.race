@@ -2,23 +2,10 @@
 Name golem~
 Form edible sentient construct biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Resist bash 33
-Resist pierce 33
-Resist slash 33
-Resist fire -50
-Resist cold -50
-Resist lightning -50
-Resist acid -50
-Resist holy -50
-Resist negative -50
-Resist energy -50
-Resist mental -50
-Resist sound -50
-Resist disease 33
-Resist poison 33
-Resist charm -50
-Resist harm -50
-Resist light -50
+Resist disease 100
+Resist poison 100
+Resist weapon 33
+Resist magic -50
 End
 
 #$

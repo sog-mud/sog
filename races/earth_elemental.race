@@ -1,11 +1,8 @@
 #RACE
 Name earth elemental~
 Off fade~
-Form edible sentient dragon~
-Parts head heart~
-Resist bash 33
-Resist pierce 33
-Resist slash 33
+Form instant_decay sentient~
+Resist weapon 33
 End
 
 #$

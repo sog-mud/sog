@@ -3,14 +3,12 @@ Name orc~
 Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Resist bash 5
-Resist pierce 5
-Resist slash 5
 Resist holy -15
 Resist negative 15
 Resist disease 15
 Resist poison 15
 Resist light -15
+Resist weapon 5
 End
 
 #PCRACE

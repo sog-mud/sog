@@ -3,19 +3,7 @@ Name kobold~
 Det infrared~
 Form edible poison sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye tail~
-Resist fire -50
-Resist cold -50
-Resist lightning -50
-Resist acid -50
-Resist holy -50
-Resist negative -50
-Resist energy -50
-Resist mental -50
-Resist sound -50
-Resist disease -50
-Resist charm -50
-Resist harm -50
-Resist light -50
+Resist magic -50
 End
 
 #$
