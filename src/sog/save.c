@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.85 1998-12-01 10:53:55 fjoe Exp $
+ * $Id: save.c,v 1.86 1998-12-01 12:44:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -162,7 +162,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	if (str_cmp(ch->prompt, DEFAULT_PROMPT)
 	&&  str_cmp(ch->prompt, OLD_DEFAULT_PROMPT))
 		fwrite_string(fp, "Prom", ch->prompt);
-	fwrite_string(fp, "Race", race_name(ORG_RACE(ch)));
+	fwrite_string(fp, "Race", race_name(ch->race));
 	fprintf(fp, "Sex  %d\n", ch->sex);
 	fprintf(fp, "Cla  %d\n", ch->class);
 	fprintf(fp, "Levl %d\n", ch->level);
@@ -241,6 +241,9 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		for (qt = ch->pcdata->qtrouble; qt; qt = qt->next)
 			fprintf(fp, "Qtrouble %d %d\n", qt->vnum, qt->count);
 
+		if (ch->pcdata->race != ch->race)
+			fwrite_string(fp, "OrgRace",
+				      race_name(ch->pcdata->race));
 		if (ch->pcdata->plevels > 0)
 			fprintf(fp, "PLev %d\n", ch->pcdata->plevels);
 		if (ch->pcdata->petition)
@@ -351,7 +354,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 	if (mlstr_cmp(pet->description, pet->pIndexData->description) != 0)
 		mlstr_fwrite(fp, "Desc", pet->short_descr);
 	if (pet->race != pet->pIndexData->race)	/* serdar ORG_RACE */
-		fwrite_string(fp, "Race", race_name(ORG_RACE(pet)));
+		fwrite_string(fp, "Race", race_name(pet->race));
 	fprintf(fp, "Sex  %d\n", pet->sex);
 	if (pet->level != pet->pIndexData->level)
 		fprintf(fp, "Levl %d\n", pet->level);
@@ -905,6 +908,15 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			}
 			break;
 
+		case 'O':
+			if (!str_cmp(word, "OrgRace")) {
+				const char *race = fread_string(fp);
+				ch->pcdata->race = rn_lookup(race);
+				free_string(race);
+				fMatch = TRUE;
+				break;
+			}
+			break;
 		case 'P':
 			KEY("Peti", ch->pcdata->petition, fread_number(fp));
 			KEY("PLev", ch->pcdata->plevels, fread_number(fp));
@@ -942,12 +954,11 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 
 		case 'R':
 			KEY("Relig", ch->religion, fread_number(fp));
-
 			if (!str_cmp(word, "Race")) {
 				const char *race = fread_string(fp);
 				ch->race = rn_lookup(race);
+				ch->pcdata->race = ch->race;
 				free_string(race);
-				SET_ORG_RACE(ch, ch->race);
 				fMatch = TRUE;
 				break;
 			}
@@ -1201,7 +1212,6 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 				const char *race = fread_string(fp);
 				pet->race = rn_lookup(race);
 				free_string(race);
-				SET_ORG_RACE(pet, pet->race);
 				fMatch = TRUE;
 				break;
 			}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.94 1998-12-01 10:53:50 fjoe Exp $
+ * $Id: act_wiz.c,v 1.95 1998-12-01 12:44:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3489,6 +3489,9 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->class = cl;
+		victim->exp = exp_for_level(victim, victim->level);
+		victim->exp_tl = 0;
+		update_skills(victim);
 		return;
 	}
 
@@ -3757,6 +3760,9 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		victim->race = race;
 		SET_ORG_RACE(victim, race);
+		update_skills(victim);
+		victim->exp = exp_for_level(victim, victim->level);
+		victim->exp_tl = 0;
 		return;
 	}
 
@@ -3786,6 +3792,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		victim->clan = cn;
 		victim->pcdata->petition = cn;
 		victim->pcdata->clan_status = CLAN_COMMONER;
+		update_skills(victim);
 		char_puts("Ok.\n", ch);
 		return;
 	}

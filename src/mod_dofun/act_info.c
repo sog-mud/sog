@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.172 1998-12-01 10:53:48 fjoe Exp $
+ * $Id: act_info.c,v 1.173 1998-12-01 12:44:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2866,7 +2866,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output,
 "     {G| {RRace :  {x%-11s  {C|  {RInt:  {x%2d(%2d)  {C| {RPractice  :   {x%3d       {G|{x\n",
-		race_name(ORG_RACE(ch)),
+		race_name(ch->race),
 		ch->perm_stat[STAT_INT],
 		get_curr_stat(ch, STAT_INT),
 		ch->practice);
@@ -3008,7 +3008,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_oscore(CHAR_DATA *ch, const char *argument)
+DO_FUN(do_oscore)
 {
 	CLASS_DATA *cl;
 	char buf2[MAX_STRING_LENGTH];
@@ -3031,7 +3031,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,
 		"Race: {c%s{x  Sex: {c%s{x  Class: {c%s{x  "
 		"Hometown: {c%s{x\n",
-		race_name(ORG_RACE(ch)),
+		race_name(ch->race),
 		ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
 		IS_NPC(ch) ? "mobile" : cl->name,
 		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name);
