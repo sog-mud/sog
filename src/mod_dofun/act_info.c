@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.58 2002-08-26 08:23:17 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.59 2002-08-27 08:34:11 tatyana Exp $
  */
 
 /***************************************************************************
@@ -5128,8 +5128,8 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 
 		buf_printf(output, " {CClass     :{x %-12s              {CRace     :{x %s %s\n",
 			   cl->name,
-			   ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
-			   race_name(victim->race));
+			   flag_string(sex_table, victim->sex),
+			   race_name(ORG_RACE(victim)));
 
 		if (inclan) {
 			buf_printf(output, " {CReligion  :{x %-9s                 {CClan     :{x %s of %s\n",
