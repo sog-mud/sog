@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.56 2004-02-19 17:16:45 fjoe Exp $
+ * $Id: prayers.c,v 1.57 2004-02-25 20:04:34 tatyana Exp $
  */
 
 /***************************************************************************
@@ -143,6 +143,7 @@ DECLARE_SPELL_FUN(prayer_sunburst);
 DECLARE_SPELL_FUN(prayer_cone_of_cold);
 DECLARE_SPELL_FUN(prayer_power_word_fear);
 DECLARE_SPELL_FUN(prayer_windwall);
+DECLARE_SPELL_FUN(prayer_wail_of_the_banshee);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3206,5 +3207,83 @@ SPELL_FUN(prayer_windwall, sn, level, ch, vo)
 		    vch, NULL, NULL, TO_ROOM);
 		act_char("You are thrown down by the air blast!", vch);
 		REMOVE_BIT(vch->affected_by, AFF_FLYING);
+	} end_foreach(vch);
+}
+
+/* domen: death
+ * This prayer force to sound dreadful wail of the banshee.
+ * Room attack with target which gets most of the damage.
+ * Sometimes wail of the banshee can cause instant death of
+ * the victim. Deafen and undead are unaffected.
+ */
+SPELL_FUN(prayer_wail_of_the_banshee, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	CHAR_DATA *vch;
+	AFFECT_DATA *paf;
+	int dam;
+
+	if (is_sn_affected(ch, "wail of the banshee")) {
+		act_char("You can't use this power so soon.", ch);
+		return;
+	}
+
+	if (victim == ch) {
+		act_char("Are you crazy?", ch);
+		return;
+	}
+
+	if (is_safe(ch, victim))
+		return;
+
+	/* little timer for priest */
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->type      = sn;
+	paf->duration  = 1 + number_bits(1);
+	paf->level     = level;
+	paf->modifier  = 0;
+	paf->bitvector = 0;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	/* deafen and undead creatures are unaffected */
+	if (is_sn_affected(victim, "deafen")
+	||  IS_SET(victim->form, FORM_UNDEAD)) {
+		act_char("Your victim ignores all you attempts.", ch);
+		act("You looks at $N and don't understand what $gN{he} "
+		    "trying to do.", victim, NULL, ch, TO_CHAR);
+		return;
+	}
+
+	/* insty or damage target */
+	dam = calc_spell_damage(ch, level, sn);
+
+	if (!saves_spell(level + 2, victim, DAM_SOUND)
+	&&  !dice_wlb(1, 3, victim, NULL) == 1
+	&&  !IS_IMMORTAL(victim)
+	&&  !IS_CLAN_GUARD(victim)
+	&&  !IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		act_char("Dreadful wail of the banshee fills you"
+			 " making you dead.", victim);
+		act("Dreadful wail of the banshee fills your "
+		    "victim and $gN{his} life is torn.",
+		    ch, NULL, victim, TO_CHAR);
+		act("Dreadful wail of the banshee fills $N and $gN{his} "
+		    "life is torn.", ch, NULL, victim, TO_ROOM);
+		handle_death(ch, victim);
+	} else
+		damage(ch, victim, dam, sn, DAM_F_SHOW);
+
+	/* damage all in the room, ignore deafen and undead */
+	dam = dam / 5;
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (vch == victim
+		||  vch == ch
+		||  is_sn_affected(vch, "deafen")
+		||  IS_SET(vch->form, FORM_UNDEAD)
+		||  IS_IMMORTAL(vch)
+		||  is_safe_nomessage(ch, vch))
+			continue;
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
 	} end_foreach(vch);
 }
