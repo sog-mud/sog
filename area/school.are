@@ -741,6 +741,8 @@ go south.
 
 A sign warns 'You may not pass these doors once you have passed level 5.'
 
+P.S. {RUse 'lang rus' command, if you want russian language{x
+P.P.S. {BUse 'color' to enable full ANSI color support.{x
 @rus Это вход в МУД школу. Иди на север (north), чтоб пройти курс обучения
 в школе. Если ты там уже был и хочешь попасть на арену, то иди на юг (south).
 На востоке (east) ты видишь вход в музей.
