@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.75 2001-07-30 13:02:09 fjoe Exp $
+ * $Id: act.c,v 1.76 2001-07-30 13:33:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -998,8 +998,7 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 #if 0
 		XXX
 		if (!IS_SET(act_flags, ACT_NOTRIG))
-			mp_act_trigger(tmp, _DC(to), _DC(ch),
-				arg1, arg2, TRIG_ACT);
+			mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
 #endif
 		if (to->desc)
 			write_to_buffer(to->desc, tmp, 0);

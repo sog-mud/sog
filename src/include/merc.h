@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.337 2001-07-30 13:28:05 fjoe Exp $
+ * $Id: merc.h,v 1.338 2001-07-30 13:32:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,9 +65,7 @@
 #include <ctype.h>
 #include <stdarg.h>
 
-#include "typedef.h"
-
-#define _DC(expr) ((void*)(uintptr_t)(const void*)expr)
+#include <typedef.h>
 
 /*
  * sex or gender
