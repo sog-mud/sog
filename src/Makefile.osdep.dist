@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.osdep.dist,v 1.17 2003-09-29 23:16:38 fjoe Exp $
+# $Id: Makefile.osdep.dist,v 1.18 2003-09-30 01:30:01 fjoe Exp $
 #
 
 #
@@ -16,15 +16,6 @@ BINGRP!=	id -gn
 
 #
 # for Linux
-#CFLAGS+=	-DLINUX
-#LDADD+=	-lcrypt -ldl
-#SO_LDFLAGS+=	-rdynamic
-#COMPAT_SRCS=	strlcat.c strlcpy.c
-#MAKE=		pmake
-#MKDEPCMD=	${.CURDIR}/../mkdep/mkdep
-
-#
-# for Linux (glibc 2.1)
 #CFLAGS+=	-DLINUX
 #LDADD+=	-lcrypt -ldl
 #SO_LDFLAGS+=	-rdynamic
