@@ -3172,3 +3172,30 @@ limited eq теперь отбирается немного по-другому (комбинация бывшей схемы
  
 {WTyan{x
 ~
+Sender  Arwen~
+Date    Thu Jan 25 16:35:05 2001~
+Stamp   980429705
+To      all~
+Subject hara kiri~
+Text
+Приветствую!
+ 
+  subj немного изменен.
+ 
+{WАрвен{x.
+~
+Sender  Tyan~
+Date    Sun Feb 11 22:02:36 2001~
+Stamp   981918156
+To      all~
+Subject minor fixes~
+Text
+hi, there!
+ 
+пофиксены fly (больше не кастуется два раза)
+bless weapon и know alignment
+ 
+если что не так -- пишите
+ 
+{WTyan{x
+~
