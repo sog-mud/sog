@@ -103,15 +103,6 @@ Form 4 серебряные монеты~
 End
 
 #RULE
-Name обьявлений~
-BaseLen 10
-Form 1 обьявление~
-Form 2 обьявления~
-Form 3 обьявления~
-Form 4 обьявления~
-End
-
-#RULE
 Name единиц~
 BaseLen 6
 Form 1 -а~
@@ -160,6 +151,15 @@ Form 1 идея~
 Form 2 идеи~
 Form 3 идеи~
 Form 4 идеи~
+End
+
+#RULE
+Name объявлений~
+BaseLen 9
+Form 1 -е~
+Form 2 -я~
+Form 3 -я~
+Form 4 -я~
 End
 
 #RULE

@@ -1,16 +1,311 @@
 #
-# $Id: mprogs.txt,v 1.1 2001-09-05 13:01:48 fjoe Exp $
+# $Id: mprogs.txt,v 1.2 2001-09-12 08:22:09 fjoe Exp $
 #
 
 MP functions:
 -------------
 
-dofun(str name, char ch, str argument)
-	Выполнить do-функцию 'name'
+act(
+act_char(
+act_say(
+act_yell(
 
-get_obj(char ch, obj o, obj container, str msg)
-	container can be NULL
-	msg can be NULL
+affect_char(char ch, int where, string sn, int level, int duration,
+            int loc, int mod, int bits)
+  вешается на чара ch указанный аффект sn с задаваемыми характеристиками
+  (уровень level, длительность duration, ...)
+
+affect_strip(char ch, string aff)
+  снимается аффект aff с чара ch
+
+bool can_see(char ch, char victim)
+  проверяется видит ли чар ch чара victim
+
+cast(string sn, char ch, string arg)
+  чаром ch кастится заклинание/молитва sn с аргументом arg
+
+cast_char(string sn, char ch, char victim)
+  чаром ch на чар victim кастится заклинание/молитва sn
+
+cast_obj(string sn, char ch, obj p)
+  чаром ch на объект p накладывается заклинание/молитва sn
+
+string char_clan(char ch)
+  возвращает clan чара ch
+
+char char_fighting(char ch)
+  возвращает чара, с которым дерется ch
+
+int char_hit(char ch)
+  возвращает текущее кол-во hp чара ch
+
+int char_level(char ch)
+  возвращает уровень чара (с +lev)
+
+int char_max_hit(char ch)
+  возвращает максимальное количество hp чара ch
+
+int char_position(char ch)
+  позиция ch (POS_RESTING, POS_FIGHTING etc.)
+
+room char_room(char ch)
+  возвращает комнату в которой находится чар ch
+
+int char_sex(char ch)
+  возвращает пол чара ch
+
+bool close_door(char ch, string door)
+  чар ch закрывает (пытается) дверь
+
+bool close_obj(char ch, obj p)
+  чар ch выполняет операцию закрытия обьекта p
+
+cold_effect(char ch, int num, int dam)
+  вешает (пытается повесить) на чара cold_effect
+  уровня num, наносится урон dam
+
+obj create_obj(int vnum, int flags)
+  создает обьект по его внуму
+
+bool damage(char ch, char victim, int dam, string dt, int dam_class,
+            int dam_flags)
+  чаром ch наносится чару victim урон в размере dam. Тип наносимого
+  урона -- dam_class
+
+int dice(int num, int size)
+  бросает num раз кубик с числом граней size
+
+dofun(string name, char ch, string arg)
+  выполнить do-функцию 'name'
+
+fire_effect(char ch, int num, int dam)
+  вешает (пытается повесить) на чара fire_effect
+  уровня num, наносится урон dam
+
+char get_char_area(char ch, string arg)
+  чаром ch в арии, где он находится, ищется чар с именем arg
+
+char get_char_here(char ch, string arg)
+  чаром ch в комнате, где он находится, ищется чар с именем arg
+
+char get_char_room(char ch, room r, string arg)
+  чаром ch в комнате r ищется чар с именем arg
+
+char get_char_world(char ch, string arg)
+  чаром ch в мире ищется чар с именем arg
+
+obj get_eq_char(char ch, int iWear)
+  возвращается объект, одетый у чара ch в слоте iWear
+
+bool get_obj(char ch, obj p, obj container, string msg_others)
+  чаром ch берется объект p из container или с пола (если container == NULL)
+  msg_others -- сообщение, пишущееся тем, кто стоит в той же комнате, где
+  происходит действие (может быть NULL)
+
+obj get_obj_carry(char ch, char victim, string arg)
+  чаром ch смотрится у чара victim, есть ли у последнего обьект c 
+  именем arg
+
+obj get_obj_here(char ch, string arg)
+  чаром ch смотрится есть ли в комнате, где находится чар ch, объект
+  с именем arg (ищется на полу и у находящихся в комнате)
+
+obj get_obj_obj(char ch, obj p, string arg)
+  чаром ch смотрится есть ли в объекте p объект с именем arg
+
+obj get_obj_room(char ch, string arg)
+  чаром ch смотрится есть ли в комнате, где находится чар ch, объект
+  c именем arg (ищется только на полу)
+
+obj get_obj_wear(char ch, char victim, string arg)
+  чаром ch смотрится, одет ли на чаре victim объект с именем arg
+
+obj get_obj_world(char ch, string arg)
+  чаром ch ищется в мире объект с именем arg
+
+get_pulse(
+
+char get_random_fighting(char ch)
+  возвращает случайного чара в одной комнате с ch, который сражается
+  с ch или который сражается с чаром, который сидит верхом на ch
+
+get_room_index(
+
+bool give_obj(char ch, char victim, obj p)
+  чаром ch чару victim дается объект p (пытается)
+
+handle_death(char ch, char victim)
+
+int has_sp(char ch, string spn, string spn_add, string spn_rm)
+
+bool is_affected(char ch, int aff)
+
+bool is_awake(ch)
+  char_position(ch) > POS_SLEEPING
+
+bool is_class(char ch, string cl)
+  принадлежит ли чар ch классу cl
+
+bool is_evil(char ch)
+  имеет ли чар ch align evil
+
+bool is_ghost(char ch)
+  является ли чар ch привидением
+
+bool is_good(char ch)
+  имеет ли чар ch align good
+
+bool is_immortal(char ch)
+  является ли чар ch immortal'ом
+
+bool is_npc(char ch)
+  является ли чар ch мобом (npc)
+
+bool is_neutral(char ch)
+  имеет ли чар ch align neutral
+
+bool is_owner(char ch, obj p)
+  является ли чар ch owner'ом обьекта p
+
+bool is_sn_affected(char ch, string sn)
+
+bool is_wanted(char ch)
+  является лм чар ch WANTED
+
+obj load_obj(char ch, int vnum)
+  создается объект с номером vnum и дается чару ch
+
+bool lock_door(char ch, string door)
+  замыкается (пытается) дверь чаром ch 
+
+bool lock_obj(char ch, obj p)
+  замыкается (пытается) объект p чаром ch
+
+look_char(char ch, char victim)
+  чар ch смотрит на чара victim (делает "look")
+
+mob_interpret(char ch, string arg)
+
+multi_hit(char ch, char victim, string dt)
+
+int number_bits(int width)
+
+int number_percent()
+  возвращает случайное число от 1 до 100 (процент)
+
+int number_range(int from, int to)
+  возвращает случайное число в диапазоне от from до to
+
+obj_cast_spell(string sn, int level, char ch, void vo)
+
+int obj_item_type(obj p)
+  item_type объекта p (ITEM_CONTAINER, ITEM_WEAPON etc.)
+
+int obj_level(obj p)
+  возвращает уровень обьекта p
+
+int obj_timer(obj p)
+  возвращает таймер на обьекте p
+
+obj_to_char(obj p, char ch)
+  объет p дается чару ch
+
+obj_to_obj(obj p, obj obj_to)
+  объект p кладется в объект obj_to
+
+obj_to_room(obj p, room r)
+  объект p помещается в комнату r
+
+int obj_wear_loc(obj p)
+  возвращается слот, где одет объект p
+
+one_hit(char ch, char victim, string dt, bool secondary)
+
+bool open_door(char ch, string door)
+  чар ch открывает (пытается) дверь door 
+
+bool open_obj(char ch, obj p)
+  открывает (пытается открыть) обьет p, открывает обьект чар ch
+
+poison_effect(char ch, int num, int dam)
+  вешает (пытается повесить) на чара poison_effect
+  уровня num, наносится урон dam
+
+purge_obj(obj p)
+  уничтожает обьект p ($p для обьекта, для которого вызывается прога)
+
+int real_char_level(char ch)
+  возвращает реальный (без +lev) уровень чара ch
+
+int room_sector(room r)
+  возвращает сектор в комнате r.
+
+sand_effect(char ch, int num, int dam)
+  вешает (пытается повесить) на чара sand_effect
+  уровня num, наносится урон dam
+
+scream_effect(char ch, int num, int dam)
+  вешает (пытается повесить) на чара ch scream_effect
+  уровня num, наносится урон dam
+
+set_char_gold(char ch, int num)
+  устанавливает чару ch количество золота num.
+
+set_char_hit(char ch, int num)
+  ставит чару количество (текущее) hp в размере num.
+
+set_char_silver(char ch, int num)
+  устанавливает чару ch количество серебра num.
+
+set_obj_level(obj p, int level)
+  ставит обьекту p уровень level.
+
+set_obj_timer(obj p, int timer)
+  устанавливает таймер на обьект p, длительностью timer
+
+set_weapon_dice_type(obj p, int dice_type)
+  оружию p ставится dice_type (v2)
+
+shock_effect(char ch, int num, int dam)
+  вешает (пытается повесить) на чара ch scream_effect
+  уровня num, наносится урон dam
+
+social_char(string name, char ch, char victim)
+  делается social name (e.g "smile") чаром ch чару victim
+
+spclass_count(char ch, string spn, string spn_add, string spn_rm)
+
+spellfun_call(string fn_sn, string sn, int level, char ch, void vo)
+
+int time_hour(char ch)
+  текущий час (по времени мира)
+
+bool transfer_char(char ch, room r)
+  переносится чар ch в комнату r
+
+bool transfer_group(char ch, room r)
+  переносится группа чара ch в комнату r
+
+tell_char(char ch, char victim, string msg)
+  msg передается от чара ch чару victim посредством tell'а
+
+int umax(int i1, int i2)
+  максимальное из чисел i1, i2
+
+int umin(int i1, int i2)
+  минимальное из чисел i1, i2
+
+bool unlock_door(char ch, door)
+  размыкает (пытается) дверь, действие пройзволит чар ch
+
+bool unlock_obj(char ch, obj p)
+  размыкает (пытается) обьект p, действие пройзволит чар ch
+
+wait_state(char ch, int dur)
+  чару ch делается задержка длительностью dur
+
+bool weapon_is(obj p, int wclass)
+  является ли p оружием класса wclass (WEAPON_SWORD, WEAPON_DAGGER etc.)
 
 Porting ROM 2.4 mob progs:
 --------------------------
@@ -23,3 +318,49 @@ echoat $N
 
 echoaround $N
 	act("...", $n, NULL, $N, TO_NOTVICT);	
+
+ROM 2.4 specials:
+-----------------
+
+ROM 2.4 (and Anatolia) specials are implemented as fight or random mprogs.
+
+When loading ROM 2.4 areas #SPECIALS section data is automatically converted
+to mprog triggers for corresponding mobiles using the following table
+(trig arg is set to "100"):
+
+ROM 2.4 spec		| SoG mprogs
+------------------------+---------------------------
+spec_assassinater	| mob_fight_assassinater
+spec_breath_any		| mob_fight_breath_any
+spec_breath_acid	| mob_fight_breath_acid
+spec_breath_fire	| mob_fight_breath_fire
+spec_breath_frost	| mob_fight_breath_frost
+spec_breath_gas		| mob_fight_breath_gas
+spec_breath_lightning	| mob_fight_breath_lightning
+spec_captain		| mob_random_captain
+			| mob_fight_cast_cleric
+spec_cast_adept		| mob_random_cast_adept
+spec_cast_beholder	| mob_fight_cast_beholder
+spec_cast_clan		| mob_random_cast_clan
+spec_cast_cleric	| mob_fight_cast_cleric
+spec_cast_judge		| mob_fight_cast_judge
+spec_cast_mage		| mob_fight_cast_mage
+spec_cast_seneschal	| mob_fight_cast_seneschal
+spec_cast_undead	| mob_fight_cast_undead
+spec_executioner	| mob_random_executioner
+spec_fido		| mob_random_fido
+spec_guard		| mob_random_guard
+spec_headlamia		| mob_random_headlamia
+spec_janitor		| mob_random_janitor
+spec_mayor		| mob_random_mayor
+spec_nasty		| mob_random_nasty
+			| mob_fight_nasty
+spec_poison		| mob_fight_poison_bite
+spec_special_guard	| mob_random_special_guard
+spec_thief		| mob_random_thief
+
+Note that spec_captain and spec_nasty are converted to two triggers.
+
+spec_patrolman, spec_ogre_member and spec_troll_member are not
+converted because we do not have area for which they were created
+(Dangerous Neighbourhood).
