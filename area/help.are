@@ -116,16 +116,17 @@ a person).
  
 QUIET toggles on and of world channels (shout, music). In quiet mode you will
 hear only says and emotes.
-@rus Синтаксис: {cdeaf{x
-Синтаксис: {cquiet{x
-
-Переключатель deaf выключает получение сообщений(tell). Тем не менее, ты можешь
-использовать команду reply (смотри {CHELP REPLY{x) длЯ ответа человеку с которым
-ты общался до набора этой команды. Однако данная команда не отменяет обращений
-богов к тебе. 
+@rus Использование: {cdeaf{x
+                 {cquiet{x
  
-QUIET включает и выключает всемирные каналы общения (shout, music). В режиме
-quiet ты будешь слышать только разговоры в комнате и видеть эмоции.
+Переключатель deaf  выключает получение сообщений(tell). Тем не менее,
+ты можешь использовать команду reply  (смотри '{CHELP REPLY{x') для ответа
+человеку с которым ты общался до набора этой  команды.  Однако  данная
+команда не отменяет обращений богов к тебе. 
+ 
+QUIET включает и выключает всемирные каналы общения (shout, music).  В
+режиме quiet ты будешь слышать только разговоры  в  комнате  и  видеть
+эмоции.
 ~
 0 PROMPT~
 @eng Syntax: {cprompt{x
@@ -278,24 +279,27 @@ transferred to the pitof your temple.
  
 If your constitution falls below 3, character will not be resurrected in
 temple, but deleted permanently.
-@rus Когда ваш персонаж умирает, он возрождается на алтаре Храма твоего родного
-города. Твой труп остается в комнате, где ты был убит, вместе со всеми твоими
-вещами.
-
-Действие всех заклинаний, под действием которых ты находился, прекращается 
-со смертью.
-
-Смерть не влияет на нахождение в группе или следование за другим персонажем.
-
-Во время смерти ты теряешь очки опыта.  Количество очков опыта, теряемое тобой
-зависит от количества твоих очков опыта, расы, класса и предыдущих смертей.
-
-После каждых трех смертей твое телосложение ({ccon{x) уменьшается на единицу.
-
-Тело через некоторое время разлагается, но вещи, находящиеся в твоем трупе
-попадаютв жертвенную яму ({cpit{x).
-
-Если твое телосложение падает до 3, персонаж не воскрешается на алтаре,
+@rus Когда ваш  персонаж  умирает,  он  возрождается на алтаре Храма твоего
+родного города. Твой труп остается в комнате,  где ты был убит, вместе
+со всеми твоими вещами.
+ 
+Действие всех   заклинаний,   под   действием  которых  ты  находился,
+прекращается со смертью.
+ 
+Смерть не  влияет  на  нахождение  в  группе  или следование за другим
+персонажем.
+ 
+Во время  смерти  ты  теряешь  очки  опыта.   Количество  очков опыта,
+теряемое тобой зависит от количества твоих очков опыта,  расы,  класса
+и предыдущих смертей.
+ 
+После каждых  трех  смертей  твое  телосложение  ({ccon{x)  уменьшается на
+единицу.
+ 
+Тело через  некоторое  время разлагается, но вещи, находящиеся в твоем
+трупе попадаютв жертвенную яму ({cpit{x).
+ 
+Если твое телосложение падает до 3,персонаж не воскрешается на алтаре,
 а стирается автоматически.
 ~
 0 EXPERIENCE LEVEL XP~
@@ -366,32 +370,33 @@ Other {{? sequences are:
 Color is courtesy of Lope from Loping Through The MUD.
 Direct questions to ant@@solace.mh.se or leave at note at Loping
 Through The MUD, current site lttm.westside.net port 23 or 9000
-@rus Ты можешь использовать цвет в своих сообщениях и нотах. Формат таких сообщений
-таков: левая фигурная скобка '{{', за которой идет символ цвета. Допустимы
-следующие варианты:
-
-         {x{{x     возврат к цвету по умолчанию
-
-         {r{{r     красный {m{{m     розовый
-         {g{{g     зеленый {c{{c     голубой
-         {y{{y     желтый  {w{{w     белый
-         {b{{b     синий   {D{{D     серый{x
-
-Для получения более ярких цветов, используй заглавные буквы : {RR{GG{YY{BB{MM{CC{WW{x
-Использование цвета выглядит гораздо лучше, если вы заканчиваете строку ее
-естественным цветом. Например:
-                {RLope gossips '{Cпривет {Gвсем{R'{x
-        выглядит лучше, чем
-                {RLope gossips '{Cпривет {Gвсем'{x
-
+@rus Ты можешь использовать цвет в своих сообщениях  и нотах.  Формат таких
+сообщений таков: левая фигурная  скобка '{{', за  которой  идет  символ
+цвета. Допустимы следующие варианты:
+ 
+           {{x     возврат к цвету по умолчанию
+ 
+           {r{{r     красный {m{{m     розовый{x
+           {g{{g     зеленый {c{{c     голубой{x
+           {y{{y     желтый  {w{{w     белый{x
+           {b{{b     синий   {D{{D     серый{x
+ 
+Для получения более ярких цветов,  используй заглавные буквы : {RR{GG{YY{BB{MM{CC{WW{x
+Использование  цвета  выглядит  гораздо  лучше,  если  вы заканчиваете
+строку ее естественным цветом. Например:
+                                              {RLope gossips '{Cпривет {Gвсем{R'{x
+                      выглядит лучше, чем:
+                                              {RLope gossips '{Cпривет {Gвсем'{x
+ 
 Существуют также следующие {{?-последовательности:
-         {{*     звуковой сигнал
-         {{\     новая строка
-         {{z     возврат к предыдущему цвету
-
-Поддержка цвета предоставлена Lope из Loping Through The MUD.
-Вопросы направляйте по адресу ant@@solace.mh.se или оставьте ноту
-на Loping Through The MUD (текущий адрес lttm.westside.net, порт
+ 
+           {{*     звуковой сигнал
+           {{\     новая строка
+           {{z     возврат к предыдущему цвету
+ 
+Поддержка  цвета   предоставлена   Lope   из   Loping Through The MUD.
+Вопросы направляйте  по  адресу  ant@@solace.mh.se  или  оставьте  ноту
+на  Loping Through The MUD  (текущий   адрес  lttm.westside.net,  порт
 23 или 9000)
 ~
 0 PET PETS~
@@ -442,13 +447,13 @@ Syntax: {center{x <portal>
  
 Use these commands to walk in a particular direction.
 Use ENTER command to pass through magical portals.
-@rus Синтаксис: {cnorth{x
-Синтаксис: {csouth{x
-Синтаксис: {ceast{x
-Синтаксис: {cwest{x
-Синтаксис: {cup{x
-Синтаксис: {cdown{x
-Синтаксис: {center{x <портал>
+@rus Использование: {cnorth{x
+               {csouth{x
+               {ceast{x
+               {cwest{x
+               {cup{x
+               {cdown{x
+               {center{x <портал>
 
 Эти команды используются для перемещений в соответствующем направлении.
 Используй команду ENTER для входа в магические порталы.
@@ -541,27 +546,28 @@ The effect of the spell is reduced or eliminated if the victim makes the
 saving throw successfully.
 
 See also the {CHELP <spell name>{x
-@rus Синтаксис: {ccast{x <название> <цель>
-
-Прежде, чем ты сможешь произносить заклинание, ты должен практиковать его. Чем 
-больше ты практикуешь, тем более высок шанс успеха. Произнесение заклинания 
-забирает ману. Стоимость заклинаний уменьшается по мере увеличения твоего 
-уровня.
-
-Указание цели не всегда обязательно. Многие заклинания направляются на правиль-
-ную цель автоматически, особенно в бою.
-
-Если название заклинания состоит более чем из одного слова, ты должен заключить
-его в апострофы. Названия заклинаний можно сокращать.
+@rus Использование: {ccast {x<название> <цель>
+ 
+Прежде, чем ты сможешь произносить заклинание,  ты должен практиковать
+его. Чем   больше  ты  практикуешь,  тем   более  высок  шанс  успеха.
+Произнесение заклинания   забирает    ману.    Стоимость    заклинаний
+уменьшается по мере увеличения твоего уровня.
+ 
+Указание цели не всегда обязательно. Многие заклинания направляются на
+правильную цель автоматически, особенно в бою.
+ 
+Если название заклинания состоит более чем из одного слова,  ты должен
+заключить его в апострофы. Названия заклинаний можно сокращать.
 Например: {ccast 'cure critic' frag{x
-
-Когда ты используешь боевое заклинание, жертва обычно получает возможность
-полностью или частично избежать действия этого заклинания. Эффект заклинания
-зависит от saves жертвы, чем меньше их величина тем лучше она избегает действия 
-вредных заклинаний. Успех заклинания также зависит от уровня заклинания,
-жертвы и сопротивляемости жертвы какому-либо типу ущерба.
-
-Также смотри {CHELP <название заклинания>{x.
+ 
+Когда ты  используешь   боевое   заклинание,  жертва  обычно  получает
+возможность полностью или частично избежать действия этого заклинания.
+Эффект заклинания зависит от saves жертвы,  чем меньше их величина тем
+лучше она избегает действия вредных заклинаний. Успех заклинания также
+зависит от  уровня  заклинания,   жертвы  и   сопротивляемости  жертвы
+какому-либо типу ущерба.
+ 
+Смотри также: '{CHELP <название заклинания>{x'
 ~
 0 EXITS~
 @eng Syntax: {cexits{x
@@ -598,15 +604,15 @@ PUT puts an object into a container.
 
 DROP, GET and PUT understand the object names 'ALL' for all objects and
 'ALL.object' for all objects with the same name.
-@rus Синтаксис: {cdrop{x <обьект>
-Синтаксис: {cdrop{x <сумма> {cgold{x
-Синтаксис: {cdrop{x <сумма> {csilver{x
-Синтаксис: {cget{x <обьект>
-Синтаксис: {cget{x <обьект> [{cfrom{x] <контейнер>
-Синтаксис: {cgive{x <обьект> [{cto{x] <персонаж>
-Синтаксис: {cgive{x <сумма> {cgold{x [{cto{x] <персонаж>
-Синтаксис: {cgive{x <сумма> {csilver{x [{cto{x] <персонаж>
-Синтаксис: {cput{x <обьект> [{cin{x] <контейнер>
+@rus Использование: {cdrop{x <обьект>
+               {cdrop{x <сумма> {cgold{x
+               {cdrop{x <сумма> {csilver{x
+               {cget{x <обьект>
+               {cget{x <обьект> [{cfrom{x] <контейнер>
+               {cgive{x <обьект> [{cto{x] <персонаж>
+               {cgive{x <сумма> {cgold{x [{cto{x] <персонаж>
+               {cgive{x <сумма> {csilver{x [{cto{x] <персонаж>
+               {cput{x <обьект> [{cin{x] <контейнер>
 
 DROP бросает объект или деньги на землю.
 GET или TAKE берет объект лежащий на земле или в контейнере (даже в трупе)
@@ -641,15 +647,17 @@ COMPARE with one argument compares an object in your inventory to the object
 you are currently wearing or wielding of the same type.
  
 COMPARE doesn't consider any special modifiers of the objects.
-@rus Синтаксис: {ccompare{x <объект-1> <объект-2>
-Синтаксис: {ccompare{x <обьект>
-
-COMPARE сравнивает два объекта находящихся в твоем мешке.  Если предметы 
-являются оружием, она сообщит об объекте с лучшим наносимым средним ущербом.
-Если оба объекта - броня, она сообщит о предмете с лучшим классом брони.
-
-COMPARE с одним аргументом сравнивает предмет с аналогичным одетым на тебе.
-
+@rus Использование: {ccompare {x<объект-1> <объект-2>
+                 {ccompare {x<обьект>
+ 
+COMPARE сравнивает  два  объекта  находящихся  в  твоем  мешке.   Если
+предметы являются оружием, она сообщит об объекте  с  лучшим наносимым
+средним ущербом. Если оба объекта - броня, она сообщит  о  предмете  с
+лучшим классом брони.
+ 
+COMPARE с одним аргументом сравнивает предмет с  аналогичным одетым на
+тебе.
+ 
 COMPARE не учитывает специальные модификаторы ообъектов.
 ~
 0 FLEE RESCUE ESCAPE DISHONOR~
@@ -675,10 +683,10 @@ You cannot flee into clan area from combat with clan guards.
 If you have chosen way of Samurai, you cannot flee from combat after reaching
 level 10. Nevertheless, if opponent is much tougher than you (6or more levels
 higher), you can DISHONOR yourself and leave combat field.
-@rus Синтаксис: {cflee{x
-Синтаксис: {crescue{x <персонаж>
-Синтаксис: {cescape{x <направление>
-Синтаксис: {cdishonor{x
+@rus Использование: {cflee{x
+               {crescue{x <персонаж>
+               {cescape{x <направление>
+               {cdishonor{x
 
 Как только ты начал бой, ты уже не можете просто выйти из него. Если тебе не
 нравится течение боя, ты можешь пытаться cбежать (FLEE), или другой персонаж
@@ -1035,18 +1043,18 @@ Syntax: {ctypo{x <message>
 
 These commands will take your message and record it into a file as feedback
 to the mud implementors.
-@rus Синтаксис: {cbug{x <сообщение>
-Синтаксис: {ctypo{x <сообщение>
+@rus Использование: {cbug {x<сообщение>
+                 {ctypo {x<сообщение>
  
-Этими командами записываются краткие сообщения в специальный файл, который
-периодически просматривают бессмертные - используй эти команды для сообщения
-о ошибках в программе и в синтаксисе.
+Этими командами  записываются  краткие  сообщения  в специальный файл,
+который периодически просматривают бессмертные - используй эти команды
+для сообщения о ошибках в программе и в синтаксисе.
 ~
 0 CREDITS~
 @eng Syntax: {ccredits{x
 
-This command shows the list of the original Diku Mud implementors.
-@rus Синтаксис: {ccredits{x
+This command shows the list of Shades of Gray implementors.
+@rus Использование: {ccredits{x
  
 Эта команда показывает тебе список создателей MUDa.
 ~
@@ -1259,9 +1267,10 @@ this spell fails against no-pass doors.
 @eng Syntax: {cbashdoor{x <direction>
  
 Skilled in breaking the door into peaces, one can open it without a key.
-@rus Синтаксис: {cbashdoor{x <направление>
+@rus Использование: {cbashdoor {x<направление>
  
-Это умение выламывать двери дает тебе возможность открывать их без ключа.
+Это умение  выламывать  двери  дает  тебе возможность открывать их без
+ключа.
 ~
 0 'FIRE SHIELD'~
 @eng Syntax: {ccast 'fire shield' cold{x
@@ -1322,10 +1331,10 @@ tick victim loses more and more hp till the end, death.
  
 This spell allows the caster to animate corpses, forcing newly born zombies
 to aid him.
-@rus Синтаксис: {ccast 'animate dead'{x <труп>
+@rus Использование: {ccast 'animate dead' {x<труп>                                 
  
-Это заклинание позволяет некромансеру оживить труп и сделать преданного ему
-зомби.
+Это заклинание  позволяет  некромансеру   оживить   труп   и   сделать
+преданного ему зомби.                                                 
 ~
 0 TAIL~
 @eng Syntax: {ctail{x
@@ -1401,11 +1410,12 @@ opponents and as they trained enough they can increase the opponets.
         Usage of this skill is automatic. To fight with a new enemy as you
 are fighting, try to attack it/his/her with another attack such as dirt
 kick.
-@rus Воины и самураи могут познать секрет нападения сразу на несколько противников.
-Сначала, они могут бороться с двумя противниками, а по мере их обучения они
-могут увеличивать количество противников. Это умения используется автома-
-тически. А для того, чтобы завязать бой с новым противником, ты должен ата-
-ковать его (например бросить землю в глаза - dirt <жертва>).
+@rus Воины и самураи могут познать  секрет  нападения  сразу  на  несколько
+противников. Сначала, они могут бороться  с  двумя  противниками, а по
+мере их обучения они могут  увеличивать  количество  противников.  Это
+умения используется автоматически. А для того, чтобы  завязать  бой  с
+новым противником, ты должен атаковать  его  (например  бросить  землю
+в глаза - {cdirt {x<жертва>). 
 ~
 0 GRIP~
 @eng This skill is automatic, once practiced.  The skill causes you to grip
@@ -1423,11 +1433,11 @@ you are engaged in fights where someone is attempting to disarm you.
 Prepare yourself to fight, thinking about your battle strategy
 would be more powerful you as you are fighting with your enemy. This would
 increase your damroll and hitroll respectively.......
-@rus Синтаксис: {cconcentrate{x
-
-Подготовка к бою, обдумывание твоей стратегии в нем позволят тебе быть сильнее
-во время сражения с врагом. Другими словами, это увеличит твой damroll и
-hitroll.
+@rus Использование: {cconcentrate{x
+ 
+Подготовка к бою, обдумывание твоей стратегии в нем позволят тебе быть
+сильнее во время сражения с врагом. Другими словами, это увеличит твой
+damroll и hitroll.
 ~
 0 TURN~
 @eng Syntax: {ccast 'turn'{x <victim>
@@ -1465,11 +1475,11 @@ Anti-paladins can deafen the enemies that enemies cannot hear what
 they say, utter(or what you say) ; simply enemies become deaf-mute
 persons. Hence any person which has been affected by deafen cannot cast
 any spell.   
-@rus Синтаксис: {ccast deafen{x <жертва>
+@rus Использование: {ccast deafen {x<жертва>
  
-Анти-паладины могут оглушать своих врагов, делая их глухонемыми.
-А следовательно, человек который находится под действием такого заклинания,
-не может читать заклинания сам.
+Анти-паладины могут оглушать своих  врагов,  делая  их  глухонемыми.  А
+следовательно, человек   который   находится   под   действием   такого
+заклинания, не может читать заклинания сам.
 ~
 0 'SANCTIFY LANDS'~
 @eng Syntax: {ccast 'sanctify lands'{x
@@ -1489,14 +1499,15 @@ Syntax: {ccast 'lethargic mist'{x
  
 All these spells curse the room caster is in. Characters in caster's PK range
 may become infected with poison, sleep, plague or slow respectively.
-@rus Синтаксис: {ccast 'deadly venom'{x
-Синтаксис: {ccast 'mysterious dream'{x
-Синтаксис: {ccast 'black death'{x
-Синтаксис: {ccast 'lethargic mist'{x
+@rus Использование: {ccast 'deadly venom'{x
+                 {ccast 'mysterious dream'{x
+                 {ccast 'black death'{x
+                 {ccast 'lethargic mist'{x
  
-Все эти заклинания накладывают различные проклятия на комнату. Персонажи,
-которые в PK чародея, могут получить яд, магический сон, чуму или медлитель-
-ность от каждого из указанных заклинаний соответственно.
+Все  эти   заклинания  накладывают  различные  проклятия  на  комнату.
+Персонажи,  которые  в  PK чародея, могут получить яд, магический сон,
+чуму   или   медлительность   от   каждого   из  указанных  заклинаний
+соответственно.
 ~
 0 HURRICANE~
 @eng Syntax: {ccast 'hurricane'{x <target>
@@ -1571,11 +1582,11 @@ the requisite key to LOCK or UNLOCK.
 
 PICK can open a lock without having the key.  In order to PICK successfully,
 you must practice the appropriate skill.
-@rus Синтаксис: {copen{x   <объект|направление>
-Синтаксис: {cclose{x  <объект|направление>
-Синтаксис: {clock{x   <объект|направление>
-Синтаксис: {cunlock{x <объект|направление>
-Синтаксис: {cpick{x   <объект|направление>
+@rus Использование: {copen{x   <объект|направление>
+               {cclose{x  <объект|направление>
+               {clock{x   <объект|направление>
+               {cunlock{x <объект|направление>
+               {cpick{x   <объект|направление>
  
 OPEN и CLOSE открывают и закрывают объект или дверь.
  
@@ -1632,21 +1643,21 @@ List <name> shows you only objects of that name.
 SELL sells an object to a shop keeper.
 
 VALUE asks the shop keeper how much he, she, or it will buy the item for.
-@rus Синтаксис: {cbuy{x   <обьект>
-Синтаксис: {clist{x
-Синтаксис: {csell{x  <обьект>
-Синтаксис: {cvalue{x <обьект>
+@rus Использование: {cbuy   {x<обьект>
+                 {clist{x
+                 {csell  {x<обьект>
+                 {cvalue {x<обьект>
  
 BUY покупает объект у хозяина магазина:
-В случае продажи в магазине нескольких объектов с одинаковым именем используй
-команду 'buy n.(объект)', где n - позиция нужного тебе в списке объектов с
-одинаковым именем. Если ты хочешь купить несколько одинаковых объектов, исполь-
-зуй команду 'buy n*(объект)', чтобы купить n объектов. Оба этих выражения могут
-использоваться в комбинации (пример buy 2*2.shield).
+В случае продажи в магазине нескольких объектов  с  одинаковым  именем
+используй команду 'buy n.(объект)', где n  -  позиция  нужного  тебе в
+списке объектов с одинаковым именем. Если ты хочешь  купить  несколько
+одинаковых объектов, используй команду 'buy n*(объект)',  чтобы купить
+n объектов. Оба  этих  выражения  могут  использоваться  в  комбинации
+(пример buy 2*2.shield).
  
 LIST показывает список объектов выставленных на продажу.
 LIST <имЯ> показывает только объекты с указанным именем.
- 
 SELL продает объект хозяину магазина.
 VALUE показывает возможную цену объекта.
 ~
@@ -1698,33 +1709,34 @@ more charges, it will be consumed.
 
 These commands may require an item skill to be succesful, see the help entries
 on the skills scrolls, staves, and wands for more information.
-@rus Синтаксис: {cbrandish{x
-Синтаксис: {cquaff{x <зелье>
-Синтаксис: {crecite{x <свиток> <цель>
-Синтаксис: {czap{x   <цель>
-Синтаксис: {czap{x
+@rus Использование: {cbrandish{x
+                 {cquaff {x<зелье>
+                 {crecite {x<свиток> <цель>
+                 {czap {x<цель>
+                 {czap{x
  
-Все эти команды служат для использования магических вещей. BRANDISH нужен для
-использования магических посохов, QUAFF выпивает зелье (в отличие от DRINK,
-который служит для питья обычных жидкостей). RECITE зачитывает магический сви-
-ток. ZAP применяет волшебную палочку на указанную цель.
+Все эти команды служат для использования  магических  вещей.  BRANDISH
+нужен для использования  магических  посохов,  QUAFF выпивает зелье (в
+отличие от DRINK,  который служит для питья обычных жидкостей). RECITE
+зачитывает магический  свиток.  ZAP  применяет  волшебную  палочку  на
+указанную цель.
  
-Ты должен держать посох или волшебную палочку в руке для того, чтобы исполь-
-зовать их.
+Ты должен  держать  посох или волшебную палочку в руке для того, чтобы
+использовать их.
  
-Все эти команды расходуют соотвествующие обьекты. Зелья и свитки имеют по
-одному заряду, посохи и волшебные палочки могут иметь несколько. Когда у
-предмета кончаются заряды, он исчезает.
+Все эти команды расходуют соотвествующие обьекты. Зелья и свитки имеют
+по одному заряду,  посохи  и  волшебные палочки могут иметь несколько.
+Когда у предмета кончаются заряды, он исчезает.
  
-Для применения свитков, посохов и волшебных палочек тебе желательно практико-
-вать соответствующие умения. Смотри {CHELP WANDS SCROLLS STAVES{x
+Для применения  свитков,  посохов  и волшебных палочек тебе желательно
+практиковать соответствующие умения.  Смотри {CHELP WANDS SCROLLS STAVES{x
 ~
 0 CONSIDER~
 @eng Syntax: {cconsider{x <character>
 
 CONSIDER tells you what your chances are of killing a character.
 Of course, it's only a rough estimate.
-@rus Синтаксис: {cconsider{x <персонаж>
+@rus Использование: {cconsider {x<персонаж>
  
 CONSIDER сообщает тебе, какие твои шансы одержать победу над указанным
 персонажем. Конечно же, это лишь грубая оценка.
@@ -2064,7 +2076,7 @@ TRAIN увеличивает один из твоих атрибутов. В начале игры, твой персонаж полу-
 ADVANCE sets a character's level to the specified value.  It is the
 only way to create new immortal characters within the game.  ADVANCE
 may also be used to demote characters.
-@rus Синтаксис: {cadvance{x <персонаж> <уровень>
+@rus Использование: {cadvance{x <персонаж> <уровень>
  
 ADVANCE устанавливает уровень персонажа. Это единственный способ создания
 нового бессмертного персонажа в игре. ADVANCE также можно использовать и для
@@ -2394,7 +2406,7 @@ a mobile, or as the name of an object.
 At works by temporarily moving you to that location, executing the
 command, and then moving you back (if the command didn't change your
 location).
-@rus Синтаксис: {cat{x <комната> <команда>
+@rus Использование: {cat{x <комната> <команда>
  
 AT выполняет указанную команду в указанной комнате. Комната может быть задана
 по номеру, имени моба или имени обьекта.
@@ -2713,15 +2725,15 @@ Syntax: {ccast 'meld into stone'{x
 All these spell descrease (improve) armor class of target character, armor and
 shield by -20 or more each, stone skin by -40 or more, enhanced armor by -60
 and meld into stone by -100.
-@rus Синтаксис: {ccast 'armor'{x <персонаж>
-Синтаксис: {ccast 'shield{x <персонаж>
-Синтаксис: {ccast 'stone skin'{x
-Синтаксис: {ccast 'enhanced armor'{x <персонаж>
-Синтаксис: {ccast 'meld into stone'{x
+@rus Использование: {ccast 'armor' {x<персонаж>
+                 {ccast 'shield' {x<персонаж>
+                 {ccast 'stone skin'{x
+                 {ccast 'enhanced armor' {x<персонаж>
+                 {ccast 'meld into stone'{x
  
-Все эти заклинания уменьшают (улучшают) класс брони соответствующего персонажа.
-Armor и shield улучшает на -20 или больше каждый, stone skin на -40 или больше,
-enhanced armor на -60 и meld into stone на -100.
+Все эти заклинания уменьшают (улучшают) класс  брони  соответствующего
+персонажа.Armor и shield улучшает на -20 или больше каждый, stone skin
+на -40 или больше, enhanced armor на -60 и meld into stone на -100.
 ~
 0 BLESS BENEDICTION~
 @eng Syntax: {ccast 'bless'{x <character>
@@ -2733,13 +2745,14 @@ cast on objects to temporarily bless it (blessed weapons, for example, are more
 effective against demonic beings).
  
 BENEDICTION is stronger version of BLESS.
-@rus Синтаксис: {ccast 'bless'{x <персонаж>
-Синтаксис: {ccast 'bless'{x <обьект>
-Синтаксис: {ccast 'benediction'{x <персонаж>
+@rus Использование: {ccast 'bless' {x<персонаж>
+                 {ccast 'bless' {x<обьект>
+                 {ccast 'benediction' {x<персонаж>
  
-BLESS улучшает вероЯтность нанесениЯ ударов и защиту от магии указанного
-персонажа. Его можно также использовать на предметах - чтобы благословить
-их. Например, такое оружие более эффективно против демонов и прочей нечисти.
+BLESS улучшает  вероятность  нанесения  ударов  и   защиту   от  магии
+указанного персонажа. Его можно  также  использовать  на  предметах  -
+чтобы благословить их. Например, такое оружие  более эффективно против
+демонов и прочей нечисти.
  
 BENEDICTION является более сильной версией bless.
 ~
@@ -2747,7 +2760,7 @@ BENEDICTION является более сильной версией bless.
 @eng Syntax: {ccast 'blindness'{x <victim>
 
 This spell renders the target character blind.
-@rus Синтаксис: {ccast 'blindness'{x <жертва>
+@rus Использование: {ccast 'blindness' {x<жертва>
  
 Это заклинание ослепляет жертву.
 ~
@@ -2763,24 +2776,29 @@ All these spells just inflict damage to the victim. Higher-level spells do
 more damage. Some of these spells can be cast remotely.
  
 See also {CHELP RANGE CAST{x
-@rus Синтаксис: {ccast 'acetum primus'{x  <жертва>
-Синтаксис: {ccast 'acid arrow'{x     <жертва>
-Синтаксис: {ccast 'acid blast'{x     <жертва>
-Синтаксис: {ccast 'burning hands'{x  <жертва>
-Синтаксис: {ccast 'cause critical'{x <жертва>
-                    ... и так далее ...
- 
-Все эти заклинания наносят ущерб жертве. Заклинания более высокого уровня
-наносят больший ущерб. Некоторые из этих заклинаний могут быть использованы
-на расстоянии от жертвы.
- 
-Смотри также {CHELP RANGE CAST{x
+@rus Использование: {ccast 'acetum primus'  {x<цель>
+                 {ccast 'acid arrow'     {x<цель>
+                 {ccast 'acid blast'     {x<цель>
+                 {ccast 'burning hands'  {x<цель>
+                 {ccast 'cause critical' {x<цель>
+                          ... и так далее ...
+
+Все эти  заклинания наносят  ущерб жертве.  Заклинания более  высокого
+уровня наносят больший ущерб.  Некоторые из этих заклинаний могут быть
+использованы на расстоянии от жертвы. 
+
+Смотри также: '{CHELP RANGE CAST{x'
 ~
 0 'CALL LIGHTNING'~
-Syntax: cast 'call lightning'
+@eng Syntax: cast 'call lightning'
 
 This spell works only out of doors, and only when the weather is bad.
 It calls down lightning bolts from gods.
+@rus Использование: {ccast 'call lightning' {x<цель>
+ 
+Это заклинание действует только вне помещений и только в плохую погоду
+Персонаж, произносящий его,  призывает Богов нанести по его противнику
+удар молнией.
 ~
 0 'ATTRACT OTHER' 'CHARM PERSON' 'CONTROL ANIMAL' 'CONTROL UNDEAD'~
 @eng Syntax: {ccast 'charm person'{x <victim>
@@ -2800,32 +2818,35 @@ living creatures, though it is capable of charming undeads immune to normal
 charm. CONTROL ANIMAL works only on NPCs of non-player race.
  
 See also {CHELP ORDER{x
-@rus Синтаксис: {ccast 'charm person'{x <жертва>
-Синтаксис: {ccast 'attract other'{x <жертва>
-Синтаксис: {ccast 'control undead'{x <жертва>
-Синтаксис: {ccontrol{x <жертва>
+@rus Использование: {ccast 'charm person' {x<цель>
+                 {ccast 'attract other' {x<цель>
+                 {ccast 'control undead' {x<цель>
+                 {ccontrol {x<цель>
  
-Эти заклинания и умения в случае успеха заставляют жертву слепо следовать за
-тобой и выполнять твои приказы. Отдавать приказы можно командой ORDER.
+Эти заклинания  и  умения  в  случае  успеха  заставляют  жертву слепо
+следовать за тобой и выполнять твои приказы.  Отдавать  приказы  можно
+командой ORDER. 
  
-Ты несешь ответственность за действия очарованных тобой персонажей. И наоборот,
-люди, атакующие твоих последователей, несут ту же ответственность как если бы
-они атаковали тебя.
+Ты несешь ответственность за действия  очарованных тобой персонажей. И
+наоборот, люди,   атакующие   твоих   последователей,   несут   ту  же
+ответственность как если бы они атаковали тебя.
  
-CHARM PERSON является наиболее универсальным из всех этих заклинаний. ATTRACT
-OTHER работает только на существах противоположного твоему пола. CONTROL UNDEAD
-действует только на различные виды мертвецов, хотя с его помощью можно очаро-
-вать даже тех, что устойчив к обычному CHARM PERSON. И наконец, CONTROL ANIMAL
-может очаровать только монстров тех рас, которые недоступны игрокам.
+CHARM PERSON является  наиболее универсальным из всех этих заклинаний.
+ATTRACT OTHER работает только  на  существах  противоположного  твоему
+пола. CONTROL UNDEAD действует только  на  различные  виды  мертвецов,
+хотя с его помощью можно очаровать даже тех, что  устойчив  к обычному
+CHARM PERSON.  И   наконец,  CONTROL  ANIMAL  может  очаровать  только
+монстров тех рас, которые недоступны игрокам. 
 ~
 0 'CHILL TOUCH'~
 @eng Syntax: {ccast 'chill touch'{x <victim>
 
 This spell inflicts damage on the victim and also reduces the victim's
 strength by one.
-@rus Синтаксис: {ccast 'chill touch'{x <жертва>
+@rus Использование: {ccast 'chill touch' {x<цель>
  
-Это заклинание не только наносит раны жертве, но и уменьшает ее силу на 1.
+Это заклинание не только  наносит  раны  жертве,  но  и  уменьшает  ее
+силу на 1.
 ~
 0 'CONTINUAL LIGHT'~
 @eng Syntax: {ccast 'continual light'{x
@@ -2834,20 +2855,20 @@ Syntax: {ccast 'continual light'{x <object>
 This spell creates a ball of light, which you can hold as a light source.
 The ball of light will last indefinitely. It may also be used on an object
 to give it an enchanted glow.
-@rus Синтаксис: {ccast 'continual light'{x
-Синтаксис: {ccast 'continual light'{x <обьект>
+@rus Использование: {ccast 'continual light'{x
+                 {ccast 'continual light' {x<обьект>
  
-Это заклинание создает светящийся шар, который можно использовать как светиль-
-ник, и он будет светить вечно. Это заклинание можно также использовать на
-объекте, для придания ему магического свечения.
+Это заклинание создает светящийся шар,  который можно использовать как
+светильник, и он будет  светить  вечно.  Это  заклинание  можно  также
+использовать на объекте, для придания ему магического свечения.
 ~
 0 'CONTROL WEATHER'~
 @eng Syntax: {ccast 'control weather' better{x
 Syntax: {ccast 'control weather' worse{x
 
 This spell makes the weather either better or worse.
-@rus Синтаксис: {ccast 'control weather' better{x
-Синтаксис: {ccast 'control weather' worse{x
+@rus Использование: {ccast 'control weather' better{x
+                 {ccast 'control weather' worse{x
  
 Это заклинание делает погоду лучше (better) или хуже (worse).
 ~
@@ -2859,13 +2880,13 @@ Syntax: {ccast 'create spring'{x
 These spells create water and food. CREATE WATER fills drink container with
 water, CREATE FOOD make a delicious mushroom, CREATE SPRING gives birth to a
 cold clear spring.
-@rus Синтаксис: {ccast 'create water'{x <сосуд>
-Синтаксис: {ccast 'create food'{x
-Синтаксис: {ccast 'create spring'{x
+@rus Использование: {ccast 'create water' {x<сосуд>
+                 {ccast 'create food'{x
+                 {ccast 'create spring'{x
  
-Эти заклинания создают воду и еду. CREATE WATER наполняет водой указанный
-сосуд, CREATE FOOD создает аппетитный гриб, CREATE SPRING создает холодный
-чистый ручеек.
+Эти заклинания  создают  воду  и  еду.  CREATE WATER  наполняет  водой
+указанный сосуд,  CREATE FOOD создает  аппетитный гриб,  CREATE SPRING
+создает холодный чистый ручеек.
 ~
 0 'CURE BLINDNESS' 'CURE POISON' 'CURE DISEASE'~
 @eng Syntax: {ccast 'cure blindness'{x <character>
@@ -2873,11 +2894,12 @@ Syntax: {ccast 'cure poison'{x <character>
 Syntax: {ccast 'cure disease'{x <character>
  
 These spells cure blindness, poison and disease in those unlucky adventurers.
-@rus Синтаксис: {ccast 'cure blindness'{x <персонаж>
-Синтаксис: {ccast 'cure poison'{x <персонаж>
-Синтаксис: {ccast 'cure disease'{x <персонаж>
+@rus Использование: {ccast 'cure blindness' {x<персонаж>
+                 {ccast 'cure poison' {x<персонаж>
+                 {ccast 'cure disease' {x<персонаж>
  
-Эти заклинания лечат слепоту, яд и чуму соответвенно у неудачливого персонажа.
+Эти заклинания лечат слепоту, яд и чуму  соответвенно  у  неудачливого
+персонажа.
 ~
 0 'CURE LIGHT' 'CURE SERIOUS' 'CURE CRITICAL' HEAL 'SUPERIOR HEAL' 'MASTER HEALING'~
 @eng Syntax: {ccast 'cure light'{x <character>
@@ -2889,15 +2911,15 @@ Syntax: {ccast 'master healing'{x <character>
  
 These spells cure wounds on specified character. Higher-level spells heal more
 damage.
-@rus Синтаксис: {ccast 'cure light'{x <персонаж>
-Синтаксис: {ccast 'cure serious'{x <персонаж>
-Синтаксис: {ccast 'cure critical'{x <персонаж>
-Синтаксис: {ccast 'heal'{x <персонаж>
-Синтаксис: {ccast 'superior heal'{x <персонаж>
-Синтаксис: {ccast 'master healing'{x <персонаж>
+@rus Использование: {ccast 'cure light' {x<персонаж>
+                 {ccast 'cure serious' {x<персонаж>
+                 {ccast 'cure critical' {x<персонаж>
+                 {ccast 'heal' {x<персонаж>
+                 {ccast 'superior heal' {x<персонаж>
+                 {ccast 'master healing' {x<персонаж>
  
-Эти заклинания лечат раны на указанном персонаже. Заклинания более высокого
-уровня лечат сильнее.
+Эти заклинания лечат раны на  указанном  персонаже.  Заклинания  более
+высокого уровня лечат сильнее.
 ~
 0 CURSE ANATHEMA~
 @eng Syntax: {ccast 'curse'{x <character>
@@ -2915,17 +2937,18 @@ object to be more evil, but if protected by some other magic it may fail.
  
 Anathema is a highly complicated curse. Not only does it lower hitroll and
 increase save, but also make character far less skillful.
-@rus Синтаксис: {ccast 'curse'{x <обьект>
-Синтаксис: {ccast 'curse'{x <персонаж>
-Синтаксис: {ccast 'anathema'{x <персонаж>
+@rus Использование: {ccast 'curse' {x<обьект>
+                 {ccast 'curse' {x<персонаж>
+                 {ccast 'anathema' {x<персонаж>
+
+Проклятие (curse)  уменьшает вероятность нанесения персонажем ударов и
+ухудшает его защиту от магии. Кроме того, проклятые персонажи не могут
+использовать  RECALL   и   заклинание   'word of recall'.   Проклятие,
+наложенное на оружие,  увеличивает  его  эффективность  против  святых
+врагов.
  
-Проклятие (curse) уменьшает вероятность нанесения персонажем ударов и ухудшает
-его защиту от магии. Кроме того, проклятые персонажи не могут использовать
-RECALL и заклинание 'word of recall'. Проклятие, наложенное на оружие, увеличи-
-вает его эффективность против святых врагов.
- 
-ANATHEMA является усилленым вариантом CURSE - кроме указанного, она еще и пони-
-жает уровень владения персонажа умениями и заклинаниями.
+ANATHEMA является усилленым вариантом  CURSE - кроме  указанного,  она
+еще и понижает уровень владения персонажа умениями и заклинаниями.
 ~
 0 'DETECT EVIL' 'DETECT GOOD' 'DETECT MAGIC' 'DETECT UNDEAD'~
 @eng Syntax: {ccast 'detect evil'{x
@@ -2966,12 +2989,12 @@ and improved invisibility respectively.
 Magically sharpened with 'ACUTE VISION' eyes can see ranger in cover.
 'DETECT FADE' is used to detect faded lifeforms, though not many encountered
 them.
-@rus Синтаксис: {ccast 'detect hidden'{x
-Синтаксис: {ccast 'detect invis'{x
-Синтаксис: {ccast 'improved detect'{x
-Синтаксис: {ccast 'detect fade'{x
-Синтаксис: {ccast 'acute vision'{x
-Синтаксис: {cdetect{x
+@rus Использование: {ccast 'detect hidden'{x
+               {ccast 'detect invis'{x
+               {ccast 'improved detect'{x
+               {ccast 'detect fade'{x
+               {ccast 'acute vision'{x
+               {cdetect{x
  
 Эти умения и заклинания нужны для обнаружения спрятавшихся и невидимых персо-
 нажей. 'DETECT HIDDEN' обнаружит персонажей, пытающихся укрыться в тенях.
@@ -2979,11 +3002,6 @@ them.
 DETECT' служат для обнаружения простой и улучшенной невидимости. При помощи
 'ACUTE VISION' можно обнаружить охотника даже в лесу. 'DETECT FADE' служит для
 обнаружения пропадающих существ, хотя они и встречаются очень редко.
-~
-0 'DETECT INVIS' 'IMPROVED DETECT'~
-Syntax: cast 'detect invis'
-
-This spell enables the caster to detect invisible objects and characters.
 ~
 0 'DETECT MAGIC'~
 Syntax: cast 'detect magic'
@@ -2999,10 +3017,15 @@ This spell detect presence of poison in food or drink.
 Это заклинание определяет наличие яда в еде или питье.
 ~
 0 'DISPEL EVIL'~
-Syntax: cast 'dispel evil' <victim>
+@eng Syntax: cast 'dispel evil' <victim>
 
 This spell invokes the wrath of gods on an evil victim. It can be very
 dangerous for casters who are not pure of heart.
+@rus Синтаксис: {ccast 'dispel evil' {x<цель>
+ 
+Это заклинание призывает  ярость богов  на злое существо,  указанное в
+качестве цели.   Может быть  очень опасно  для тех,  кто таит  в своем
+сердце какое-либо зло. 
 ~
 0 'DISPEL MAGIC' CANCELLATION~
 @eng Syntax: {ccast 'dispel magic'{x <character>
@@ -3019,8 +3042,8 @@ The chance of dispelling is based on the level of the spell. Permanent spells
 be dispelled, notable examples are poison and plague.
  
 This is a questionable spell. See {CHELP TRUST{x for details.
-@rus Синтаксис: {ccast 'dispel magic'{x <персонаж>
-Синтаксис: {ccast 'cancellation'{x <персонаж>
+@rus Использование: {ccast 'dispel magic'{x <персонаж>
+               {ccast 'cancellation'{x <персонаж>
  
 Оба эти заклинания предназначены для удаления магических эффектов с персонажа.
 К сожалению, они не различают "хорошие" и "плохие" эффекты. DISPEL MAGIC имеет
@@ -3239,8 +3262,8 @@ Syntax: {ccast 'black shroud'{x <character>
 The SANCTUARY spell reduces the damage taken by the character from any attack
 by one half. BLACK SHROUD is weaker version of sanctuary, available only to
 evil casters.
-@rus Синтаксис: {ccast 'sanctuary'{x <персонаж>
-Синтаксис: {ccast 'black shroud'{x <персонаж>
+@rus Использование: {ccast 'sanctuary'{x <персонаж>
+               {ccast 'black shroud'{x <персонаж>
  
 Заклинание SANCTUARY уменьшает ущерб для персонажа от любой атаки наполовину.
 BLACK SHROUD является несколько ослабленной версией заклинания SANCTUARY и
@@ -3411,16 +3434,16 @@ Syntax: {ccast 'lightning breath'{x <victim>
 These spells are for the use of dragons.  Acid and lightning damage one victim,
 whereas fire, frost and gas damage everyone in the room. Fire, lightning and
 frost breath can break objects, and acid can damage armor.
-@rus Синтаксис: {ccast 'acid breath'{x      <жертва>
-Синтаксис: {ccast 'fire breath'{x      <жертва>
-Синтаксис: {ccast 'frost breath'{x     <жертва>
-Синтаксис: {ccast 'gas breath'{x
-Синтаксис: {ccast 'lightning breath'{x <жертва>
+@rus { Использование: {ccast 'acid breath'      {x<цель>
+                 {ccast 'fire breath'      {x<цель>
+                 {ccast 'frost breath'     {x<цель>
+                 {ccast 'gas breath'{x
+                 {ccast 'lightning breath' {x<цель>
  
-Эти заклинания используются драконами. ACID BREATH и LIGHTNING BREATH действуют
-на одного персонажа, остальные действуют на всех персонажей в комнате.
-FIRE BREATH и FROST BREATH могут портить вещи, ACID BREATH может разрушить
-броню.
+Эти заклинания используются драконами.  ACID BREATH и LIGHTNING BREATH
+действуют на одного персонажа,  остальные действуют на всех персонажей
+в комнате. FIRE BREATH  и FROST BREATH могут портить вещи, ACID BREATH
+может разрушить броню.
 ~
 -1 'RACE HELP' RACE RACES 'RACE HELP'~
 @eng The culturally diverse realm of Shades of Gray is home to 18 different
@@ -3518,15 +3541,21 @@ Troll       Troll Str,Con Int,Dex  400  evil, regen,"fast heal","trance", infra
 Wyrm        Wyrm  Con,Wis Int,Dex  600  evil,neutral,"claws","tail", fly, infra
 Centaur     Centa Str,Con Int,Dex  400  good, neutral, "mastering bow", infra
 ~
--1 GNOME GNOMES~
-Gnomes are a race of small, wiry, but tough creatures.  They live a very
+-2 GNOME GNOMES~
+@eng Gnomes are a race of small, wiry, but tough creatures.  They live a very
 long time and accumulate much wisdom. They are resistant to poisons, but
 they are vulnerable to bashing because of their small size. Gnomes can see
 in the dark with infravision.  Gnomes, due to their large stock of wisdom,
 always stay neutral, else they will lose their spells and are frowned upon.
+@rus {                              {W- ГНОМ -{x
+ 
+Маленькие существа, выходцы из-под земли, и потому видят в темноте.  В
+отличии от родственных им свирфов умны. Умеют проникать в суть вещей и
+очень мудры. Долгожители. Нейтральны  и  не  одобряют тех,  кто служит
+Добру или Злу.
 ~
--1 'STORM GIANT' STORMGIANTS~
-Storm giants are the largest of the giant races, ranging from 12-20 feet in 
+-2 'STORM GIANT' STORMGIANTS~
+@eng Storm giants are the largest of the giant races, ranging from 12-20 feet in 
 height.  They are strong, and almost as durable as the dwarves. They aren't 
 too bright, however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
@@ -3535,9 +3564,15 @@ ill-suited for any other profession.
 Storm giants resist lightning, can fly.  However, they are the most clever 
 of giants. Storm giants, due to their  size and stamina, receive the fast 
 healing and bash skills for free. Cloud giants have weapon resistance.
+@rus {                         {W- ШТОРМОВОЙ ГИГАНТ -{x
+
+Штормовые гиганты  -  самые большие жители Мира Серых Теней. Больше их
+никого нет, их рост около 20 футов. Они очень сильные и выносливые, но
+неуклюжи. Они не особо умны,  но компенсируют это своей доброй душой и
+готовностью помочь в случае надобности. Умеют летать.
 ~
--1 'FIRE GIANT' FIREGIANTS~
-Storm giants are the large, ranging from 9-12 feet in height.  They are 
+-2 'FIRE GIANT' FIREGIANTS~
+@eng Storm giants are the large, ranging from 9-12 feet in height.  They are 
 strong, and almost as durable as the dwarves. They aren't too bright, 
 however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
@@ -3546,9 +3581,15 @@ ill-suited for any other profession.
 Fire giants resist fire .  However, their slow minds make them extremely 
 vulnerable to mental attacks.  Storm giants, due to their  size and 
 stamina, receive the fast healing and bash skills for free. 
+@rus {                         {W- ОГНЕННЫЙ ГИГАНТ -{x
+
+Огненные гиганты ростом 9-12 футов. Они очень сильные и выносливые, но
+вследствии своего  размера, совсем  не ловкие.  Из гигантов получаются
+великолепные воины. А вот с  другими профессиями  могут быть проблемы,
+ибо умом гиганты похвастаться не могут. Огненные гиганты всегда злые.
 ~
--1 'CLOUD GIANT' CLOUDGIANTS~
-Cloud giants are the large, ranging from 9-12 feet in height.  They are 
+-2 'CLOUD GIANT' CLOUDGIANTS~
+@eng Cloud giants are the large, ranging from 9-12 feet in height.  They are 
 strong, and almost as durable as the dwarves. They aren't too bright, 
 however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
@@ -3558,9 +3599,18 @@ Fire giants resist fire .  However, their slow minds make them extremely
 vulnerable to mental attacks.  Storm giants, due to their  size and 
 stamina, receive the fast healing and bash skills for free. Cloud giants  
 have weapon resistance.
+@rus {                         {W- ОБЛАЧНЫЙ ГИГАНТ -{x
+
+Облачные гиганты нейтральны, им безразлично противостояние Добра и Зла
+Несмотря на свой крупный размер (рост порядка 12 футов)  умеют летать.
+Выносливы и сильны,  как все гиганты.  И как все гиганты  -  неуклюжи.
+Обладают  редкой  способностью   противостоять  ударам  оружия.  Урон,
+который наносит  любое оружие  по гигантам,  значительно  меньше,  чем
+наносимый тем же оружием, скажем, по дварфам.
+ 
 ~
--1 'FROST GIANT' FROSTGIANTS~
-Frost giants are the largest of the giant races, ranging from 9-12 feet in 
+-2 'FROST GIANT' FROSTGIANTS~
+@eng Frost giants are the largest of the giant races, ranging from 9-12 feet in 
 height.  They are strong, and almost as durable as the dwarves. They aren't 
 too bright, however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
@@ -3570,24 +3620,44 @@ Frost giants resist cold.  However, their slow minds make  them extremely
 vulnerable to mental attacks.  Storm giants, due to their  size and 
 stamina, receive the fast healing and bash skills for free.And they are
 born to be enemies of white dragons.
+@rus {                         {W- МОРОЗНЫЙ ГИГАНТ -{x
+
+Один из  представителей гигантов.  Подобно огненному,  морозный гигант
+злой. Как любые гиганты, сильны и выносливы,  но неуклюжи  и не  очень
+умны. Рост около 12 футов.
 ~
--1 HUMANS~
-Humans are the most common race in the world, and make up the majority of
+-2 HUMANS~
+@eng Humans are the most common race in the world, and make up the majority of
 adventurers.  Although they have no special talents like the other races,
 they are more versatile, being skilled in all classes.  Humans are able to
 gain more benefit from magical devices.
+@rus {                             {W- ЧЕЛОВЕК -{x
+ 
+Это раса со средними характеристиками.  Характеристики всех  остальных
+рас всегда сравниваются с людскими.  У  людей  нет  никаких  особенных
+способностей, но  в то  же время  им легче  адаптироваться ко  внешним
+условиям. Людям  доступны  все  профессии.  Только  люди  могут  стать
+самураями. И вампиры тоже все в своем прошлом были людьми. Между собой
+общаются на человеческом языке.
 ~
--1 DWARF DWARVES~
-Dwarves are short, stocky demi-humans, known for foul temper and great
+-2 DWARF DWARVES~
+@eng Dwarves are short, stocky demi-humans, known for foul temper and great
 stamina.  Dwarves have high strength and constitution, but poor dexterity.
 They are not as smart as humans, but are usually wiser due to their long
 lifespans.  Dwarves make lots of noise wherever they go and cannot be
 thieves.  Dwarves can be good or neutral.
 Dwarves are resistant to magic, poison and disease, but cannot swim, and so
 are very vulnerable to drowning.  They can see in the dark with infravision.
+@rus {                              {W- ДВАРФ -{x
+ 
+Дварфы - это невысокие коренастые существа, карлики, внешне похожие на
+людей. Известны особой выносливостью и отвратительным характером.  Они
+не очень  проворны,  но   обладают  природной   мудростью  и  являются
+долгожителями. Дварфы и дуергары - родственные расы,  и  разговаривают
+на одном и том же наречии. Панически боятся любых водоемов.
 ~
--1 ELF ELVES~
-Elves are slightly taller than humans, but have a much lighter build.  They
+-2 ELF ELVES~
+@eng Elves are slightly taller than humans, but have a much lighter build.  They
 lack the strength and stamina of the other races, but are for more agile,
 both in body and mind.
 Elves resist charm spells most effectively, due to their magical nature.
@@ -3596,14 +3666,27 @@ use of iron in their adventuring careers.  Elves are notoriously
 hard to spot and walk unnoticed automatically. They may see in the dark
 with infravision.  Elves must stay good to cast any spells they know.
 Elves who have turned to evil are frowned upon.
+@rus {                              {W- ЭЛЬФ -{x
+ 
+По сравнению с  людьми  эльфы  более  хрупко  сложены,  но  по  уму  и
+проворности они  впереди многих. Эльфы - существа с доброй душой, и им
+тяжело видеть  любую  несправедливость.  Эльфы  любят  музыку  и любят
+водить хороводы при лунном свете. Особой приметой являются острые ушки
+А также эльфы считаются самыми красивыми жителями Мира Серых Теней.
 ~
--1 HALF-ELF HALF-ELVES~
-Half-elves are a cross-breed between a human and an elf. They are not quite
+-2 HALF-ELF HALF-ELVES~
+@eng Half-elves are a cross-breed between a human and an elf. They are not quite
 as intelligent as pure elves but have a greater constitution. Like pure
 elves, half-elves see in the dark with infravision.
+@rus {                            {W- ПОЛУ-ЭЛЬФ -{x
+ 
+Это те, кто произошел от смешения эльфов и  людей. Они  не столь умны,
+как их эльфийские предки,  но унаследовали  от людей  их телосложение.
+Полу-эльфы не умеют  ходить бесшумно,  но сохранили возможность видеть
+в темноте.
 ~
--1 SVIRFNABLINS DEEP-GNOMES~
-The Svirfnebli, also known as deep gnomes, have made their way into
+-2 SVIRFNEBLIN~
+@eng The Svirfnebli, also known as deep gnomes, have made their way into
 Shades of Gray as the paths to the Underdark have been found.
 Slightly larger than their surface cousins, these gnomes are also stronger
 and a little more hearty from centuries of working stone.
@@ -3612,9 +3695,15 @@ cousins, but yet they are still regarded as very wise. With their singular
 dedication to the stone, svirfnebli must be neutral in all aspects of their
 lives. They have the same ability in learning the powers of items as their
 surface cousins.
+@rus {                            {W- СВИРФНЕБЛИ -{x
+ 
+Дальние родственники с дварфами  и дуергарами.  Так же  выходцы из-под
+земли, и умеют поэтому видеть  в  темноте.  Одни  из  самых  маленьких
+существ в мире. Меньше их никого нет.  Не  могут  похвастаться  особым
+умом, но мудры и умеют проникать в самую суть вещей.
 ~
--1 FELAR~
-The Felar are a race descended from the great cats. For long years in their
+-2 FELAR~
+@eng The Felar are a race descended from the great cats. For long years in their
 past, the Felar were enslaved by wizards to serve as familiars.  The scars
 of this servitude still show in the relative weakness and dull wits of the
 Felar.  They are renowned, however, for their agility and their "nine lives".
@@ -3632,32 +3721,62 @@ to be pure magic-users, and some of the Felar still resent the mages, anyway.
 The wars of freedom were long ago, however, so many younger Felar are willing
 to forgive and forget, and some have even begun to dabble in the magic that
 once imprisoned them.
+@rus {                              {W- ФЕЛАР -{x
+
+Раса феларов происходит из огромных кошек.  В течение  долгого времени
+фелары были порабощены колдунами. Следы этого рабства до сих пор видны
+в слабости и тупости феларов. Однако,  они известны своей  ловкостью и
+живучестью. Благодаря  густой  шерсти  фелары устойчивы  к холоду,  но
+очень уязвимы к воздействию огня. Несмотря на  существенные изменения,
+сделанные их хозяевами, фелары  сохранили большие  когти и клыки своих
+предков. К сожалению, фелары не умеют втягивать когти,  что не дает им
+незаметно перемещаться. Единственные из разумных рас  Мира Серых Теней
+имеют хвост. И, соответственно, умение им пользоваться.
 ~
--1 DUERGAR DARK-DWARF DARK-DWARVES~
-With the recent excavations unearthing paths to the Underdark, the race of
+-2 DUERGAR DARK-DWARF DARK-DWARVES~
+@eng With the recent excavations unearthing paths to the Underdark, the race of
 dark dwarves known as Duergar has made its way into Shades of Gray.
 Like their surface cousins they are strong, though their evil ways have
 changed them in other areas. Unlike their cousins, they are not known for
 working stone and metal, something which has made them less hearty over time.
 They have become more dexterous through centuries of thievery and deceit.
 All Duergars are evil.
+@rus {                             {W- ДУЕРГАР -{x
+ 
+Дуергары сильные коренастые создание подобно  родственным им  дварфам.
+Но в отличии от них  дуергары выбрали  путь зла.  Как раса,  жившая  и
+часто живущая под  землей,  обладает  способностью  видеть  в темноте.
+Панически боятся любых водоемов
 ~
--1 DROW DARK-ELF DARK-ELVES~
-Dark-elves are a race of renegade elves who have turned their energy toward
+-2 DROW DARK-ELF DARK-ELVES~
+@eng Dark-elves are a race of renegade elves who have turned their energy toward
 evil.  They are inherently intelligent but have neglected intellectual
 studies and become very nimble from years of generations of thievery and
 mischief.  Like elves, dark-elves have infravision and can walk unnoticed.
 Dark elves must stay evil to cast any spells they might know.  Those who
 turn to good are frowned upon.  Dark-Elves are burned by the touch of
 mithril.
+@rus {                           {W- ТЕМНЫЙ ЭЛЬФ -{x
+ 
+Темные эльфы - раса эльфов-отступников, использующих свою  силу во имя
+зла. От природы они умны и проворны, происходят от обычных эльфов.  Но
+в отличие  от  своих  предков, добро  не вызывает  у них  ничего кроме
+презрения и усмешки.
 ~
--1 SATYR~
-are a race of half human and half goat race. They are neutral. They
+-2 SATYR~
+@eng are a race of half human and half goat race. They are neutral. They
 inherently dextrerious. But not strengthful. Due the desterity they can
 steal from someone, camuflage themselves and ambush opponents very easly.
+@rus {                              {W- САТИР -{x
+ 
+Получеловек, полукозел. Сатиры покрыты  шерстью,  длинноволосы,  имеют
+козлиные копыта и рожки (некоторые лошадиные  копыта  и  лошадиные  же
+уши) и человеческие торс и голову. Сатиры задиристы,  влюбчивы и очень
+наглы. Они забияки и  очень  любят  вино.  Считаются  непревзойденными
+ворами и никто лучше них не умеет прятаться в лесу.
 ~
--1 GITH GITHYANKI~
-The Gith are a race descended from humans.  Once long ago, they were a
+-2 GITH GITHYANKI~
+@eng The Gith are a race descended from humans.  Once long ago, they were a
 peaceful civilization of humans that were captured by mind flayers and
 tormented for centuries.  Eventually, a savior named Gith led them to
 freedom, yet their bodies had been flayed by the mental powers of the
@@ -3666,24 +3785,47 @@ average humans, yet they had lost much of their faith, wisdom and stamina.
 They had yellowed skin and were very long of limb.  Sunken eyes peered
 from yellowed sockets. All githyanki has evil tendencies.
 They are good warriors, but casters use only offensive spells.
+@rus {                            {W- ГИФИЯНКИ -{x
+ 
+Внешний вид и строение тела у  гифов идентичны  людским. Но  они более
+умны и могут видеть в темноте.  Все гифы имеют злой характер, и крайне
+невоздержанное отношение ко  всему  доброму.  От  природы  превосходно
+владеют мечами и кинжалами.
 ~
--1 ROCKSEERS~
-Rockseers are a race of renegade elves who lives underworld in rock caves.
+-2 ROCKSEERS~
+@eng Rockseers are a race of renegade elves who lives underworld in rock caves.
 They are inherently intelligent but have neglected intellectualstudies 
 and become very translucent from years of generations of trying to pass 
 rocks.  Like elves, rockseers have infravision and can walk unnoticed and
 can pass doors easily.Rockseers must stay neutral to cast any spells they 
 might know. And because of their organism they are vulnerable to woods.
 They have a specific spell called 'meld into stone'.
+@rus {                          {W- ПЕЩЕРНЫЙ ЭЛЬФ -{x
+ 
+Пещерные Эльфы - раса эльфов-отступников,  которые живут под землей  в
+каменных пещерах.  Как  и  эльфы,  пещерные  эльфы  видят  в темноте и
+передвигаются бесшумно,   но   живя   в  пещерах  они   еще  приобрели
+способность проходить  сквозь  стены  и  двери.  Они   нейтральны,   и
+одинаково относятся  как  к  добру,  так  и ко злу. Знают очень редкое
+заклинание: '{cmeld into stone{x'.   Кроме   них,   никто  не   умеет   им
+пользоваться.
 ~
--1 TROLLS~
-Long hidden within the sanctity of their mountain caves, a race known in the
+-2 TROLLS~
+@eng Long hidden within the sanctity of their mountain caves, a race known in the
 past only as a myth, lies the civilization of the trolls. Built with the 
 undying stamina of the mountains they reside in, these green skinned beasts
 often grow to obtain a state of health few other races believed possible.
 Hindered by their slow intellect and mobility, the troll society seems to
 have decided as a whole to rejoin the races of the realms, moving out of
 their sanctuaries in numbers reaching high into the thousands
+@rus {                             {W- ТРОЛЛЬ -{x
+ 
+Они глупы и уродливы, но обладают большой  физической силой и большого
+размера. Обладают  уникальным свойством: у  них очень быстро  заживают
+любые раны. Но за это  тролли  заплатили уязвимостью к огню и кислоте,
+воздействие которых для них очень и очень  болезненно. Троллей  обычно
+сторонятся, но они не сильно от этого страдают. Говорят,  что в горах,
+где они любят проживать, тролли накопили много сокровищ.
 ~
 -2 'CLASS' 'CLASSES' 'CLASS HELP'~
 Here are the classes and their extra cost per level.
@@ -3696,91 +3838,169 @@ Cleric       Cle      WIS        ANY	 0      users of healing magics
 Thief        Thi      DEX        ANY     0  	masters of the thieving arts
 Warrior      War      STR        ANY     0      masters of brute combat
 Warlock      Wrk      INT         M     300     necromantic warriors
-Ranger       Ran      STR	 ANY	200	forest warrior     
-Ninja	     Nin      DEX	 ANY    300   	thief/cleric       
-AntiPaladin  A-P      STR	 ANY	300	warrior/mage       
-Paladin      Pal      STR	 ANY	400	warrior/cleric     
-Samurai      Sam      STR        ANY    500  	masters of ancient battlearts 
-Vampire      Vam      INT	 ANY	300	simply vampire
+Ranger       Ran      STR        ANY    200     forest warrior
+Ninja        Nin      DEX        ANY    300     thief/cleric 
+AntiPaladin  A-P      STR        ANY    300     warrior/mage
+Paladin      Pal      STR        ANY    400     warrior/cleric 
+Samurai      Sam      STR        ANY    500     masters of ancient battlearts
+Vampire      Vam      INT        ANY    300     simply vampire
 Necromancer  Nec      INT        ANY    200     simply necromancer
 ~
--1 RANGERS~
-RANGER
+-2 RANGERS~
+@eng RANGER
 Outdoorsmen, hunters, master of woodcraft, Rangers are the guardians of 
 the forests.  In addition to having excellent fighting skills, they are
 also wielders of some powerful magic.  Some Rangers have been known to call 
 large bears to their aid, fashion mystical staves, and be able to camouflage
 beyond detection.  Their ability to ambush opponents makes them deadly 
 foes.
+@rus {                             {W- РЕЙНДЖЕР -{x
+
+Рейнджер - это лесной воин. Его оружие  -  это тисовый лук  и  стрелы.
+Способность призывать себе  на  помощь животных  вкупе  с его  знанием
+секретов леса, его потайных троп  делает рейнджера смертельно  опасным
+противником в лесу,  где он  силен и  неуловим. А  в городе  его можно
+легко застать врасплох. Поэтому очень редко можно увидеть рейнджера  в
+городе, как правило,  они предпочитают  оставаться в  своих лесах  и в
+одиночестве.
 ~
--1 NINJAS~
-NINJA
+-2 NINJAS~
+@eng NINJA
 Masters of the art of weaponless combat, these mysterious warriors have
 recently become more common in the land.  They strike quickly and
 silently before fading into the shadows.  Ninjas are skilled in the
 knowledge of nerve pressure, and can weaken their foes with a well placed
 strike. At high levels, Ninjas learn the art of assassination,
 killing their foe instantly and silently.
+@rus {                              {W- НИНЗЯ -{x
+
+Мастера безоружного боя,  эти  мистические воины  недавно  стали более
+распространенной  профессией.  Их  удары  быстры  и  незаметны.  Нинзи
+искусны в акупунктуре,  и  могут  ослабить  своего  противника  хорошо
+нацеленным ударом. Опытные нинзи владеют редчайшим умением  -  убивать
+противника бесшумно и одним ударом.  Нинзи  умеют прекрасно скрываться
+и их трудно обнаружить.
 ~
--1 ANTI-PALADINS ANTIPALADINS~
+-2 ANTI-PALADINS ANTIPALADINS~
 @eng - ANTI-PALADIN -
 The opposite of Paladins, these knights have chosen evil as their course.
 Such fervor and zeal gives them deadly spells to compliment their already
 superb fighting skills.  They seek only personal gain and to cause suffering
 and pain to good.  Anti-paladins must stay evil in order to cast their 
 spells. Those who forsake evilness are frowned upon.
-@rus - АНТИ_ПАЛАДИН-
-Анти-паладины избрали путь разрушения, а не созидания. Они служат
+@rus {                           {W- АНТИ-ПАЛАДИН -{x                            
+ 
+Анти-паладины избрали путь  разрушения,  а  не  созидания. Они  служат
 Великому Злу, и уничтожают Добро. Они обладают неплохими навыками боя,
-но при этом еще пользуются черной магией. Их деяния, если не
+но  при  этом  еще  пользуются  черной  магией.  Их  деяния,  если  не
 направлены на уничтожение чего-то доброго, служат исключительно личным
-целям и персональному росту.
+целям и персональному росту.                                          
 ~
--1 PALADINS~
-These warriors have chosen the path of virtue and chivalry above all others.
+-2 PALADINS~
+@eng These warriors have chosen the path of virtue and chivalry above all others.
 This dedication to their cause grants them priest-like spells and healing
 powers.  They are also formidable fighters, always questing to stamp out evil.
 Paladins must stay good in order to cast their spells.  Those who forsake
 goodness are frowned upon.  Paladins are expected to be truthful, 
 chivalrous, humble, merciful, kind, bold, and noble of spirit.  Paladins 
 must be Lawful Good.
+@rus {                             {W- ПАЛАДИН -{x
+
+Паладины избрали  путь  добродетели  и  рыцарства.  Они строго следуют
+закону и стоят на его страже. Паладины - грозные бойцы, всегда и везде
+уничтожающие Зло во всех его проявлениях.  Но не  только оружие служит
+им в битве, им даны и  другие  силы,  божественные,  как  говорят сами
+паладины, но, вероятнее,  им  подвластен  один из разделов магического
+искусства. Однако, независимо от  их  происхождения,  эти  силы  очень
+действенны.
 ~
--1 CLERICS~
-Clerics are the most defensively oriented of all the classes.  Most of their
+-2 CLERICS~
+@eng Clerics are the most defensively oriented of all the classes.  Most of their
 spells focus on healing or defending the faithful, with their few combat 
 spells being far less powerful than those of mages. However, clerics are the 
 best class by far at healing magics, and they possess an impressive area of
 protective magics, as well as fair combat prowess.
+@rus {                             {W- КЛЕРИК -{x
+
+Их сила проистекает от их веры.  Большая часть их умений направлена на
+защиту и лечение. Подавляющее большинство  -  добрые. Но встречаются и
+те, кто поклоняется злым богам, хотя это редкость.  Однако,  не смотря
+на  общую направленность на  лечение и защиту,  они знают и используют
+боевые заклинания, хотя, конечно, они гораздо слабее, чем используемые
+например, боевыми магами.
 ~
--1 THIEF THIEVES~
-Thieves are a marginal class. They do few things better than any other class,
+-2 THIEF THIEVES~
+@eng Thieves are a marginal class. They do few things better than any other class,
 but have the widest range of skills available.  Thieves are specialists at
 thievery and covert actions, being capable of entering areas undetected where
 more powerful adventurers would fear to tread.  They are better fighters than
 clerics, but lack the wide weapon selection of warriors.
+@rus {                                {W- ВОР -{x
+ 
+Ни один Мир не  обходится без воров.  Пороки  неискоренимы,  и поэтому
+воры будут  существовать  везде  и  всегда.   Непревзойденные  мастера
+срезания кошельков. Никто лучше вора не может  пробраться  в  запертый
+дом и вскрыть сундучок. Подлость их кредо. Ты  никогда  не встретишься
+с вором лицом к лицу, он нанесет удар в спину.
 ~
--1 WARRIORS~
-Warriors live for combat and the thrill of battle. They are the best fighters
+-2 WARRIORS~
+@eng Warriors live for combat and the thrill of battle. They are the best fighters
 of all the classes, but lack the subtle skills of thieves and the magical
 talents of mages and priests.  Warriors are best for those who don't mind
 taking the direct approach, even when another method might be called for.
+@rus {                              {W- ВОИН -{x
+ 
+Воины приходят в этом мир, чтобы сражаться.  Они владеют  всеми видами
+оружия и  знают  многие  приемы  его  использования,  недоступные  для
+других. Многие  считают  воинов  тупыми,  потому что они не используют
+магию, но воины способны распознать и  использовать  внутреннюю  магию
+вещей. Но главным их козырем все-таки остается сила мастерство боя.
 ~
--1 WARLOCKS~
-Male Magicians...Stronger, but less efective on charm..
+-2 WARLOCKS~
+@eng Male Magicians...Stronger, but less efective on charm..
+@rus {                             {W- ВАРЛОК -{x
+ 
+Варлоки - это боевые маги. Они неплохо  владеют  оружием  (лучше  всех
+других магов) и  очень  сильны  своими  наступательными  заклинаниями,
+которые у  варлоков  весьма  разнообразны.  Только мужчины могут стать
+боевыми магами.
 ~
--1 SAMURAIS~
-More powerful honour warriors..But after level 10 they cannot flee 
+-2 SAMURAIS~
+@eng More powerful honour warriors..But after level 10 they cannot flee 
 because they are thought like that.
+@rus {                             {W- САМУРАЙ -{x
+ 
+Могучие благородные  воины  с  многочисленными   правилами  поведения,
+определяемыми воспитанием. Они  считают  неприемлимым сбежать  из боя,
+это для них бесчестие. Но подобные ограничения  вследствии постоянного
+самоконтроля позволяют им достичь огромных высот в воинский искусствах
+Помимо этого самураи владеют азами лечебной магии.
 ~
--1 VAMPIRES~
-Powerful mage/warriors..But after they can only transform into VAMPIRE 
+-2 VAMPIRES~
+@eng Powerful mage/warriors..But after they can only transform into VAMPIRE 
 after level 10.And they cannot practice the vampire skill.The vampire skill 
 is gained in 50 questpoints. When they use this skill at the nights their
 size increase, they gets damage from light, and their damroll increases. You
 cannot realize a vampire in nights. It is only written "An ugly creature".
+@rus {                              {W- ВАМПИР -{x
+
+Они были  нормальными  людьми,  но  прихотью  судьбы  стали вампирами.
+Почему они появились неизвестно,  но по ночам  они наводят ужас и сеют
+панику. Они  маги  и  воины,  и ночь  -  их стихия.  Днем  вампиры  не
+различимы среди  людей.  А  ночью  мало  кто  может  им противостоять.
+Правда, вампиры безумно  боятся  света,  который  для  них  смертельно
+опасен.
 ~
--1 NECROMANCERS~
-Powerful mage. But powerful in necromantic spells. 
+-2 NECROMANCERS~
+@eng Powerful mage. But powerful in necromantic spells. 
+@rus {                            {W- НЕКРОМАНТ -{x
+
+Некроманты - это одна  из  разновидностей магов.  Они отличны тем, что
+вся их жизнь проходит при  тесном непосредственном контакте  со всякой
+нежитью. Опытные  некроманты и  сами умеют в  нее превращаться.  Менее
+опытные занимаются  оживлением трупов, созданием из останков различных
+существ. Способность  контролировать  мертвых  и  оживлять  трупы дает
+некромантов огромную силу.
 ~
 0 HOMETOWN~
 @eng Syntax: {chometown{x <city>
@@ -3866,7 +4086,7 @@ lawful персонаж не нарушит закона (даже если закон глуп, но подобных
 помочь или же если этого требует его дело (орден, гильдия и пр.)
 ~
 -2 'NEWBIE INFO' NEWBIE~
-Ah! Another mortal, seeking adventure.  You should go through mudschool 
+@eng Ah! Another mortal, seeking adventure.  You should go through mudschool 
 first, to gain experience to face the trials outside.  Be sure to practice 
 a weapon in the guild room, or your stay with us shall be very short  indeed.
 Type 'equipment' to see what your are wielding, 'spells' to see your spells,
@@ -3874,6 +4094,19 @@ Type 'equipment' to see what your are wielding, 'spells' to see your spells,
 available on most commands and abilities.  It is strongly recommended 
 that you  go through all the helps at a low level, especially for first 
 time mudders.
+@rus О! Еще один  смертный ищет  приключений.  Тебе нужно пройти для начала
+школу Муда (mudschool), чтобы стать  достаточно опытным  для выхода за
+ее пределы. {RВнимательно  читай ВСЕ знаки  {x({csign{x), которые ты увидишь в
+Школе - и ты задашь как минимум на 20  вопросов меньше. Почти  по всем
+вопросам есть подсказки  -  команда {chelp{x с дополнительным параметром -
+командой,  умением  или   заклинанием.  Просто  команда  {chelp{x  выведет
+общеупотребительный список команд. Возможно,  сейчас тебе стоит начать
+ознакомление именно с нее.
+ 
+Еще очень  советуем  сразу  ознакомиться с правилами поведения в Нашем
+Мире  -  просто набери  команду {crules{x. Если хочешь получить сведения о
+Бессмертных,  набери '{chelp immortal{x', а чтобы узнать имена Бессмертных
+этого Мира - набери команду {cwizlist{x.
 ~
 0 ASSASSINATE~
 @eng Syntax: {cassassinate{x <victim>
@@ -3883,11 +4116,11 @@ attack must be on a fully healed target. Ninja aproaches his or her
 victims from behind, and with a fast move, twists their head, breaking
 the neck. The skill must be used both hands free, and it has a little
 chance for an instant kill.
-@rus Синтаксис: {cassassinate{x <жертва>
+@rus Использование: {cassassinate {x<цель>
  
-Это умение позволяет незаметно подкрасться к противнику сзади, и быстрым
-движением свернуть ему голову, ломая шею. Руки убийцы при этом должны быть 
-свободны. 
+Это умение  позволяет  незаметно  подкрасться  к  противнику  сзади, и
+быстрым движением свернуть ему голову, ломая шею. Руки убийцы при этом
+должны быть свободны.
 ~
 0 'QUIET MOVEMENT'~
 @eng Quiet movement is an automatic skill that, if successful, will not reveal
@@ -3900,8 +4133,8 @@ player's destination direction when he leaves the room.
 Syntax: {cbearcall{x
  
 Both these abilities summon animals to aid the summoner.
-@rus Синтаксис: {clioncall{x
-Синтаксис: {cbearcall{x
+@rus Использование: {clioncall{x
+               {cbearcall{x
  
 Оба этих умения вызывают животных на помощь вызывающему.
 ~
@@ -3919,7 +4152,7 @@ faster than normally.
 @eng Syntax: {cbite{x <victim>
  
 Vampire bites sleeping victim, sucking its life force. Then fighting starts.
-@rus Синтаксис: {cbite{x <жертва>
+@rus Использование: {cbite{x <жертва>
  
 Вампир кусает спящую жертву, высасывая жизненную силу. затем начинается бой.
 ~
@@ -3938,23 +4171,37 @@ Unexperienced men call this "enchantment".
 столь опытные мечники называют это "зачаровыванием".
 ~
 0 SCREAM~
-Syntax: cast scream
+@eng Syntax: cast scream
 
     A powerful warlock, when screams, can disturb all the mobiles and all
 glass and ice made objects.The objects gets broken and mobiles can't do
 anything. Then the FIGHT STOPS for a moment, that warlock can escape.
+@rus Синтаксис: {ccast scream{x
+ 
+Мощные варлоки, могут очень громко кричать.  Они способны своим криком
+разбить стакан и т.д.,  накричав на своего врага, они могут остановить
+бой. На время БОЙ ОСТАНАВЛИВАЕТСЯ, и варлок может УБЕГАТЬ!
 ~
 0 'SAND STORM'~
-Syntax: cast 'sand storm'
+@eng Syntax: cast 'sand storm'
 
    A powerful warlock can make a storm which inflicts damage all the mobiles
 in the room. But if there is no sand he can't do.
+@rus Синтаксис: {ccast 'sand storm'{x
+ 
+Мощные варлоки могут вызывать страшный шторм,  который причиняет ущерб
+всей клетке,  в которой находится  персонаж. Но если  нет песка в этой
+клетке, то увы, заклинание не может быть задействовано.
 ~
 0 TARGET~
-Syntax: target <victim>
+@eng Syntax: target <victim>
 
    A samurai can change his/her target when fighting with a group of mobiles
 or characters.
+@rus Синтаксис: {ctarget {x<жертва>
+ 
+Когда самурай или воин дерется с несколькими сразу, он может выбирать,
+по кому наносить удары.
 ~
 0 'SECOND WEAPON' DUAL-WIELD DUAL 'SECONDARY ATTACK'~
 @eng Syntax: {csecond{x <weapon>
@@ -3981,9 +4228,11 @@ See also: {CHELP 'SECOND ATTACK'{x
 Смотри также: {CHELP 'SECOND ATTACK'{x
 ~
 0 EXPLODE~
-A samurai can explode some material so that every mobile in the effected
+@eng A samurai can explode some material so that every mobile in the effected
 by this burning. The burning affect fills the room. And potions bubles, and
 mobiles can be blind.
+@rus Самураи могут  могут взрывать и  это бьет  по всем находящимся с ним в
+комнате. Потионы сгорают, и он сам может быть ослеплен.
 ~
 0 'DRAGONS BREATH'~
 Syntax: {ccast 'dragons breath'{x <victim>
@@ -4070,7 +4319,7 @@ See also: ROLEPLAYING GROUP ALIGNMENT
  
 Смотри также: {CROLEPLAY, ALIGN, GROUP{x
 ~
--1 ALIGNMENT~
+-2 ALIGNMENT~
 @eng Alignment defines character's creed, his behavior in various
 situations and circumstances, and what is the most important to him
 in his life.
@@ -4102,34 +4351,36 @@ is not enough of reason for good character to start the confrontation,
 as well as that evil character indeed had evil intents.  A single
 thought cannot be justified as a crime, and no one can prove whether
 it really did cross someone's mind or not.
-@rus Alignment определяет мировозрение персонажа, его поведение в различных
-ситуациях и то, что является главным в его жизни.
+@rus {                             {W- ALIGNMENT - {x                            
  
--- good; такой персонаж имеет "открытую душу", в окружающих он видит
-лишь хорошее, он готов помочь в случае надобности (если это не будет
-против его интересов (для chaotic), не требует нарушения закона (для
-lawful)), добрый персонаж ценит и уважает других, и не будет делать
-ничего, что принесет кому-то вред.
+Alignment определяет мировозрение персонажа, его поведение в различных
+ситуациях и то, что является главным в его жизни.                     
  
--- evil; такой персонаж живет для себя, для него важным в любом деле
-является получение собственной выгоды. Он не задумываясь причинит вред
-другому, если этого требуют его интересы. Он может убить, а может по-
-мочь, например, если это приведет к обогащению или позволит подняться
-выше по общественной лестнице.
+{Y- GOOD -{x такой персонаж  имеет "открытую  душу", в окружающих он видит
+лишь хорошее, он  готов  помочь в случае надобности (если это не будет
+против его интересов (для chaotic), не требует нарушения  закона  (для
+lawful)), добрый персонаж ценит и уважает  других,  и  не будет делать
+ничего, что принесет кому-то вред.                                    
  
--- neutral; такой персонаж не стремится жить для людей, как good, но
+{C- NEUTRAL - {xтакой персонаж  не  стремится жить для людей, как good, но
 и не живет для себя, как evil. Neutral служит идее и неважно, что это:
-какой-то тайный орден, наука, честь мундира, деньги и т.д.
+какой-то тайный орден, наука, честь мундира, деньги и т.д.            
  
-Немного о "борьбе добра со злом". Злой персонаж за свою жизнь может
-не принести вреда. То что он злой означает, что он сделает это при
-надобности. Поэтому, если good, узнав из, например, 'know alignment',
-что кто-то "evil", нападет на этого кто-то, он уже не может считаться
-good'ом. Подобный поступок будет просто проявлением трусости этого
-уже бывшего good'а. Поэтому "evil alignment" не может считаться для
-good'а обоснованием для нападения. Также как и то, что evil имел злые
-намерения. Ведь мысль еще не является преступлением, и никто не может
-сказать, была ли она на самом деле.
+{R- EVIL - {xтакой  персонаж  живет для себя, для него важным в любом деле
+является получение собственной выгоды. Он не задумываясь причинит вред
+другому, если этого требуют его интересы.  Он может убить, а может по-
+мочь, например, если это приведет к обогащению или  позволит подняться
+выше по общественной лестнице.                                        
+ 
+Немного о "борьбе добра со злом".  Злой  персонаж  за свою жизнь может
+не принести вреда. То что  он  злой  означает,  что он сделает это при
+надобности. Поэтому, если good, узнав из,  например, 'know alignment',
+что кто-то "evil", нападет на этого кто-то, он уже  не может считаться
+good'ом. Подобный поступок  будет  просто проявлением  трусости  этого
+уже бывшего good'а. Поэтому  "evil  alignment"  не может считаться для
+good'а обоснованием для нападения. Также как и то, что  evil имел злые
+намерения. Ведь мысль еще не является преступлением, и  никто не может
+сказать, была ли она на самом деле.                                   
 ~
 0 RULES~
 @eng These are the rules of the Shades of Gray. Disobeying is grounds
@@ -4282,11 +4533,11 @@ player dies with this flag he is demoted one level.
  
 Using small weighted sack thief delivers a blow to the back of victim's head,
 rendering him unconscious if the blow was successful.
-@rus Синтаксис: {cblackjack{x <жертва>
+@rus Использование: {cblackjack {x<цель>
  
-Используя небольшой мешок со свинчаткой внутри, вор наносит удаз сзади по голо-
-ве жертвы. В случае удачного нанесения жертва теряет сознание на некоторое
-время.
+Используя небольшой мешок со свинчаткой внутри, вор наносит удаз сзади
+по голове жертвы. В случае  удачного  нанесения жертва теряет сознание
+на некоторое время.
 ~
 0 REQUEST ~
 @eng Syntax: {crequest{x <object> <mobile>
@@ -4303,18 +4554,28 @@ paladin weak and attack him.
 бовать вещь, но иногда оскорбленный монстр атакует обидчика.
 ~
 0 STRANGLE ~
-Syntax: strangle <victim>
+@eng Syntax: strangle <victim>
 
 Using their natural stealth and cunning, the ninja is able to sneak up on
 opponents and render them unconscious.  Success causes them to be put to
 sleep for 1 tick.  This can't be done in combat.
+@rus Синтаксис: {cstrangle {x<жертва>
+ 
+Ниндзя способен незаметно подкрадываться  к своей жертве и придушивать
+ее. В случае успеха жертва теряет сознание на несколько часов.
 ~
 0 ENTANGLE ~
-Syntax: c entangle <mobile>
+@eng Syntax: c entangle <mobile>
  
 This spell causes the thorny plants around a mob's or player's feet to reach
 up and grab them, causing some damage and loss of dexterity.  This is an
 offensive spell which can only be used in locations where you can also camo.
+@rus Синтаксис: {ccast 'entangle' {x<жертва>
+ 
+Это заклинание  заставляет  тернистые  растения  обвиваться  вокруг ног
+моба или игрока, причиняя  ущерб  и снижая  ловкость.  Это  нападающее
+заклинание,которое может быть использовано только в тех местах где  вы
+можете сделать camouflage
 ~
 0 PHILOSOPHY ~
 Here is a general philosophy of each of the known clans.
@@ -4405,36 +4666,54 @@ resistance to magic and hitroll bonus.
 некоторое сопротивление к магии и улучшение точности ударов.
 ~
 0 NERVE ~
-Syntax: nerve
+@eng Syntax: nerve
 
 A skilled ninja is knowledgeable in accupressure techniques and can weaken
 a victim by three strength points for a short while during combat.
+@rus Синтаксис: {cnerve {x<жертва>
+ 
+Умение нинзи применять знания о болевых точках на практике. После уда-
+ра по болевой точке мышцы  немеют и слабеют.  Для использования  этого
+умения одна  рука  должна  быть свободна.
 ~
 0 CIRCLE ~
-Syntax: circle
+@eng Syntax: circle
 
 This is a fighting technique practiced by thieves. A player that is
 not being attacked may circle around and stab a victim while in
 battle. This is useful when you are not the one in your group taking
 the hits.  It requires the use of a piercing instrument.
+@rus Использование: {ccircle{x
+ 
+Это один  из воровских приемов,  применяемый  ими в драках.  Персонаж,
+которого не  атакуют может  нанести круговой  удар колущим  оружием по
+противнику в битве. Он используется,  когда вы находитесь с кем либо в
+группе и атакуете одного и того же противника. Этот удар наносит очень
+большой ущерб. 
 ~
 -1 'CRITICAL STRIKE'~
 @eng `Critical strike' is a ninja/samuray autoskill. When strike
 is successful opponent get a higher damage and can be blinded
 or stuned.
-@rus 'Critical strike' -- срабатывающие автоматически умение, которым
-обладают нинзи и самураи. В случае успеха удар, наносимый по
-жертве, сильнее, чем обычный, а также есть шанс, что он ослепит
-или обездвижет жертву.
+@rus Это срабатывающие  автоматически  умение,  которым  обладают  нинзи  и
+самураи. В случае  успеха  удар,  наносимый  по  жертве,  сильнее, чем
+обычный, а также есть шанс, что он ослепит или обездвижет жертву.
 ~
 0 THROW ~
-Syntax: throw <victim>
+@eng Syntax: throw <victim>
 
 Using their knowledge of Nage Waza (throwing techniques), the ninja is 
 able to grab their opponent and throw them to the ground.  It can be 
 attempted every 2 rounds, but no commands can be entered for 2 rounds 
 after attempting a throw.  Thrown opponents are then stunned, unable to
 enter any commands. 
+@rus Синтаксис: {cthrow {x<жертва>
+ 
+Используя свои знания  в Мастерстве  Бросков,  нинзи и самураи  могут
+хватать своих  противников и  бросать их  об землю.  Бросок может быть
+применен каждые два раунда,  но в этии  раунды нельзя вводить  никаких
+команд. Брошенный противник заторможен и тоже не может вводить никаких
+команд.
 ~
 0 'CLAN CHANNEL' CLANTALK =~
 @eng Syntax: {cclan{x <message>
@@ -4443,12 +4722,12 @@ Syntax: {cclan{x
 This is the command used to talk on a clan channel.  
 Used by itself, it is a toggle to turn the clan channel on and off.
 {c={x is a sinonym for this command.
-@rus Синтаксис: {cclan{x <сообщение>
-Синтаксис: {cclan{x
+@rus Использование: {cclan {x<сообщение>
+                 {cclan{x
  
-Эта команда используется для внутрикланового общения. Без аргументов эта коман-
-дa включает и выключает этот канал. '{c={x' является синонимом для этой коман-
-ды.
+Эта команда  используется  для внутрикланового общения. Без аргументов
+эта командa включает и выключает этот канал.  '{c={x'  является  синонимом
+для этой команды.
 ~
 0 DEPOSIT WITHDRAW BALANCE BANK~
 @eng Syntax: {cdeposit{x  <number> {cgold{x
@@ -4463,18 +4742,18 @@ DEPOSIT a quantity of coins.  To retrieve your funds, simply WITHDRAW a
 quantity of coins.To find out much you have in the bank, type BALANCE.
 Each of there commands must be issued from with a bank.  Withdraws are
 subject to a slight processing fee.
-@rus Синтаксис: {cdeposit{x <количество> {cgold{x
-Синтаксис: {cdeposit{x <количество> {csilver{x
-Синтаксис: {cwithdraw{x <количество> {cgold{x
-Синтаксис: {cwithdraw{x <количество> {csilver{x
-Синтаксис: {cbalance{x
+@rus Использование: {cdeposit{x <количество> {cgold{x
+               {cdeposit{x <количество> {csilver{x
+               {cwithdraw{x <количество> {cgold{x
+               {cwithdraw{x <количество> {csilver{x
+               {cbalance{x
  
 Эти команды позволяют проводить банковские операции - положить (deposit) или
 снять (withdraw) указанное количество золота или серебра, а также проверить
 текущий баланс. Снятие денег со счета облагается небольшим налогом.
 ~
-0 CAMOUFLAGE~
-Syntax: camouflage
+0 CAMOUFLAGE 'ACUTE VISION' AMBUSH~
+@eng Syntax: camouflage
 	ambush <victim>
 	cast 'acute vision'
 
@@ -4482,6 +4761,17 @@ Camouflage allows a player to hide in a field, forest, or mountain. A
 camouflaged player will remain camouflaged until he/she/it moves.
 
 A camouflaged player may ambush someone who doesn't see him/her/it.
+@rus Использование: {ccamouflage{x
+                 {cambush {x<жертва>
+                 {ccast 'acute vision'{x
+ 
+CAMOUFLAGE           - Это умение позволяет  замаскироваться на  дикой
+                         местности. Это умение подобно умению HIDE.
+AMBUSH               - Мощное боевое умение. Засаду можно организовать
+                         только на  дикой местности,  и необходимо  быть
+                         под эффектом camouflage.
+ACUTE VISION         - Это заклинание  позволяет видеть  персонажей  с
+                         эффектом camouflage.
 ~
 -1 ENDURE~
 @eng Syntax: {cendure{x
@@ -4493,15 +4783,22 @@ magical attacks.
 Это техника медитации, усиливающая защиту от магических атак.
 ~
 -1 TRANCE~
-This skill is similar to meditation and fast healing in that it is
+@eng This skill is similar to meditation and fast healing in that it is
 automatic each tick.  This ability to concentrate aids mages and
 clerics in regaining their mana quickly.
+@rus Способность  впадать  в  транс  ({ctrance{x)   похожа   на   {cmeditation{x  и
+{cfast healing{x  тем,  что так  же автоматически проверяется  каждый тик.
+Она помогает священникам и магам восстанавливать свои силы.
 ~
 -1 'PROTECTIVE SHIELD'~
-Syntax: cast 'protective shield'
+@eng Syntax: cast 'protective shield'
 
 This spell makes a shield around the caster which can deflect blunt blows
 such as those from bashes and throws.
+@rus Синтаксис: {ccast 'protective shield'{x
+ 
+Это заклинание  позволяет отбивать  некоторые аттаки  и уклонятся  от
+различных бросков.
 ~
 101 '_QUEST REWARD'~
 @eng Quest rewards cannot be sacrificed and these items
@@ -4540,7 +4837,7 @@ Where option is one of the following:
                      : более трех раз
     {cquest items{x      : получить информацию о challenge квестах
 ~
--1 AUCTION~
+0 AUCTION~
 @eng Syntax of the auction command is:
 
 auction (no parameters) - will show the current item's stats
@@ -4551,20 +4848,21 @@ auction bet <bet>	- will bet on the item
 auction stop		- will stop the auction, return the gold to the last
 			  better and transfer the item to seller (imm only).
 Money for selling item deposits to bank account.
-@rus С помощью аукциона ты можешь выставить на продажу имеющуюся у тебя вещь.
-И соответственно приобрести то, что продается на аукционе.
+@rus С помощью аукциона ты можешь выставить на  продажу  имеющуюся  у  тебя
+вещь. И соответственно приобрести то, что продается на аукционе.
  
-Синтаксис этой команды таков:
-{cauction {x(без параметров) -- покажет характеристику продающегося обьекта
-{cauction {x<обьект> <цена>  -- дает возможность выставить на продажу 
-                            обьект и указать его начальную цену. Если
-                            начальная цена не указывается, то она принимается
-                            равной 20 золотым.
-{cauction on | off{x         -- позволяет включить или отключить аукцион
-{cauction bet {x<сумма>      -- ты можешь указать сумму, за которую хотите 
-                            купить предлагаемые обьект.
-{cauction stop{x             -- останавливает аукцион. (Команда может быть
-                            использована только Богами этого мира.)
+Использование этой команды таково:
+{cauction {x(без параметров) - покажет характеристику продающегося объекта
+{cauction {x<обьект> <цена>  - дает  возможность  выставить   на   продажу
+                             объект и указать его начальную  цену.  Если
+                             начальная   цена  не  указывается,  то  она
+                             принимается равной 20 золотым.
+{cauction on {x| {coff{x         - позволяет  включить  или  отключить аукцион
+{cauction bet {x<сумма>      - ты можешь указать сумму, за которую  хотите
+                             купить предлагаемые объект.
+{cauction stop             {x- останавливает аукцион.  (Команда может быть
+                             использована только Богами этого мира.)
+ 
 Деньги за проданную тобой вещь поступают на твой счет в банке.
 ~
 -1 CHARISMA~
@@ -4581,16 +4879,23 @@ aligns gives you a charisma. And every 100 mobiles you have killed
 having the same align reduces your charisma by one.
 ~
 -1 'SPELL CRAFT'~
-Spell craft is only available of the class that have the high 
+@eng Spell craft is only available of the class that have the high 
 capability of delivering spells. The spell craft makes the spells more 
 effective so that the casters have their own privilages.
+@rus Это умение повышает силу заклинаний. Работает автоматически.
 ~
--1 BLINK~
-Syntax: blink 		: shows the status of blink
+0 BLINK~
+@eng Syntax: blink 		: shows the status of blink
 	blink on	: makes status ON
 	blink off	: makes status OFF
 	Magic users can make themselves one exist and one not. This makes 
 them protected weapon attacks.Each blink takes 1 mana.
+@rus Использование: {cblink               {x- узнать текущее состояние мерцания
+                 {cblink on            {x- установить режим мерцания
+                 {cblink off           {x- снять режим мерцания
+ 
+Ведьмы, колдуны  и некроманты умеют  избегать ударов оружия мерцанием.
+Но каждое мерцание требует расхода сил (маны).
 ~
 92 'LION HELP'~
 Syntax: cast 'lion help'
@@ -4613,7 +4918,7 @@ weapon of its clan. It can only be cast once.Then when one losts this
 sword,one must use 'weapon call' spell to get it back.If the sword purged
 in resetting of an area then it appears in the shrine of Clan LIONs.
 ~
--1 'CAMOUFLAGE MOVE'~
+92 'CAMOUFLAGE MOVE'~
 Syntax: cammove
 
 	A lion clan member can move, without losing his/her affect of
@@ -4663,7 +4968,7 @@ some of the limited items in the books which Melancholy sells.
 Be warned that every reboot your limited items have a chance to come back into
 game.
 ~
--1 DAMAGE~
+0 DAMAGE~
 @eng Here are the types of the damages, from small to...
                                 scratch
                                  graze
@@ -4691,32 +4996,32 @@ game.
                              ### TERMINATE ###
                               [*] TEAR UP [*]
                              [*] POWER HIT [*]
-@rus                               {cцарапаешь{x
-                              {cзадеваешь{x
-                           {cбольно задеваешь{x
-                             {cлегко ранишь{x
-                               {cранишь{x
-                             {cсильно ранишь{x
-                             {cтяжело ранишь{x
-                              {cопустошаешь{x
-                               {cкалечишь{x
-                               {M РАНИШЬ{x
-                               {MКАЛЕЧИШЬ{x
-                              {MРАСЧЛЕНЯЕШЬ{x
-                               {MУРОДУЕШЬ{x
-                              {MОПУСТОШАЕШЬ{x
-                      {y*** РАЗРЫВАЕШЬ НА ЧАСТИ ***{x
-                          {y*** ОПУСТОШАЕШЬ ***{x
-                          {y=== УНИЧТОЖАЕШЬ ==={x
-                          {y=== РАЗДРОБЛЯЕШЬ ==={x
-                          {R>>> АННИГИЛИРУЕШЬ <<<{x
-                           {R>>> ОПУСТОШАЕШЬ <<<{x
-                          {R-==> ИСПЕПЕЛЯЕШЬ <==-{x
-                     {R-==> РАЗДИРАЕШЬ НА ЧАСТИ <==-{x
-                      {R### РАЗНОСИШЬ НА ЧАСТИ ###{X
-                          {R### УНИЧТОЖАЕШЬ ###{x
-                      {R[*] РАЗРЫВАЕШЬ В КЛОЧЬЯ [*]{x
-                   {R[*] БЬЕШЬ С НЕОПИСУЕМОЙ СИЛОЙ [*]{x
+@rus {                               {cцарапаешь
+                                {cзадеваешь
+                            {cбольно задеваешь
+                              {cлегко ранишь
+                                 {cранишь
+                              {cсильно ранишь
+                              {cтяжело ранишь
+                               {cопустошаешь
+                                {cкалечишь
+                                  {MРАНИШЬ
+                                 {MКАЛЕЧИШЬ
+                                {MРАСЧЛЕНЯЕШЬ
+                                 {MУРОДУЕШЬ
+                                {MОПУСТОШАЕШЬ
+                        {y*** РАЗРЫВАЕШЬ НА ЧАСТИ ***   
+                            {y*** ОПУСТОШАЕШЬ ***  
+                            {y=== УНИЧТОЖАЕШЬ ===  
+                            {y=== РАЗДРОБЛЯЕШЬ === 
+                            {R>>> АННИГИЛИРУЕШЬ <<< 
+                             {R>>> ОПУСТОШАЕШЬ <<< 
+                            {R-==> ИСПЕПЕЛЯЕШЬ <==- 
+                       {R-==> РАЗДИРАЕШЬ НА ЧАСТИ <==- 
+                        {R### РАЗНОСИШЬ НА ЧАСТИ ###  
+                            {R### УНИЧТОЖАЕШЬ ### 
+                        {R[*] РАЗРЫВАЕШЬ В КЛОЧЬЯ [*]
+                     {R[*] БЬЕШЬ С НЕОПИСУЕМОЙ СИЛОЙ [*]{x
 ~
 0 RUSSIAN~
 This help is only for players who use russian codepages.
@@ -5239,6 +5544,7 @@ ispc       $*              Is $* a PC
 isgood     $*              Does $* have a good alignment
 isneutral  $*              Does $* have a neutral alignment
 isevil     $*              Does $* have an evil alignment
+iswanted   $*              Does $* have a flag WANTED
 isimmort   $*              Is $* an immortal (level of $* > LEVEL_HERO)
 ischarm    $*              Is $* affected by charm
 isfollow   $*              Is $* a follower with their master in the room
@@ -5292,62 +5598,106 @@ DELAY                              CANCEL
 REMEMBER   [victim]                FORGET
 CALL       [vnum] [victim] [target1] [target2]
 ~
-0 'CLAN SHALAFI' SHALAFI~
-И настал день, когда Посвященные черной и белой магии решили, что
-   больше нельзя мириться со сложившейся ситуацией -- с тем, что маги
-   убивают друг друга, с тем, что древнее искусство становится все более
-   доступным, с тем, что теряются секреты мастерства. И был брошен клич,
-   созваны все, кого волновала судьба магического искусства.
+-2 'CLAN SHALAFI' SHALAFI~
+                              {W- SHALAFI -{x
+
+И настал день, когда Посвященные  черной  и  белой  магии решили,  что
+больше нельзя  мириться  со сложившейся  ситуацией --  с тем, что маги
+убивают друг друга, с тем,  что древнее искусство становится все более
+доступным, с тем, что теряются  секреты мастерства. И был брошен клич,
+созваны все, кого волновала судьба магического искусства.
  
-   Так, на грани миров, между светом и тенью, собрались наиболее искусные
-   и преданные своему делу. Пришли антипаладины и варлоки, некромансеры и
-   ведьмы, паладины и клерики. Были там и вампиры. Всех их объединило одно
-   -- все они были настоящими мастерами своего дела. Там, на совете, дети
-   света и дети тени забыли о своих личных распрях и вместе искали выход,
-   решали, что делать. Никому не ведомо, что говорилось на том совете,
-   ибо это стало той самой страшной тайной, за разглашение которой
-   наказание -- смерть. Миру явлен был лишь результат -- новый магический
-   орден Шалафи, покровительницей которого стала прекраснейшая богиня
-   магии Лесса.
+Так, на грани миров, между светом и тенью, собрались наиболее искусные
+и преданные своему делу. Пришли антипаладины и варлоки, некромансеры и
+ведьмы, паладины и клерики. Были там и вампиры.Всех их объединило одно
+-- все они были настоящими мастерами своего дела. Там, на совете, дети
+света и дети тени забыли о своих личных распрях и вместе искали выход,
+решали, что делать. Никому не ведомо, что говорилось  на  том  совете,
+ибо это стало  той  самой  страшной  тайной,  за  разглашение  которой
+наказание -- смерть. Миру явлен был лишь результат -- новый магический
+орден Шалафи,  покровительницей  которого  стала  прекраснейшая богиня
+магии Лесса.
  
-   Никому в мире неведомо, что происходит в ордене. Известно лишь, что в
-   орден принимаются лишь самые искусные в своем деле после сложного
-   испытания, проходят которое лишь единицы. И то, что для члена ордена
-   любой маг, обративший свою силу на служение кому или чему-либо кроме
-   Ордена, является отступником и врагом, которого он будет преследовать
-   до своего смертного часа.
+Никому в мире неведомо, что происходит в ордене. Известно лишь,  что в
+орден принимаются лишь самые искусные  в  своем  деле  после  сложного
+испытания, проходят которое  лишь  единицы. И то, что для члена ордена
+любой маг, обративший свою силу на  служение  кому или чему-либо кроме
+Ордена, является отступником и врагом, которого  он будет преследовать
+до своего смертного часа.
 ~
-0 'CLAN INVADERS' INVADERS~
-@rus {RВласть{x. Природа власти...
-Видели ли вы человеческого детеныша, вырывающего игрушку у своего
-соседа? Или молоденького фейри, деловито вспарывающего труп матери?
-Или тролля, случайно вытолкнувшего своего старшину из спасительной
+-2 'CLAN INVADERS' INVADERS~
+@rus {                             {W- INVADERS -{x
+ 
+{RВласть{x. Природа власти...
+ 
+Видели ли вы человеческого  детеныша,  вырывающего  игрушку  у  своего
+соседа? Или молоденького фейри, деловито  вспарывающего  труп  матери?
+Или тролля,  случайно  вытолкнувшего  своего  старшину из спасительной
 тени пещеры на свет?.. Вот она - истинная сущность любого существа.
  
-Этот мир давно уже поделен - и успевшие первыми воспитывают в нас
-раба. Постыдно сделать это, запрещено делать то, не принято делать
-другое. Существующие мораль, законы и обычаи загоняют твое истиное 
-<< {RЯ{x  >> в тень. Но если ты не раб, то именно в {DТени{x ты найдешь силы
+Этот мир давно уже поделен - и  успевшие  первыми  воспитывают  в  нас
+раба.  Постыдно  сделать  это,  запрещено делать то, не принято делать
+другое. Существующие мораль, законы и  обычаи  загоняют  твое  истиное 
+<< {RЯ {x>> в тень.  Но если ты не раб,  то  именно в {DТени {xты найдешь силы
 заставить мир преклонить колени.
-Отринь свет, отдай свою душу {DВластелину Тени{x, и он даст тебе СИЛУ.
-Силу, которая превратит этот мир в мягкую глину под твоими пальцами.
  
-Нас называют Захватчиками (Invader's), но уже близок тот день когда
-нас назовут Повелителями... и ТЫ! - Ты, вставший на нашем пути,
-помни, что не будет тебе покоя. Оглядывайся на каждую тень, ибо из 
-любой может выйти твоя смерть... 
+Отринь свет, отдай свою душу {DВластелину Тени{x, и  он  даст  тебе  СИЛУ.
+Силу, которая превратит этот мир в мягкую глину  под твоими  пальцами.
  
-Принятый в братство (Invader's Brotherhood) должен быть готов 
-убивать любого, кого укажет ему Дающий Силу.
-Принятый в братство должен приумножать Силу свою, своих братьев и
-всего Ордена в целом.
-Принятый в братство должен помнить, что Сила, данная ему, может
-быть с легкостью отобрана, и это будет необратимо.
+Нас называют Захватчиками (Invader's), но  уже близок  тот день  когда
+нас назовут  Повелителями...  и  ТЫ!  -  Ты,  вставший  на нашем пути,
+помни, что не будет тебе покоя.  Оглядывайся на каждую  тень,  ибо  из
+любой может выйти твоя смерть...
+ 
+- Принятый  в  братство  (Invader's  Brotherhood)  должен  быть  готов
+    убивать любого, кого укажет ему Дающий Силу.
+ 
+- Принятый в братство должен приумножать Силу свою,  своих  братьев  и
+    всего Ордена в целом.
+ 
+- Принятый  в  братство  должен  помнить,  что Сила, данная ему, может
+    быть с легкостью отобрана, и это будет необратимо.
 ~
-0 CLANS~
-7 following clans are available for players in Shades of Gray:
+-2 CLANS~
+@eng 7 following clans are available for players in Shades of Gray:
 BattleRagers, Chaos, Enforcers, Hunters, Invaders, Knights, Shalafi.
 See also: {CHELP PHILOSOPHY{x and {CHELP CLAN <clan name>{x
+@rus {                              {W- КЛАНЫ -{x
+ 
+В мире Серых Теней существуют следующие кланы:
+ 
+Enforsers        Господство ЗАКОНА прежде  всего! Мир  делится на  две
+                   части: правые  и  неправые. Закон идет первым во всех
+                   отношениях. Они управляют и решают,  что  законно,  а
+                   что нет. Их слово - закон.
+ 
+BattleRagers     BattleRager'ы живут в битвах, и  презирают  тех,  кто
+                   пользуется  магией.  Они  питают сильное отвращение к
+                   магии магов и очень настороженно  относятся  к  магии
+                   клериков. 
+ 
+Chaos            Дело  клана  движется  и  постепенно,   но  неуклонно
+                   приближает их к достижению великой цели  -  воцарению
+                   Хаоса в мире.
+ 
+Knights          Честь   прежде   всего!    Эти   войны   борятся   за 
+                   справедливость. Идеал клана - это Паладин.
+ 
+Shalafi          На   языке   Темных  Эльфов  это  означает  "Мастер".
+                   Дисциплина  приводит  к  власти.  Это  девиз Мастеров
+                   Колдовского  Искусства.  Их  цель  -  распространение
+                   Искусства.  Они  презирают  обычный  бой, предпочитая
+                   использовать свою магию 
+ 
+Invaders         Захватчики всегда готовы убивать любого, кто окажется
+                   на их пути. У них есть Сила, которая  превратит  этот
+                   мир в мягкую глину  под твоими  пальцами.
+ 
+Hunters          Наемники. Эти люди убивают всех монстров  и  игроков,
+                   у  которых  есть  деньги.  Вы  можете  нанять  любого
+                   наемника для этих целей. 
+ 
+Смотри также: '{CHELP PHILOSOPHY{x' и '{CHELP CLAN {x<имя клана>{x'
 ~
 92 'WIZ GRANT' GRANT~
 @eng Syntax: {cgrant{x <player> <command(s)>
@@ -5395,13 +5745,13 @@ one of the following: {cmember{x (list includes every clan member), {csecond{x (
 of secondary leaders) or {cleader{x (list of primary leaders).
 Immortal can specify clan to list. Mortals can see only list of clan they
 belong to.
-@rus Синтаксис: {cclanlist{x <статус> [<клан>]
+@rus Использование: {cclanlist {x<статус> [<клан>]
  
-Команда CLANLIST показывает список членов клана с указанным статусом. Статус
-может быть одним из: {cmember{x (список всех членов клана), {csecond{x (список
-второстепенных лидеров) или {cleader{x (список главных лидеров).
-Бессмертный может дополнительно указать клан. Смертные могут увидеть только
-список клана, к которому принадлежат.
+Команда CLANLIST показывает  список членов клана с указанным статусом.
+Статус может быть одним из: {cmember {x (список всех членов клана), {csecond{x
+(список второстепенных лидеров)  или {cleader  {x(список главных лидеров).
+Бессмертный может дополнительно указать клан. Смертные  могут  увидеть
+только список клана, к которому принадлежат.
 ~
 0 'OLC FORM'~
 Syntax: form add num text
@@ -5459,7 +5809,7 @@ Forms can be created/edited with OLC via "create/edit form" commands.
 See "help 'OLC FORMS INTRO"' for more info.
  
 ~
-0 'CLAN KNIGHTS' KNIGHTS~
+-2 'CLAN KNIGHTS' KNIGHTS~
 @eng ..Deep chaos fell on the World. Seven Clans had come to being. Chaos, Terror 
 and Disorder had been fighting with Law, Order, and Justice. The seventh one, 
 somewhat called Equilibrium, obeyed neither the Law, nor the Chaos...
@@ -5473,26 +5823,30 @@ ideals. Scattered by the Darkness, they rose again and again to stand in the
 way of Death, Chaos and Terror...
  
   Check out our homepage at {Chttp://knightsofsog.narod.ru{x
-@rus ... Хаос воцарился в мире.  Мир разделился  на семь частей.  Хаос,  Террор  и 
-Беспорядок встали с одной стороны, Закон, Порядок и Справедливость - с другой.
-Приверженцы Равновесия  поставили себя вне Закона,  но отказались подчиниться 
-Хаосу...
-  
-    Но История повторилась... Силы, призванные защищать порядок, смешали свои 
-ряды с приверженцами "Нового Порядка", забыв свое предназначение, Закон встал
-в стороне от всех дел, изредка простирая свою карающую длань над чересчур
-зарвавшимся преступником, заодно наказывая и невиновных...
-  
-    И только Рыцари,  поборники справедливости,  не оставили  своих  идеалов. 
-Рассеянные Тьмой, они возрождались снова и снова, чтобы встать на пути Хаоса, 
-Террора и Беспорядка...
-  
-    Если ты считаешь,  что защищать справедливость - твое призвание,  если ты 
-сторонник добра и уважаешь закон, ты тот, кто нам нужен! Но куда бы ты ни шел
-и что бы ты не делал,  всегда помни:  отныне и навсегда звание твое - Рыцарь, 
-имя тебе - Честь!
+@rus {                             {W- KNIGHTS -{x
  
-  Посетить нашу домашнюю страницу можно по {Chttp://knightsofsog.narod.ru{x
+.. Хаос воцарился  в  мире.  Мир  разделился  на  семь  частей.  Хаос,
+Террор и  Беспорядок   встали  с  одной   стороны,  Закон,  Порядок  и
+Справедливость - с другой. Приверженцы Равновесия  поставили себя  вне
+Закона, но отказались подчиниться Хаосу...
+ 
+Но История повторилась... Силы, призванные защищать  порядок,  смешали
+свои ряды с приверженцами "Нового Порядка", забыв свое предназначение,
+Закон встал в стороне от всех дел,  изредка  простирая  свою  карающую
+длань над  чересчур  зарвавшимся  преступником,   заодно  наказывая  и
+невиновных...
+ 
+И только Рыцари,  поборники справедливости, не оставили своих идеалов. 
+Рассеянные Тьмой, они возрождались снова и снова, чтобы встать на пути
+Хаоса, Террора и Беспорядка...
+ 
+Если ты считаешь,  что защищать справедливость - твое призвание,  если
+ты сторонник добра и уважаешь закон, ты тот, кто нам нужен! Но куда бы
+ты ни шел и что бы ты не делал, всегда помни: отныне и навсегда звание
+твое - Рыцарь, имя тебе - Честь!
+ 
+                         Посетить нашу домашнюю страницу можно по адресу
+                                            {Chttp://knightsofsog.narod.ru{x
 ~
 0 'OLC ROOM CLONE'~
 Syntax: clone [all] vnum
@@ -5526,12 +5880,12 @@ CHQUEST DELETE removes object from challenge quest rewards list.
  
 All objects with 'chquest' extra flag are added to the list automatically at
 the boot stage.
-@rus Синтаксис: {cchquest status{x
-Синтаксис: {cchquest restart{x
-Синтаксис: {cchquest start{x <vnum>
-Синтаксис: {cchquest stop{x <vnum>
-Синтаксис: {cchquest add{x <vnum>
-Синтаксис: {cchquest delete{x <vnum>
+@rus Использование: {cchquest status{x
+               {cchquest restart{x
+               {cchquest start{x <vnum>
+               {cchquest stop{x <vnum>
+               {cchquest add{x <vnum>
+               {cchquest delete{x <vnum>
  
 CHQUEST STATUS показывает текущее состояние спец. квестов.
 CHQUEST RESTART запускает сначала все неактивные в данный момент квесты.
@@ -5687,7 +6041,7 @@ hair-pulling. Hope you enjoy it.
 (my apologies if anyone was forgotten in this list)
 ~
 -1 IMMORTAL IMMORT GOD WIZARD WIZ~
-'Immortal' (often, simply, 'immort') refers to players who have reached
+@eng 'Immortal' (often, simply, 'immort') refers to players who have reached
 the highest attainable levels in the game.  Here, anyone of level 92
 or higher is an 'immortal.'  Immortals are capable of exceeding the
 usual game rules, in more drastic and pervasive ways as levels increase;
@@ -5707,6 +6061,28 @@ this file.
 The duties of immortals, and even the very reasons for their existence,
 are topics of continual and heated debate in various MUD forums, and are
 fraught with misconceptions, poor examples, and outrageous hypocrisies. :)
+@rus '{cБессмертный{x'  (обычно просто '{cБог{x' или '{cИмм{x')  это термин относящийся к
+игрокам достигшим высших левелов игры.  Любой игрок 92-ого уровня и выше
+является  '{cБессмертным{x'.  Бессмертные способны  нарушать основные законы
+мира, такие как физика.  Эти способности  увеличиваются в геометрической
+прогрессии с уровнем {cБессмертного{x. Примеры этих способностей варьируются
+от мгновенного перемещения в пространстве и невидимости для глаз обычных
+смертных, до создания различных объектов, а также изьятия у игрока таких
+привилегий как: каналы общения, возможность передвигаться, и других.
+ 
+По причине   того что {cбессмертные{x способны сделать немыслимое с балансом
+игры, эта группа  (в идеале) состоит из тщательно выбранных и доверенных
+людей. Абсолютное правило  поведения {cБессмертных{x является тем что ни при
+каких обстоятельствах  {cбессмертные {xне должны помогать другим игрокам без
+разрешения {cбессмертного  {xболее высокого уровня, другими словами: {RНЕЛЬЗЯ{x,
+да и не стоит, просить  {cбессмертного{x о помощи в убийстве моба, собирании
+вещей, и т.д.. В лучшем  случае вам вежливо откажут, или отправят читать
+вот этот текст.
+ 
+Обязанности {cбессмертных{x,  да и вообще причины их существования, являются
+темами частых и жарких  обсуждений. Как тут, так и в разных  форумах игр
+MUD. Эти разговоры  полны неверных осуждений, плохих примеров, и ужасной
+лицемерии.
 ~
 -1 SOCIALS~
 @eng Syntax: {csocials{x
@@ -5918,9 +6294,9 @@ mus be in the same room as you, or in your posession.  Strung and set
 information is preserved by clone, as well as any spell effects and
 container contents or mobile inventory. Strung extended descriptions on
 objects are not kept, however.
-@rus Синтаксис: {cclone obj{x <имя>
-Синтаксис: {cclone mob{x <имя>
-Синтаксис: {cclone{x <имя>
+@rus Использование: {cclone obj{x <имя>
+               {cclone mob{x <имя>
+               {cclone{x <имя>
  
 Команда CLONE используется для копирования обьектов или монстров. Указанный
 обьект или монстр должен быть в одной комнате с тобой или у тебя в мешке.
@@ -5971,24 +6347,26 @@ gold and sacrificing corpses.  The commands are as follows:
  
 Typing a command sets the action , typing it again removes it.
 See also {CHELP NOFOLLOW{x, {CHELP NOSUMMON{x
-@rus ROM использует множество автоматических действий, как то деление золота или
-принесение в жертву трупов. Для этого служат следующие команды:
+@rus ROM использует  множество  автоматических  действий,  как  то  деление
+золота или принесение в жертву  трупов.  Для  этого  служат  следующие
+команды:
  
-{cautolist{x  : выводит список всех автоматических действий.
-{cautoloot{x  : забирать снаряжение из мертвых монстров
-{cautogold{x  : забирать деньги из мертвых монстров
-{cautolook{x  : смотреть в труп поверженного врага
-{cautosac{x   : приносить труп поверженного врага в жертву
-{cautoexit{x  : показывать выходы из комнаты при входе в нее
-{cautosplit{x : делить полученные деньги между членами группы
-{cautoassist{x: помогать в бою членам своей группы
+{cautolist               {x- выводит список всех автоматических действий.
+{cautoloot               {x- забирать снаряжение из мертвых монстров
+{cautogold               {x- забирать деньги из мертвых монстров
+{cautolook               {x- смотреть в труп поверженного врага
+{cautosac                {x- приносить труп поверженного врага в жертву
+{cautoexit               {x- показывать выходы из комнаты при входе в нее
+{cautosplit              {x- делить полученные деньги между членами группы
+{cautoassist             {x- помогать в бою членам своей группы
  
-Набрав команду, ты включишь соответствующее действие, набрав еще раз - 
+Набрав команду, ты включишь соответствующее действие, набрав еще раз -
 отключишь.
-Смотри также {CHELP NOFOLLOW{x, {CHELP NOSUMMON{x
+ 
+Смотри также: '{CHELP NOFOLLOW{x', '{CHELP NOSUMMON{x'
 ~
 -1 GATE~
-The gate spell is a powerful transportation magic that opens up a portal 
+@eng The gate spell is a powerful transportation magic that opens up a portal 
 between your character and another person or creature somewhere else in the
 world.  This portal will transport you and any pet you might have, but not
 other members of your group.  Monsters recieve a save against gate, and
@@ -5996,9 +6374,15 @@ monster or players more than 3 levels higher than you can not be gated to at
 all.  God rooms, private rooms, and no recall rooms cannot be gated to, and
 no recall rooms cannot be gated out of.  Finally, any god or hero is also 
 immune to gate, as well as in player who has no summon set. 
+@rus Синтаксис: {ccast gate {x<цель>
+ 
+Заклинание ВРАТА  -  это очень мощное заклинание перемещения.  Которое
+позволяет тебе  переместится в комнату  с указанным тобой  персонажом.
+Есть множества комнат в которые  ВРАТА поставить нельзя.  Например это
+Клановые комнаты, гильдии, храмы и т.д.
 ~
--1 'ASTRAL WALK'~
-The astral walk spell is a powerful transportation magic that opens up a 
+0 'ASTRAL WALK'~
+@eng The astral walk spell is a powerful transportation magic that opens up a 
 portal between your character and another person or creature somewhere
 else in the world. This portal will transport you and any pet you might
 have, but not other members of your group.  Monsters recieve a save
@@ -6007,9 +6391,17 @@ you can not be astral walked to at all.  God rooms, private rooms, and no
 recall rooms cannot be astral walked to, and no recall rooms cannot be
 astral walked out of. Finally, any god or hero is also immune to walk, as
 well as in player who has no summon set. 
+@rus Использование: {ccast 'astral walk' {x<цель>
+ 
+Это заклинание  позволяет вам  перемещатся к  заданному мобу вместе со
+своей зверушкой  (не  чармисом).  Вы  не  сможете  перенестись к  мобу
+(игроку) ,  который  больше  вас  на  3  левела.  Также  вы не сможете
+путешествовать в  (из) комнаты  с флагами  god rooms,  private  room и
+norecall room.  Помните что  вы не сможете перенестись к Богам, Героям
+и к чарам не находящимся в РК, у которых не стоит nosum on.
 ~
 -1 'MIST WALK'~
-The mist walk spell is a powerful transportation magic that opens up a 
+@eng The mist walk spell is a powerful transportation magic that opens up a 
 portal between your character and another person or creature somewhere
 else in the world.  This portal will transport only you, but not
 your pet or other members of your group.  Monsters recieve a save
@@ -6018,9 +6410,17 @@ you can not be mist walked to at all.  God rooms, private rooms, and no
 recall rooms cannot be mist walked to, and no recall rooms cannot be mist
 walked out of.  Finally, any god or hero is also immune to mist walk, as
 well as in player who has no summon set. 
+@rus Синтаксис: {ccast 'mist walk' {x<цель>
+ 
+Это заклинание  позволяет вам  перемещатся к  заданному мобу вместе со
+своей зверушкой  (не  чармисом).  Вы  не  сможете  перенестись к  мобу
+(игроку) ,  который  больше  вас  на  5  левелов. Также  вы не сможете
+путешествовать в  (из) комнаты  с флагами  god rooms,  private  room и
+norecall room.  Помните что  вы не сможете перенестись к Богам, Героям
+и к чарам не находящимся в РК, у которых не стоит nosum on.
 ~
 -1 'SOLAR FLIGHT'~
-The solar flight spell is a powerful transportation magic that opens up a 
+@eng The solar flight spell is a powerful transportation magic that opens up a 
 portal between your character and another person or creature somewhere
 else in the world.  This portal will transport only you, but not
 your pet or other members of your group.  Monsters recieve a save
@@ -6030,8 +6430,16 @@ and no recall rooms cannot be solar flighted to, and no recall rooms
 cannot be solar flighted out of.  Finally, any god or hero is also immune
 to solar flight, as well as in player who has no summon set. And ofcourse
 you need the sun light to cast this spell effectively.
+@rus Синтаксис: {ccast 'solar flight' {x<цель>
+ 
+Это заклинание  позволяет вам  перемещатся к  заданному мобу вместе со
+своей зверушкой  (не  чармисом).  Вы  не  сможете  перенестись к  мобу
+(игроку) ,  который  больше  вас  на  5  левелов. Также  вы не сможете
+путешествовать в  (из) комнаты  с флагами  god rooms,  private  room и
+и к  чарам не находящимся  в РК,  у  которых не стоит  nosum on.  Ну и
+для использования заклинания тебе нужен солнечный свет.
 ~
--1 AFFECTS RAFFECTS~
+0 AFFECTS RAFFECTS~
 @eng Syntax: {caffect{x
 Syntax: {craffect{x
 
@@ -6045,20 +6453,20 @@ At low levels, only the spell name will be displayed, at higher levels the
 effects and duration of the spell will also be shown.
  
 See also: {CHELP TOGGLE{x
-@rus Синтаксис: {caffect{x
-Синтаксис: {craffect{x
+@rus Использование: {caffect{x
+                 {craffect{x
  
-Команда 'AFFECT' используется для определения заклинаний, наложенных на твой
-персонаж. На низких уровнях будет показано только название заклинания, на более
-высоких - длительность и эффект заклинания.
-Заклинания, наложенные на твой персонаж, больше не показываются командой
-'SCORE', но это можно изменить командой 'TOGGLE'.
+Команда 'AFFECT' используется для  определения  заклинаний, наложенных
+на твой персонаж. На  низких  уровнях  будет показано  только название
+заклинания, на более  высоких  -  длительность  и  эффект  заклинания.
+Заклинания, наложенные  на  твой  персонаж,   больше  не  показываются
+командой 'SCORE', но это можно изменить командой 'TOGGLE'.
  
-Команда 'RAFFECT' используется для определения заклинаний, наложенных на ком-
-нату, в которой ты находишься. На низких уровнях ты увидишь только название
-заклинания, на высоких - продолжительность и эффекты.
-
-Смотри также: {CHELP TOGGLE{x
+Команда 'RAFFECT' используется для  определения заклинаний, наложенных
+на комнату, в которой ты находишься.  На  низких  уровнях  ты  увидишь
+только название заклинания, на высоких - продолжительность и  эффекты.
+ 
+Смотри также: '{CHELP TOGGLE{x'
 ~
 -1 LANGUAGE~
 @eng Syntax: {clanguage{x <language>
@@ -6085,9 +6493,9 @@ BAN DELETE will delete rule with given number.
 E.g., to ban all newbies from everywhere save for iclub.nsu.ru, enter:
    {cban add 100 allow newbies *@@iclub.nsu.ru{x
    {cban add 200 deny newbies *{x
-@rus Синтаксис: {cban add{x <номер> {cdeny{x <кого> <маска>
-Синтаксис: {cban add{x <номер> {callow{x <кого> <маска>
-Синтаксис: {cban delete{x <номер>
+@rus Использование: {cban add{x <номер> {cdeny{x <кого> <маска>
+               {cban add{x <номер> {callow{x <кого> <маска>
+               {cban delete{x <номер>
  
 Команда BAN служит для задания правил пропуска игроков в игру. Выбрать тип
 ограничения входа можно при помощи опции <кого> - допустимы значения {call{x,
@@ -6101,16 +6509,19 @@ BAN DELETE удаляет правило с указанным номером.
    ban add 200 deny newbies *{x
 ~
 -1 WANDS STAVES SCROLLS~
-Magical items require training to use properly.  If your character lacks the
+@eng Magical items require training to use properly.  If your character lacks the
 necessary skill to use an item, he will fail, possibly destroying it.  The
 item skills are as follows:
 
 scrolls		The reading of magical scrolls and books (see 'help recite')
 staves		The use of staves and similar devices (see 'help brandish')
 wands		The use of wands and similar items (see 'help zap') 
+@rus свитки (scrolls)    чтение магических книг и свитков (см. 'help recite')
+посохи (staves)     использование магических посохов и подобных им устройств (см. 'help brandish')
+жезлы (wands)       использование жезлов и им подобных устройств (см. 'help zap')
 ~
 -1 EXOTIC WEAPONS AXE DAGGER FLAIL MACE POLEARM SPEAR SWORD WHIP BOW LANCE STAFF~
-Each weapon skill applies to a specific group of armaments, and determines how
+@eng Each weapon skill applies to a specific group of armaments, and determines how
 well a character fights with a particular weapon.
 If the character has the parry skill as well, he can parry incoming attacks.
 The chance of parrying is best if the character in question is skilled at 
@@ -6132,9 +6543,32 @@ staff           to use any staves (magic staves, see {CHELP BRANDISH{x)
  
 The exotic skill can neither be known nor practiced, and is dependent solely
 upon level. 
+@rus Каждый  оружейный  навык  представляет  собой  целую  группу,  которая
+включает в себя несколько типов оружия  и определяет насколько  хорошо
+персонаж  владеет   этим  оружием.   Если  персонаж  владеет   навыком
+"парирование"  (help  parry)  он  сможет парировать  удары противника.
+Шанс парировать удар гораздо выше, если персонаж хорошо знает как своё
+оружие так и оружие противника.
+ 
+Оружейные навыки могут быть следующие:
+ 
+{caxe          {xтопоры, от ручного до двуручного
+{cdagger       {xножи, кинжалы, кортики, стилеты
+{cflail        {xоружие типа "шар на цепи"
+{cmace         {xдубинки, молоты, палицы
+{cpolearm      {xтяжелое полуторное оружие, включая алебарды
+{cspear        {xкопья, пики и посохи
+{csword        {xвсе виды мечей, основного оружия воина
+{cwhip         {xхлысты, цепи, кнуты
+{cbow          {xлуки (см. 'help shoot')
+{cexotic       {xэкзотическое оружие
+{cstaff{x        посохи (магические посохи см. 'help brandish')
+ 
+Навык владения экзотическим оружием нельзя практиковать  он базируется
+исключительно на уровне персонажа
 ~
 -1 'SHIELD BLOCK'~
-Shield block is a rather fancy name for the art of parrying with a shield.
+@eng Shield block is a rather fancy name for the art of parrying with a shield.
 Characters with no shield block skill will not be able to defend themselves
 well with a shield.  Nearly all classes may learn shield block, but only 
 warriors and clerics are good at it.  Beware, flails ignore shield 
@@ -6142,6 +6576,10 @@ blocking attempts, and whips have an easier time getting around them.
 Axes may split shields in two.
 	Warriors have more chance than the others to block the attacks
 with the shields.
+@rus Это умение  позволяет  тебе  брокировать удары  противника щитом.  Его
+могут изучать войны,  воры,  паладины,  анти паладины  и  клерики.  Но
+только войны и клерики владеют этим умением лучше всех.Но shield block
+не спасет вас от ударов кнута или цепа.
 ~
 -1 BACKSTAB 'DUAL BACKSTAB' BS KNIFE~
 @eng Syntax: {cbackstab{x <victim>
@@ -6154,17 +6592,17 @@ BACKSTAB.
  
 Knife is quite similar to backstab, though it could be done only with daggers.
 But it can be done to already bleeding victim, when backstab fails.
-@rus Синтаксис: {cbackstab{x <жертва>
-Синтаксис: {cknife{x <жертва>
+@rus Использование: {cbackstab {x<цель>
+                 {cknife {x<цель>
  
-BACKSTAB (удар в спину) - любимая атака воров. Он может быть выполнен любым
-колющим оружием. На высоких уровнях воры учатся быстро выполнять второй удар,
-который наносится автоматически, вслед за первым.
-BS является синонимом для BACKSTAB.
+BACKSTAB (удар в спину) - любимая атака воров. Он может быть  выполнен
+любым колющим оружием. На высоких уровнях воры учатся быстро выполнять
+второй удар, который  наносится  автоматически,  вслед  за  первым. BS
+является синонимом для BACKSTAB.
  
-KNIFE наносит меньший ущерб и может быть выполнен только кинжалом. Однако, это
-умение можно использовать даже тогда, когда истекающая кровью жертва огляды-
-вается по сторонам, не давая зайти к себе за спину.
+KNIFE наносит меньший  ущерб  и  может  быть выполнен только кинжалом.
+Однако, это умение можно использовать  даже  тогда,  когда  истекающая
+кровью жертва оглядывается по сторонам, не давая зайти к себе за спину
 ~
 -1 BASH CRUSH~
 @eng Syntax: {cbash{x <victim>
@@ -6173,13 +6611,13 @@ Syntax: {ccrush{x
 Both these skills are brute-force attacks designed to knock you foe to the
 ground. Their success depends on many factors, including weight and size.
 Crush does more damage to the opponent.
-@rus Синтаксис: {cbash{x <жертва>
-Синтаксис: {ccrush{x
+@rus Использование: {cbash {x<цель>
+                 {ccrush{x
  
-Оба этих умения преполагают применение грубой силы для того, чтобы сбить
-противника на землю. Успех зависит от многих факторов, в том числе от веса и
-размера противника, а также твоего веса.
-Crush наносит больший ущерб врагу.
+Оба этих умения преполагают применение грубой  силы  для  того,  чтобы
+сбить противника  на  землю.  Успех  зависит от многих факторов, в том
+числе от веса и размера противника, а также твоего веса. Crush наносит
+больший ущерб врагу.
 ~
 -1 BERSERK FRENZY~
 @eng Syntax: {cberserk{x
@@ -6187,41 +6625,58 @@ Syntax: {ccast 'frenzy'{x <target>
  
 Both these skill and spell fill target with insane battle rage, thus making
 it resistive to effects of magic and greatly increasing damage dealt to enemy.
-@rus Синтаксис: {cberserk{x
-Синтаксис: {ccast 'frenzy'{x <target>
+@rus Использование: {cberserk{x
+                 {ccast 'frenzy' {x<персонаж>
  
-Оба этих умения наполняют цель безумной яростью, делая ее лучше защищенной от
-магических атак и увеличивая ущерб, наносимый врагу. 
+Оба этих  умения  наполняют  цель  безумной  яростью,  делая ее  лучше
+защищенной от магических атак и  увеличивая  ущерб,  наносимый  врагу.
 ~
 -1 'DIRT KICKING'~
-Consider by some to be a cowardly skill, dirt kicking gives the clever 
+@eng Consider by some to be a cowardly skill, dirt kicking gives the clever 
 combatant a chance to blind his opponent by casting dirt into his eyes.  The
 blindness does not last long, but can provide an edge in combat.  Dexterity
 helps in hitting or avoiding a dirt kick.  Only warriors and thieves may
 learn this skill.
+@rus Умение позволяющее ослепить противника, попав грязью в глаза.  Слепота
+длиться недолго,  всего  одну минуту.  Чем  ловче ты,  тем проще  тебе
+ослепить и увернуться  от этого подлого удара. Войны и воры знают этот
+навык.
 ~
 -1 DISARM~
-Disarm is a somewhat showy and unreliable skill, designed to relieve your
+@eng Disarm is a somewhat showy and unreliable skill, designed to relieve your
 opponent of his weapon.  The best possible chance of disarming occurs when you
 are skilled both your own and your opponent's weapon. Only talented thieves
 and warriors may learn this skill.
+@rus Обезоруживание - эффектный но ненадежный навык,  разработанный,  чтобы
+выбить оружие  из рук  твоего противника.  Наибольший шанс обезоружить
+противника получится  тогда,  когда ты  знаешь на  100%  свое оружие и
+оружие противника. Только войны и воры знают этот навык.
 ~
 -1 DODGE~
-In the words of one wise warrior, 'the best way to block a blow is to not
+@eng In the words of one wise warrior, 'the best way to block a blow is to not
 be where it lands'.  The dodge skill honors this tradition, by improving the
 character's natural agility to the point where many blows will miss the 
 target. The chance of dodging is also affected by the dexterity of the
 attacker and the target.  Nearly all classes may learn dodging.
 Warriors and Samurai's have more chance than the others to dodge
 the attacks. Then Thieves and Ninjas and then the others.  
+@rus Улучшает  естественное  проворство  персонажа,   заставляя  противника
+протыкать  воздух.   На   возможность   уворачиваться,   кроме  самого
+умения, влияет  ловкость  нападавшего  и нападающего.  Лучше всех этим
+умением пользуются воры и ниндзя, чуть хуже - воины,хуже всех - маги и
+клерики. Любой класс может выучить это умение.
 ~
 -1 'ENHANCED DAMAGE'~
-Warriors and skilled thieves can become skilled enough in combat that they are
+@eng Warriors and skilled thieves can become skilled enough in combat that they are
 able to inflict more damage than other classes.  Enhanced damage is checked
 for with each hit, although with a low skill, the chance of receiving a bonus
 is very low indeed. 
 	Warriors have the greatest enhanced damage factors , while clerics
 have the least. The others have between these two.
+@rus Воины и   квалифицированные  воры  более опытны  в поединках,  так что
+могут  причинять  больше  повреждений,   чем  прочие  классы.   Расчет
+происходит при  каждом  ударе, но при низком  умении,  шанс  получения
+бонуса действительно невелик.
 ~
 -1 ENVENOM~
 @eng Syntax: {cenvenom{x <object>
@@ -6249,37 +6704,53 @@ Clerics and warriors are the best at this skill, although thieves and mages
 may also learn it.
 ~
 -1 KICK~
-Kicking allows the adventurer to receive an extra attack in combat, a powerful
+@eng Kicking allows the adventurer to receive an extra attack in combat, a powerful
 kick. However, a failed kick may throw an unwary fighter off balance.  Fighters
 and clerics are the most skilled at kicking, although thieves may also learn
 it.
+@rus KICK позволяет  приключенцу получить  дополнительную  атаку в  бою, но
+к несчастью, неудачный пинок может привести бойца к потере равновесия.
 ~
 -1 PARRY~
-If at first you fail to dodge, block it.  Parry is useful for deflecting 
+@eng If at first you fail to dodge, block it.  Parry is useful for deflecting 
 attacks, and is succesful more often than dodge.  Parry requires a weapon for
 full success, the hand-to-hand skill may also be used, but results in reduced
 damage instead of no damage.  The best chance of parrying occurs when the
 defender is skilled in both his and his opponent's weapon type.
 	Warriors and samurai's have more chance than the others to parry
 the attacks.  
+@rus Умение парировать атаки противника. Причем, если вы держите 2 оружия в
+руках, то умение "parry"  будет работать лучше,  чем с  одним оружием.
+Для лучшего эффекта,  надо  знать  свое  оружие  и  оружие  противника
+на 100%.
 ~
 -1 TRIP~
-Back by popular demand.  Trip is a somewhat dastardly attack, and involves
+@eng Back by popular demand.  Trip is a somewhat dastardly attack, and involves
 using any one of a number of methods to bring your opponent down to the ground.
 Tripping large monsters is generally not a good idea, and agile ones will
 find the attack easy to avoid.
+@rus Это один  из наиболее  популярных способов  атаки,  так  как позволяет
+на время  сбить противника с  ног,  после чего  ему труднее  убежать и
+атаковать, пока он не поднимется.  Однако делать подсечки летающим или
+просто большим монстрам - не самая хорошая идея.  
 ~
 -1 'SECOND ATTACK'~
-Training in second attack allows the character a chance at additional strikes
+@eng Training in second attack allows the character a chance at additional strikes
 in combat -- allow a 100% second attack does NOT guarantee 2 attacks every
 round.  Any class may learn this skill, although clerics and mages have a 
 very hard time with it.
+@rus Обученые этому умению,  могут наносить в бою вторую атаку. Любой класс
+может изучать этот навык, но магам и клерикамклассам это умение дается
+с большим трудом.
 ~
 -1 'THIRD ATTACK'~
-Training in third attack allows the character a chance at an additional strike
+@eng Training in third attack allows the character a chance at an additional strike
 in a combat, and increases the chance of a second attack as well.  Perfect
 third attack does NOT assure three attacks per round.  Only warriors and highly
 skilled thieves may learn this skill.
+@rus Третья атака,  позволяет наносить третий,  дополнительный  удар в бою,
+а так же  значитено увеличивает  шанс попадания  второй атаки.  Только
+воины и высоко квалифицированные воры могут изучать этот навык.
 ~
 -1 HIDE SNEAK~
 @eng Syntax: {chide{x
@@ -6316,28 +6787,45 @@ LORE - это знание мифов и легенд, позволяющее получить информацию об объекте.
 Чем старательнее ты практикуешься в этом умении, тем больше будешь узнавать.
 ~
 -1 HAGGLE HAGGLING~
-Haggling is an indispensable skill to the trader.  It allows a character to
+@eng Haggling is an indispensable skill to the trader.  It allows a character to
 match wits with a merchant, seeking to get a better price for merchandise,
 or to buy at the lowest possible cost.  Unfortunately, most merchants are 
 already very skilled at haggling, so the untrainined adventurer had best 
 guard his treasure closely.  Thieves are natural masters at haggling, 
 although other classes may learn it as well.
+@rus Торговля -  обязательный навык продавцов.  Это позволяет  персонажу  с
+остроумием общаться с торговцем,  получая лучшую цену  за товары,  или
+покупать по самой низкой возможной стоимости. К сожалению, большинство
+торговцев  уже очень  квалифицированы в  торговле,  так  что  нетрени-
+рованным авантюристам  лучше всего  держать охрану  возле  совего  со-
+кровища. Воры  -  естественные  мастера в торговле, хотя другие классы
+также могут изучать это.
 ~
 -1 PEEK~
-The peek skill is useful for seeing what a player or monster is carrying,
+@eng The peek skill is useful for seeing what a player or monster is carrying,
 the better to use the steal command with.  More intelligent characters are
 harder to peek at.  Only thieves can peek.
+@rus Умение peek полезно для того, чтобы посмотреть, что несет персонаж или
+монстр,  чаще всего используется в паре с командой steal.  Только воры
+могут иметь умение peek.
 ~
 -1 PERCEPTION~
-Perception is one of the prime skills of thieves, allowing them to gain
+@eng Perception is one of the prime skills of thieves, allowing them to gain
 access to many secured areas. Perception allows you to recognize the
 closed doors, gates or others with a * symbol  
+@rus Восприятие - одно из главных умений воров и ниндзя,позволяет им видеть
+секретные двери, ворота и другие объекты , отмеченные как *.
 ~
 -1 MEDITATION~
-This skill is similar to fast healing, but relies on the concentration and
+@eng This skill is similar to fast healing, but relies on the concentration and
 mantras to increase mana recovery when the character is sleeping or resting.
 Thieves and warriors, with their troubled minds and violent attitudes, have
 much trouble learning to meditate.
+@rus Это умение,  напоминающее fast healing,  но относится к концентрации и
+чтении мантр, приводящие к ускоренному росту маны,  когда медитирующий
+отдыхает или спит.  Воры и  специализирующиеся  в воинских  классах не
+умеют медитировать из-за не  очень большого  ума и большой  склонности
+к насилию.
 ~
 60 'DETECT GOOD'~
 Syntax: cast 'detect good'
@@ -6346,44 +6834,72 @@ This spell enables the caster to detect good characters, which will
 reveal a characteristic golden aura.
 ~
 -1 'DISPEL GOOD'~
-Syntax: cast 'dispel good' <victim>
+@eng Syntax: cast 'dispel good' <victim>
  
 Dispel good brings forth evil energies that inflict horrific torment on 
 the pure of heart.  Good-aligned characters use this dark magic at their
 peril.
+@rus Синтаксис: {ccast 'dispel good' {x<цель>
+ 
+Это заклинание призывает мощную злую энергию, которая способна нанести
+ужасные повреждения всем,  кто чист сердцем.   Добрые  персонажи могут
+использовать эту злую магию только на свой страх и риск.  
 ~
 -1 RECHARGE~
-Syntax: cast 'recharge' <item>
+@eng Syntax: cast 'recharge' <item>
 
 The recharge spell is used to restore energy to depleted wands and staves.
 Fully exhausted items cannot be recharged, and the difficulty of the spell
 is proportional to the number of charges used.  Magic items can only be
 recharged one time successfully.
+@rus Синтаксис: {ccast 'recharge' {x<объект>
+ 
+Этим заклинанием можно перезаряжать wands  и staves.  Если эти вещи не 
+использовались ни  одного  раза  -  то вы  не сможете  их  дозарядить.
+Магические предметы могут беть перезаряжены только один раз.
 ~
 -1 DEMONFIRE~
-Syntax: cast 'demonfire' <target>
+@eng Syntax: cast 'demonfire' <target>
 
 Demonfire is a spell of blackest evil, and as such can only be used by those
 who follow the paths of darkness.  It conjures forth demonic spirits to 
 inflict terrible wounds on the enemies of the caster.
+@rus Синтаксис: {ccast 'demonfire' {x<цель>
+ 
+Demonfire -  это наиболее  черное заклинание  из  тех,  что используют
+слуги Зла.  Никто, кроме  следующих путем  Тьмы, не может использовать
+это заклинание. Оно  вызывает в  помощь заклинающему  четырех  демонов
+Ада, которые наносят ужасные раны врагам своего хозяина.
 ~
 -1 BLUEFIRE~
-Syntax: cast 'bluefire' <target>
+@eng Syntax: cast 'bluefire' <target>
 
 Demonfire is a spell of neutral clerics, and as such can only be used by
 those who has neutral alignment.  It conjures forth spirits of the
 neutrals of earth to inflict terrible wounds on the enemies of the caster.
+@rus Использование: {ccast 'bluefire' {x<цель>
+ 
+Bluefire  -  это заклинание священников,  придерживающихся нейтральной
+позиции в мире.  Все другие служители  религии не  смогут использовать
+это волшебство. Оно вызывает четырех нейтральных духов Земли и наносит
+ужасный ущерб врагам заклинателя.
 ~
 -1 'RAY OF TRUTH'~
-Syntax: cast 'ray of truth' <target>
+@eng Syntax: cast 'ray of truth' <target>
 
 Ray of truth opens a portal to the planes of positive energy, bringing forth
 a beam of light of sufficient purity to harm or or annihilate the servants
 of evil.  It cannot harm the pure of heart, and will turn and strike 
 casters who are tainted by evil.
+@rus Синтаксис: {ccast 'ray of truth' {x<цель>
+ 
+Луч истины  пробивает портал  на  планы  с  положительной  энергией  и
+приносит часть ее в наш мир,что приносит значительный урон противникам
+добра. Он не может нанести какой-либо  ущерб слугам добра и  обернется
+сильным вредом заклинателю, стоящему на пути зла.
 ~
 -1 PORTAL~
-Syntax: cast 'portal' <target>
+@eng Syntax: cast 'portal' <target>
 
 The portal spell is similar to gate, but creates a lasting one-way portal
 to the target creature, instead of transporting the caster.  Portals are
@@ -6391,18 +6907,30 @@ entered using 'enter' or 'go' command, as in 'go portal'.  Portals cannot
 be made to certain destinations, nor used to escape from gate-proof rooms.
 Portal requires a special source of power to be used, unfortunately the
 secret of this material component has been lost...
+@rus Синтаксис: {ccast 'portal' {x<цель>
+ 
+Это заклинание открывает  односторонние врата к  необходимому вам мобу
+(игроку). Чтобы войти в эти врата , используйте команду 'enter portal'
+или 'go portal'.  Чтобы  создать  портал,  вам  необходим  специальный
+магический предмет.
 ~
 -1 NEXUS~
-Syntax: cast 'nexus' <target>
+@eng Syntax: cast 'nexus' <target>
 
 This spell is virtually identical to portal (see 'help portal'), with the
 only difference being that while portal creates a one-way gate, a nexus 
 spell makes a two-sided gate.  It also lasts longer than the lower-powered
 portal spell.  Both spells require an additional power source, the secret
 of which has been lost...
+@rus Синтаксис: {ccast 'nexus' {x<цель>
+ 
+Это заклинание похоже на заклинание 'portal'  (см. 'help portal'),  но
+оно создает врата,  в  которые можно  не только зайти,  но и  вернутся
+обратно, если  вам  захочется.  Для  этого заклинания  также необходим
+специальный магический предмет.
 ~
 -1 'HEAT METAL'~
-Syntax: cast 'heat metal' <target>
+@eng Syntax: cast 'heat metal' <target>
 
 Heat metal is a powerful clerical attack spell, with effects that vary 
 according to the armor of the victim.  It heats up the metal equipment
@@ -6410,9 +6938,14 @@ according to the armor of the victim.  It heats up the metal equipment
 causing him or her to drop them if possible, taking serious burns in the
 process (possibly fatal if the equipment is too heavy to remove easily).
 This spell does no damage to creatures who are immune to fire.
+@rus Синтаксис: {ccast 'heat metal' {x<цель>
+ 
+Это мощное нападающее заклинание клериков. Оно нагревает металлические
+предметы, которые надеты  на жертве, что приводит  к ожогам  и  жертва
+бросает эти предметы.
 ~
 -1 'HOLY WORD'~
-Syntax: cast 'holy word'
+@eng Syntax: cast 'holy word'
 
 Holy word involves the invocation of the full power of a cleric's god, with
 disasterous effects upon the enemies of the priest coupled with powerful
@@ -6422,9 +6955,15 @@ opposite morals (or both good and evil in the case of neutral priests)
 are struck down by holy (or unholy might) and cursed.  The cleric suffers
 greatly from the strain of this spell, being left unable to move and 
 drained of vitality.  Experience loss is no longer associated with the spell.
+@rus Синтаксис: {ccast 'holy word'{x
+ 
+Слово  клерика  вызывает  мощные  силы,  влияя  на  находящихся  рядом
+персонажей. Персонажи  с  одинаковым  алигном  будут  благословлены  и
+наполнены могучей силой,  противоположные персонажи  будут прокляты  и
+ослаблены магической силой.
 ~
 -1 CALM~
-Syntax: cast 'calm' 
+@eng Syntax: cast 'calm' 
 
 One of the most useful and often overlooked abilities of the master cleric is
 the calm spell, which can put an end to all violence in a room.  Calmed
@@ -6433,41 +6972,68 @@ in combat as long as the spell soothes their minds.  The more violence
 activity there is in a room, the harder the spell, and it is all or nothing --
 either all combat in the room is ended (with the exception of those who
 are immune to magic) or none is.
+@rus Использование: {ccast 'calm'{x
+ 
+Это одно из  наиболее мощных и часто используемых заклинаний клериков.
+Calm останавливает  все сражения  в  данной  комнате.  Все  персонажи,
+подвергшиеся действию заклинания теряют способность нападать  на время
+действия спелла.  Чем  ожесточеннее велось сражение,  тем дольше будет
+длиться период спокойствия. 
 ~
 -1 HASTE~
-Syntax: cast 'haste' <target>
+@eng Syntax: cast 'haste' <target>
 
 The haste spell increases the speed and agility of the recipient, allowing
 an extra attack (or even a backstab) in combat, and improving evasive
 abilities in combat.  However, it produces a great strain on the system,
 such that recuperative abilities are halved.  Haste is capable of negating
 the slow spell. (see 'help slow').
+@rus Синтаксис: {ccast 'haste' {x<цель>
+ 
+Ускоряющее заклинание Haste - одно из самых важных заклинаний в наборе
+любого мага.  Заклинание увеличивает  ловкость и  подвижность обьекта,
+позволяя лучше увертвыватся,  парировать и  блокировать атаки,  так же
+увеличивает количество наносимых атак. В связи с тем,  что организм не
+расслабляется,  процесс востановление  сильно замедляется.  Негативным
+заклинанием является заклинание замедления (см. 'help slow').
 ~
 -1 SLOW~
-Syntax: cast 'slow' <target>
+@eng Syntax: cast 'slow' <target>
 
 Despite popular mythology, slow is not the opposite of haste, but is a spell
 with it's own unique set of effects.  When cast on an unfortunate victim,
 it slows its movements, making it easier to hit and reducing its rate
 of attack.  The effect of slow also double movement costs and halve healing
 rates, due to reduced metabolism.
+@rus Синтаксис: {ccast 'slow' {x<цель>
+ 
+Замедляющее заклинание Slow является  полной противоположностью Haste.
+Оно  уменьшает ловкость,  снижает его  подвижность в  сражении,  делая
+противника более уязвимым  к  ударам. Также Slow  удваивает количество
+movements, необходимых для перемещения,  и уменьшает восстанавливающие
+способности в связи с замедлением метаболизма.
 ~
 -1 PLAGUE~
-Syntax: cast 'plague' <target>
+@eng Syntax: cast 'plague' <target>
 
 The plague spell infests the target with a magical disease of great virulence,
 sapping its strength and causing horrific suffering, and generally leading to
 death.  It is a risky spell to use, as the contagion can spread like
 wildfire if the victim makes it to a populated area.
+@rus Синтаксис: {ccast 'plague' {x<цель>
+ 
+Это заклинание вызывает магическую чуму, которая уменьшает вашу силу и
+со временем вытягивает из вас жизнь, не позволяя  ей востонавливаться.
+От зараженного игрока (моба), чума может передатся и другим героям.
 ~
 -1 'CREATE ROSE'~
 @eng Syntax: {ccast 'create rose'{x <single/bouquet/basket>
 
 A romantic spell that creates a fragrant red rose or rose bouquet or
 basket filled with many roses.
-@rus Синтаксис: {ccast 'create rose'{x <single/bouquet/basket>
+@rus Использование: {ccast 'create rose' {x<single/bouquet/basket>
  
-Это романтическое заклинание позволяет создать благоухающую красную
+Это романтическое  заклинание  позволяет создать  благоухающую красную
 розу, букет роз или целую корзину, наполненную алыми розами.
 ~
 60 'PROTECTION GOOD' 'PROTECTION EVIL'~
@@ -6487,12 +7053,15 @@ time.
 одновременно.
 ~
 0 'GIANT STRENGTH'~
-Syntax: cast 'giant strength' <character>
+@eng Syntax: cast 'giant strength' <character>
  
 This spell increases the strength of the target character.
+@rus Синтаксис: {ccast 'giant strength' {x<цель>
+ 
+Это заклинание увеличивает силу персонажа.
 ~
 -1 'CHAIN LIGHTNING'~
-Syntax : cast 'chain lightning' <target>
+@eng Syntax : cast 'chain lightning' <target>
 
 Chain lightning is a deadly spell, producing a powerful bolt of lightning
 that arcs from target to target in the room, until its force is fully
@@ -6500,9 +7069,19 @@ expended.  Allies of the caster may be hit by this spell if they are members
 of a clan, while the caster himself will not be struck unless no other
 viable target remains.  Chain lightning is most effective when used on
 groups of creatures.
+@rus Использование: {ccast 'chain lightning' {x<цель>
+ 
+Цепь молний - смертельно опасное заклинание,  создающее могучий разряд
+энергии,  который  случайным  образом  переходит  с  одной  жертвы  на
+другую,  пока   полностью   не  исчерпает  свою  силу.  Находящиеся  в
+комнате  союзники  создателя  молнии  также могут получить удар,  если
+они являются членами какого-либо клана,  и  даже  сам  заклинатель  не
+застрахован  от ее удара,  если  других  целей в  комнате  нет.  Таким
+образом,   заклинание   цепи   молний   наиболее   эффективно,   когда
+используется на группе врагов.
 ~
 -1 FARSIGHT~
-Syntax: cast 'farsight'
+@eng Syntax: cast 'farsight'
 	cast 'farsight' <direction>
 
 The farsight spell expands the caster's consciousness, allowing him or her
@@ -6511,16 +7090,26 @@ concentration, often leaving the caster helpless for several minutes.
 The spell may be used for a general scan that reaches a short distance in
 all directions, or with a directional component to see creatures much
 farther away.
+@rus Синтаксис: {ccast 'farsight' {x<направление>
+             {ccast 'farsight'{x
+ 
+Это заклинание позволяет вам увидеть  то, что происходит на соседней с
+вами  клетке  в   заданном   вами  направлений.  Оно  требует  большой
+концентрации сил и поэтому его неудается удержать долго.
 ~
 -1 'MASS HEALING'~
-Syntax: cast 'mass healing' 
+@eng Syntax: cast 'mass healing' 
 
 The mass healing spell, as its name might suggest, performs a healing spell
 on all players in the room.  It also throws in a refresh spell for good
 measure.
+@rus Синтаксис: {ccast 'mass healing'{x
+ 
+Это заклинание аналогично действию Heal, однако, его действие распрос-
+траняется на все персонажи, находящиеся в одной комнате с заклинателем
 ~
 -1 'FLOATING DISC'~
-Syntax: cast 'floating disc'
+@eng Syntax: cast 'floating disc'
 
 This useful spell creates a floating field of force which follows the caser
 around, allowing him or her to pile treasure high with no fear of weight
@@ -6529,17 +7118,34 @@ usually less.  It can hold 10 pounds per level of the caster, with a
 maximum of five pounds per item.  The spell requires an open float location
 on the character, and the only way to remove the disc is to die or allow it
 to run out of energy.
+@rus Синтаксис: {ccast 'floating disc'{x
+ 
+Это  полезное  заклинание  создает  плавающее  силовое  поле,  которое
+окружает  произносящего   это  заклинание   и  позволяет  ему  или  ей
+перекладывать  на  созданный   диск  вещи  без  риска  надорваться  от
+излишнего веса.  Заклинание работает  не дольше  чем  2 часа за каждый
+уровень произносящего заклинание, обычно даже меньше. Грузоподъемность
+диска - 10 фунтов за каждый уровень приключенца,  с максимальным весом
+предметов  -  5 фунтов  на  один  предмет.  Чтобы  успешно  произнести
+заклинание, требуется свободное  место вокруг тела. Снять диск нельзя,
+можно лишь дождаться пока его энергия иссякнет.
 ~
 -1 FIREPROOF~
-Syntax: cast 'fireproof' <object>
+@eng Syntax: cast 'fireproof' <object>
 
 The fireproof spell creates a short-lived protective aura around an object,
 to protect it from the harmful effects of acid and flame.  Items protected
 by this spell are not harmed by acid, fire, or the heat metal spell.
 Although inexpensive to use, the spell's short duration makes it impractical
 for protecting large numbers of objects.
+@rus Синтаксис: {ccast 'fireproof' {x<объект>
+ 
+Заклинание  fireproof  создает  кратковременную  защитную  ауру вокруг
+объекта, этим заклинанием, не  портятся от  воздействия огня,  кислоты
+или заклинания 'heat metal'.  Хотя оно и несложно в использовании, его
+кратковременность делает его малопригодным в реальной жизни.
 ~
--1 ALIAS UNALIAS~
+0 ALIAS UNALIAS~
 @eng Syntax: {calias{x
 Syntax: {calias{x <word>
 Syntax: {calias{x <word> <substitution>
@@ -6558,25 +7164,27 @@ Examples:
 -- after this you may type just {cgc{x instead of {cget all corpse{x
 {calias lb cast 'lightning bolt'{x
 -- {clb orc{x will be expanded to {ccast 'lightning bolt' orc{x
-@rus Синтаксис: {calias{x
-Синтаксис: {calias{x <слово>
-Синтаксис: {calias{x <слово> <подстановка>
-Синтаксис: {cunalias{x <слово>
+@rus Использование: {calias{x
+                 {calias {x<слово>
+                 {calias {x<слово> <подстановка>
+                 {cunalias {x<слово>
  
-Команда ALIAS служит для сокрашения длинных или составных команд. Сокращенная
-команда не может содержать других сокращений или генерировать несколько команд.
-Без аргументов эта команда показывает список всех твоих сокращений. С одним
-аргументом показывается подстановка для этого слова, если такая есть. С двумя
-аргументами создается новое сокращение. Команда UNALIAS служит для удаления
+Команда ALIAS  служит  для  сокращения  длинных  или составных команд.
+Сокращенная команда   не   может   содержать   других  сокращений  или
+генерировать несколько команд. Без аргументов эта  команда  показывает
+список всех   твоих   сокращений.   С  одним  аргументом  показывается
+подстановка для  этого  слова,  если такая есть. С  двумя  аргументами
+создается новое  сокращение.  Команда  UNALIAS  служит  для   удаления
 ненужных сокращений.
-Слово во введенной строке будет заменено, только если оно стоит в самом начале.
-Команды ALIAS и UNALIAS нельзя присвоить сокращениям.
+ 
+Слово во введенной строке будет заменено,  только  если  оно  стоит  в
+самом начале. Команды ALIAS и UNALIAS нельзя присвоить сокращениям.
  
 Примеры:
 {calias gc get all corpse{x
--- после этого, написание {cgc{x будет эквивалентно {cget all corpse{x
+          -- после этого, написание {cgc{x будет эквивалентно {cget all corpse{x
 {calias lb cast 'lightning bolt'{x
--- {clb orc{x будет расшифровано как {ccast 'lightning bolt' orc{x
+          -- {clb orc {xбудет расшифровано как {ccast 'lightning bolt' orc{x
 ~
 101 '_MERLIN'~
 '        '
@@ -6619,7 +7227,9 @@ or her hands.
 @rus Это автоматическое умение позволяет отбивать наносимые удары голыми руками.
 ~
 0 'MASTERING HAND'~
-This automatic skill allows ninjas to fight more efficiently when unarmed.
+@eng This automatic skill allows ninjas to fight more efficiently when unarmed.
+@rus Только нинзи знают уязвимые  точки противника и умеют наносить  по ним
+мощные удары, шокируя противника.  Это умение  работает автоматически.
 ~
 0 'WIZ MODULES' MODULES~
 @eng Syntax: {cmodules reload{x <name>
@@ -6835,7 +7445,7 @@ This command shows you how much time players spend in each area.
 @eng Syntax: {caffrooms{x
  
 Shows you detailed list of all roomaffects.
-@rus Синтаксис: {caffrooms{x
+@rus Использование: {caffrooms{x
  
 Показывает подробный список всех заклинаний, наложенных на комнаты.
 ~
@@ -6962,32 +7572,38 @@ ENABLE command cannot be disabled.
 Данные команды служат для временного блокирования использования каких-либо
 команд. Команда ENABLE не может быть заблокирована.
 ~
-0 'CLAN CHAOS' CHAOS~
-@rus С самого начала мирозданиЯ историЯ живых существ несет на себе следы оков
-различных законов, запретов и ограничений. В человеческой истории все началось
-с их прародителей Адама и Евы, которым запретили всего лишь попробовать Яблоко.
-В истории среднеземьЯ Моргота изгнали всего лишь за то, что он попробовал
-написать свою музыку. И примеров таких несчетное множество.
-И вот однажды бог Хаоса, у которого бессчетное количество имен, но ни одно из
-них не известно смертным,сказал: "Хватит! Пора положить этому конец". И призвал
-он в свой замок, который стоит на самом видном месте, но которого не видел ни
-один смертный, а даже если бы и увидел, все равно не понЯл бы, что он увидел
-лучшего из своих слуг, Eidu, и сказал ему: "Ты - лучше всех из моих слуг можешь
-справитьсЯ с этой задачей. Иди же в этот мир и сделай все, что сможешь. Ибо нет
-сил моих больше смотреть на это." И наделил он его силой, которой не имел никто
-из смертных, а даже если бы и имел, все равно не сумел бы ей воспользоватьсЯ.
-Так пришел в наш мир Eidu. И собрал он вокруг себЯ лучших из лучших, кто мог
-помочь ему в достижении этой цели. И дал он им малую толику той силы, что сам
-имел. Так был образован клан Chaos.
-И принимались в этот клан только лучшие из смертных, кто готов положить свою
-жизнь во имЯ великой цели и кто доказал свою преданность делу Великого Хаоса.
-И они среди вас, постоЯнно делаЯ свое великое дело, но работу их не видЯт глаза
-смертных, а даже если бы увидели, все равно бы не осознали. Но дело движетсЯ и
-постепенно, но неуклонно приближает их к достижению великой цели - воцарению
-Хаоса в мире.
+-2 'CLAN CHAOS' CHAOS~
+@rus {                               {W- CHAOS -{x
+
+С самого начала мирозданиЯ историЯ  живых существ несет  на себе следы
+оков различных законов, запретов и ограничений. В человеческой истории
+все началось с их  прародителей Адама  и Евы,  которым запретили всего
+лишь попробовать Яблоко.  В истории  среднеземьЯ Моргота изгнали всего
+лишь за то, что он попробовал написать  свою музыку.  И примеров таких
+несчетное множество.
+ 
+И вот однажды бог Хаоса,  у которого бессчетное количество имен, но ни
+одно из них не известно смертным,сказал: "Хватит!  Пора положить этому
+конец". И  призвал он  в свой  замок,  который стоит  на самом  видном
+месте, но которого не видел ни один смертный, а даже если бы и увидел,
+все равно  не понЯл  бы, что он  увидел лучшего из своих слуг, Eidu, и
+сказал ему: "Ты - лучше  всех из  моих слуг  можешь справитьсЯ  с этой
+задачей. Иди же в этот мир и сделай все, что сможешь. Ибо нет сил моих
+больше смотреть на это." И наделил он его силой, которой не имел никто
+из смертных, а  даже  если  бы  и  имел,  все  равно  не  сумел бы  ей
+воспользоватьсЯ. Так пришел в наш мир  Eidu. И  собрал он  вокруг себЯ
+лучших из лучших, кто мог помочь ему  в достижении этой цели. И дал он
+им малую толику той силы, что сам имел. Так был образован клан Chaos.
+ 
+И принимались в  этот  клан  только  лучшие  из  смертных,  кто  готов
+положить свою жизнь во имЯ великой цели и кто доказал свою преданность
+делу Великого  Хаоса.  И  они  среди вас, постоЯнно делаЯ свое великое
+дело, но работу их не видЯт  глаза  смертных,  а даже если бы увидели,
+все равно бы не осознали. Но дело движетсЯ и постепенно,  но неуклонно
+приближает их к достижению великой цели - воцарению Хаоса в мире.
 ~
-0 'CLAN RULERS' 'CLAN ENFORCERS' RULERS ENFORCERS~
-Законы созданы во благо общества и для его процветания. Нарушение их -- есть
+-2 'CLAN RULERS' 'CLAN ENFORCERS' RULERS ENFORCERS~
+@eng Законы созданы во благо общества и для его процветания. Нарушение их -- есть
 действие, направленное на внесение дисбаланса в мир, что неминуемо приведет к
 хаосу и анархии, которые порождают неразбериху, преступления и насилие. Любой,
 кто идет на нарушение закона должен знать, что он понесет наказание; ни один,
@@ -7020,6 +7636,46 @@ ENABLE command cannot be disabled.
 чинить. То же самое относится к так называемым chaotic'ам.
  
 Посетить нашу домашнюю страничку можно по адресу {Chttp://sog.narod.ru{x
+@rus {                            {W- ENFORCERS -{x
+ 
+Законы созданы во благо общества и для его процветания. Нарушение их -
+есть действие,  направленное  на   внесение  дисбаланса  в   мир,  что
+неминуемо приведет к хаосу и анархии,  которые порождают  неразбериху,
+преступления и насилие.  Любой, кто  идет на  нарушение закона  должен
+знать, что он  понесет  наказание; ни один, преступивший установленные
+правила, не уйдет от расплаты  за  совершенное.  Незнание  законов  не
+освобождает от ответственности за их нарушение.  Более того, это может
+служить отягощающим обстоятельством при разборе того или иного дела.
+ 
+Орден Хранителей Порядка  (Enforcers)  создан в  мире Серых  Теней для
+того,чтобы следить за исполнением законов ({CHELP LAW{x) и наказывать тех,
+кто законы нарушает. Членом Ордена может  стать любой  законопослушный
+гражданин, за исключением воров и нинзей (даже если  такие и  бывают).
+Члены Ордена должны забыть о своих личным амбициях во имя общего дела.
+Если Хранитель  допускает  малейший  намек  на  нарушение  закона  или
+позволяет уйти  виновному от расплаты по какой-бы то ни  было причине,
+он немедленно перестает быть Хранителем.
+ 
+При рассмотрение  любого  дела  и/или  проишествия  действует  принцип
+презумпции невиновности.  Это  значит, что любое  существо,  пока  его
+вина не доказана, считается невиновным. Решение о виновности Хранитель
+может принять в следующих случаях:
+    - Хранитель присутствовал при нарушении закона;
+    - возможно принятие  решения на  основании показаний  свидетелей.  В
+      этом случае не принимаются в рассмотрение показания воров, нинзей,
+      chaotic'ов, а также членов одного клана. Хранитель,  выслушивающий
+      свидетелей, сам принимает решение о том,  верит он  сказанному или
+      нет,  независимо  от  того,   законопослушен  (lawful )  свидетель
+      или нет.
+ 
+Каждый законопослушный гражданин  должен  оказывать  посильную  помощь
+членам  Ордена  Хранителей  Порядка.   Воры   и  нинзи  всегда  должны
+находиться   под  пристальным  постоянным  вниманием,  дабы  свести  к
+минимуму вред,  который  они  могут причинить. То же самое относится к
+так называемым chaotic'ам.
+ 
+                         Посетить нашу домашнюю страницу можно по адресу
+                                                     {Chttp://sog.narod.ru{x
 ~
 0 AREAS COMMANDS~
 @eng Syntax: {careas{x
@@ -7027,11 +7683,11 @@ Syntax: {ccommands{x
  
 AREAS shows you a list of areas in the game.
 COMMANDS shows you all the commands in the game.
-@rus Синтаксис: {careas{x
-Синтаксис: {ccommands{x
+@rus Использование: {careas{x
+                 {ccommands{x
  
-AREAS выводит список подключенных зон.
-COMMANDS выводит список всех игровых команд.
+AREAS выводит список подключенных зон.                                
+COMMANDS выводит список всех игровых команд.                          
 ~
 0 TIME WEATHER~
 @eng Syntax: {cdate{x
@@ -7078,7 +7734,7 @@ TAME calms down aggressive mob.
 @eng Syntax: {cbutcher{x <corpse>
  
 This skill makes 1-4 edible steaks out of corpse.
-@rus Синтаксис: {cbutcher{x <труп>
+@rus Использование: {cbutcher {x<труп>
  
 Это умение позволяет вырезать из трупа 1-4 съедобных бифштекса.
 ~
@@ -7086,7 +7742,7 @@ This skill makes 1-4 edible steaks out of corpse.
 @eng Syntax: {ccast 'barkskin'{x
  
 BARK SKIN is a protection spell, making strong barks to cover your skin.
-@rus Синтаксис: {ccast 'bark skin'{x
+@rus Использование: {ccast 'bark skin'{x
  
 Это умение позволяет нанести на кожу жесткие чешуйки, улучшая броню.
 ~
@@ -7119,9 +7775,9 @@ the water. WATER BREATHING gives you magical ability to breath even in the
 water.
 Having received proper training, one can hold his breath to dive for a long
 period of time.
-@rus Синтаксис: {ccast 'water breathing'{x <персонаж>
-Синтаксис: {ccast 'free action'{x <персонаж>
-Синтаксис: {cbreathhold{x
+@rus Использование: {ccast 'water breathing'{x <персонаж>
+               {ccast 'free action'{x <персонаж>
+               {cbreathhold{x
  
 Все эти умения и заклинания помогают в исследовании подводных глубин. Заклина-
 ние FREE ACTION поможет тебе плавать, даже если ты не обучен плаванию. Однако,
@@ -7136,7 +7792,7 @@ period of time.
 This command shows current state of all channels available to you.
  
 See also: {CHELP SHOUT, EMOTE, TELL{x
-@rus Синтаксис: {cchannels{x
+@rus Использование: {cchannels{x
  
 Эта команда показывает состояние всех каналов общения, доступных тебе.
  
@@ -7177,18 +7833,19 @@ from hunting or aggressive mobiles. Choose safe places to leave your character
 alone.
  
 See also: {CHELP REPLAY{x
-@rus Синтаксис: {cafk{x
+@rus Использование: {cafk{x
  
-{CAFK{x означает {CA{xway {CF{xrom {CK{xeyboard (отошел от клавиатуры).
-Эта команда используется для сохранения приходящих сообщений в буфере и после-
-дующего воспроизведения их, переключая между нормальным режимом и режимом сох-
-ранения сообщений.
+{CAFK {xозначает {CA{xway {CF{xrom {CK{xeyboard (отошел от клавиатуры).
  
-{RВНИМАНИЕ!{x Эта команда не защитит тебя ни от убийц-игроков, ни от агрессив-
-ных или преследующих тебя монстров. Выбирай безопасные места, чтобы оставить
-своего персонажа одного.
+Эта команда используется для сохранения приходящих сообщений в  буфере
+и последующего воспроизведения их, переключая между нормальным режимом
+и режимом сохранения сообщений.
  
-Смотри также: {CHELP REPLAY{x
+{RВНИМАНИЕ!{x Эта команда не защитит  тебя  ни  от  убийц-игроков,  ни  от
+агрессивных или преследующих тебя монстров. Выбирай  безопасные места,
+чтобы оставить своего персонажа одного.
+ 
+Смотри также: '{CHELP REPLAY{x'
 ~
 0 SCAN~
 @eng Syntax: {cscan{x [<number>.]<direction>
@@ -7242,7 +7899,7 @@ teleporting him with only victim to a random place all around the world.
 @eng Syntax: {cclear{x
  
 This command clear the screen. CLS is a synonym for this command.
-@rus Синтаксис: {cclear{x
+@rus Использование: {cclear{x
  
 Эта команда очищает экран. CLS является синонимом этой команды.
 ~
@@ -7374,11 +8031,12 @@ Immortal can supply clan name as an argument to learn that clan item location.
  
 Evil adventurers can please their dark god with desecration of enemy's corpse.
 But, to offer such a sacrifice you must possess appropriate skill.
-@rus Синтаксис: {ccrucify{x <труп>
+@rus Использование: {ccrucify {x<труп>
  
-Искатели приключений без страха и совести иногда приносят жертвы своим темным
-богам, оскверняя труп поверженного врага. Но, принесение такой жертвы требует
-соответствующего умения, так как является достаточно сложным процессом.
+Искатели приключений без страха и совести иногда приносят жертвы своим
+темным богам,  оскверняя труп поверженного врага. Но, принесение такой
+жертвы требует  соответствующего умения,  так как  является достаточно
+сложным процессом.
 ~
 0 FEED~
 @eng Syntax: {cfeed{x
@@ -7410,16 +8068,6 @@ It's Battleragers' clan skill.
 Это умение позволяет сделать накидку из останков врага.
 Клан Яростных-в-битве практикует это умение.
 ~
-0 AMBUSH~
-@eng Syntax: {cambush{x <victim>
- 
-Ranger can ambush someone who does not see him, greatly increasing damage with
-his first blow.
-@rus Синтаксис: {cambush{x <жертва>
- 
-Ренджер может устроить засаду и напасть на кого-либо, кто не видит его, значи-
-тельно увеличивая ущерб от первого удара.
-~
 0 'BLINDNESS DUST' 'POISONOUS SMOKE'~
 @eng Syntax: {cblindness{x
 Syntax: {cblindness{x <victim>
@@ -7429,25 +8077,25 @@ These skills come from ninja's alchemy. Throwing some dust into someone's eyes
 can blind him for a quite long period of time. Even thrown into the air, this
 dust has a chance to blind everyone in the room. Another dust makes clouds of
 poisonous smoke,  poisoning everybody.
-@rus Синтаксис: {cblindness{x
-Синтаксис: {cblindness{x <жертва>
-Синтаксис: {cpoison{x
+@rus Использование: {cblindness{x
+                 {cblindness {x<жертва>
+                 {cpoison{x
  
-Эти умения обычно применяются ниндзями. Бросив порошок в глаза врагу, ниндзя
-может ослепить его. Даже бросив этот порошок в воздух, ниндзя может ослепить
-всех, стоящих рядом с ним. Другой порошок из запасов ниндзи позволяет отравить
-тех, ктто стоит в той же комнате.
+Эти умения обычно применяются ниндзями.  Бросив порошок в глаза врагу,
+ниндзя может ослепить его. Даже бросив этот  порошок  в воздух, ниндзя
+может ослепить всех, стоящих рядом с ним.  Другой  порошок  из запасов
+ниндзи позволяет отравить тех, ктто стоит в той же комнате.
 ~
-92 BLOODTHIRST~
+0 BLOODTHIRST~
 @eng Syntax: {cbloodthirst{x
  
 Powered-up version of berserk, practiced by Battleragers. Rage of bloodthirsty
 warrior makes him attack every mobile.
-@rus Синтаксис: {cbloodthirst{x
+@rus Использование: {cbloodthirst{x
  
-Усиленный вариант умения BERSERK, практикуемый кланом Яростных-в-битве. Ярость,
-охватывающая кровожадного воина, так велика, что заставляет его нападать на
-любое живое существо.
+Усиленный вариант умения BERSERK, практикуемый кланом Яростных-в-битве
+Ярость,  охватывающая кровожадного  воина,  так велика, что заставляет
+его нападать на любое живое существо.
 ~
 92 BLEND~
 @eng Syntax: {cblend{x
@@ -7455,11 +8103,11 @@ warrior makes him attack every mobile.
 BLEND is advanced form of camouflage. Blended players almost cannot be detected
 But this skill workd only in forest
 Warders practioce this skill.
-@rus Синтаксис: {cblend{x
+@rus Использование: {cblend{x
  
 BLEND - улучшенный камуфляж, замаскировавшиеся таким образом, почти не
-могут быть обнаружены. Но, к сожалению, это умение можно применять только
-в лесу. Это умение практикует клан Защитников природы.
+могут быть  обнаружены .  Но , к сожалению, это умение можно применять
+только в лесу. Это умение практикует клан Защитников природы.
 ~
 0 'OLC CLASS POSES'~
 Syntax: {cpose add{x <number>
@@ -7481,25 +8129,26 @@ caster.
  
 Mature bone dragon will follow necromancer and obey his orders, and even
 will follow his master when he leaves this realm.
-@rus Синтаксис: {ccast 'bone dragon'{x
+@rus Использование: {ccast 'bone dragon'{x
  
-Это заклинание создает кокон, в котором растет драколич. Как растущего,
-так и зрелого костяного дракона можно кормить трупами; при этом дракон
-становится сильнее. Во время рождения дракону нужна помощь хозяина, без
-которой он умирает.
+Это заклинание  создает  кокон,   в   котором   растет  драколич.  Как
+растущего, так и зрелого костяного дракона можно кормить трупами,  при
+этом дракон становится сильнее. Во время рождения дракону нужна помощь
+хозяина, без которой он умирает.
  
-Вылупившийся дракон будет следовать за своим хозяином и исполнять его приказы,
-он последует за хозяином даже когда хозяин временно покинет этот мир.
+Вылупившийся дракон будет  следовать за своим хозяином и исполнять его
+приказы,  он  последует за хозяином даже когда хозяин временно покинет
+этот мир.
 ~
-1 ABOLISH UNDEAD~
+0 ABOLISH UNDEAD~
 @eng Syntax: {ccast 'abolish undead' <victim>{x
  
 Good aligned high level clerics and paladins have a chance to destroy
 undead instantly. Victim's gear also will be destroyed.
-@rus Синтаксис: {ccast 'abolish undead' <victim>{x
- 
-Паладины и жрецы высокого уровня, посвятившие свою жизнь служению
-добру, могут в мгновение ока уничтожить нежить. Все вещи, ей при-
+@rus Использование: {ccast 'abolish undead' {x<цель>
+
+Паладины и  жрецы  высокого  уровня, посвятившие  свою жизнь  служению
+добру, могут  в мгновение  ока уничтожить  нежить. Все  вещи, ей  при-
 надлежавшие, также уничтожаются.
 ~
 1 RESILIENCE~
@@ -7612,7 +8261,7 @@ mercy and protect innocent without hesitaton.
 Твоему оппоненту: 'holy word'
 Ограничения: lawful, good aligned
 ~
--2 AMTINOR~
+0 AMTINOR~
 @eng {CAmtinor, God of Woodlands.{x
 
   Amtinor is neutral good. He watches over all people who live in the
@@ -7623,20 +8272,20 @@ of Animal, Plant and Good.
          To you: cure critical
          To you: cure poison
          To you: cure disease
-@rus {CАмтинор, Бог Лесов.{x
+@rus {                         {W- Амтинор, Бог Лесов -{x                        
  
-Амтинор истинно доброе божество. Поэтому его последователями могут
-быть только те, кто добр (good aligned), и кто ставит себя вне социума
-(neutral ethos). Амтинор покровитель лесов и вообще всего живого. Он
-любимое божество рейнджеров, но не только они могут поклоняться ему.
-Амтинор не приемлет зла, и его последователи всегда готовы встать на
-защиту невинных и выйти супротив Зла и его порождений.
- 
-Тебе: 'cure critical', 'cure poison', 'cure disease'
-Твоему оппоненту: нет
-Ограничения: true good
+Амтинор истинно доброе  божество.  Поэтому  его  последователями могут
+быть только те, кто добр ({Ygood aligned{x), и кто ставит себя вне социума
+({Cneutral ethos{x). Амтинор покровитель лесов и вообще  всего  живого. Он
+любимое божество рейнджеров, но не только они могут  поклоняться  ему.
+Амтинор не приемлет зла, и его последователи всегда  готовы  встать на
+защиту невинных и выйти супротив Зла и его порождений.                
+{C----------------------------------------------------------------------{x
+Тебе: 'cure critical', 'cure poison', 'cure disease'                  
+Твоему оппоненту: нет                                                 
+Ограничения: true good                                                
 ~
--2 AULIN~
+0 AULIN~
 @eng {WAulin, Goddess of Knowledges.{x
 
   Aulin is true neutral. As goddess of knowledges she is worshiped by
@@ -7645,15 +8294,15 @@ Aulin. She protects any person who devotes themself only to their art.
 
           To you: cure critical
           To enemy: bluefire
-@rus {WАулин, Богиня Знаний.{x
+@rus {                       {W- Аулин, Богиня Знаний - {x
  
 Аулин истинно нейтральна. Ей безразлично противостояние добра и зла, и
-она вне отношений закона и хаоса. Поэтому только нейтралы (true
-neutral) могут стать ее последователями. Она - Богиня Знаний, и 
-поэтому часто ее последователями становятся Маги, стремящиеся к новым
-знаниям и открытиям. И вообще все те, кто ценит силу истинного знания
+она вне отношений  закона  и  хаоса.  Поэтому  только  нейтралы  ({Ctrue{x
+{Cneutral{x)  могут  стать  ее  последователями.  Она  -  Богиня Знаний, и
+поэтому часто ее последователями становятся Маги, стремящиеся к  новым
+знаниям и открытиям. И вообще все те, кто ценит силу  истинного знания
 и стремится к собственному совершенству.
- 
+{C----------------------------------------------------------------------{x
 Тебе: 'cure critical'
 Твоему оппоненту: 'bluefire' 
 Ограничения: true neutral
@@ -7667,18 +8316,18 @@ for justice triumph and are always ready to die for that.
 
           To you: cure critical
           To enemy: scream
-@rus {WДаккорн, Бог Справедливости.{x
+@rus {                   {W- Даккорн, Бог Справедливости -{x
  
-Кредо этого бога - это Справедливость, Честь, Рыцарство, Доблесть.
-Закон и Война - вот две составляющие его культа. Как правило, его
-последователями становятся паладины. А также все те, кто живет во имя
-триумфа справедливости и готовы ради этого умереть. Наряду с Лираиль
-покровительствует {YРыцарям{x({YKnights{x), но стоит немного в стороне от их
+Кредо этого бога - это  Справедливость,  Честь,  Рыцарство,  Доблесть.
+Закон и  Война - вот  две  составляющие  его культа.  Как правило, его
+последователями  становятся паладины. А также все те, кто живет во имя
+триумфа справедливости и готовы  ради  этого умереть. Наряду с Лираиль
+покровительствует {YРыцарям{x({YKnights{x), но стоит немного в стороне  от  их
 борьбы со Злом.
- 
+{C----------------------------------------------------------------------{x
 Тебе: 'cure critical'
-Твоему оппоненту: 'scream'
-Ограничения: нет
+Твоему оппоненту: 'scream'  
+Ограничения: нет      
 ~
 -2 MOARITH~
 @eng {RMoarith, Goddess of Slaughter.{x
@@ -7703,7 +8352,7 @@ and War are contented this evil cult.
 Твоему оппоненту: 'demonfire'
 Ограничения: chaotic, evil aligned
 ~
--2 ILISSA~
+0 ILISSA~
 @eng {RIlissa, Goddess of Tyranny.{x
 
   Ilissa is lawful evil. She is the goddess of war, conflict, and destruction.
@@ -7722,7 +8371,7 @@ She sends her followers to commit evil.
 Твоему оппоненту: 'acid blast'
 Ограничения: lawful, evil aligned
 ~
--2 HATHIR~
+0 HATHIR~
 @eng {WHathir, God of Death.{x
 
   Hathir is neutral evil. He is the personification of pure evil of this
@@ -7759,7 +8408,7 @@ those who transgress the law.
 Твоему оппоненту: 'faerie fire' 
 Ограничения: true lawful 
 ~
--2 IRIAN~
+0 IRIAN~
 @eng {WIrian, Goddess of True Chaos.{x
 
   Irian is chaotic neutral. Irian is the chaos and chaos is Irian.
@@ -7797,7 +8446,7 @@ Strong and dexterous, Stivrosh is the first in martial arts.
 Твоему оппоненту: нет 
 Ограничения: нет 
 ~
--2 GWINNERAI~
+0 GWINNERAI~
 @eng {WGwinnerai, Goddess of Honor.{x
 
   As Dakkorn, Gwinnerai promotes Justice, Valor, Chivalry, and Honor. These
@@ -7875,7 +8524,7 @@ Vilirna is worshiped by clerics.
 Твоему оппоненту: 'dragon breath' 
 Ограничения: нет 
 ~
--2 CALAMIR~
+0 CALAMIR~
 @eng {WCalamir, God of Delusion.{x
 
   Calamir is unusial god. Often he protects chaotic characters, but
@@ -7884,17 +8533,19 @@ mortals. You can hear his whisper in a forest, or on the sea surf.
 
           To you: cure critical
           To enemy: flamstrike
-@rus {WКаламир, Бог Иллюзий.{x
+@rus {                       {W- Каламир, Бог Иллюзий -{x
  
-Каламир как правило покровительствует хаотичным существам, но это не есть правило. Он мастер создавать различные 
-иллюзии, и любит обманывать смертных. Часто его голос можно услышать в шумящей кроне деревьев в лесу или в шуме 
-прибоя. В пантеоне богов стоит особняком, не вмешиваясь в отношения остальных богов.
- 
+Каламир как правило  покровительствует хаотичным существам,  но это не
+есть правило.  Он  мастер   создавать   различные   иллюзии,  и  любит
+обманывать смертных.  Часто  его  голос можно услышать в шумящей кроне
+деревьев в лесу или в шуме прибоя.  В пантеоне  богов стоит особняком,
+не вмешиваясь в отношения остальных богов.
+{C----------------------------------------------------------------------{x
 Тебе: 'cure critical' 
 Твоему оппоненту: 'flamestrike' 
 Ограничения: нет 
 ~
--2 CARIEL~
+0 CARIEL~
 @eng {WCariel, Goddess of Revival.{x
 
   Cariel is the exact opposite of Hathir. She loves life and hates death.
@@ -7902,14 +8553,17 @@ She promotes Life, Health, Happiness and Luck.
 
           To you: cure critical
           To you: heal
-@rus {WКариэль, Богиня Возрождения.{x
-Богиня Возрождения является апологетом Бога Смерти. Их противостояние вечно и идет с переменным успехом. Когда Хатир 
-сеет смерть, Кариэль дарует жизнь. Она любит жизнь, любит видеть счастье на лицах смертных. Своим последователям 
-дарует крепкое здоровье и удачу. Культ близок культу Вилирны.
+@rus {                 {W- Кариэль, Богиня Возрождения -{x
  
+Богиня Возрождения является апологетом Бога Смерти.  Их противостояние
+вечно и идет с переменным успехом.  Когда  Хатир сеет смерть,  Кариэль
+дарует жизнь. Она любит жизнь, любит видеть счастье на лицах смертных.
+Своим последователям дарует  крепкое  здоровье  и удачу.  Культ близок
+культу Вилирны.
+{C----------------------------------------------------------------------{x
 Тебе: 'cure critical', 'heal' 
 Твоему оппоненту: нет 
-Ограничения: нет 
+Ограничения: нет
 ~
 -2 ULWARK~
 @eng {WUlwark, God of Dreams and Ambitions.{x
@@ -7936,10 +8590,10 @@ you sleep.
 
 The caster's outline appears blurred, shifting and wavering. This
 distortion grants the caster extra chance to slip away enemy attack.
-@rus Синтаксис: {ccast 'blur'{x [self]
-
-Контуры тела мага, прибегнувшего к этому заклинанию, становятся
-неясными, размытыми и находящимися в постоянном движении, из-за
+@rus Использование: {ccast 'blur' {x<self>
+ 
+Контуры тела  мага,   прибегнувшего  к  этому  заклинанию,  становятся
+неясными, размытыми  и  находящимися  в  постоянном  движении ,  из-за
 чего противнику сложнее нанести удар по чародею.
 ~
 -1 GROUP HEAL~
@@ -7970,11 +8624,12 @@ and disease are healed. Also this light cures battle wounds.
 
 This spell prepare a weapon for holy attack (powerful against evil creatures
 or characters). Flaming, frost, etc. weapons can't be blessed.
-@rus Синтаксис: {ccast 'bless weapon' <оружие>{x
-
-Оружие, на которое было подействовано этим заклинанием, особо эффективно
-при борьбе с теми, кто служит злу. На оружие, уже обладающее какими-либо
-особыми свойствами (flaming, frost, etc.) это заклинание не действует.
+@rus Использование: {ccast 'bless weapon' {x<оружие>
+ 
+Оружие, на  которое   было   подействовано  этим   заклинанием,  особо
+эффективно при   борьбе  с  теми,  кто  служит  злу.  На  оружие,  уже
+обладающее какими-либо  особыми свойствами  (flaming, frost, etc.) это
+заклинание не действует.
 ~
 -1 GROUP DEFENSE~
 @eng Syntax: {ccast 'group defense'{x
@@ -8024,10 +8679,10 @@ to blind victim.
 
 This spell creates a spinning disk of razor-sharp blades. These whirl
 and flash around the caster and inflict damage to caster's opponent.
-@rus Синтаксис:{c cast 'blade barrier'{x
-
-Вогруг использовавшего это заклинание появляется множество острых
-лезвий, которые, кружась вокруг него, болезненно ранят противника.
+@rus Использование: {ccast 'blade barrier'{x
+ 
+Вогруг использовавшего  это  заклинание  появляется  множество  острых
+лезвий, которые,  кружась  вокруг  него , болезненно ранят противника.
 ~
 -1 HUNGER WEAPON~
 @eng Syntax:{c cast 'hunger weapon'{x <weapon>
@@ -8097,22 +8752,23 @@ Syntax:{c cast 'death wave'{x <direction>
 Deadly waves emanating from caster hurts all living creatures (or
 characters) on its way, but can not pass any doors or walls. Undead
 are unaffected for this waves.
-@rus Синтаксис:{c cast 'death ripple'{x <направление>
-Синтаксис:{c cast 'death wave'{x <направление>
-
-  Эти два заклинания рассылают вокруг волны смерти, ранящие все живое,
-встречающееся на их пути. 'Death wave' наносит более сильный ущерб. Волны
-не могут проникать сквозь двери или стены и не действуют на нежить.
+@rus Использование: {ccast 'death ripple' {x<направление>
+                 {ccast 'death wave' {x<направление>
+ 
+Эти два заклинания рассылают вокруг волны  смерти, ранящие  все живое,
+встречающееся на  их  пути. 'Death wave'  наносит более сильный ущерб.
+Волны не могут проникать сквозь двери или  стены  и  не  действуют  на
+нежить.
 ~
 0 DEATHEN~
 @eng Syntax:{c cast 'deathen'{x <target>
 
   This spell turns target into undead. You can turn into undead self
 using this spell.
-@rus Синтаксис:{c cast 'deathen'{x <цель>
-
-  Это заклинание превращает выбранную цель в нежить. Этой целью ты можешь
-быть сам(а).
+@rus Использование: {ccast 'deathen' {x<цель>
+ 
+Это заклинание  превращает  выбранную  цель  в  нежить.  Этой целью ты
+можешь быть сам(а).
 ~
 0 CRYPT THING~
 @eng Syntax:{c cast 'crypt thing'{x <corpse>
@@ -8120,9 +8776,9 @@ using this spell.
   Caster can creates the mobile (crypt thing) from the corpse.
 This crypt thing guards you when you are sleeping, and wakes when
 someone enters room you are.
-@rus Синтаксис:{c cast 'crypt thing'{x <труп>
+@rus Использование: {ccast 'crypt thing' {x<труп>
 
-  Из трупа создается монстрик, который будет охранять тебя, когда ты
+Из трупа создается  монстрик, который  будет охранять  тебя, когда  ты
 спишь и будить, когда кто-либо живой входит к тебе.
 ~
 0 CORRUPTION~
@@ -8130,9 +8786,9 @@ someone enters room you are.
 
   Corruption is the slow death for your victim. Its health decreases
 and victim dies.
-@rus Синтаксис:{c cast 'corruption'{x <жертва>
-
-  Это заклинание приносит медленную смерть жертве. Ее здоровье будет
+@rus Использование: {ccast 'corruption' {x<цель>
+ 
+Это заклинание  приносит медленную  смерть жертве.  Ее здоровье  будет
 уменьшаться, пока она не умрет.
 ~
 0 ZEBRA~
@@ -8153,11 +8809,11 @@ They can use this knowledge for defense or for attack opponent.
 
   In the forest, mountain, hill or field area you can make a camp
 for resting (restoring you health, mana).
-@rus Синтаксис:{c camp{x
-
-  В лесу, поле, в холмах или горах с помощью этого умения можно
-разбить небольшой лагерь для отдыха. В нем быстрее восстановятся
-ваши здоровье и мана.
+@rus Использование: {ccamp{x
+ 
+В лесу,  поле, в холмах или горах с помощью этого умения можно разбить
+небольшой лагерь для отдыха. В нем быстрее восстановятся ваши здоровье
+и мана.
 ~
 0 MAKE ARROW~
 @eng Syntax:{c make arrow{x
@@ -8168,8 +8824,8 @@ wooden arrows. With color as argument you can make different kind
 of arrows (amount's depended by level). Remember, you need trees or
 woods around for making arrows.
   Valid colors: red, green, white and blue.
-@rus Синтаксис:{c make arrow{x
-Синтаксис:{c make arrow{x <цвет>
+@rus Использование:{c make arrow{x
+               {cmake arrow{x <цвет>
 
   Использование 'make arrow' без параметра позволяет сделать простые
 деревянные стрелы. Если указать цвет, то можно сделать различные
@@ -8239,9 +8895,8 @@ any giant.
 0 BLIND FIGHTING~
 @eng   This skill allows to fight well if you are blind.
 'Blind fighting' is autoskill.
-@rus   Если тебя ослепили, то обладая этим умением, ты будешь драться лишь
-немного хуже, чем зрячим.
-  Умение используется автоматически.
+@rus Если тебя ослепили, то обладая этим умением, ты  будешь  драться  лишь
+немного хуже, чем зрячим. Умение используется автоматически.
 ~
 0 RANGE CAST~
 @eng Syntax:{c cast 'name'{x <direction>.<target>
@@ -8251,7 +8906,7 @@ determined your level.
   E.g: 'magic missles', 'lightning bolt', 'acid blast', etc.
   Example: cast 'acid arrow' w.guard;
            cast 'vampiric blast' s.4.rabbit
-@rus Синтаксис:{c cast 'название'{x <направление>.<цель>
+@rus Использование:{c cast 'название'{x <направление>.<цель>
 
   Некоторые заклинания можно использовать на расстоянии. Расстояние на
 котором можно использовать магию зависит от твоего уровня.
@@ -8320,40 +8975,54 @@ See also:{C HELP AUTO{x, {CHELP GIVE{x.
 См. также {CHELP AUTO{x, {CHELP GIVE{x.
 ~
 -2 CENTAUR~
-Among their own kind, centaurs are sociable creatures, but they have
+@eng Among their own kind, centaurs are sociable creatures, but they have
 been known to become rowdy, boorish, and aggressive when under the
 influence of alcohol.
  
 The typical centaur lair is located deep within a forest. In consists
 of a large hidden glade and pastures, with a good suply of running
 water.
+@rus {                             {W- КЕНТАВР -{x
+ 
+Кентавры - дикие существа,  полулюди-полукони, обитатели  гор и лесных
+чащ, отличаются буйным  нравом  и  невоздержанностью,  однако  никогда
+никому не причиняют вреда сознательно. Чужды общественной жизни. 
 ~
-0 WYRM~
-Wyrms is the kind of the dragons. Theirs scale defence them from slash
+-2 WYRM~
+@eng Wyrms is the kind of the dragons. Theirs scale defence them from slash
 blows, but they are vulnirable to pierce attack. Wyrms are large and
 can fly.
+@rus {                               {W- ВЫРМ -{x
+
+Дальние родственники  драконов вырмы  имеют длинное  вытянутое тело на
+четырех коротких  крепких  лапах,  увенчанных  острыми когтями.  У них
+небольная голова с большой пастью,  полной острейших зубов.  Небольшие
+кожистые крылья  позволяют  вырмам  совершать  короткие  перелеты.  От
+драконов вырмы унаследовали небольшую часть их мудрости. 
 ~
 -1 CLAWS~
 @eng `Claws' is autoskill for creatures which have claws: felars
 and wyrms. If felar or wyrm fights without any weapon it have
 a change to make higher damage on its opponent with sharp
 claws.
-@rus `Claws' -- это умение, работающее автоматически. Им обладают
-существа, у которых есть когти: фелары и вырмы. Если вырм или
-фелар сражается без оружия, у него есть шанс нанести противнику
-более сильный урон своими когтями.
+@rus Это умение, работающее автоматически. Им обладают существа,  у которых
+есть когти: фелары и вырмы.  Если вырм или фелар сражается без оружия,
+у него есть шанс нанести противнику более сильный урон своими когтями.
 ~
 0 COMPRESS~
 @eng This help is available only in russian. Sorry.
-@rus Синтаксис: {ccompress{x [on|off]
+@rus Использование: {ccompress {x[on|off]
  
-  COMPRESS без параметров показывает текущее состояние опции компрессии,
-протокол компрессии, поддерживаемый клиентом, и статистику передачи данных.
-  COMPRESS OFF выключает опцию компрессии, если она включена.
-  COMPRESS ON включает опцию компрессии, если она выключена, и клиент
+COMPRESS без параметров показывает текущее состояние опции компрессии,
+протокол компрессии,  поддерживаемый клиентом,  и статистику  передачи
+данных.
+ 
+COMPRESS OFF выключает опцию компрессии, если она включена.
+ 
+COMPRESS ON включает опцию компрессии,  если  она выключена,  и клиент
 поддерживает одну из версий протокола компрессии.
  
-Смотри также {CHELP MCCP{x.
+Смотри также: '{CHELP MCCP{x'
 ~
 0 MCCP~
 @eng This help is available only in russian. Sorry.
@@ -8390,7 +9059,8 @@ not dropped or sacrificed. They are marked by *.
 флагом отмечены *.
 ~
 0 CHAMELEON PONCHO~
-Syntax: {cponcho{x corpse
+@eng Syntax: {cponcho{x corpse
+@rus Использование: {cponcho {x<труп>
 ~
 0 FINGER~
 Syntax:{c finger{x <name>
@@ -8424,7 +9094,7 @@ members of the same clan as you.
 Предложный падеж                   -   о Серре
  
 ~
--2 FISHING CASTOUT REELIN~
+0 FISHING CASTOUT REELIN~
 @eng Syntax : {ccastout{x
 Syntax : {creelin{x
  
@@ -8432,8 +9102,8 @@ To fish, you must be near water, in a room specified as such. Also, you
 must be holding a fishing pole. If you move from your original place of
 fishing, you automatically pack up your gear and move on.
 Anyone can fish, all you need is the pole and patience.
-@rus Синтаксис: {ccastout{x
-Синтаксис: {creelin{x
+@rus Использование: {ccastout{x
+               {creelin{x
  
 Успешная рыбалка возможна в тех местах, где рядом находится водоем,
 в котором водится рыба. Это может быть центр океана, берег речки
@@ -9157,7 +9827,7 @@ our website forum.
 
 See also: RPTIPS-1 RPTIPS-2 RPTIPS-3
 ~
--2 'BLACK MARKET' 'BM'~
+0 'BLACK MARKET' 'BM'~
 @eng {CBlack market{x
 
    Black market is a service which allows to sale and buy limited
@@ -9196,41 +9866,39 @@ Syntax:{c bm show{x <number.item | number.>
 
 Annotation: You can't make a bet for object with anti-your alignment
 restriction.
-@rus {CЧерный рынок{x
-
-   'Черный рынок' -- это сервис позволяющий вести торговлю лимитными
-   объектами (и только ими). Члены клана хантеров продают лимиты,
-   остальные их покупают. Продаваемые объекты могут быть следующих
-   типов: light, map, food, scroll, wand, boat, staff, potion, armor,
-   treasure, pill, weapon, clothing, drink, warp stone, pole, jewelry,
-   fish, gem and container. Контейнеры обязательно должны быть пустыми.
+@rus 'Черный рынок' -  это  сервис  позволяющий  вести  торговлю  лимитными
+объектами (и  только  ими).  Члены  клана  хантеров  продают   лимиты,
+остальные их   покупают.  Продаваемые  объекты  могут  быть  следующих
+типов: light, map, food, scroll, wand,  boat,  staff,  potion,  armor,
+treasure, pill, weapon, clothing, drink, warp  stone,  pole,  jewelry,
+fish, gem and container. Контейнеры обязательно должны быть пустыми.
  
-   При любых операциях на рынке тебе приходит уведомление об этом.
-   Если в момент заключения сделки, или когда твоя ставка перебита
-   тебя не было в игре, уведомление придет нотой. Все денежные опе-
-   рации совершаются через банк.
+При любых операциях  на  рынке  тебе  приходит  уведомление  об  этом.
+Если в момент  заключения  сделки,  или  когда  твоя  ставка  перебита
+тебя не было  в  игре,  уведомление  придет  нотой. Все  денежные опе-
+рации совершаются через банк.
  
 Синтаксис: {cbm list{x
-   С помощью этой команды можно увидеть, что продается на черном рынке.
- 
-Синтаксис: {cbm bet{x <новая ставка> <название объекта | порядковый номер>
-   Эта команда позволяет делать ставку на желанный объект. Название
-   объекта может быть простым (bracelet), с номером (2.bracelet) или
-   можно сделать ставку по порядковому номеру ({cbm bet 500 8.{x - ставка
-   сделается на объект с порядковым номером 8)
- 
-Синтаксис: {cbm propose/sell{x <объект>
-   Эта команда позволяет выставить объект на продажу. Доступна только
-   членам клана Hunters.
- 
-Синтаксис: {cbm accept{x <название объекта | порядковый номер>
-   Заключить сделку. Объект может указываться с помощью названия или
-   порядкового номера. Доступна только членам клана Hunters.
- 
-Синтаксис:{c bm show{x <название объекта | порядковый номер>
-   Показывает характеристики продаваемого объекта.
+    С помощью этой команды можно увидеть, что продается на черном рынке.
 
-Примечание: вы не сможете сделать ставку на объект, если не можете
+Синтаксис: {cbm bet{x <новая ставка> <название объекта | порядковый номер>
+    Эта команда позволяет делать ставку  на  желанный  объект.  Название
+    объекта может быть простым (bracelet), с  номером  (2.bracelet)  или
+    можно сделать ставку по порядковому  номеру  ({cbm bet 500 8.{x - ставка
+    сделается на объект с порядковым номером 8)
+
+Синтаксис: {cbm propose/sell {x<объект>
+    Эта команда позволяет  выставить  объект на продажу. Доступна только
+    членам клана Hunters.
+
+Синтаксис: {cbm accept {x<название объекта | порядковый номер>
+    Заключить сделку. Объект может указываться с  помощью  названия  или
+    порядкового номера. Доступна только членам клана Hunters.
+
+Синтаксис: {cbm show {x<название объекта | порядковый номер>
+    Показывает характеристики продаваемого объекта.
+ 
+{RПримечание:{x вы  не  сможете  сделать  ставку на объект, если не можете
 им владеть из-за ограничений на алигнмент.
 ~
 0 'OOC' 'OOCME'~
@@ -9254,6 +9922,21 @@ E.g. oocme smiles show all message [Shades of Gray] Aurian smiles.
  
 Эти команды посылают сообщение-эмоцию. Твое высказывание 'sogme улыбнулась'
 все увидят в виде: [Shades of Gray] Aurian улыбнулась.
+~
+-2 ARIAL~
+                               {W- АРИАЛ -{x
+ 
+Ариалы - потомки огромных птиц, существовавших много веков назад.  Они
+быстры и умеют летать, что позволяет им легко перемещаться на огромные
+расстояния. Очень легкие  и хрупкие,  чтобы  не  потерять  способности
+летать.
+~
+-2 WITCHES~
+                               {W- ВЕДЬМА -{x
+ 
+Ведьмы - крайне  опасные колдуньи.  Обладают огромным арсеналом  магии
+нападения и неплохими защитными  заклинаниями. Лучше не становитесь на
+пути у ведьмы - от их проклятья нет спасения! 
 ~
 -1 $~
 
