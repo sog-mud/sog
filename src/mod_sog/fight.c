@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.183 1999-06-21 15:56:45 fjoe Exp $
+ * $Id: fight.c,v 1.184 1999-06-21 20:11:13 avn Exp $
  */
 
 /***************************************************************************
@@ -377,6 +377,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		return;
 
 	chance = get_skill(ch, gsn_second_attack) / 2;
+	if (IS_AFFECTED(ch, AFF_SLOW)) chance /= 2;
 	if (number_percent() < chance) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		check_improve(ch, gsn_second_attack, TRUE, 5);
@@ -385,6 +386,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	}
 
 	chance = get_skill(ch,gsn_third_attack)/3;
+	if (IS_AFFECTED(ch, AFF_SLOW)) chance /= 2;
 	if (number_percent() < chance) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		check_improve(ch, gsn_third_attack, TRUE, 6);
@@ -393,7 +395,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	}
 
 
-	chance = get_skill(ch,gsn_fourth_attack)/6;
+	chance = get_skill(ch,gsn_fourth_attack)/4;
+	if (IS_AFFECTED(ch, AFF_SLOW)) chance /= 2;
 	if (number_percent() < chance) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		check_improve(ch, gsn_fourth_attack, TRUE, 7);
@@ -401,7 +404,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 			return;
 	}
 
-	chance = get_skill(ch,gsn_fifth_attack)/8;
+	chance = get_skill(ch,gsn_fifth_attack)/5;
+	if (IS_AFFECTED(ch, AFF_SLOW)) chance /= 2;
 	if (number_percent() < chance) {
 		one_hit(ch, victim, dt, WEAR_WIELD);
 		check_improve(ch,gsn_fifth_attack,TRUE,8);
@@ -1116,7 +1120,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* RT new auto commands */
 	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room
 	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents))) {
-		if (IS_VAMPIRE(ch)) {
+		if (IS_VAMPIRE(ch) && !IS_IMMORTAL(ch)) {
 			act_puts("$n sucks {Rblood{x from $p!",
 				 ch, corpse, NULL, TO_ROOM, POS_RESTING);
 			act_puts("You suck {Rblood{x from $p!",
@@ -2057,7 +2061,9 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		if (obj->pIndexData->item_type == ITEM_FOOD) {
 			if (IS_SET(ch->form,FORM_POISON))
 				obj->value[3] = 1;
-			else if (!IS_SET(ch->form,FORM_EDIBLE))
+			if (IS_SET(ch->form, FORM_MAGICAL))
+				SET_BIT(obj->extra_flags, ITEM_MAGIC);
+			if (!IS_SET(ch->form,FORM_EDIBLE))
 				SET_BIT(obj->extra_flags, ITEM_NOT_EDIBLE);
 		}
 

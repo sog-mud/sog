@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.158 1999-06-17 19:44:43 avn Exp $
+ * $Id: act_wiz.c,v 1.159 1999-06-21 20:11:13 avn Exp $
  */
 
 /***************************************************************************
@@ -726,6 +726,11 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 
 	if (victim->in_room == NULL) {
 		char_puts("They are in limbo.\n", ch);
+		return;
+	}
+
+	if (!IS_NPC(victim) && victim->level >= ch->level) {
+		char_puts("You failed.\n", ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.152 1999-06-21 15:56:44 fjoe Exp $
+ * $Id: act_obj.c,v 1.153 1999-06-21 20:11:12 avn Exp $
  */
 
 /***************************************************************************
@@ -1396,7 +1396,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			else if (ch->pcdata->condition[COND_FULL] > 60)
 				char_puts("You are full.\n", ch);
 			if (obj->pIndexData->vnum == OBJ_VNUM_TORN_HEART) {
-				ch->hit = UMIN(ch->max_hit, ch->hit+ch->level/10+number_range(1,5));
+				ch->hit = UMIN(ch->max_hit, ch->hit+obj->level+number_range(1,5));
 				char_puts("You feel empowered from the blood of your foe.\n",ch);
 			};
 		}
@@ -1415,6 +1415,24 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			af.modifier = 0;
 			af.bitvector = AFF_POISON;
 			affect_join(ch, &af);
+		}
+		if (IS_OBJ_STAT(obj, ITEM_MAGIC)) {
+			char_puts("Magical heat flows through your blood.\n", ch);
+			ch->mana = UMIN(ch->max_mana, ch->mana + obj->level + number_range(1, 5));
+			if (number_percent() < 2) {
+				AFFECT_DATA af;
+
+				do_yell(ch, "Oh no! My eyes!");
+
+				af.where = TO_AFFECTS;
+				af.type = gsn_blindness;
+				af.level = number_fuzzy(obj->level);
+				af.duration = obj->level / 25 + 1;
+				af.location = APPLY_HITROLL;
+				af.modifier = -4;
+				af.bitvector = AFF_BLIND;
+				affect_join(ch, &af);
+			}
 		}
 		break;
 

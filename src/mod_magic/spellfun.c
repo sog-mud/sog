@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.166 1999-06-17 12:41:11 avn Exp $
+ * $Id: spellfun.c,v 1.167 1999-06-21 20:11:15 avn Exp $
  */
 
 /***************************************************************************
@@ -134,6 +134,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int door, range;
 	bool cast_far = FALSE;
 	bool offensive = FALSE;
+	bool has_skill = FALSE;
 	int slevel;
 	int chance = 0;
 	skill_t *spell;
@@ -145,7 +146,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return;
 
-	if (HAS_SKILL(ch, gsn_spellbane)) {
+	if (HAS_SKILL(ch, gsn_spellbane) && !IS_IMMORTAL(ch)) {
 		char_puts("You are Battle Rager, not the filthy magician.\n",
 			  ch);
 		return;
@@ -182,7 +183,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	else {
 		pcskill_t *ps;
 		ps = (pcskill_t*) skill_vlookup(&ch->pcdata->learned, arg1);
-		if (ps) sn = ps->sn;
+		if (ps) {sn = ps->sn; has_skill = TRUE; }
 		    else sn = sn_lookup(arg1);
 	}
 
@@ -193,7 +194,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	spell = SKILL(sn);
 	
 	if (IS_VAMPIRE(ch)
+	&&  !IS_IMMORTAL(ch)
 	&&  !is_affected(ch, gsn_vampire)
+	&&  has_skill
 	&&  !IS_SET(spell->skill_flags, SKILL_CLAN)) {
 		char_puts("You must transform to vampire before casting!\n",
 			  ch);
@@ -1446,6 +1449,7 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	mushroom = create_obj(get_obj_index(OBJ_VNUM_MUSHROOM), 0);
 	mushroom->value[0] = level / 2;
 	mushroom->value[1] = level;
+	mushroom->level = ch->level;
 	obj_to_room(mushroom, ch->in_room);
 	act("$p suddenly appears.", ch, mushroom, NULL, TO_ROOM);
 	act("$p suddenly appears.", ch, mushroom, NULL, TO_CHAR);
@@ -3798,9 +3802,7 @@ void spell_plague(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	if (saves_spell(level,victim,DAM_DISEASE) ||
 		(IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD)))
 	{
-		if (ch == victim)
-		  char_puts("You feel momentarily ill, but it passes.\n",ch);
-		else
+		if (ch->in_room == victim->in_room)
 		  act("$N seems to be unaffected.",ch,NULL,victim,TO_CHAR);
 		return;
 	}
@@ -3884,11 +3886,7 @@ void spell_poison(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	victim = (CHAR_DATA *) vo;
 
 	if (saves_spell(level, victim,DAM_POISON))
-	{
-		act("$n turns slightly green, but it passes.",victim,NULL,NULL,TO_ROOM);
-		char_puts("You feel momentarily ill, but it passes.\n",victim);
 		return;
-	}
 
 	af.where     = TO_AFFECTS;
 	af.type      = sn;
@@ -4333,7 +4331,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	{
 		if (victim == ch)
 		  char_puts("You can't move any slower!\n",ch);
-		else
+		else if (ch->in_room == victim->in_room)
 		  act("$N can't get any slower than that.",
 		      ch,NULL,victim,TO_CHAR);
 		return;
@@ -4341,22 +4339,12 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	if (saves_spell(level,victim,DAM_OTHER)
 	||  IS_SET(victim->imm_flags,IMM_MAGIC))
-	{
-		if (victim != ch)
-		    char_puts("Nothing seemed to happen.\n",ch);
-		char_puts("You feel momentarily lethargic.\n",victim);
 		return;
-	}
 
 	if (IS_AFFECTED(victim,AFF_HASTE))
 	{
 		if (!check_dispel(level,victim,sn_lookup("haste")))
-		{
-		    if (victim != ch)
-			char_puts("Spell failed.\n",ch);
-		    char_puts("You feel momentarily slower.\n",victim);
 		    return;
-		}
 
 		act("$n is moving less quickly.",victim,NULL,NULL,TO_ROOM);
 		return;

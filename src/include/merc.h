@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.207 1999-06-18 04:57:11 kostik Exp $
+ * $Id: merc.h,v 1.208 1999-06-21 20:11:16 avn Exp $
  */
 
 /***************************************************************************
@@ -1905,6 +1905,8 @@ void	handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
 /* act_hera.c */
 /* enter.c */
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
+CHAR_DATA *get_random_pc();
+
 /* hunt.c */
 void hunt_victim(CHAR_DATA *ch);
 int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch, 

@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.26 1999-06-10 11:47:31 fjoe Exp $
+ * $Id: raffect.c,v 1.27 1999-06-21 20:11:16 avn Exp $
  */
 
 /***************************************************************************
@@ -285,14 +285,6 @@ void affect_join_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 
 bool is_safe_rspell_nom(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim)
 {
-	/* ghosts are safe */
-	if (!IS_NPC(victim) && IS_SET(victim->plr_flags, PLR_GHOST))
-		return TRUE;
- 
-	/* link dead players who do not have rushing adrenalin are safe */
-	if (!IS_NPC(victim) && !IS_PUMPED(victim) && victim->desc == NULL) 
-		return TRUE;
-
 	if (raf->owner) return is_safe_nomessage(victim, raf->owner);
 	bug("is_safe_rspell_nom: no affect owner", 0);
 	affect_remove_room(victim->in_room, raf);
@@ -304,8 +296,7 @@ bool is_safe_rspell(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim)
 {
   if (is_safe_rspell_nom(raf,victim))
 	{
-	  act("The gods protect you.",victim,NULL,NULL,TO_CHAR);
-	  act("The gods protect $n from the spell of room.",victim,NULL,NULL,TO_ROOM);
+	  act("The gods protect you from the spell of room.",victim,NULL,NULL,TO_CHAR);
 	  return TRUE;
 	}
   else return FALSE;

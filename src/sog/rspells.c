@@ -1,5 +1,5 @@
 /*
- * $Id: rspells.c,v 1.3 1999-06-10 11:47:31 fjoe Exp $
+ * $Id: rspells.c,v 1.4 1999-06-21 20:11:17 avn Exp $
  */
 
 /***************************************************************************
@@ -100,6 +100,20 @@ EVENT_FUN * get_event_fun(int sn, int event)
 	return NULL;
 }
 
+void show_owner(CHAR_DATA *ch, ROOM_AFFECT_DATA *raf)
+{
+	CHAR_DATA *owner;
+
+	owner = raf->owner;
+	if (!owner) return;
+
+	if ((get_curr_stat(owner, STAT_INT) + get_curr_stat(owner, STAT_WIS) +
+		number_range(1, 5)) > (get_curr_stat(ch, STAT_INT) +
+		get_curr_stat(ch, STAT_WIS)))
+			return;
+	act("Sure, this is $N's work!", ch, NULL, owner, TO_CHAR);
+}
+
 EVENT_FUN(event_enter_lshield)
 {
 	if (raf->owner->in_room != ch->in_room)
@@ -127,13 +141,14 @@ EVENT_FUN(event_enter_shocking)
 		act("You avoid your trap here.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-
+	
 	if (!is_safe_rspell(raf, ch)) 
 		{
 		act("Shocking waves in this room shock you!",
 			ch, NULL, NULL, TO_CHAR);
 		damage(ch, ch, dice(raf->level, 4) + 12,
-			raf->type, DAM_TRAP_ROOM, TRUE);
+			TYPE_HIT, DAM_TRAP_ROOM, TRUE);
+		show_owner(ch, raf);
 		affect_remove_room(room , raf);
 		}
 }
@@ -148,7 +163,8 @@ EVENT_FUN(event_enter_thieftrap)
 	if (!is_safe_rspell(raf, ch)) 
 		{
 		damage(ch, ch, dice(raf->level, 5) + 12,
-			raf->type, DAM_TRAP_ROOM, TRUE);
+			TYPE_HIT, DAM_TRAP_ROOM, TRUE);
+		show_owner(ch, raf);
 		affect_remove_room(room , raf);
 		}
 }
@@ -161,8 +177,8 @@ EVENT_FUN(event_enter_mist)
 EVENT_FUN(event_update_plague)
 {
 	if (raf->level < 1) raf->level = 2;
-	if (!is_safe_rspell(raf, ch))
-		spell_plague(gsn_plague, raf->level - 1, raf->owner,
+	if (is_safe_rspell(raf, ch)) return;
+	spell_plague(gsn_plague, raf->level - 1, raf->owner,
 			ch, TAR_CHAR_OFFENSIVE);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.182 1999-06-21 15:56:43 fjoe Exp $
+ * $Id: act_move.c,v 1.183 1999-06-21 20:11:11 avn Exp $
  */
 
 /***************************************************************************
@@ -145,7 +145,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
 	&&  !IS_AFFECTED(ch, AFF_SNEAK)) {
-		REMOVE_BIT(ch->affected_by, AFF_HIDE);
+		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
 		act_puts("You step out of shadows.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act_puts("$n steps out of shadows.",

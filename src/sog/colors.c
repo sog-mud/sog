@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: colors.c,v 1.3 1999-02-23 22:06:49 fjoe Exp $
+ * $Id: colors.c,v 1.4 1999-06-21 20:11:17 avn Exp $
  */
 
 #include <string.h>
@@ -262,6 +262,7 @@ static const char* color(char type, int format)
 	case '\r':
 		return format_table[format].colors[COLOR_CR];
 	case '\n':
+	case '\\':
 		return format_table[format].colors[COLOR_LF];
 /* special cases */
 	case 'z':
