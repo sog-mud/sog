@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.365 2004-02-20 16:25:26 fjoe Exp $
+ * $Id: fight.c,v 1.366 2004-02-25 18:37:26 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3570,5 +3570,6 @@ calc_spell_damage_org(CHAR_DATA *ch, int level, skill_t *sk)
 		printlog(LOG_BUG, "%d: invalid skill rank", sk->rank);
 		sk->rank = 0;
 	}
-	return dice(level, spell_rank_dices_types[8]);
+
+	return dice(level, spell_rank_dices_types[sk->rank]);
 }
