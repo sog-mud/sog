@@ -22,6 +22,15 @@ Max 100
 End
 
 #SKILL
+Skill 'twist'
+Level 17
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'sword'
 Level 1
 Rating 1
