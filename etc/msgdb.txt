@@ -468,7 +468,6 @@ Get back to questor before your time runs out!
 @rus В этой куче %d серебрянных монет.
 ~
 @eng $n quaffs $p.@rus $n пьет $p.~
-@eng  is here. @rus  здесь. ~
 @eng You follow $N.@rus Ты следуешь за $N.~
 @eng $n sits down at $p.@rus $n садится около $p.~
 @eng $n dismounts from $N.@rus $n спешивается с $N.~
@@ -665,7 +664,7 @@ Get back to questor before your time runs out!
 @rus Ты не умеешь ездить верхом!
 ~
 @eng That room is private right now.
-@rus Это частная комната.
+@rus ЗАНЯТО!
 ~
 @eng Maybe you should finish fighting first?
 @rus Может для начала перестанешь драться?
@@ -1216,6 +1215,7 @@ Players found: %d. Most so far today: %d.
 @eng You can't push while being ridden.
 @rus Ты не можешь толкаться оседланный.
 ~
+@eng  is here.@rus  здесь.~
 @eng You stop using $p.@rus Ты снимаешь $p.~
 @eng Wrong direction.
 @rus Неправильное направление.

@@ -8,7 +8,7 @@ Parts head arms legs heart brains guts hands feet fingers ear eye~
 End
 
 #PCRACE
-Shortname  Elf ~
+Shortname Elf~
 Points 500
 Class 'witch' 100
 Class 'cleric' 100
