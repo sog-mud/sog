@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.35 2002-09-25 06:13:03 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.36 2002-10-18 07:50:01 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3045,6 +3045,9 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
 				   PERS(in_obj->carried_by, ch));
 		}
 		else {
+			if (in_obj->in_room == NULL)
+				return;
+
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL) {
 				buf_printf(buffer, "One is in %s [Room %d]\n",
 					   mlstr_cval(&in_obj->in_room->name, ch),

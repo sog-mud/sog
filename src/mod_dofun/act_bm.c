@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_bm.c,v 1.1.2.2 2002-10-18 07:11:57 tatyana Exp $
+ * $Id: act_bm.c,v 1.1.2.3 2002-10-18 07:50:00 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -99,10 +99,15 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			counter++;
 			act("[$j] ", ch, (const void *) counter, NULL,
 			    TO_CHAR | ACT_NOLF);
-			act("$P: ", ch, NULL, item->obj,
-			    TO_CHAR | ACT_NOUCASE | ACT_NOCANSEE);
+			act_puts3("{CItem{x: $P (level $j, limit by $J): ",
+			    ch,
+			    (const void *) item->obj->level,
+			    item->obj,
+			    (const void *) item->obj->pObjIndex->limit,
+			    TO_CHAR | ACT_NOUCASE | ACT_NOCANSEE,
+			    POS_DEAD);
 			if (IS_IMMORTAL(ch)) {
-				act_puts3("	current bet - $J; "
+				act_puts3("	current bet - {C$J{x; "
 					  "seller - $t; buyer - $T.",
 					  ch,
 					  IS_NULLSTR(item->seller) ? "nobody" : item->seller,
@@ -110,18 +115,18 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 					  (const void *) item->bet,
 					  TO_CHAR, POS_DEAD);
 			} else if (IS_HUNTER(ch)) {
-				act_puts3("	current bet - $J; "
+				act_puts3("	current bet - {C$J{x; "
 					  "seller - $t.",
 					  ch,
 					  IS_NULLSTR(item->seller) ? "nobody" : item->seller,
 					  NULL, (const void *) item->bet,
 					  TO_CHAR, POS_DEAD);
 			} else {
-				act_puts3("	current bet - $J; "
+				act_puts3("	current bet - {C$J{x; "
 					  "seller - $t; buyer - $T",
 					  ch,
-					  item->seller != ch->name ? "unknown" : "You!",
-					  item->buyer != ch->name ? "unknown" : "You!",
+					  item->seller != ch->name ? "unknown" : "{CYou!{x",
+					  item->buyer != ch->name ? "unknown" : "{CYou!{x",
 					  (const void *) item->bet,
 					  TO_CHAR, POS_DEAD);
 			}
