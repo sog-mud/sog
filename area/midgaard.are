@@ -2538,7 +2538,7 @@ scroll cancellation свиток~
 @eng A rolled vellum scroll is here.@rus Скрученный тонкий пергамент (scroll) лежит здесь.~
 vellum~
 scroll G 0 AO
-15 'cancellation' '' '' ''
+15 'dispel magic' '' '' ''
 9 10 1190 P
 E
 scroll~
@@ -2957,7 +2957,7 @@ a potion of negation~
 A potion of negation is here.~
 glass~
 potion BG 0 AO
-35 'cancellation' '' '' ''
+35 'dispel magic' '' '' ''
 9 10 830 P
 g @rus none~
 #3091
@@ -4261,7 +4261,7 @@ a potion of negation~
 A potion of negation is here.~
 glass~
 potion BG 0 AO
-35 'cancellation' '' '' ''
+35 'dispel magic' '' '' ''
 9 10 830 P
 g @rus none~
 #3291

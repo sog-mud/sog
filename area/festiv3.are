@@ -1965,7 +1965,7 @@ scroll dispatch witch hunt свиток~
 @eng A scroll lies on the table.@rus Свиток (scroll) лежит на столе.~
 kid leather~
 scroll ABGIU C AO
-35 'cancellation' 'curse' 'dispel evil' 'dispel magic'
+35 'dispel magic' 'curse' 'dispel evil' 'dispel magic'
 25 0 0 P
 g @rus male~
 #36349
@@ -1974,7 +1974,7 @@ scroll rescript witch hunt распоряжение~
 @eng A scroll with a big circle stamp hangs on the wall.@rus Свиток (scroll) с большой круглой печатью висит на стене.~
 kid leather~
 scroll ABGUY 0 AO
-90 'dispel magic' 'dispel evil' 'cancellation' 'weaken'
+90 'dispel magic' 'dispel evil' 'dispel magic' 'weaken'
 75 0 0 P
 g @rus none~
 #36350

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.1 2000-06-01 17:57:44 fjoe Exp $
+ * $Id: magic_impl.c,v 1.2 2001-01-21 11:18:28 cs Exp $
  */
 
 #include <stdio.h>
@@ -81,7 +81,7 @@ bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim))
 		return is_same_group(ch, victim);
 
-	if (IS_SET(PC(victim)->trust, TRUST_ALL)) 
+	if (IS_SET(PC(victim)->trust, TRUST_ALL))
 		return TRUE;
 
 	return (IS_SET(PC(victim)->trust, TRUST_GROUP) &&

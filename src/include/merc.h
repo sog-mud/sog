@@ -1,11 +1,11 @@
 /*
- * $Id: merc.h,v 1.315 2000-11-23 15:46:03 fjoe Exp $
+ * $Id: merc.h,v 1.316 2001-01-21 11:18:28 cs Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos} 	bulut@rorqual.cc.metu.edu.tr	   *
+ *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr	   *
  *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
  *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
  *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *

@@ -1780,7 +1780,7 @@ clear herb~
 Some clear herbs lays here.~
 moss~
 pill 0 0 A
-40 'cancellation' 'cancellation' 'cancellation' 'cancellation'
+40 'dispel magic' 'dispel magic' 'dispel magic' 'dispel magic'
 20 10 3000 P
 g @rus none~
 #22197

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.227 2001-01-12 15:33:51 cs Exp $
+ * $Id: spellfun.c,v 1.228 2001-01-21 11:18:28 cs Exp $
  */
 
 /***************************************************************************
@@ -378,7 +378,7 @@ bool dispel(CHAR_DATA *victim, int level)
 			found = TRUE;
 		}
 	}
- 
+
 	return found;
 }
 
@@ -387,7 +387,10 @@ void spell_dispel_magic(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	bool found = FALSE;
 
-	if (saves_spell(level, victim, DAM_OTHER)) {
+	/*
+	 * check saves if victim doesn't trust ch.
+	 */
+	if (!check_trust(ch, victim) && saves_spell(level, victim, DAM_OTHER)) {
 		act_char("You feel a brief tingling sensation.", victim);
 		act_char("You failed.", ch);
 		return;
@@ -395,7 +398,7 @@ void spell_dispel_magic(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	found = dispel(victim, level);
 
-	if (IS_AFFECTED(victim,AFF_SANCTUARY) 
+	if (IS_AFFECTED(victim,AFF_SANCTUARY)
 	&&  !saves_dispel(level, LEVEL(victim), -1)
 	&&  !is_affected(victim, "sanctuary")) {
 		REMOVE_BIT(victim->affected_by,AFF_SANCTUARY);
@@ -403,7 +406,7 @@ void spell_dispel_magic(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		    victim, NULL, NULL, TO_ROOM);
 		found = TRUE;
 	}
- 
+
 	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)
 	&&  !saves_dispel(level, LEVEL(victim), -1)
 	&&  !is_affected(victim, "black shroud")) {
@@ -414,17 +417,6 @@ void spell_dispel_magic(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (found)
-		act_char("Ok.", ch);
-	else
-		act_char("Spell failed.", ch);
-}
-
-void spell_cancellation(const char *sn, int level, CHAR_DATA *ch, void *vo)
-{
-	/*
-	 * unlike dispel magic, the victim gets NO save
-	 */
-	if (dispel((CHAR_DATA *)vo, level + 2))
 		act_char("Ok.", ch);
 	else
 		act_char("Spell failed.", ch);

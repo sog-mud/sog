@@ -234,15 +234,6 @@ Max 100
 End
 
 #SKILL
-Skill 'cancellation'
-Level 28
-Rating 1
-Min 1
-Adept 75
-Max 100
-End
-
-#SKILL
 Skill 'armor'
 Level 13
 Rating 1

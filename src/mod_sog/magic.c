@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.26 2000-10-04 20:28:48 fjoe Exp $
+ * $Id: magic.c,v 1.27 2001-01-21 11:18:28 cs Exp $
  */
 
 #include <stdio.h>
@@ -258,7 +258,7 @@ saves_spell(int level, CHAR_DATA *victim, int dam_type)
 }
 
 /*
- * co-routine for spell_dispel_magic spell_cancellation and do_herbs
+ * co-routine for spell_dispel_magic and do_herbs
  */
 bool
 check_dispel(int dis_level, CHAR_DATA *victim, const char *sn)
