@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.239 2001-08-03 11:27:32 fjoe Exp $
+ * $Id: act_comm.c,v 1.240 2001-08-03 12:21:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1478,7 +1478,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	PC_DATA *pc;
 
 	if (IS_NPC(ch))
-		return;	
+		return;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	pc = PC(ch);
@@ -1571,7 +1571,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			spec_update(victim);
 
 			name_add(&clan->member_list, victim->name, NULL, NULL);
-			clan_save(clan);
+			clan_save(clan->name);
 
 			act_char("Greet new member!", ch);
 			v_changed = TRUE;
@@ -1599,8 +1599,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			clan_update_lists(clan, victim, TRUE);
-			clan_save(clan);
+			clan_update_lists(clan->name, victim, TRUE);
+			clan_save(clan->name);
 
 			free_string(victim->clan);
 			victim->clan = str_empty;
@@ -1660,14 +1660,14 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (changed)
-			clan_save(clan);
+			clan_save(clan->name);
 
 		act_char("They didn't petition.", ch);
 
 	cleanup:
 		if (v_changed)
 			char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-		if (loaded) 
+		if (loaded)
 			char_nuke(victim);
 		return;
 	}
@@ -1800,9 +1800,9 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 
-		clan_update_lists(clan, victim, FALSE);
+		clan_update_lists(clan->name, victim, FALSE);
 		name_add(&clan->leader_list, victim->name, NULL, NULL);
-		clan_save(clan);
+		clan_save(clan->name);
 
 		vpc->clan_status = CLAN_LEADER;
 		if (ch != victim)
@@ -1818,9 +1818,9 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 
-		clan_update_lists(clan, victim, FALSE);
+		clan_update_lists(clan->name, victim, FALSE);
 		name_add(&clan->second_list, victim->name, NULL, NULL);
-		clan_save(clan);
+		clan_save(clan->name);
 
 		vpc->clan_status = CLAN_SECOND;
 		if (ch != victim)
@@ -1836,8 +1836,8 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 
-		clan_update_lists(clan, victim, FALSE);
-		clan_save(clan);
+		clan_update_lists(clan->name, victim, FALSE);
+		clan_save(clan->name);
 
 		vpc->clan_status = CLAN_COMMONER;
 		if (ch != victim) {

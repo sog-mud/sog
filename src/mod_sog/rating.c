@@ -23,25 +23,27 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.20 2001-07-29 09:43:24 fjoe Exp $
+ * $Id: rating.c,v 1.21 2001-08-03 12:21:04 fjoe Exp $
  */
 
 #include <sys/time.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "merc.h"
-#include "rating.h"
 
-struct rating_t rating_table[RATING_TABLE_SIZE];
+#include <merc.h>
 
-static int rating_cmp(const void *a, const void *b);
+#include <handler.h>
+
+static int
+rating_cmp(const void *a, const void *b);
 
 /*
  * Updates player's rating.
  * Should be called every death.
  */
-void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
+void
+rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (IS_NPC(ch) || IS_NPC(victim) || ch == victim || IS_IMMORTAL(ch)
 	||  (victim->in_room &&
@@ -55,7 +57,8 @@ void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
 /*
  * rating_add - add (or replace) `name/pc_killed' to (in) rating_table
  */
-void rating_add(CHAR_DATA *ch)
+void
+rating_add(CHAR_DATA *ch)
 {
 	int i;
 	rating_t *p = rating_table;
@@ -91,7 +94,8 @@ void rating_add(CHAR_DATA *ch)
 	}
 }
 
-static int rating_cmp(const void *a, const void *b)
+static int
+rating_cmp(const void *a, const void *b)
 {
 	return ((const rating_t*) b)->pc_killed - ((const rating_t*) a)->pc_killed;
 }

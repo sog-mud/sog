@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.25 2001-07-08 17:18:41 fjoe Exp $
+ * $Id: clan.h,v 1.26 2001-08-03 12:20:54 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -74,13 +74,5 @@ extern hash_t clans;
 #define clan_search(cln)	((clan_t*) strkey_search(&clans, (cln)))
 
 #define IS_CLAN(cln1, cln2)	(!str_cmp((cln1), (cln2)))
-
-bool	clan_item_ok	(const char *cln);	/* check clan item */
-
-/*
- * clan lists utils
- */
-void	clan_update_lists	(clan_t *clan, CHAR_DATA *victim, bool memb);
-void	clan_save		(clan_t *clan);
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.h,v 1.7 2001-07-08 17:18:44 fjoe Exp $
+ * $Id: hometown.h,v 1.8 2001-08-03 12:20:55 fjoe Exp $
  */
 
 #ifndef _HOMETOWN_H_
@@ -53,7 +53,6 @@ const char *	hometown_name	(int htn);
 #define HOMETOWN(htn)	((hometown_t*) VARR_GET(&hometowns, htn))
 
 bool		hometown_restrict(hometown_t *h, CHAR_DATA *ch);
-void		hometown_print_avail(CHAR_DATA *ch);
 int		hometown_permanent(CHAR_DATA *ch);
 
 /* the following three functions assume ch is !IS_NPC */

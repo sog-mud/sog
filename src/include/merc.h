@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.344 2001-08-03 11:27:27 fjoe Exp $
+ * $Id: merc.h,v 1.345 2001-08-03 12:20:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2285,6 +2285,19 @@ extern varr hints;
 
 void hint_init(hint_t *t);
 void hint_destroy(hint_t *t);
+
+/*----------------------------------------------------------------------
+ * rating stuff
+ */
+
+#define RATING_TABLE_SIZE	20
+
+struct rating_t {
+	const char *name;
+	int pc_killed;
+};
+
+extern rating_t rating_table[RATING_TABLE_SIZE];
 
 /*----------------------------------------------------------------------
  * global mlstrings with gender

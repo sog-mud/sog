@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.303 2001-08-02 18:20:07 fjoe Exp $
+ * $Id: handler.c,v 1.304 2001-08-03 12:21:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3924,6 +3924,93 @@ revert(CHAR_DATA *ch)
 
 	return TRUE;
 }
+
+void
+clan_save(const char *cln)
+{
+	clan_t *clan;
+
+	if ((clan = clan_lookup(cln)) == NULL) {
+		log(LOG_BUG, "clan_save: %s: unknown clan", cln);
+		return;
+	}
+
+	SET_BIT(clan->clan_flags, CLAN_CHANGED);
+	dofun("asave", NULL, "clans");				// notrans
+}
+
+/*
+ * clan_update_lists - remove 'victim' from leader and second lists of 'clan'
+ *		       if memb is TRUE 'victim' will be deleted from members
+ *		       list
+ */
+void
+clan_update_lists(const char *cln, CHAR_DATA *victim, bool memb)
+{
+	const char **nl = NULL;
+	clan_t* clan;
+
+	if ((clan = clan_lookup(cln)) == NULL) {
+		log(LOG_BUG, "clan_update_lists: %s: unknown clan", cln);
+		return;
+	}
+
+	switch (PC(victim)->clan_status) {
+	case CLAN_SECOND:
+		nl = &clan->second_list;
+		break;
+
+	case CLAN_LEADER:
+		nl = &clan->leader_list;
+		break;
+	}
+	if (nl)
+		name_delete(nl, victim->name, NULL, NULL);
+
+	if (memb)
+		name_delete(&clan->member_list, victim->name, NULL, NULL);
+}
+
+static void *
+item_ok_cb(void *p, va_list ap)
+{
+	clan_t *clan = (clan_t *) p;
+
+	int room_in_vnum = va_arg(ap, int);
+
+	if (room_in_vnum == clan->altar_vnum)
+		return p;
+	return NULL;
+}
+
+bool
+clan_item_ok(const char *cln)
+{
+	clan_t* clan;
+	OBJ_DATA* obj;
+	int room_in;
+
+	if ((clan = clan_lookup(cln)) == NULL
+	||  clan->obj_ptr == NULL)
+		return TRUE;
+
+	for (obj = clan->obj_ptr; obj->in_obj != NULL; obj = obj->in_obj)
+		;
+
+	if (obj->in_room)
+		room_in=obj->in_room->vnum;
+	else
+		return TRUE;
+
+	if (room_in == clan->altar_vnum)
+		return TRUE;
+
+	if (hash_foreach(&clans, item_ok_cb, room_in) != NULL)
+		return FALSE;
+
+	return TRUE;
+}
+
 /*
  * Parse a name for acceptability.
  */
@@ -4867,6 +4954,34 @@ get_char_spell(CHAR_DATA *ch, const char *argument, void *arg, int range)
 		return get_char_room(ch, argument);
 
 	return find_char(ch, p+1, *door, range);
+}
+
+/*
+ * just prints the list of available hometowns
+ */
+void
+hometown_print_avail(CHAR_DATA *ch)
+{
+	size_t i;
+	int col = 0;
+
+	for (i = 0; i < hometowns.nused; i++) {
+		hometown_t *h = VARR_GET(&hometowns, i);
+
+		if (hometown_restrict(h, ch))
+			continue;
+
+		if (col > 60) {
+			send_to_char("\n", ch);
+			col = 0;
+		}
+
+		if (col)
+			send_to_char(", ", ch);			// notrans
+		act_puts("$t", ch, h->area, NULL,
+			 TO_CHAR | ACT_NOLF | ACT_NOTRANS, POS_DEAD);
+		col += strlen(h->area) + 2;
+	}
 }
 
 /*--------------------------------------------------------------------

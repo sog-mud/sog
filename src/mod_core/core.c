@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.23 2001-08-03 11:27:32 fjoe Exp $
+ * $Id: core.c,v 1.24 2001-08-03 12:20:59 fjoe Exp $
  */
 
 #include <errno.h>
@@ -151,8 +151,7 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 			fclose(fp);
 			wiznet("$N has activated shutdown.", ch, NULL, 0, 0, 0);
 			act_char("Shutdown activated.", ch);
-		}
-		else
+		} else
 			act_char("Shutdown already activated.", ch);
 		return;
 	}

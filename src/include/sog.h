@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.9 2001-08-03 11:27:27 fjoe Exp $
+ * $Id: sog.h,v 1.10 2001-08-03 12:20:55 fjoe Exp $
  */
 
 #ifndef _HANDLER_H_
@@ -260,6 +260,18 @@ DECLARE_FUN2(bool, can_drop_obj,
 DECLARE_FUN2(bool, can_loot,
 	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
 
+DECLARE_FUN2(bool, shapeshift,
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), form)
+DECLARE_FUN1(bool, revert,
+	     ARG(CHAR_DATA), ch)
+
+DECLARE_PROC1(clan_save,
+	      ARG(cchar_t), cln)
+DECLARE_PROC3(clan_update_lists,
+	      ARG(cchar_t), cln, ARG(CHAR_DATA), victim, ARG(bool), memb)
+DECLARE_FUN1(bool, clan_item_ok,
+	     ARG(cchar_t), cln)
+
 DECLARE_FUN1(bool, pc_name_ok,
 	     ARG(cchar_t), name)
 DECLARE_FUN1(bool, char_in_dark_room,
@@ -315,11 +327,8 @@ DECLARE_FUN4(CHAR_DATA,	find_char,
 DECLARE_FUN4(CHAR_DATA, get_char_spell,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument, ARG(pvoid_t), door,
 	     ARG(int), range)
-
-DECLARE_FUN2(bool, shapeshift,
-	     ARG(CHAR_DATA), ch, ARG(cchar_t), form)
-DECLARE_FUN1(bool, revert,
-	     ARG(CHAR_DATA), ch)
+DECLARE_PROC1(hometown_print_avail,
+	      ARG(CHAR_DATA), ch)
 
 /*--- scan_pfiles.c */
 DECLARE_PROC0(scan_pfiles)
@@ -590,13 +599,13 @@ DECLARE_FUN4(cchar_t, PERS,
  * other formatting functions use opt->to_lang/opt->to_sex instead
  */
 DECLARE_PROC9(act_buf,
-	      ARG(pcchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(CHAR_DATA), to,
 	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	      NULLABLE_ARG(pcvoid_t), arg3,
 	      ARG(actopt_t), opt, ARG(pchar_t), buf, ARG(size_t), buf_len)
 DECLARE_PROC7(act_puts3,
-	      ARG(pcchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	      NULLABLE_ARG(pcvoid_t), arg3,
 	      ARG(int), act_flags, ARG(int), min_pos)
@@ -606,13 +615,13 @@ DECLARE_PROC7(act_mlputs3,
 	      NULLABLE_ARG(pcvoid_t), arg3,
 	      ARG(int), act_flags, ARG(int), min_pos)
 DECLARE_PROC5(act,
-	      ARG(pcchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	      ARG(int), act_flags)
 DECLARE_PROC2(act_char,
-	      ARG(pcchar_t), format, ARG(CHAR_DATA), ch)
+	      ARG(cchar_t), format, ARG(CHAR_DATA), ch)
 DECLARE_PROC6(act_puts,
-	      ARG(pcchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
+	      ARG(cchar_t), format, NULLABLE_ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	      ARG(int), act_flags, ARG(int), min_pos)
 DECLARE_PROC6(act_mlputs,
@@ -624,13 +633,13 @@ DECLARE_PROC6(act_mlputs,
  * act to BUFFER
  */
 DECLARE_FUN8(bool, buf_act3,
-	     ARG(BUFFER), buffer, ARG(int), where, ARG(pcchar_t), format,
+	     ARG(BUFFER), buffer, ARG(int), where, ARG(cchar_t), format,
 	     ARG(CHAR_DATA), ch,
 	     NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	     NULLABLE_ARG(pcvoid_t), arg3,
 	     ARG(int), act_flags)
 DECLARE_FUN7(bool, buf_act,
-	     ARG(BUFFER), buffer, ARG(int), where, ARG(pcchar_t), format,
+	     ARG(BUFFER), buffer, ARG(int), where, ARG(cchar_t), format,
 	     ARG(CHAR_DATA), ch,
 	     NULLABLE_ARG(pcvoid_t), arg1, NULLABLE_ARG(pcvoid_t), arg2,
 	     ARG(int), act_flags)
@@ -640,29 +649,29 @@ DECLARE_FUN7(bool, buf_act,
  */
 DECLARE_FUN4(cchar_t, act_speech,
 	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), vch,
-	     ARG(pcchar_t), text, NULLABLE_ARG(pcvoid_t), arg)
+	     ARG(cchar_t), text, NULLABLE_ARG(pcvoid_t), arg)
 
 DECLARE_PROC4(act_yell,
-	      ARG(CHAR_DATA), ch, ARG(pcchar_t), text,
-	      NULLABLE_ARG(pcvoid_t), arg, ARG(pcchar_t), format)
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), text,
+	      NULLABLE_ARG(pcvoid_t), arg, ARG(cchar_t), format)
 DECLARE_PROC3(act_clan,
-	      ARG(CHAR_DATA), ch, ARG(pcchar_t), text,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), text,
 	      NULLABLE_ARG(pcvoid_t), arg)
 DECLARE_PROC3(act_say,
-	      ARG(CHAR_DATA), ch, ARG(pcchar_t), text,
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), text,
 	      NULLABLE_ARG(pcvoid_t), arg)
 
 DECLARE_PROC6(wiznet,
-	      ARG(pcchar_t), msg, NULLABLE_ARG(CHAR_DATA), ch,
+	      ARG(cchar_t), msg, NULLABLE_ARG(CHAR_DATA), ch,
 	      NULLABLE_ARG(pcvoid_t), arg,
 	      ARG(flag_t), flag, ARG(flag_t), flag_skip, ARG(int), min_level)
 DECLARE_PROC3(yell,
 	      ARG(CHAR_DATA), victim, ARG(CHAR_DATA), ch,
-	      ARG(pcchar_t), argument)
+	      ARG(cchar_t), argument)
 DECLARE_PROC3(tell_char,
-	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(pcchar_t), msg)
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), msg)
 DECLARE_FUN2(cchar_t, garble,
-	     ARG(CHAR_DATA), ch, ARG(pcchar_t), txt)
+	     ARG(CHAR_DATA), ch, ARG(cchar_t), txt)
 
 /*--- string_edit.c */
 
@@ -672,36 +681,42 @@ DECLARE_FUN2(cchar_t, garble,
 #define SR_F_ALL	(A)	/* replace all occurences */
 
 DECLARE_FUN4(cchar_t, string_replace,
-	     ARG(cchar_t), orig, ARG(pcchar_t), old, ARG(pcchar_t), new,
+	     ARG(cchar_t), orig, ARG(cchar_t), old, ARG(cchar_t), new,
 	     ARG(int), flags)
 DECLARE_FUN1(cchar_t, format_string,
 	     ARG(cchar_t), oldstring)
 
 DECLARE_PROC2(string_add,
-	      ARG(CHAR_DATA), ch, ARG(pcchar_t), argument)
+	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 DECLARE_PROC2(string_add_exit,
 	      ARG(CHAR_DATA), ch, ARG(bool), save)
 
 DECLARE_FUN2(cchar_t, string_linedel,
 	     ARG(cchar_t), oldstring, ARG(int), linenum)
 DECLARE_FUN3(cchar_t, string_lineadd,
-	     ARG(cchar_t), oldstring, ARG(pcchar_t), str, ARG(int), linenum)
+	     ARG(cchar_t), oldstring, ARG(cchar_t), str, ARG(int), linenum)
 
 DECLARE_PROC2(string_append,
-	     ARG(CHAR_DATA), ch, ARG(ppcchar_t), pString)
+	     ARG(CHAR_DATA), ch, ARG(pcchar_t), pString)
 DECLARE_FUN3(bool, mlstr_append,
-	     ARG(CHAR_DATA), ch, ARG(mlstring), mlp, ARG(pcchar_t), arg)
+	     ARG(CHAR_DATA), ch, ARG(mlstring), mlp, ARG(cchar_t), arg)
 
 /*--- name_edit.c */
 DECLARE_FUN4(bool, name_add,
-	     ARG(ppcchar_t), namelist, ARG(pcchar_t), name,
-	     NULLABLE_ARG(CHAR_DATA), ch, NULLABLE_ARG(pcchar_t), editor_name)
+	     ARG(pcchar_t), namelist, ARG(cchar_t), name,
+	     NULLABLE_ARG(CHAR_DATA), ch, NULLABLE_ARG(cchar_t), editor_name)
 DECLARE_FUN4(bool, name_delete,
-	     ARG(ppcchar_t), namelist, ARG(pcchar_t), name,
-	     NULLABLE_ARG(CHAR_DATA), ch, NULLABLE_ARG(pcchar_t), editor_name)
+	     ARG(pcchar_t), namelist, ARG(cchar_t), name,
+	     NULLABLE_ARG(CHAR_DATA), ch, NULLABLE_ARG(cchar_t), editor_name)
 DECLARE_FUN4(bool, name_toggle,
-	     ARG(ppcchar_t), namelist, ARG(pcchar_t), name,
-	     NULLABLE_ARG(CHAR_DATA), ch, NULLABLE_ARG(pcchar_t), editor_name)
+	     ARG(pcchar_t), namelist, ARG(cchar_t), name,
+	     NULLABLE_ARG(CHAR_DATA), ch, NULLABLE_ARG(cchar_t), editor_name)
+
+/*--- rating.c */
+DECLARE_PROC2(rating_update,
+	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
+DECLARE_PROC1(rating_add,
+	      ARG(CHAR_DATA), ch)
 
 __MODULE_END_DECL
 

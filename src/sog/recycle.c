@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.119 2001-08-02 18:20:18 fjoe Exp $
+ * $Id: recycle.c,v 1.120 2001-08-03 12:21:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -55,6 +55,7 @@ flag_t		mud_options;
 TIME_INFO_DATA	time_info;
 WEATHER_DATA	weather_info;
 AUCTION_DATA	auction;
+rating_t	rating_table[RATING_TABLE_SIZE];
 
 ROOM_INDEX_DATA	*top_affected_room = NULL;
 CHAR_DATA	*top_affected_char = NULL;
@@ -1326,4 +1327,55 @@ void
 hint_destroy(hint_t *t)
 {
 	mlstr_destroy(&t->phrase);
+}
+
+/*--------------------------------------------------------------------
+ * clan_t
+ */
+
+hash_t clans;
+
+void
+clan_init(clan_t *clan)
+{
+	clan->name = str_empty;
+	clan->recall_vnum = 0;
+	clan->skill_spec = str_empty;
+	clan->clan_flags = 0;
+	clan->altar_vnum = 0;
+	clan->obj_vnum = 0;
+	clan->mark_vnum = 0;
+	clan->obj_ptr = NULL;
+	clan->altar_ptr = NULL;
+	clan->leader_list = str_empty;
+	clan->member_list = str_empty;
+	clan->second_list = str_empty;
+}
+
+clan_t *
+clan_cpy(clan_t *dst, const clan_t *src)
+{
+	dst->name = str_qdup(src->name);
+	dst->recall_vnum = src->recall_vnum;
+	dst->skill_spec = str_qdup(src->skill_spec);
+	dst->clan_flags = src->clan_flags;
+	dst->altar_vnum = src->altar_vnum;
+	dst->obj_vnum = src->obj_vnum;
+	dst->mark_vnum = src->mark_vnum;
+	dst->obj_ptr = src->obj_ptr;
+	dst->altar_ptr = src->altar_ptr;
+	dst->leader_list = str_qdup(src->leader_list);
+	dst->member_list = str_qdup(src->member_list);
+	dst->second_list = str_qdup(src->second_list);
+	return dst;
+}
+
+void
+clan_destroy(clan_t *clan)
+{
+	free_string(clan->name);
+	free_string(clan->skill_spec);
+	free_string(clan->leader_list);
+	free_string(clan->member_list);
+	free_string(clan->second_list);
 }

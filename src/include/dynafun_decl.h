@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.13 2001-08-03 11:27:26 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.14 2001-08-03 12:20:54 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -131,29 +131,23 @@
 #undef bool_tag_t
 #define bool_tag_t bool
 
-/* (const char *) w/ mem_is check */
+/* (const char *) */
 #undef cchar_t_tag
 #define cchar_t_tag MT_STR
 #undef cchar_t_tag_t
 #define cchar_t_tag_t const char *
 
-/* (char *) w/o mem_is check */
+/* (const char **) */
+#undef pcchar_t_tag
+#define pcchar_t_tag MT_PVOID
+#undef pcchar_t_tag_t
+#define pcchar_t_tag_t const char **
+
+/* (char *) */
 #undef pchar_t_tag
 #define pchar_t_tag MT_PVOID
 #undef pchar_t_tag_t
 #define pchar_t_tag_t char *
-
-/* (const char *) w/o mem_is check */
-#undef pcchar_t_tag
-#define pcchar_t_tag MT_PVOID
-#undef pcchar_t_tag_t
-#define pcchar_t_tag_t const char *
-
-/* (const char **) w/o mem_is check */
-#undef ppcchar_t_tag
-#define ppcchar_t_tag MT_PVOID
-#undef ppcchar_t_tag_t
-#define ppcchar_t_tag_t const char **
 
 #undef gmlstr_t_tag
 #define gmlstr_t_tag MT_PVOID

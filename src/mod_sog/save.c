@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.185 2001-08-02 18:20:08 fjoe Exp $
+ * $Id: save.c,v 1.186 2001-08-03 12:21:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -696,7 +696,7 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 				if (nl)
 					touched = !name_add(nl, ch->name, NULL, NULL) || touched;
 				if (touched)
-					clan_save(clan);
+					clan_save(clan->name);
 				return;
 			}
 			KEY("Exp", PC(ch)->exp, fread_number(fp));
@@ -1211,8 +1211,8 @@ char_delete(CHAR_DATA *victim, const char* msg)
 {
 	bool touched;
 	AREA_DATA *pArea;
-	clan_t *clan;
 	char *name;
+	clan_t *clan;
 
 	if (msg) {
 		act_char("You became a ghost permanently and leave the earth realm.", victim);
@@ -1226,9 +1226,9 @@ char_delete(CHAR_DATA *victim, const char* msg)
 	/*
 	 * remove char from clan lists
 	 */
-	if ((clan = clan_lookup(victim->clan))) {
-		clan_update_lists(clan, victim, TRUE);
-		clan_save(clan);
+	if ((clan = clan_lookup(victim->clan)) != NULL) {
+		clan_update_lists(clan->name, victim, TRUE);
+		clan_save(clan->name);
 	}
 
 	/*

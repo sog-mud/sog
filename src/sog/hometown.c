@@ -23,14 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.16 2001-08-03 11:27:50 fjoe Exp $
+ * $Id: hometown.c,v 1.17 2001-08-03 12:21:09 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
-
-#include <handler.h>
 
 static hometown_t *	get_hometown	(int htn);
 
@@ -92,34 +90,6 @@ hometown_restrict(hometown_t *h, CHAR_DATA *ch)
 		return TRUE;
 
 	return FALSE;
-}
-
-/*
- * just prints the list of available hometowns
- */
-void
-hometown_print_avail(CHAR_DATA *ch)
-{
-	size_t i;
-	int col = 0;
-
-	for (i = 0; i < hometowns.nused; i++) {
-		hometown_t *h = VARR_GET(&hometowns, i);
-
-		if (hometown_restrict(h, ch))
-			continue;
-
-		if (col > 60) {
-			send_to_char("\n", ch);
-			col = 0;
-		}
-
-		if (col)
-			send_to_char(", ", ch);			// notrans
-		act_puts("$t", ch, h->area, NULL,
-			 TO_CHAR | ACT_NOLF | ACT_NOTRANS, POS_DEAD);
-		col += strlen(h->area) + 2;
-	}
 }
 
 int
