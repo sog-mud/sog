@@ -2380,7 +2380,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You are rat already.@rus Ты уже крыса.~
 @eng You are renegade and cannot join clans anymore.@rus Ты ренегат, и поэтому больше не можешь вступить в клан.~
 @eng You are revealed!@rus Ты $gn{обнаружен}!~
-@eng You are shocked by $p.@rus Ты оглушен молнией из $c1{$p}.~
+@eng You are shocked by $p.@rus Ты $gn{оглушен} молнией, вылетевшей из $c1{$p}.~
 @eng You are skilled with $p.@rus Ты хорошо владеешь $c4{$p}.~
 @eng You are sober.@rus Ты $gn{протрезвел}.~
 @eng You are squeezed by the rock.@rus Ты $gn{раздавлен} скалой.~
