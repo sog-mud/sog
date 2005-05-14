@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.305 2004-05-26 16:28:50 tatyana Exp $
+ * $Id: act_move.c,v 1.306 2005-05-14 14:17:24 sg Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,7 @@ DECLARE_DO_FUN(do_sleep);
 DECLARE_DO_FUN(do_wake);
 DECLARE_DO_FUN(do_sneak);
 DECLARE_DO_FUN(do_hide);
+DECLARE_DO_FUN(do_search);
 DECLARE_DO_FUN(do_camouflage);
 DECLARE_DO_FUN(do_blend);
 DECLARE_DO_FUN(do_acute);
@@ -913,6 +914,7 @@ DO_FUN(do_hide, ch, argument)
 {
 	int chance;
 	flag_t sector;
+	char arg[MAX_INPUT_LENGTH];
 
 	if (MOUNTED(ch)) {
 		  act_char("You can't hide while mounted.", ch);
@@ -923,6 +925,39 @@ DO_FUN(do_hide, ch, argument)
 		  act_char("You can't hide while being ridden.", ch);
 		  return;
 	}
+
+        argument = one_argument(argument, arg, sizeof(arg));
+
+        if (arg[0] != '\0') {
+		OBJ_DATA *obj;
+		AFFECT_DATA *paf;
+
+		if ((obj = get_obj_room(ch, ch->in_room, arg)) == NULL) {
+			act_char("You don't see that here.", ch);
+			return;
+		}
+
+		// Check whether char can hide the object.
+		if (!CAN_WEAR(obj, ITEM_TAKE)) {
+			act_char("You can't move it.", ch);
+			return;
+		}
+
+		act("You attempt to hide $p.", ch, obj, NULL, TO_CHAR);
+		affect_strip_obj(obj, "hide");
+
+		paf = aff_new(TO_OBJECT, "hide");
+		paf->level      = ch->level + get_skill(ch, "hide")/2;
+		paf->duration	= -1;
+		INT(paf->location)	= APPLY_NONE;
+		paf->modifier	= 0;
+		paf->bitvector	= ITEM_HIDDEN;
+		paf->owner	= ch;
+		affect_to_obj(obj, paf);
+                aff_free(paf);
+
+		return;
+        }
 
 	if (IS_AFFECTED(ch, AFF_FAERIE_FIRE) )  {
 		act_char("You cannot hide while glowing.", ch);
@@ -950,6 +985,34 @@ DO_FUN(do_hide, ch, argument)
 		REMOVE_INVIS(ch, ID_HIDDEN);
 		check_improve(ch, "hide", FALSE, 3);
 	}
+}
+
+DO_FUN(do_search, ch, argument)
+{
+	AFFECT_DATA *paf;
+	OBJ_DATA *obj;
+	int chance;
+
+	for (obj = ch->in_room->contents; obj != NULL; obj = obj->next) {
+		if (!IS_OBJ_STAT(obj, ITEM_HIDDEN))
+			continue;
+		paf = affect_find(obj->affected, "hide");
+		chance = 50;
+		chance += LEVEL(ch) + get_skill(ch, "detect hide")/2;
+		chance -= (paf == NULL) ? obj->level : paf->level;
+		if ((paf != NULL) && (paf->owner == ch))
+			chance += 30;
+		chance = URANGE(2, chance, 95);
+		if (number_percent() >= chance)
+			continue;
+		/* We found the object, so stop searching. */
+		affect_strip_obj(obj, "hide");
+		act("You found $p.", ch, obj, NULL, TO_CHAR);
+		act("$n found $p.", ch, obj, NULL, TO_ROOM);
+		return;
+	}
+
+	act_char("You found nothing interesting.", ch);
 }
 
 DO_FUN(do_camouflage, ch, argument)
@@ -2434,9 +2497,9 @@ DO_FUN(do_shoot, ch, argument)
 
 	chance = get_skill(ch, "bow");
 	chance = (chance - 50) * 2;
-	if (ch->position == POS_SLEEPING)
+	if (victim->position == POS_SLEEPING)
 		chance += 20;
-	if (ch->position == POS_RESTING)
+	if (victim->position == POS_RESTING)
 		chance += 10;
 	if (victim->position == POS_FIGHTING)
 		chance -= 40;
