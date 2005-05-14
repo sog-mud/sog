@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.448 2004-06-28 19:20:59 tatyana Exp $
+ * $Id: act_info.c,v 1.449 2005-05-14 14:14:46 sg Exp $
  */
 
 /***************************************************************************
@@ -3025,7 +3025,7 @@ DO_FUN(do_learn, ch, argument)
 	if (!IS_AWAKE(ch)) {
 		act_char("In your dreams, or what?", ch);
 		return;
-	}	
+	}
 
 	if (argument[0] == '\0') {
 		act_char("Usage: learn <skill | spell> <player>", ch);
@@ -3052,15 +3052,15 @@ DO_FUN(do_learn, ch, argument)
 	if (IS_SKILL(pc_sk->sn, "vampire")) {
 		act_char("You can't practice that, only available at questor.", ch);
 		return;
-	}	
+	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-		
+
 	if ((practicer = get_char_here(ch,arg)) == NULL) {
 		act_char("Your hero is not here.", ch);
 		return;
 	}
-			
+
 	if (IS_NPC(practicer) || practicer->level != LEVEL_HERO) {
 		act_char("You must find a hero, not an ordinary one.",
 			  ch);
