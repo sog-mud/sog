@@ -1,16 +1,16 @@
 /*
- * $Id: act_move.c,v 1.202.2.28 2003-12-25 21:20:45 sg Exp $
+ * $Id: act_move.c,v 1.202.2.29 2005-05-14 14:19:22 sg Exp $
  */
 
 /***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
+ *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *	
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
+ *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
  *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -2952,7 +2952,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	bool success;
 	int chance, direction;
 	int range = (LEVEL(ch) / 10) + 1;
-	
+
 	if ((chance = get_skill(ch, gsn_bow)) == 0) {
 		char_puts("You don't know how to shoot.\n",ch);
 		return;
@@ -2985,7 +2985,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		char_puts("Shoot which direction and whom?\n",ch);
 		return;
 	}
-		
+
 	if ((victim = find_char(ch, arg2, direction, range)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("They aren't there.\n", ch);
@@ -3010,32 +3010,32 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	if (!wield || wield->pObjIndex->item_type != ITEM_WEAPON
 	||  wield->value[0] != WEAPON_BOW) {
 		char_puts("You need a bow to shoot!\n", ch);
-		return;    	
+		return;
 	}
 
 	if (get_eq_char(ch, WEAR_SECOND_WIELD)
 	||  get_eq_char(ch, WEAR_SHIELD)) {
 		char_puts("Your second hand should be free!\n",ch);
-		return;    	
+		return;
 	}
 
 	if ((arrow = find_arrow(ch)) == NULL) {
 		 char_puts("You need an arrow to shoot!\n", ch);
-		 return;    	
+		 return;
 	}
-		
+
 	if (arrow->pObjIndex->item_type != ITEM_WEAPON
 	||  arrow->value[0] != WEAPON_ARROW) {
 		char_puts("That's not the right kind of arrow!\n", ch);
 		return;
 	}
-		
+
 	WAIT_STATE(ch, SKILL(gsn_bow)->beats);
 
 	chance = (chance - 50) * 2;
-	if (ch->position == POS_SLEEPING)
+	if (victim->position == POS_SLEEPING)
 		chance += 20;
-	if (ch->position == POS_RESTING)
+	if (victim->position == POS_RESTING)
 		chance += 10;
 	if (victim->position == POS_FIGHTING)
 		chance -= 40;
