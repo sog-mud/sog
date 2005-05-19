@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.427 2004-06-28 19:20:58 tatyana Exp $
+ * $Id: merc.h,v 1.428 2005-05-19 21:48:14 sg Exp $
  */
 
 /***************************************************************************
@@ -911,6 +911,7 @@ enum {
 #define ITEM_ANTI_NEUTRAL	(L)
 #define ITEM_NOREMOVE		(M)
 #define ITEM_INVENTORY		(N)
+#define ITEM_HIDDEN		(O)
 #define ITEM_ROT_DEATH		(P)
 #define ITEM_VIS_DEATH		(Q)
 #define ITEM_MELT_DROP		(U)

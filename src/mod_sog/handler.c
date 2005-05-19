@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.401 2004-06-28 19:21:07 tatyana Exp $
+ * $Id: handler.c,v 1.402 2005-05-19 21:48:15 sg Exp $
  */
 
 /***************************************************************************
@@ -6906,6 +6906,13 @@ obj_from_xxx(OBJ_DATA *obj)
 		obj_from_char(obj);
 	else if (obj->in_obj)
 		obj_from_obj(obj);
+	else
+		return;
+	// I made the last else-statement
+	// to be able to reset hidden objects. /sg
+
+	affect_strip_obj(obj, "hide");
+	REMOVE_OBJ_STAT(obj, ITEM_HIDDEN);
 }
 
 /*
@@ -7030,8 +7037,12 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
 			strlcat(buf, GETMSG("({YHumming{x) ", GET_LANG(ch)),
 			    sizeof(buf));
 		}
+		if (IS_OBJ_STAT(obj, ITEM_HIDDEN)) {
+			strlcat(buf, GETMSG("({DHidden{x) ", GET_LANG(ch)),
+                            sizeof(buf));
+		}
 	} else {
-		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] "; // notrans
+		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{D.{x] "; // notrans
 		strlcpy(buf, FLAGS, sizeof(buf));
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
 			buf[5] = 'I';
@@ -7050,6 +7061,8 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
 			buf[20] = 'G';
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
 			buf[23] = 'H';
+		if (IS_OBJ_STAT(obj, ITEM_HIDDEN))
+			buf[26] = 'h';
 		if (strcmp(buf, FLAGS) == 0)
 			buf[0] = '\0';
 	}
