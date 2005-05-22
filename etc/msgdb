@@ -253,8 +253,8 @@ channel    | status@rus .
 @eng $N is too evil for your group!@rus $N слишком $gN{злой}, чтобы присоединиться к твоей группе.~
 @eng $N is too pure for your group!@rus $N слишком $gN{добр}, чтобы присоединиться к твоей группе.~
 @eng $N is unable to release $p and it pulls $S hand down.@rus Не имея возможности избавиться от $c1{$p}, $N $gN{опустил} руки вниз.~
-@eng $N is unaffected by $n's $V!@rus $V $c1{$n} не действует на $c6{$N}!~
-@eng $N is unaffected by your $V!@rus $gV{Твой} $V не действует на $c6{$N}.~
+@eng $N is unaffected by $n's $V!@rus $V $c1{$n} не $gV{действует} на $c6{$N}!~
+@eng $N is unaffected by your $V!@rus $gV{Твой} $V не $gV{действует} на $c6{$N}.~
 @eng $N is using:@rus $N $gN{использует}:~
 @eng $N is your beloved master.@rus $N твой $gN{любимый} $gN{повелитель}.~
 @eng $N isn't following you.@rus $N не $gN{следует} за тобой.~
@@ -626,7 +626,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n is surrounded by black aura.@rus Черная аура окружила $c6{$n}.~
 @eng $n is surrounded by the globe of invulnerability.@rus Защитная сфера окружила $c1{$n}.~
 @eng $n is too stunned to respond your attack.@rus $n $gn{оглушен} и не может ответить на твой удар.~
-@eng $n is unaffected by $s own $V.@rus Ой! Чудовище встало и сражается опять, с новой силой!~
+@eng $n is unaffected by $s own $V.@rus $n не $gn{подвержен} воздействию $gn{его} $gV{собственного} $c1{$V}.~
 @eng $n is zapped by $p and drops it.@rus Обжегшись об $c3{$p}, $n $gn{бросил} $gp{его}.~
 @eng $n jumps in front of $N!@rus $n $gn{бросился} вперед, загородив собой $c6{$N}!~
 @eng $n jumps in front of you!@rus $n $gn{бросился} вперед, загородив тебя собой!~
@@ -939,11 +939,11 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $n zaps you with $p.@rus $n $gn{коснулся} тебя $c4{$p}.~
 @eng $n {R+++ASSASSINATES+++{x $N!@rus $n {R+++УБИВАЕТ+++{x $c3{$N}!~
 @eng $n {R+++ASSASSINATES+++{x you!@rus $n {R+++УБИВАЕТ+++{x тебя!~
-@eng $n's $V $u $N.@rus $V $c1{$n} $u $c6{$N}.~
-@eng $n's $V $u $gn{his}.@rus $V $c1{$n} $u $gn{его}.~
-@eng $n's $V $u you.@rus $V $c1{$n} $u тебя.~
-@eng $n's $V is powerless against you.@rus $V $c1{$n} на тебя не действует.~
-@eng $n's $W $u you!@rus $c1{$n} $W $gW{$u} тебя!~
+@eng $n's $V $u $N.@rus $V $c1{$n} $gV{$u} $c6{$N}.~
+@eng $n's $V $u $gn{him}.@rus $V $c1{$n} $gV{$u} $gn{его}.~
+@eng $n's $V $u you.@rus $V $c1{$n} $gV{$u} тебя.~
+@eng $n's $V is powerless against you.@rus $V $c1{$n} против тебя $gV{бессилен}.~
+@eng $n's $W $u you!@rus $W $c1{$n} $gW{$u} тебя!~
 @eng $n's $p blazes bright and is gone.@rus $p $c1{$n} $gp{засиял} и $gp{пропал}.~
 @eng $n's $p explodes into fragments.@rus $p $c1{$n} $gn{разорвался} на кусочки.~
 @eng $n's $p glows blue.@rus $c1{$n} $p $gp{засветился} голубым светом.~
@@ -970,9 +970,9 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $n's globe of invulnerability shatters.@rus Защитная сфера $c1{$n} разбилась.~
 @eng $n's head is shattered, and $s brains splash all over you.@rus Голова $c1{$n} разбита, мозги забрызгали все вокруг. Бррр...~
 @eng $n's heart is torn from $s chest.@rus Сердце $c1{$n} вырвано из рассеченной груди.~
-@eng $n's illusionary $V $u $N.@rus Созданная $c4{$n} иллюзия, $V $gV{$u} $c6{$N}.~
-@eng $n's illusionary $V $u you.@rus Созданная $c4{$n} иллюзия, $V $gV{$u} тебя.~
-@eng $n's illusionary $V is powerless against you.@rus Сотворенная $c4{$n} иллюзия, $V $gV{бессилен} против тебя.~
+@eng $n's illusionary $V $u $N.@rus Созданная $c4{$n} иллюзия $c1{$V} $u $c6{$N}.~
+@eng $n's illusionary $V $u you.@rus Созданная $c4{$n} иллюзия $c1{$V} $u тебя.~
+@eng $n's illusionary $V is powerless against you.@rus Сотворенная $c4{$n} иллюзия $c1{$V} бессильна против тебя.~
 @eng $n's katana glows blue.@rus Катана $c1{$n} засияла голубым.~
 @eng $n's leg is sliced from $s dead body.@rus Нога $c1{$n} отсечена от бездыханного тела.~
 @eng $n's mental knife sears $N's mind!@rus Мысленный нож, направленный $c4{$n}, пронзает мозг $c1{$N}!~
@@ -1579,7 +1579,7 @@ $t~
 @eng Illegal name, try another.
 Name: @rus Неприемлимое имя, выбери другое.
 Имя: ~
-@eng Illusionary $W $u $N!@rus Созданная $c4{$n} иллюзия, $W $gW{$u} $c6{$N}!~
+@eng Illusionary $W $u $N!@rus Созданная $c4{$n} иллюзия $c1{$W} $u $c6{$N}!~
 @eng Immortal channel is now OFF.@rus Теперь ты не будешь видеть, о чем говорят бессмертные.~
 @eng Immortal channel is now ON.@rus Теперь ты будешь видеть, о чем говорят бессмертные.~
 @eng Impale whom?@rus Пронзить кого?~
@@ -2023,11 +2023,6 @@ Quest staff waits patiently to return.~
 @eng Suicide is against your way.@rus Суицид -- это не твой путь.~
 @eng Sun light disturbs you.@rus Солнечный свет раздражает тебя.~
 @eng Sure, this is $N's work!@rus Наверняка, это работа $c1{$N}!~
-@eng Usage: glist <group>.@rus Использование: glist <group>.~
-@eng Usage: maxrnd <max_rnd_cnt>.@rus Использование: maxrnd <max_rnd_cnt>.~
-@eng Usage: password <old> <new>.@rus Использование: password <старый> <новый>.~
-@eng Usage: school {major|minor} <school name>.@rus Использование: school {major|minor} <название школы>.~
-@eng Usage: trust {{ group | clan | all | none $}@rus Использование: trust {{ group | clan | all | none $}~
 @eng Take pity on the poor thing.@rus Пожалей это бедное существо.~
 @eng Talking to yourself, eh?@rus Разговариваешь с собой? А?~
 @eng Target is not fighting with you.@rus Указанная цель не сражается с тобой.~
@@ -2335,11 +2330,16 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Usage: cast 'polymorph' <pcracename>.@rus Использование: cast 'polymorph' <название расы>.~
 @eng Usage: cast lich <type>.@rus Использование: cast lich <тип нежити>.~
 @eng Usage: forest {{ attack | defence | normal $}@rus Использование: forest {{ attack | defence | normal $}~
+@eng Usage: glist <group>.@rus Использование: glist <group>.~
 @eng Usage: lang [ @rus Использование: lang [ ~
+@eng Usage: maxrnd <max_rnd_cnt>.@rus Использование: maxrnd <max_rnd_cnt>.~
+@eng Usage: password <old> <new>.@rus Использование: password <старый> <новый>.~
 @eng Usage: petition <accept | reject> <char name>@rus Использование: petition <accept | reject > <имя>~
 @eng Usage: petition <clan name>@rus Использование: petition <название клана>~
 @eng Usage: petition <clan name> <accept | reject> <char name>@rus Использование: petition <название клана> <accept | reject> <имя>~
 @eng Usage: promote <char name> <commoner | secondary>@rus Использование: promote <имя> <commoner | secondary>~
+@eng Usage: school {major|minor} <school name>.@rus Использование: school {major|minor} <название школы>.~
+@eng Usage: trust {{ group | clan | all | none $}@rus Использование: trust {{ group | clan | all | none $}~
 @eng Use 'desc edit' to edit your description.@rus Используй команду 'desc edit', чтобы поменять свое описание.~
 @eng Use 'glist ?' to get the list of groups.@rus Список групп можно увидеть с помощью команды 'glist ?'.~
 @eng Use social <name> to view what that social does.@rus 'Social <название>' покажет тебе, что эта команда делает.~
@@ -3635,6 +3635,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You will now see english obj/mob names.@rus Теперь ты будешь видеть английские имена мобов/названия обьектов.~
 @eng You will now see prompts.@rus Ты будешь теперь видеть строку подсказки.~
 @eng You will now see race in long desc.@rus Теперь тебе будет показываться раса в длинном описании.~
+@eng You will take all objects given to you.@rus Ты примешь все подарки которые только тебе предложат.~
 @eng You would implode if you tried to transfer mana to yourself.@rus Если ты будешь пересылать ману себе, ты можешь сгореть.~
 @eng You wouldn't believe your own illusions.@rus Ты не можешь обмануть себя своей же иллюзией!~
 @eng You wrap $N in more flows of Spirit.@rus Ты еще сильнее $gn{отгородил} $c6{$N} от источника силы.~
@@ -3667,8 +3668,8 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You've lost all your ability to move.@rus Ты $gn{потерял} способность двигаться.~
 @eng You've lost all your life power.@rus Ты $gn{потерял} все свои жизненные силы.~
 @eng You've lost all your power.@rus Ты $gn{потерял} всю свою силу.~
-@eng Your $V $u $N.@rus $gV{Твой} $V $u $c6{$N}.~
-@eng Your $V $u you.@rus $gV{Твой} $V $u тебя.~
+@eng Your $V $u $N.@rus $gV{Твой} $V $gV{$u} $c6{$N}.~
+@eng Your $V $u you.@rus $gV{Твой} $V $gV{$u} тебя.~
 @eng Your $p blazes bright and is gone.@rus $gp{Твой} $p $gp{засиял} и $gp{пропал}.~
 @eng Your $p explodes into fragments.@rus $p, взорвавшись, $gp{рассыпался} на кусочки.~
 @eng Your $p glows blue.@rus $gp{Твой} $p светится синим.~
@@ -3731,8 +3732,8 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your honor protects you.@rus Твоя честь защищает тебя.~
 @eng Your honour doesn't let you flee, try dishonoring yourself.@rus Твоя честь не позволяет сбежать, попробуй поступиться ей.~
 @eng Your honour doesn't let you recall!@rus Честь не позволяет тебе сделать это сейчас!~
-@eng Your illusionary $V $u $N.@rus Созданная тобой иллюзия, $V $gV{$u} $c6{$N}.~
-@eng Your illusionary $W $u $N!@rus Созданная тобой иллюзия, $W $gW{$u} $c6{$N}!~
+@eng Your illusionary $V $u $N.@rus Созданная тобой иллюзия $c1{$V} $u $c6{$N}.~
+@eng Your illusionary $W $u $N!@rus Созданная тобой иллюзия $c1{$W} $u $c6{$N}!~
 @eng Your imitation doesn't seem to have any effect.@rus Твоя имитация не произвела никакого эффекта.~
 @eng Your katana glows blue.@rus Твоя катана засияла голубым светом.~
 @eng Your magic $t fizzle out near your victim.@rus Твоя магия рассеялась, едва достигнув твоей жертвы.~
