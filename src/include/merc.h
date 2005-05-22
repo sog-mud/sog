@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.428 2005-05-19 21:48:14 sg Exp $
+ * $Id: merc.h,v 1.429 2005-05-22 13:11:40 sg Exp $
  */
 
 /***************************************************************************
@@ -605,6 +605,7 @@ enum {
 	GROUP_CHAOS,
 	GROUP_LAW,
 	GROUP_GOOD,
+	GROUP_EVIL,
 	GROUP_RESTORATION,
 	GROUP_DEATH,
 	GROUP_DESTRUCTION,

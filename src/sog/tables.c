@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.208 2004-04-08 11:53:39 kets Exp $
+ * $Id: tables.c,v 1.209 2005-05-22 13:11:41 sg Exp $
  */
 
 /***************************************************************************
@@ -945,6 +945,7 @@ flaginfo_t skill_groups[] =
 	{ "luck",		GROUP_LUCK,		TRUE	},
 	{ "chaos",		GROUP_CHAOS,		TRUE	},
 	{ "law",		GROUP_LAW,		TRUE	},
+	{ "evil",		GROUP_EVIL,		TRUE	},
 	{ "good",		GROUP_GOOD,		TRUE	},
 	{ "restoration",	GROUP_RESTORATION,	TRUE	},
 	{ "death",		GROUP_DEATH,		TRUE	},
